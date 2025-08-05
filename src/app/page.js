@@ -332,10 +332,13 @@ export default function Home() {
           <div className="carousel-container" ref={containerRef}>
             {features.map((feature, index) => (
               <div className="feature-card" key={index}>
-                <img
+                <Image
                   src={feature.image}
                   alt={feature.alt}
                   className="feature-image"
+                  unoptimized
+                  width={0}
+                  height={0}
                 />
                 <h3 className="feature-label">{feature.title}</h3>
                 <p className="feature-desc">{feature.description}</p>
@@ -437,7 +440,14 @@ export default function Home() {
               </div>
             </div>
             <div className="step-right">
-              <img src={step.image} alt={step.title} className="step-image" />
+              <Image
+                src={step.image}
+                alt={step.title}
+                className="step-image"
+                width={0}
+                height={0}
+                unoptimized
+              />
             </div>
           </div>
         ))}
@@ -637,18 +647,28 @@ export default function Home() {
         <div className="testimonial-wrapper">
           {visibleTestimonials.map((t, idx) => (
             <div className="testimonial-card" key={idx}>
-              <img src={t.image} alt={t.name} className="testimonial-image" />
+              <Image
+                src={t.image}
+                alt={t.name}
+                className="testimonial-image"
+                width={0}
+                height={0}
+                unoptimized
+              />
               <div className="testimonial-content">
-                <p className="testimonial-feedback">"{t.feedback}"</p>
+                <p className="testimonial-feedback">{t.feedback}</p>
                 <div className="testimonial-meta">
                   <div>
                     <strong className="testimonial-name">{t.name}</strong>
                     <div className="testimonial-role">{t.role}</div>
                   </div>
-                  <img
+                  <Image
                     src={t.companyLogo}
                     alt="Company logo"
                     className="company-logo"
+                    width={0}
+                    height={0}
+                    unoptimized
                   />
                 </div>
               </div>

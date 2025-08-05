@@ -3,6 +3,7 @@
 
 import React, { useState } from "react";
 import "./header.css";
+import Image from "next/image";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -11,7 +12,14 @@ const Header = () => {
     <>
       <header className="header">
         <div className="header-left">
-          <img src="./logo.png" alt="eMarketing Logo" className="logo" />
+          <Image
+            src="./logo.png"
+            alt="eMarketing Logo"
+            className="logo"
+            width={0}
+            height={0}
+            unoptimized
+          />
         </div>
 
         <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
