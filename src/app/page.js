@@ -3,41 +3,49 @@
 import Image from "next/image";
 import "./page.css";
 import Header from "@/components/Header/page";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
 import Link from "next/link";
 import Footer from "@/components/footer/page";
 
 const features = [
   {
-    title: "Email automation",
+    title: "Development Solutions",
     description:
-      "Choose from a wide range of professionally designed email templates that you can...",
+      "We build custom solutions using Shopify, Next.js, and robust backend technologies. From eCommerce to web apps, we handle everything from databases to clean, scalable code.",
     link: "#",
-    image: "/caraousel-1.avif", // Save the first image locally
+    image: "/shopify.png", // Save the first image locally
     alt: "Email automation",
   },
   {
-    title: "Customizable templates",
+    title: "Meta Ads",
     description:
-      "Choose from a wide range of professionally designed email templates that you can...",
+      "We run high-converting Meta Ads that drive traffic, leads, and sales. From strategy to creatives and optimization, we manage it all for measurable growth.",
     link: "#",
-    image: "/caraousel-2.avif", // Save the second image locally
+    image: "/meta-ads.png", // Save the second image locally
     alt: "Customizable templates",
   },
   {
-    title: "A/B Testing",
+    title: "Google Ads",
     description:
-      "Choose from a wide range of professionally designed email templates that you can...",
+      "We create and manage data-driven Google Ads campaigns to boost visibility and conversions. From search to display, we optimize every click for maximum ROI.",
     link: "#",
-    image: "/caraousel-3.avif", // Save the third image locally
+    image: "/google-ads3.png", // Save the third image locally
     alt: "A/B Testing",
   },
   {
-    title: "Dummy Part Testing",
+    title: "Linkedin Ads",
     description:
-      "Choose from a wide range of professionally designed email templates that you can...",
+      "We craft targeted LinkedIn Ads to connect you with decision-makers and drive B2B growth. From audience building to ad optimization, we deliver results that matter.",
     link: "#",
-    image: "/caraousel-4.avif", // Save the third image locally
+    image: "/linkedin-ads.png",
+    alt: "A/B Testing",
+  },
+  {
+    title: "Brand Identity",
+    description:
+      "We build strong brand identities that reflect your vision and resonate with your audience. From logos to visual systems, we create cohesive designs that leave a lasting impression.",
+    link: "#",
+    image: "/brand-identity.png",
     alt: "A/B Testing",
   },
 ];
@@ -165,10 +173,90 @@ const testimonials = [
   },
 ];
 
+const members = [
+  {
+    name: "Sayyam Jain",
+    role: "Founder & CEO",
+    photo: "/sayyam2.png",
+    bio: "Leads strategy and growth. 10+ yrs in performance marketing.",
+    socials: { linkedin: "#", twitter: "#" },
+  },
+  {
+    name: "Muskan",
+    role: "Social Media",
+    photo: "/muskan.jpeg",
+    bio: "Owns content, community and creator partnerships.",
+    socials: { linkedin: "#", instagram: "#" },
+  },
+  {
+    name: "Anjali",
+    role: "Marketing",
+    photo: "/anjali.jpeg",
+    bio: "Transforms market insights into powerful campaigns that deliver results.",
+    socials: { linkedin: "#", github: "#" },
+  },
+  {
+    name: "Naveen",
+    role: "Frontend & Shopify Dev & Next.js",
+    photo: "/naveen.jpeg",
+    bio: "Builds lightning-fast React apps with Next.js and SSR..",
+    socials: { linkedin: "#", github: "#" },
+  },
+  {
+    name: "Dheeraj",
+    role: "Frontend & Shopify Dev & Backend-DB",
+    photo: "/dheeraj.jpeg",
+    bio: "Creates fast, customized eCommerce experiences on Shopify.",
+    socials: { linkedin: "#", github: "#" },
+  },
+  {
+    name: "Manisha",
+    role: "Creatives",
+    photo: "/manisha.jpeg",
+    bio: "Blends design thinking with brand vision to craft impactful creative campaigns.",
+    socials: { linkedin: "#", github: "#" },
+  },
+
+  {
+    name: "Rohit",
+    role: "Head of Marketing",
+    photo: "/rohit2.jpeg",
+    bio: "Drives brand growth through strategic campaigns, data insights, and creative leadership.",
+    socials: { linkedin: "#", github: "#" },
+  },
+
+  {
+    name: "Rishabh",
+    role: "Head of Tech Leads",
+    photo: "/rishabh.jpeg",
+    bio: "Leads development with a focus on code quality, scalability, and team mentorship.",
+    socials: { linkedin: "#", github: "#" },
+  },
+
+  {
+    name: "Keshav",
+    role: "SEO",
+    photo: "/keshav.jpeg",
+    bio: "Crafts data-driven SEO strategies to improve visibility and search performance.",
+    socials: { linkedin: "#", github: "#" },
+  },
+
+  {
+    name: "Sarthak",
+    role: "Marketing",
+    photo: "/Marketing.jpeg",
+    bio: "Blends creativity and strategy to connect brands with the right audience.",
+    socials: { linkedin: "#", github: "#" },
+  },
+];
+
 export default function Home() {
   const containerRef = useRef(null);
   const [startIndex, setStartIndex] = useState(0);
   const [cardsPerView, setCardsPerView] = useState(2);
+  const scrollerRef = useRef(null);
+  const [q, setQ] = useState("");
+  const [role, setRole] = useState("All");
 
   const scrollLeft = () => {
     if (containerRef.current) {
@@ -218,6 +306,29 @@ export default function Home() {
       setStartIndex(startIndex - cardsPerView);
     }
   };
+
+  const scrollOne = (dir = 1) => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const step = el.clientWidth; // width of the visible area
+    el.scrollBy({ left: dir * step, behavior: "smooth" });
+  };
+
+  const roles = useMemo(
+    () => ["All", ...Array.from(new Set(members.map((m) => m.role)))],
+    []
+  );
+
+  const shown = useMemo(() => {
+    return members.filter((m) => {
+      const matchesRole = role === "All" || m.role === role;
+      const matchesQ =
+        !q ||
+        m.name.toLowerCase().includes(q.toLowerCase()) ||
+        m.role.toLowerCase().includes(q.toLowerCase());
+      return matchesRole && matchesQ;
+    });
+  }, [q, role]);
 
   return (
     <main className="page-wrapper">
@@ -292,7 +403,9 @@ export default function Home() {
       <div className="features-carousel">
         <div className="title-nav">
           <span>
-            <h2 className="carousel-title">Drive growth with key features</h2>
+            <h2 className="carousel-title">
+              Elevate Your Brand with Our Marketing Expertise
+            </h2>
           </span>
           <span>
             <button className="nav-btn left" onClick={scrollLeft}>
@@ -353,6 +466,149 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </div>
+
+      <div className="logo-slider">
+        <h1>Trusted by Leading Brands</h1>
+        <div className="logo-track">
+          <Image
+            src="/step-1.avif"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/step-1.avif"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/step-2.avif"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/step-3.avif"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/step-1.avif"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+
+          <Image
+            src="/testimonial-1.avif"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/testimonial-2.avif"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/testimonial-3.avif"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          {/* Repeat the same logos to make the loop seamless */}
+          <Image
+            src="/step-2.avif"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/step-3.avif"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/step-1.avif"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/step-2.avif"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/step-3.avif"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+
+          <Image
+            src="/step-2.avif"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/step-3.avif"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/step-1.avif"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+
+          <Image
+            src="/testimonial-1.avif"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/testimonial-2.avif"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/testimonial-3.avif"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
         </div>
       </div>
 
@@ -553,72 +809,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* <section className="testimonial-section">
-        <div className="testimonial-header">
-          <h2>What our customers are saying</h2>
-          <div className="testimonial-nav">
-            <button onClick={handlePrev} className="nav-btn">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="size-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
-                />
-              </svg>
-            </button>
-            <button onClick={handleNext} className="nav-btn">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                ></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        <div className="testimonial-wrapper">
-          {visibleTestimonials.map((testimonial, idx) => (
-            <div className="testimonial-card" key={idx}>
-              <img
-                src={testimonial.image}
-                alt={testimonial.name}
-                className="testimonial-image"
-              />
-              <div className="testimonial-content">
-                <p className="testimonial-feedback">"{testimonial.feedback}"</p>
-                <div className="testimonial-meta">
-                  <div>
-                    <strong className="testimonial-name">
-                      {testimonial.name}
-                    </strong>
-                    <div className="testimonial-role">{testimonial.role}</div>
-                  </div>
-                  <img
-                    src={testimonial.companyLogo}
-                    alt="Company logo"
-                    className="company-logo"
-                  />
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section> */}
       <section className="testimonial-section">
         <div className="testimonial-header">
           <h2>What our customers are saying</h2>
@@ -658,7 +848,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="testimonial-wrapper">
+        <div className="testimonial-wrapper" ref={scrollerRef}>
           {visibleTestimonials.map((t, idx) => (
             <div className="testimonial-card" key={idx}>
               <Image
@@ -688,6 +878,98 @@ export default function Home() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="team-section">
+        <div className="team-container">
+          <header className="team-header">
+            <div>
+              <h2>Meet The Team</h2>
+              <p className="team-sub">
+                The people behind your performance wins.
+              </p>
+            </div>
+
+            <div className="team-controls">
+              <div className="search">
+                <input
+                  type="text"
+                  placeholder="Search by name or role"
+                  value={q}
+                  onChange={(e) => setQ(e.target.value)}
+                  aria-label="Search team"
+                />
+              </div>
+
+              <div className="filters">
+                <select
+                  value={role}
+                  onChange={(e) => setRole(e.target.value)}
+                  aria-label="Filter by role"
+                >
+                  {roles.map((r) => (
+                    <option key={r} value={r}>
+                      {r}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          </header>
+
+          <div className="team-grid">
+            {shown.map((m, i) => (
+              <article className="member-card" key={i}>
+                <div className="avatar-wrap">
+                  <img src={m.photo} alt={m.name} loading="lazy" />
+                </div>
+
+                <div className="member-info">
+                  <h3 className="member-name">{m.name}</h3>
+                  <div className="member-role">{m.role}</div>
+                  <p className="member-bio">{m.bio}</p>
+
+                  {!!m.socials && (
+                    <div className="member-socials">
+                      {m.socials.linkedin && (
+                        <Link
+                          href={m.socials.linkedin}
+                          aria-label={`${m.name} on LinkedIn`}
+                        >
+                          in
+                        </Link>
+                      )}
+                      {m.socials.twitter && (
+                        <Link
+                          href={m.socials.twitter}
+                          aria-label={`${m.name} on Twitter`}
+                        >
+                          x
+                        </Link>
+                      )}
+                      {m.socials.instagram && (
+                        <Link
+                          href={m.socials.instagram}
+                          aria-label={`${m.name} on Instagram`}
+                        >
+                          ig
+                        </Link>
+                      )}
+                      {m.socials.github && (
+                        <Link
+                          href={m.socials.github}
+                          aria-label={`${m.name} on GitHub`}
+                        >
+                          gh
+                        </Link>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
