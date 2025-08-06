@@ -45,23 +45,23 @@ const features = [
 const steps = [
   {
     number: "01",
-    title: "Sign up and set up your account",
+    title: "Case Study of Dentist",
     description:
-      "Once inside the dashboard, you can customize your account settings—add your company logo, set up sender details, and import your contact lists from existing platforms. You’ll be ready to launch your first campaign in no time!",
+      "Welcome to a comprehensive overview of transforming a large dentistry chain's digital marketing strategy....",
     image: "/step-1.avif",
   },
   {
     number: "02",
-    title: "Create and design your campaign",
+    title: "Case Study of Home Appliances",
     description:
-      "Personalize your emails with dynamic content, product recommendations, and custom messages. Preview how your emails will look on different devices before sending them.",
+      "Mission to dominate the digital advertising space through Google Ads. The journey began with scaling efforts....",
     image: "/step-2.avif",
   },
   {
-    number: "02",
-    title: "Send, track, and optimize",
+    number: "03",
+    title: "Case Study of E-Sim",
     description:
-      "With just one click, you can send your emails to your targeted audience. Track the performance of your campaign in real-time using detailed analytics—monitor open rates, click-through rates, and conversions..",
+      "Brand E-Travelsim's journey with Google Ads is a testament to strategic scaling and optimization...",
     image: "/step-3.avif",
   },
 ];
@@ -230,10 +230,12 @@ export default function Home() {
             <button className="small-btn">
               Elevate your business to the next level
             </button>
-            <h1>Reach your audience with precision</h1>
+            <h1>Empower Your Brand With UNNITY </h1>
             <p>
-              Harness the power of personalized, automated email marketing to
-              connect with your audience at the right time.
+              At Unnity, we help brands grow in the digital world. Our tailored
+              marketing solutions boost your online presence, engage your
+              audience, and drive real results. Let Unnity unlock your brand’s
+              full potential.
             </p>
 
             <a href="https://calendly.com/sayam-unnity/30min?month=2025-08">
@@ -430,27 +432,39 @@ export default function Home() {
       </section>
 
       <section className="step-section">
-        {steps.map((step, i) => (
-          <div className="step-row" key={i}>
-            <div className="step-left">
-              <div className="sticky-step">
-                <div className="step-number">{step.number}</div>
-                <h3 className="step-title">{step.title}</h3>
-                <p className="step-description">{step.description}</p>
+        <span className="step-heading">
+          <h1>Client Success Through Smart Digital Strategy</h1>
+        </span>
+        <div className="step-section-df">
+          <Link href="#">
+            {steps.map((step, i) => (
+              <div className="step-row" key={i}>
+                <div className="step-left">
+                  <div className="sticky-step">
+                    <div className="step-number">{step.number}</div>
+                    <h3 className="step-title">{step.title}</h3>
+                    <p className="step-description">{step.description}</p>
+                  </div>
+                </div>
+                <div className="step-right">
+                  <Image
+                    src={step.image}
+                    alt={step.title}
+                    className="step-image"
+                    width={0}
+                    height={0}
+                    unoptimized
+                  />
+                </div>
               </div>
-            </div>
-            <div className="step-right">
-              <Image
-                src={step.image}
-                alt={step.title}
-                className="step-image"
-                width={0}
-                height={0}
-                unoptimized
-              />
-            </div>
-          </div>
-        ))}
+            ))}
+          </Link>
+          <span className="cs-btn">
+            <Link href="/case-studies">
+              <button>View All</button>
+            </Link>
+          </span>
+        </div>
       </section>
 
       <section className="integration">

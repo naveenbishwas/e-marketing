@@ -293,5 +293,6 @@ body {
 
   .header {
     position: relative;
+    justify-content: center;
   }
 }

@@ -4,6 +4,7 @@
 import React, { useState } from "react";
 import "./header.css";
 import Image from "next/image";
+import Link from "next/link";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,14 +13,16 @@ const Header = () => {
     <>
       <header className="header">
         <div className="header-left">
-          <Image
-            src="./logo.png"
-            alt="eMarketing Logo"
-            className="logo"
-            width={0}
-            height={0}
-            unoptimized
-          />
+          <Link href="/">
+            <Image
+              src="./logo.png"
+              alt="eMarketing Logo"
+              className="logo"
+              width={0}
+              height={0}
+              unoptimized
+            />
+          </Link>
         </div>
 
         <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
