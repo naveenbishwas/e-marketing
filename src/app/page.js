@@ -65,6 +65,7 @@ const steps = [
     description:
       "Mission to dominate the digital advertising space through Google Ads. The journey began with scaling efforts....",
     image: "/step-2.avif",
+    href: "/case-study-internals/home-appliance",
   },
   {
     number: "03",

@@ -142,7 +142,7 @@
   content: "";
   position: absolute;
   top: 50%;
-  left: calc(100% + 12px);
+  left: calc(100% + 0);
   width: 44px;
   height: 2px;
   background: #0b3a91;
