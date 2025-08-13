@@ -13,7 +13,7 @@ const caseStudies = [
     excerpt:
       "Welcome to a comprehensive overview of transforming a large dentistry chain's digital marketing strategy....",
     image: "/step-1.avif",
-    href: "/case-studies/dentist",
+    href: "/case-study-internals/dentist",
   },
   {
     id: "home-appliances",

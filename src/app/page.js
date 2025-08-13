@@ -57,6 +57,7 @@ const steps = [
     description:
       "Welcome to a comprehensive overview of transforming a large dentistry chain's digital marketing strategy....",
     image: "/step-1.avif",
+    href: "/case-study-internals/dentist",
   },
   {
     number: "02",
@@ -774,34 +775,40 @@ export default function Home() {
           <h1>Client Success Through Smart Digital Strategy</h1>
         </span>
         <div className="step-section-df">
-          <Link href="#">
+          <div className="step-grid">
             {steps.map((step, i) => (
-              <div className="step-row" key={i}>
-                <div className="step-left">
-                  <div className="sticky-step">
-                    <div className="step-number">{step.number}</div>
-                    <h3 className="step-title">{step.title}</h3>
-                    <p className="step-description">{step.description}</p>
+              <Link
+                key={i}
+                href={step.href || "#"}
+                className="step-card-link"
+                aria-label={step.title}
+              >
+                <article className="step-card">
+                  <div className="step-badge">{step.number}</div>
+
+                  <h3 className="step-title">{step.title}</h3>
+                  <p className="step-description">{step.description}</p>
+
+                  <div className="step-image-wrap">
+                    <Image
+                      src={step.image}
+                      alt={step.title}
+                      className="step-image"
+                      width={0}
+                      height={0}
+                      unoptimized
+                    />
                   </div>
-                </div>
-                <div className="step-right">
-                  <Image
-                    src={step.image}
-                    alt={step.title}
-                    className="step-image"
-                    width={0}
-                    height={0}
-                    unoptimized
-                  />
-                </div>
-              </div>
+                </article>
+              </Link>
             ))}
-          </Link>
-          <span className="cs-btn">
+          </div>
+
+          <div className="cs-btn">
             <Link href="/case-studies">
               <button>View All</button>
             </Link>
-          </span>
+          </div>
         </div>
       </section>
 

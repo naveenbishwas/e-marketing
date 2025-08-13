@@ -19,7 +19,7 @@ export default function Footer() {
       <div className="footer-main">
         <div className="footer-left">
           <Image
-            src="./check.png"
+            src="/check.png"
             width={0}
             height={0}
             unoptimized
