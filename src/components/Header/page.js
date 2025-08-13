@@ -15,7 +15,7 @@ const Header = () => {
         <div className="header-left">
           <Link href="/">
             <Image
-              src="./logo.png"
+              src="/logo.png"
               alt="eMarketing Logo"
               className="logo"
               width={0}

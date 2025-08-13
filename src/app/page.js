@@ -188,6 +188,7 @@ const members = [
     bio: "Owns content, community and creator partnerships.",
     socials: { linkedin: "#", instagram: "#" },
   },
+
   {
     name: "Anjali",
     role: "Marketing",
@@ -473,35 +474,35 @@ export default function Home() {
         <h1>Trusted by Leading Brands</h1>
         <div className="logo-track">
           <Image
-            src="/step-1.avif"
+            src="/adpl.png"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
           <Image
-            src="/step-1.avif"
+            src="/aurave.avif"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
           <Image
-            src="/step-2.avif"
+            src="/clove.jpg"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
           <Image
-            src="/step-3.avif"
+            src="/cupid.webp"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
           <Image
-            src="/step-1.avif"
+            src="/e-travel.avif"
             width={0}
             height={0}
             alt=""
@@ -509,57 +510,110 @@ export default function Home() {
           ></Image>
 
           <Image
-            src="/testimonial-1.avif"
+            src="/faber.webp"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
           <Image
-            src="/testimonial-2.avif"
+            src="/isu-fashion.webp"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+
+          <Image
+            src="/kapurthala.png"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
           <Image
-            src="/testimonial-3.avif"
+            src="/madverse.svg"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
+          <Image
+            src="/mireads.avif"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/penguine.png"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/power-mower.webp"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+
+          <Image
+            src="/shipway.webp"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/uberlyfe.webp"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/hubhawks.webp"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+
           {/* Repeat the same logos to make the loop seamless */}
+
           <Image
-            src="/step-2.avif"
+            src="/adpl.png"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
           <Image
-            src="/step-3.avif"
+            src="/aurave.avif"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
           <Image
-            src="/step-1.avif"
+            src="/clove.jpg"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
           <Image
-            src="/step-2.avif"
+            src="/cupid.webp"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
           <Image
-            src="/step-3.avif"
+            src="/e-travel.avif"
             width={0}
             height={0}
             alt=""
@@ -567,21 +621,49 @@ export default function Home() {
           ></Image>
 
           <Image
-            src="/step-2.avif"
+            src="/faber.webp"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
           <Image
-            src="/step-3.avif"
+            src="/isu-fashion.webp"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
           <Image
-            src="/step-1.avif"
+            src="/kapurthala.png"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/madverse.svg"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/mireads.avif"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/penguine.png"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/power-mower.webp"
             width={0}
             height={0}
             alt=""
@@ -589,21 +671,21 @@ export default function Home() {
           ></Image>
 
           <Image
-            src="/testimonial-1.avif"
+            src="/shipway.webp"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
           <Image
-            src="/testimonial-2.avif"
+            src="/uberlyfe.webp"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
           <Image
-            src="/testimonial-3.avif"
+            src="/hubhawks.webp"
             width={0}
             height={0}
             alt=""

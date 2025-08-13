@@ -1096,13 +1096,13 @@ section.integration {
 .logo-track {
   display: flex;
   gap: 60px; /* more breathing space */
-  animation: scroll 25s linear infinite; /* slower, smoother */
+  animation: scroll 35s linear infinite; /* slower, smoother */
   margin-top: 0;
   align-items: center;
 }
 
 .logo-track img {
-  height: 90px; /* balanced size */
+  height: 50px;
   width: auto;
   object-fit: contain;
   transition: all 0.3s ease;
@@ -1117,10 +1117,10 @@ section.integration {
 /* Keyframes for continuous left scroll */
 @keyframes scroll {
   0% {
-    transform: translateX(0);
+    transform: translateX(5%);
   }
   100% {
-    transform: translateX(-50%); /* half because list is duplicated */
+    transform: translateX(-280%); /* half because list is duplicated */
   }
 }
 
@@ -1271,6 +1271,7 @@ section.integration {
   object-fit: cover;
   display: block;
   transition: transform 0.5s ease;
+  filter: grayscale(100%) brightness(0.85);
 }
 
 .member-card:hover .avatar-wrap img {
