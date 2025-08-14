@@ -273,6 +273,8 @@
   scroll-snap-type: x mandatory;
   padding: 10px 0;
   flex: 1;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
 }
 
 .feature-card {
@@ -581,7 +583,7 @@
 /* Text */
 .step-title {
   margin: 6px 0 6px;
-  font-size: 28px;
+  font-size: 22px;
   line-height: 1.25;
   font-weight: 800;
   color: #0f172a;
@@ -1005,6 +1007,10 @@ section.integration {
   line-height: 1.6;
   color: #333;
   margin-bottom: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 8; /* Number of lines to show */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .testimonial-meta {

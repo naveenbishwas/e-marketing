@@ -142,28 +142,28 @@ const integrations = [
 const testimonials = [
   {
     image: "/testimonial-1.avif",
-    name: "Sarah Mitchell",
-    role: "UI/UX Designer",
+    name: "— Rishab B. | Founder of BabLouie",
+    role: "BabLouie",
     companyLogo: "/logo-optimal.svg",
     feedback:
-      "Their data-driven approach helped us improve profitability and reduce unnecessary expenditures by 20%. They're the real deal!",
+      "I earlier worked with Sayam in early days of our brand building journey and one thing I notice about him is his never ending approach of trying and trying till results not achieved. This grit & commitment towards showing results really makes him a person who actually is there in it for winning !!",
   },
   {
-    image: "/testimonial-2.avif",
-    name: "Alex Johnson",
-    role: "Sales Director",
+    image: "/testimonial-1.avif",
+    name: "- Tarun J. | Founder of Tashe and Sain Milks",
+    role: "Website Development and Performance Marketing",
     companyLogo: "/logo-enterprise.svg",
     feedback:
-      "We've streamlined our processes, cut costs, and significantly improved customer satisfaction. It’s been a game-changer for our business!",
+      "I hired Sayam for performance marketing of Sain Milks and he has done a great job in delivering promised goals. He is very experienced, meticulous and gathered great insights about the industry and its users to be able to perform better. He also made the website for Sain Milks, which I loved and is very user friendly as well as aesthetically very good looking. I have already offered him another website for my other business, Tashe, and he is doing a great job developing that also. All the best Sayam for even better works in future. He is highly recommended..",
   },
 
   {
-    image: "/testimonial-3.avif",
-    name: "Alex Johnson",
-    role: "Sales Director",
+    image: "/testimonial-1.avif",
+    name: "— Sagar K. | Sr. Manager - Performance Marketing",
+    role: "Dentistry",
     companyLogo: "/logo-enterprise.svg",
     feedback:
-      "We've streamlined our processes, cut costs, and significantly improved customer satisfaction. It’s been a game-changer for our business!",
+      "I highly recommend Sayam J. for his exceptional capabilities and performance. During his time at 'Unbundl,' Sayam efficiently managed our ad accounts, focusing on driving high-quality leads. He consistently showed reliability and responsibility in this role. Sayam's expertise in digital marketing was evident as he contributed significantly to our campaign successes. Based on his proven track record and deep domain knowledge, I wholeheartedly endorse Sayam for any role requiring digital marketing expertise. He's a valuable asset to any team.",
   },
   {
     image: "/testimonial-4.avif",
@@ -956,14 +956,6 @@ export default function Home() {
                     <strong className="testimonial-name">{t.name}</strong>
                     <div className="testimonial-role">{t.role}</div>
                   </div>
-                  <Image
-                    src={t.companyLogo}
-                    alt="Company logo"
-                    className="company-logo"
-                    width={0}
-                    height={0}
-                    unoptimized
-                  />
                 </div>
               </div>
             </div>
