@@ -18,13 +18,13 @@ const Travel = () => {
           </h2>
 
           <p className="dentistry-paragraph">
-            Brand E-sim's journey with Google Ads is a testament to strategic
+            Brand E-sim journey with Google Ads is a testament to strategic
             scaling and optimization. From a modest beginning to achieving
             record-breaking sales and conversion rates, this case study
             showcases the power of targeted advertising and the effective use of
-            Google's algorithms. Let's dive into the details of how E-sim
-            leveraged Google Ads to maximize their ecommerce potential and
-            outperform the competition
+            Google algorithms. Lets dive into the details of how E-sim leveraged
+            Google Ads to maximize their ecommerce potential and outperform the
+            competition
           </p>
         </div>
 
@@ -177,7 +177,7 @@ const Travel = () => {
               The ad account experienced a significant scale, jumping from $3000
               to an impressive $10,000 per day. This remarkable increase was a
               result of meticulous planning and execution, ensuring that the
-              client's investment yielded substantial returns.
+              client investment yielded substantial returns.
             </p>
           </header>
 
@@ -214,7 +214,7 @@ const Travel = () => {
               Optimization and Conversion Performance
             </h2>
             <p className="oc-lead">
-              E-Travelsim's campaigns were optimized to maximize conversions,
+              E-Travelsim campaigns were optimized to maximize conversions,
               resulting in a staggering
               <strong> 6600 conversions</strong> at a cost per registration
               (CPR) of <strong>$12</strong>. This optimization ensured that

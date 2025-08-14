@@ -1004,7 +1004,15 @@ export default function Home() {
             {shown.map((m, i) => (
               <article className="member-card" key={i}>
                 <div className="avatar-wrap">
-                  <img src={m.photo} alt={m.name} loading="lazy" />
+                  {/* <img src={m.photo} alt={m.name} loading="lazy" /> */}
+                  <Image
+                    src={m.photo}
+                    width={0}
+                    height={0}
+                    alt={m.name}
+                    loading="lazy"
+                    unoptimized
+                  ></Image>
                 </div>
 
                 <div className="member-info">

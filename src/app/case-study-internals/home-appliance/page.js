@@ -60,7 +60,7 @@ const HomeApplianceMarketingSection = () => {
 
           <p className="dentistry-paragraph">
             Through meticulous analysis and strategic restructuring, Home
-            appliances India's advertising campaigns were transformed. This case
+            appliances India advertising campaigns were transformed. This case
             study explores the challenges faced, the innovative solutions
             implemented, and the remarkable outcomes achieved in their quest for
             ecommerce excellence
