@@ -147,7 +147,7 @@ const testimonials = [
     role: "BabLouie",
     companyLogo: "/logo-optimal.svg",
     feedback:
-      "I earlier worked with Sayam in early days of our brand building journey and one thing I notice about him is his never ending approach of trying and trying till results not achieved. This grit & commitment towards showing results really makes him a person who actually is there in it for winning !!",
+      "In the early days of our brand-building journey, one thing that stood out about Unnity was its relentless drive — constantly experimenting, refining, and pushing forward until results were achieved. This grit and unwavering commitment to delivering outcomes truly make Unnity a company that’s in it to win",
   },
   {
     image: "/testimonial-1.avif",
@@ -155,7 +155,7 @@ const testimonials = [
     role: "Website Development and Performance Marketing",
     companyLogo: "/logo-enterprise.svg",
     feedback:
-      "I hired Sayam for performance marketing of Sain Milks and he has done a great job in delivering promised goals. He is very experienced, meticulous and gathered great insights about the industry and its users to be able to perform better. He also made the website for Sain Milks, which I loved and is very user friendly as well as aesthetically very good looking. I have already offered him another website for my other business, Tashe, and he is doing a great job developing that also. All the best Sayam for even better works in future. He is highly recommended..",
+      "I hired Unnity for performance marketing of Sain Milks, and they did a fantastic job in delivering the promised goals. The team is highly experienced, meticulous, and gathered valuable insights about the industry and its users to achieve even better results. They also designed the Sain Milks website, which I loved — it’s user-friendly, aesthetically pleasing, and professionally built. I was so impressed that I entrusted them with another website for my other business, Tashe, and they are doing an excellent job on that as well. Wishing Unnity even greater success in the future — highly recommended!",
   },
 
   {
@@ -164,7 +164,7 @@ const testimonials = [
     role: "Dentistry",
     companyLogo: "/logo-enterprise.svg",
     feedback:
-      "I highly recommend Sayam J. for his exceptional capabilities and performance. During his time at 'Unbundl,' Sayam efficiently managed our ad accounts, focusing on driving high-quality leads. He consistently showed reliability and responsibility in this role. Sayam's expertise in digital marketing was evident as he contributed significantly to our campaign successes. Based on his proven track record and deep domain knowledge, I wholeheartedly endorse Sayam for any role requiring digital marketing expertise. He's a valuable asset to any team.",
+      "This is just a token to show we’ll be working together — the amount doesn’t reflect your sincerity, which I deeply value. I’m confident I can help bring you more clients; if you share a short blurb, I can circulate it in my founder groups to generate strong leads. Please don’t treat this as a retainer, but as a way to keep our collaboration active for now.",
   },
   {
     image: "/testimonial-4.avif",
