@@ -73,6 +73,7 @@ const steps = [
     description:
       "Brand E-Travelsim's journey with Google Ads is a testament to strategic scaling and optimization...",
     image: "/step-3.avif",
+    href: "/case-study-internals/travel",
   },
 ];
 

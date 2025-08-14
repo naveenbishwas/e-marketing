@@ -521,7 +521,7 @@
 
   letter-spacing: -0.02em;
   line-height: 1.15;
-  font-size: clamp(28px, 4vw, 48px);
+  font-size: clamp(28px, 4vw, 44px);
   color: #232b6b; /* matches your reference hue */
 }
 .oc-lead {
@@ -643,7 +643,7 @@
 
   letter-spacing: -0.02em;
   line-height: 1.15;
-  font-size: clamp(28px, 4vw, 52px);
+  font-size: clamp(28px, 4vw, 44px);
   color: var(--gp-accent);
 }
 .gp-lead {
@@ -746,7 +746,7 @@
 
   letter-spacing: -0.02em;
   line-height: 1.15;
-  font-size: clamp(28px, 4vw, 56px);
+  font-size: clamp(28px, 4vw, 44px);
   color: var(--ac-title);
 }
 .ac-lead {
@@ -828,7 +828,7 @@
   margin: 0 0 16px;
   letter-spacing: -0.02em;
   line-height: 1.15;
-  font-size: clamp(28px, 4vw, 56px);
+  font-size: clamp(28px, 4vw, 44px);
   color: var(--cs-title);
 }
 .cs-lead {
