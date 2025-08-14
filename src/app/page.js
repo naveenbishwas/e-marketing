@@ -172,7 +172,7 @@ const testimonials = [
     role: "Sales Director",
     companyLogo: "/logo-enterprise.svg",
     feedback:
-      "We've streamlined our processes, cut costs, and significantly improved customer satisfaction. It’s been a game-changer for our business!",
+      "We've streamlined our processes, cut costs, and significantly improved customer satisfaction. Its been a game-changer for our business!",
   },
 ];
 
