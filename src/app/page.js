@@ -254,6 +254,23 @@ const members = [
   },
 ];
 
+const gallery = [
+  { src: "/adpl1.png", alt: "Project 1", href: "/" },
+  { src: "/cupid.png", alt: "Project 1", href: "/" },
+  { src: "/uber.png", alt: "Project 1", href: "/" },
+  { src: "/dev.png", alt: "Project 1", href: "/" },
+  { src: "/kryss.png", alt: "Project 1", href: "/" },
+  { src: "/aiva.png", alt: "Project 1", href: "/" },
+  { src: "/da.png", alt: "Project 1", href: "/" },
+  { src: "/aurave.png", alt: "Project 1", href: "/" },
+  { src: "/hub.png", alt: "Project 1", href: "/" },
+  { src: "/isu.png", alt: "Project 1", href: "/" },
+  { src: "/mi.png", alt: "Project 1", href: "/" },
+  { src: "/mir.png", alt: "Project 1", href: "/" },
+];
+
+const columns = [0, 1, 2].map((col) => gallery.filter((_, i) => i % 3 === col));
+
 export default function Home() {
   const containerRef = useRef(null);
   const [startIndex, setStartIndex] = useState(0);
@@ -814,38 +831,144 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="integration">
+      {/* <section className="integration">
         <div className="integration-df">
           <div className="integration-left">
-            {["up", "down", "up"].map((direction, index) => (
+            {["up", "down", "up"].map((direction, colIdx) => (
               <div
-                key={index}
+                key={colIdx}
                 className={`integration-list-marquee ${direction}`}
               >
                 <div className="integration-marquee-inner">
-                  {integrations.map((item, idx) => (
-                    <div key={idx} className="integration-item">
-                      <Link
-                        href={item.href}
-                        className="integration-link"
-                        aria-label={item.title}
-                      >
-                        <div className="integration-icon">
-                          <Image
-                            src={item.icon}
-                            alt={item.title}
-                            width={40}
-                            height={40}
-                            loading="eager"
-                          />
+                  {[...columns[colIdx], ...columns[colIdx]].map((item, idx) => {
+                    const Img = (
+                      <Image
+                        src={item.src}
+                        alt={item.alt}
+                        width={185}
+                        height={240}
+                        className="integration-img"
+                        loading="eager"
+                      />
+                    );
+                    return (
+                      <div key={idx} className="integration-item">
+                        <div className="card">
+                          <span>
+                            {item.href ? (
+                              <Link
+                                href={item.href}
+                                aria-label={item.alt}
+                                className="integration-img-link"
+                              >
+                                {Img}
+                              </Link>
+                            ) : (
+                              Img
+                            )}
+                          </span>
+                          <span>
+                            <h2>{item.title}</h2>
+                          </span>
                         </div>
-                        <div>
-                          <h2 className="integration-title">{item.title}</h2>
-                          <p className="integration-description">
-                            {item.description}
-                          </p>
-                        </div>
-                      </Link>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="integration-right">
+            <h1>Real projects shipped, measurable results</h1>
+            <p>
+              A snapshot of the work we’ve delivered — websites, funnels, and
+              performance campaigns that moved the needle for our clients.
+            </p>
+            <Link href="/case-studies">
+              <button className="cta-button" id="integration-btn">
+                Explore our work
+                <span className="arrow-wrapper">
+                  <span className="arrow first-arrow">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                      />
+                    </svg>
+                  </span>
+                  <span className="arrow second-arrow">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </button>
+            </Link>
+          </div>
+        </div>
+      </section> */}
+      <section className="integration">
+        <div className="integration-df">
+          <div className="integration-left">
+            {["up", "down", "up"].map((direction, colIdx) => (
+              <div
+                key={colIdx}
+                className={`integration-list-marquee ${direction}`}
+              >
+                <div className="integration-marquee-inner">
+                  {[...columns[colIdx], ...columns[colIdx]].map((item, idx) => (
+                    <div key={idx} className="integration-card">
+                      {item.href ? (
+                        <Link
+                          href={item.href}
+                          aria-label={item.alt}
+                          className="integration-card-link"
+                        >
+                          <div className="integration-img-wrapper">
+                            <Image
+                              src={item.src}
+                              alt={item.alt}
+                              width={185}
+                              height={240}
+                              className="integration-img"
+                              loading="eager"
+                            />
+                          </div>
+                          <h3 className="integration-title">{item.alt}</h3>
+                        </Link>
+                      ) : (
+                        <>
+                          <div className="integration-img-wrapper">
+                            <Image
+                              src={item.src}
+                              alt={item.alt}
+                              width={185}
+                              height={240}
+                              className="integration-img"
+                              loading="eager"
+                            />
+                          </div>
+                          <h3 className="integration-title">{item.alt}</h3>
+                        </>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -854,14 +977,14 @@ export default function Home() {
           </div>
 
           <div className="integration-right">
-            <h1>Effortless integration, maximum impact</h1>
+            <h1>Real projects shipped, measurable results</h1>
             <p>
-              Whether it’s eCommerce, CRM, or social media, we’ve made it easy
-              to connect your tools and streamline your marketing efforts.
+              A snapshot of the work we’ve delivered — websites, funnels, and
+              performance campaigns that moved the needle for our clients.
             </p>
-            <Link href="#">
+            <Link href="/case-studies">
               <button className="cta-button" id="integration-btn">
-                Explore all integrations
+                Explore our work
                 <span className="arrow-wrapper">
                   <span className="arrow first-arrow">
                     <svg
