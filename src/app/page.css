@@ -345,12 +345,14 @@
 @media (max-width: 768px) {
   .title-nav {
     align-items: flex-start;
+    flex-direction: column;
   }
 
   .carousel-title {
     font-size: 26px;
-    text-align: left;
+    text-align: center;
     margin-bottom: 20px;
+    max-width: 100%;
   }
 
   .nav-buttons {
@@ -363,6 +365,8 @@
 
   .title-nav span:nth-child(2) {
     display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
   .feature-card {
