@@ -166,10 +166,18 @@
     height: auto;
   }
 
+  .footer-links .link-column:first-child {
+    margin-top: -11%;
+  }
+
+  .footer-links .link-column:nth-child(2) {
+    margin-top: 11%;
+  }
+
   .footer-links {
     display: grid;
     gap: 0;
-    grid-template-columns: auto auto;
+    /* grid-template-columns: auto auto; */
     justify-content: unset;
   }
 

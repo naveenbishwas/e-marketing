@@ -248,7 +248,7 @@ const members = [
   {
     name: "Sarthak",
     role: "Marketing",
-    photo: "/Marketing.jpeg",
+    photo: "/Sarthak.jpeg",
     bio: "Blends creativity and strategy to connect brands with the right audience.",
     socials: { linkedin: "#", github: "#" },
   },
@@ -256,41 +256,41 @@ const members = [
 
 const gallery = [
   {
-    src: "/adpl1.png",
+    src: "/arch-m.png",
     alt: "Adplusa",
     href: "https://architect-sigma.vercel.app/",
   },
   {
-    src: "/cupid.png",
+    src: "/cupid-m.png",
     alt: "Cupid Clothings",
     href: "https://cupidclothings.com/",
   },
-  { src: "/uber.png", alt: "Uberlyfe", href: "https://uberlyfe.com/" },
+  { src: "/uber2-m.png", alt: "Uberlyfe", href: "https://uberlyfe.com/" },
   {
-    src: "/dev.png",
+    src: "/dev-m.png",
     alt: "Devkinandan Steel",
     href: "https://www.devkinandansteel.com/",
   },
   {
-    src: "/kryss.png",
+    src: "/kryss-m.png",
     alt: "Kryys Global",
     href: "https://www.kryysglobal.com/",
   },
   {
-    src: "/aiva.png",
+    src: "/aiva-m.png",
     alt: "Aiva Jewellery",
     href: "https://aivajewellery.com/",
   },
-  { src: "/da.png", alt: "Da Urban", href: "https://daurban.com/" },
-  { src: "/aurave.png", alt: "Aurave", href: "https://www.auravedecor.in/" },
+  { src: "/da2-m.png", alt: "Da Urban", href: "https://daurban.com/" },
+  { src: "/aurave-m.png", alt: "Aurave", href: "https://www.auravedecor.in/" },
   {
-    src: "/hub.png",
+    src: "/hub2-m.png",
     alt: "HubHawks",
     href: "https://sniper-ruddy.vercel.app/",
   },
-  { src: "/isu.png", alt: "ISU Fashion", href: "https://isufashion.com/" },
-  { src: "/mi.png", alt: "MiReads", href: "https://mireads.com/" },
-  { src: "/mir.png", alt: "Madverse", href: "https://www.madverse.co/" },
+  { src: "/isu2-m.png", alt: "ISU Fashion", href: "https://isufashion.com/" },
+  { src: "/mi-m.png", alt: "MiReads", href: "https://mireads.com/" },
+  { src: "/mad-m.png", alt: "Madverse", href: "https://www.madverse.co/" },
 ];
 
 const columns = [0, 1, 2].map((col) => gallery.filter((_, i) => i % 3 === col));
@@ -518,28 +518,96 @@ export default function Home() {
         <h1>Trusted by Leading Brands</h1>
         <div className="logo-track">
           <Image
-            src="/adpl.png"
+            src="/empire1.png"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
           <Image
-            src="/aurave.avif"
+            src="/aqua1.png"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
           <Image
-            src="/clove.jpg"
+            src="/comforto.png"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image src="/da1.png" width={0} height={0} alt="" unoptimized></Image>
+          <Image
+            src="/adpl2.png"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
           <Image
-            src="/cupid.webp"
+            src="/edoofa.png"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+
+          <Image
+            src="/hardoll.png"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/hub1.png"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+
+          <Image
+            src="/nira.png"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/orchid-blue.png"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/poco.png"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/sain.png"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image src="/sky.png" width={0} height={0} alt="" unoptimized></Image>
+          <Image
+            src="/aurave1.png"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image src="/uk.png" width={0} height={0} alt="" unoptimized></Image>
+          <Image
+            src="/cupid1.png"
             width={0}
             height={0}
             alt=""
@@ -552,31 +620,22 @@ export default function Home() {
             alt=""
             unoptimized
           ></Image>
-
           <Image
-            src="/faber.webp"
+            src="/isu1.png"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
           <Image
-            src="/isu-fashion.webp"
-            width={0}
-            height={0}
-            alt=""
-            unoptimized
-          ></Image>
-
-          <Image
-            src="/kapurthala.png"
+            src="/kapur1.png"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
           <Image
-            src="/madverse.svg"
+            src="/mad1.png"
             width={0}
             height={0}
             alt=""
@@ -590,36 +649,21 @@ export default function Home() {
             unoptimized
           ></Image>
           <Image
-            src="/penguine.png"
-            width={0}
-            height={0}
-            alt=""
-            unoptimized
-          ></Image>
-          <Image
             src="/power-mower.webp"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
-
           <Image
-            src="/shipway.webp"
+            src="/uberlyfe1.png"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
           <Image
-            src="/uberlyfe.webp"
-            width={0}
-            height={0}
-            alt=""
-            unoptimized
-          ></Image>
-          <Image
-            src="/hubhawks.webp"
+            src="/hub1.png"
             width={0}
             height={0}
             alt=""
@@ -627,30 +671,91 @@ export default function Home() {
           ></Image>
 
           {/* Repeat the same logos to make the loop seamless */}
+          <Image
+            src="/empire1.png"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/aqua1.png"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/comforto.png"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image src="/da1.png" width={0} height={0} alt="" unoptimized></Image>
 
           <Image
-            src="/adpl.png"
+            src="/edoofa.png"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+
+          <Image
+            src="/hardoll.png"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
           <Image
-            src="/aurave.avif"
+            src="/hub1.png"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+
+          <Image
+            src="/nira.png"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
           <Image
-            src="/clove.jpg"
+            src="/orchid-blue.png"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
           <Image
-            src="/cupid.webp"
+            src="/poco.png"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image
+            src="/sain.png"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image src="/sky.png" width={0} height={0} alt="" unoptimized></Image>
+          <Image
+            src="/aurave1.png"
+            width={0}
+            height={0}
+            alt=""
+            unoptimized
+          ></Image>
+          <Image src="/uk.png" width={0} height={0} alt="" unoptimized></Image>
+          <Image
+            src="/cupid1.png"
             width={0}
             height={0}
             alt=""
@@ -663,30 +768,22 @@ export default function Home() {
             alt=""
             unoptimized
           ></Image>
-
           <Image
-            src="/faber.webp"
+            src="/isu1.png"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
           <Image
-            src="/isu-fashion.webp"
+            src="/kapur1.png"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
           <Image
-            src="/kapurthala.png"
-            width={0}
-            height={0}
-            alt=""
-            unoptimized
-          ></Image>
-          <Image
-            src="/madverse.svg"
+            src="/mad1.png"
             width={0}
             height={0}
             alt=""
@@ -700,36 +797,21 @@ export default function Home() {
             unoptimized
           ></Image>
           <Image
-            src="/penguine.png"
-            width={0}
-            height={0}
-            alt=""
-            unoptimized
-          ></Image>
-          <Image
             src="/power-mower.webp"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
-
           <Image
-            src="/shipway.webp"
+            src="/uberlyfe1.png"
             width={0}
             height={0}
             alt=""
             unoptimized
           ></Image>
           <Image
-            src="/uberlyfe.webp"
-            width={0}
-            height={0}
-            alt=""
-            unoptimized
-          ></Image>
-          <Image
-            src="/hubhawks.webp"
+            src="/hub1.png"
             width={0}
             height={0}
             alt=""
@@ -855,100 +937,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* <section className="integration">
-        <div className="integration-df">
-          <div className="integration-left">
-            {["up", "down", "up"].map((direction, colIdx) => (
-              <div
-                key={colIdx}
-                className={`integration-list-marquee ${direction}`}
-              >
-                <div className="integration-marquee-inner">
-                  {[...columns[colIdx], ...columns[colIdx]].map((item, idx) => {
-                    const Img = (
-                      <Image
-                        src={item.src}
-                        alt={item.alt}
-                        width={185}
-                        height={240}
-                        className="integration-img"
-                        loading="eager"
-                      />
-                    );
-                    return (
-                      <div key={idx} className="integration-item">
-                        <div className="card">
-                          <span>
-                            {item.href ? (
-                              <Link
-                                href={item.href}
-                                aria-label={item.alt}
-                                className="integration-img-link"
-                              >
-                                {Img}
-                              </Link>
-                            ) : (
-                              Img
-                            )}
-                          </span>
-                          <span>
-                            <h2>{item.title}</h2>
-                          </span>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="integration-right">
-            <h1>Real projects shipped, measurable results</h1>
-            <p>
-              A snapshot of the work we’ve delivered — websites, funnels, and
-              performance campaigns that moved the needle for our clients.
-            </p>
-            <Link href="/case-studies">
-              <button className="cta-button" id="integration-btn">
-                Explore our work
-                <span className="arrow-wrapper">
-                  <span className="arrow first-arrow">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                      />
-                    </svg>
-                  </span>
-                  <span className="arrow second-arrow">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                      />
-                    </svg>
-                  </span>
-                </span>
-              </button>
-            </Link>
-          </div>
-        </div>
-      </section> */}
       <section className="integration">
         <div className="integration-df">
           <div className="integration-left">
@@ -1007,7 +995,7 @@ export default function Home() {
               A snapshot of the work we’ve delivered — websites, funnels, and
               performance campaigns that moved the needle for our clients.
             </p>
-            <Link href="/case-studies">
+            <Link href="/snapshot-project">
               <button className="cta-button" id="integration-btn">
                 Explore our work
                 <span className="arrow-wrapper">
@@ -1052,36 +1040,48 @@ export default function Home() {
         <div className="testimonial-header">
           <h2>What our customers are saying</h2>
           <div className="testimonial-nav">
-            <button onClick={handlePrev} className="nav-btn">
+            <button
+              onClick={handlePrev}
+              className="nav-btn"
+              aria-label="Previous testimonials"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                fill="none"
                 viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="size-6"
+                width="22"
+                height="22"
+                aria-hidden="true"
               >
                 <path
+                  d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
-                ></path>
+                />
               </svg>
             </button>
-            <button onClick={handleNext} className="nav-btn">
+            <button
+              onClick={handleNext}
+              className="nav-btn"
+              aria-label="Next testimonials"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                fill="none"
                 viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="size-6"
+                width="22"
+                height="22"
+                aria-hidden="true"
               >
                 <path
+                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                ></path>
+                />
               </svg>
             </button>
           </div>
@@ -1090,14 +1090,32 @@ export default function Home() {
         <div className="testimonial-wrapper" ref={scrollerRef}>
           {visibleTestimonials.map((t, idx) => (
             <div className="testimonial-card" key={idx}>
-              <Image
-                src={t.image}
-                alt={t.name}
-                className="testimonial-image"
-                width={0}
-                height={0}
-                unoptimized
-              />
+              <div className="quote-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="24" height="24">
+                  <path
+                    d="M9.5 7C7.6 7 6 8.6 6 10.5S7.6 14 9.5 14c.3 0 .5 0 .8-.1-.3 1.3-1.1 2.6-2.6 3.9-.3.3-.3.8 0 1.1.3.3.8.3 1.1 0 2.2-1.9 3.2-4 3.2-6.1V10.5C12 8.6 10.4 7 8.5 7h1zM18.5 7c-1.9 0-3.5 1.6-3.5 3.5S16.6 14 18.5 14c.3 0 .5 0 .8-.1-.3 1.3-1.1 2.6-2.6 3.9-.3.3-.3.8 0 1.1.3.3.8.3 1.1 0 2.2-1.9 3.2-4 3.2-6.1V10.5C21 8.6 19.4 7 17.5 7h1z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+
+              {/* optional stars (remove if you don’t need ratings) */}
+              {t.rating && (
+                <div className="stars" aria-label={`${t.rating} out of 5`}>
+                  {[...Array(5)].map((_, i) => (
+                    <svg
+                      key={i}
+                      viewBox="0 0 24 24"
+                      width="18"
+                      height="18"
+                      className={i < t.rating ? "star filled" : "star"}
+                    >
+                      <path d="M12 17.3l-5.4 3 1-5.9-4.3-4.2 6-0.9L12 4l2.7 5.4 6 0.9-4.3 4.2 1 5.9z" />
+                    </svg>
+                  ))}
+                </div>
+              )}
+
               <div className="testimonial-content">
                 <p className="testimonial-feedback">{t.feedback}</p>
                 <div className="testimonial-meta">
@@ -1105,6 +1123,9 @@ export default function Home() {
                     <strong className="testimonial-name">{t.name}</strong>
                     <div className="testimonial-role">{t.role}</div>
                   </div>
+                  {t.company && (
+                    <span className="testimonial-chip">{t.company}</span>
+                  )}
                 </div>
               </div>
             </div>

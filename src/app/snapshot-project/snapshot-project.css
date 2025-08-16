@@ -1,0 +1,136 @@
+:root {
+  --bg: #f6f8fb;
+  --card-bg: #ffffff;
+  --ink: #0f172a;
+  --ink-dim: #475569;
+  --ring: #e2e8f0;
+  --accent: #0ea5e9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    Noto Sans, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--ink);
+  background: var(--bg);
+}
+
+.cs-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 16px 64px;
+}
+
+.cs-header {
+  margin-bottom: 5%;
+}
+
+.cs-header h1 {
+  margin: 0 0 6px;
+  font-size: 40px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-top: 6%;
+  margin-bottom: 15px;
+}
+
+.cs-header p {
+  margin: 0 0 28px;
+  color: var(--ink-dim);
+  font-size: 16px;
+}
+
+.cs-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 32px;
+}
+
+/* 3-up on desktop, 2-up tablet, 1-up mobile */
+.cs-card {
+  grid-column: span 4;
+  background: var(--card-bg);
+  border: 1px solid var(--ring);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    border-color 0.18s ease;
+  will-change: transform;
+}
+
+@media (max-width: 1024px) {
+  .cs-card {
+    grid-column: span 6;
+  }
+}
+@media (max-width: 640px) {
+  .cs-card {
+    grid-column: span 12;
+  }
+}
+
+.cs-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+  border-color: #dbe2ea;
+}
+
+.cs-card__link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+}
+
+.cs-card__imageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10; /* keeps a consistent rectangle size */
+  background: #eaeef5; /* fallback background for empty space */
+  overflow: hidden;
+}
+
+.cs-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* image fits fully without cropping */
+  display: block;
+  transform: scale(1.001);
+  transition: transform 0.25s ease;
+  background: #fff; /* optional: keeps padding space white */
+}
+
+.cs-card:hover .cs-card__image {
+  transform: scale(1.03);
+}
+
+.cs-card:hover .cs-card__image {
+  transform: scale(1.03);
+}
+
+.cs-card__body {
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 0;
+}
+
+.cs-card__title {
+  font-size: 20px;
+  line-height: 1.3;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.cs-card__cta {
+  font-size: 14px;
+  color: var(--accent);
+  margin-top: 2px;
+}

@@ -80,7 +80,7 @@ export default function Footer() {
 
           <div className="link-column">
             <h4>Pages</h4>
-            <a href="#">Privacy Policy</a>
+            <a href="/privacy">Privacy Policy</a>
           </div>
         </div>
       </div>
