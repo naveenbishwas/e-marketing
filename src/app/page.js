@@ -255,18 +255,42 @@ const members = [
 ];
 
 const gallery = [
-  { src: "/adpl1.png", alt: "Project 1", href: "/" },
-  { src: "/cupid.png", alt: "Project 1", href: "/" },
-  { src: "/uber.png", alt: "Project 1", href: "/" },
-  { src: "/dev.png", alt: "Project 1", href: "/" },
-  { src: "/kryss.png", alt: "Project 1", href: "/" },
-  { src: "/aiva.png", alt: "Project 1", href: "/" },
-  { src: "/da.png", alt: "Project 1", href: "/" },
-  { src: "/aurave.png", alt: "Project 1", href: "/" },
-  { src: "/hub.png", alt: "Project 1", href: "/" },
-  { src: "/isu.png", alt: "Project 1", href: "/" },
-  { src: "/mi.png", alt: "Project 1", href: "/" },
-  { src: "/mir.png", alt: "Project 1", href: "/" },
+  {
+    src: "/adpl1.png",
+    alt: "Adplusa",
+    href: "https://architect-sigma.vercel.app/",
+  },
+  {
+    src: "/cupid.png",
+    alt: "Cupid Clothings",
+    href: "https://cupidclothings.com/",
+  },
+  { src: "/uber.png", alt: "Uberlyfe", href: "https://uberlyfe.com/" },
+  {
+    src: "/dev.png",
+    alt: "Devkinandan Steel",
+    href: "https://www.devkinandansteel.com/",
+  },
+  {
+    src: "/kryss.png",
+    alt: "Kryys Global",
+    href: "https://www.kryysglobal.com/",
+  },
+  {
+    src: "/aiva.png",
+    alt: "Aiva Jewellery",
+    href: "https://aivajewellery.com/",
+  },
+  { src: "/da.png", alt: "Da Urban", href: "https://daurban.com/" },
+  { src: "/aurave.png", alt: "Aurave", href: "https://www.auravedecor.in/" },
+  {
+    src: "/hub.png",
+    alt: "HubHawks",
+    href: "https://sniper-ruddy.vercel.app/",
+  },
+  { src: "/isu.png", alt: "ISU Fashion", href: "https://isufashion.com/" },
+  { src: "/mi.png", alt: "MiReads", href: "https://mireads.com/" },
+  { src: "/mir.png", alt: "Madverse", href: "https://www.madverse.co/" },
 ];
 
 const columns = [0, 1, 2].map((col) => gallery.filter((_, i) => i % 3 === col));
@@ -941,6 +965,7 @@ export default function Home() {
                           href={item.href}
                           aria-label={item.alt}
                           className="integration-card-link"
+                          target="_blank"
                         >
                           <div className="integration-img-wrapper">
                             <Image
