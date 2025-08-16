@@ -747,7 +747,7 @@ export default function Home() {
             engagement, drive conversions, and simplify marketing efforts.
           </p>
           <button className="top-choice-btn">
-            <button className="cta-button" id="on-top">
+            <span className="cta-button" id="on-top">
               More About
               <span className="arrow-wrapper">
                 <span className="arrow first-arrow">
@@ -781,7 +781,7 @@ export default function Home() {
                   </svg>
                 </span>
               </span>
-            </button>
+            </span>
           </button>
         </div>
 

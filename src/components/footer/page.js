@@ -7,13 +7,16 @@ import {
   FaLinkedinIn,
   FaTimes,
 } from "react-icons/fa";
+import Link from "next/link";
 
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-top">
         <h2 className="footer-heading">It’s time to elevate your business</h2>
-        <div className="get-in-touch">Get in touch</div>
+        <Link href="https://calendly.com/sayam-unnity/30min" target="_blank">
+          <div className="get-in-touch">Get in touch</div>
+        </Link>
       </div>
 
       <div className="footer-main">
@@ -32,7 +35,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="footer-social">
+          {/* <div className="footer-social">
             <a href="#">
               <FaInstagram />
             </a>
@@ -45,38 +48,39 @@ export default function Footer() {
             <a href="#">
               <FaTimes />
             </a>
-          </div>
+          </div> */}
         </div>
 
         <div className="footer-links">
           <div className="link-column">
-            <h4>Page link</h4>
-            <a href="#" className="active">
-              Home
-            </a>
-            <a href="#">Home 2</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-            <a href="#">Blog</a>
+            <div className="footer-social">
+              <a href="#">
+                <FaInstagram />
+              </a>
+              <a href="#">
+                <FaFacebookF />
+              </a>
+              <a href="#">
+                <FaLinkedinIn />
+              </a>
+              <a href="#">
+                <FaTimes />
+              </a>
+            </div>
           </div>
           <div className="link-column">
-            <h4>Page link</h4>
+            <h4>Services</h4>
+            <a href="#">SEO</a>
+            <a href="#">Google Ads</a>
+            <a href="#">Meta Ads</a>
+            <a href="#">UI/UX</a>
+            <a href="#">Website Development</a>
+            <a href="#">Brand Consultant</a>
+          </div>
 
-            <a href="#">Feature</a>
-            <a href="#">Careers</a>
-            <a href="#">Pricing</a>
-            <a href="#">Integrations</a>
-          </div>
           <div className="link-column">
-            <h4>Utility Pages</h4>
-            <a href="#">Style Guide</a>
-            <a href="#">Instructions</a>
-            <a href="#">Licenses</a>
-            <a href="#">Changelog</a>
-            <a href="#">Link in Bio</a>
-            <a href="#">Coming Soon</a>
-            <a href="#">Error 404</a>
-            <a href="#">Password Protected</a>
+            <h4>Pages</h4>
+            <a href="#">Privacy Policy</a>
           </div>
         </div>
       </div>
