@@ -38,8 +38,12 @@ body {
   max-width: 1280px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   flex-wrap: wrap;
-  position: relative;
-  z-index: 1;
+  position: fixed;
+  width: 100%;
+  left: 5%;
+  z-index: 11111;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
 .header-left {
