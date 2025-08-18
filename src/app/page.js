@@ -248,7 +248,7 @@ const members = [
   {
     name: "Sarthak",
     role: "Marketing",
-    photo: "/Sarthak.jpeg",
+    photo: "/sarthak.jpeg",
     bio: "Blends creativity and strategy to connect brands with the right audience.",
     socials: { linkedin: "#", github: "#" },
   },
