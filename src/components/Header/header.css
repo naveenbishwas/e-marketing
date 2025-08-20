@@ -304,5 +304,12 @@ body {
   .header {
     position: relative;
     justify-content: center;
+    left: 0;
+  }
+
+  .nav-menu li,
+  .nav-menu .active,
+  .nav-menu .active span {
+    color: #000;
   }
 }

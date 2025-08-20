@@ -6,6 +6,17 @@ import Header from "@/components/Header/page";
 import { useState, useRef, useEffect, useMemo } from "react";
 import Link from "next/link";
 import Footer from "@/components/footer/page";
+import emailjs from "@emailjs/browser";
+
+const INITIAL = {
+  companyName: "",
+  budget: "",
+  name: "",
+  phone: "",
+  email: "",
+  service: "",
+  designation: "",
+};
 
 const features = [
   {
@@ -302,6 +313,102 @@ export default function Home() {
   const scrollerRef = useRef(null);
   const [q, setQ] = useState("");
   const [role, setRole] = useState("All");
+  const [form, setForm] = useState(INITIAL);
+  const [submitting, setSubmitting] = useState(false);
+  const [status, setStatus] = useState({ type: "", message: "" });
+
+  const { companyName, budget, name, phone, email, service, designation } =
+    form;
+
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setForm((f) => ({ ...f, [name]: value }));
+  };
+
+  const validate = () => {
+    if (!companyName || !name || !email) {
+      setStatus({
+        type: "error",
+        message: "Company, Name and Email are required.",
+      });
+      return false;
+    }
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!emailOk) {
+      setStatus({
+        type: "error",
+        message: "Please enter a valid email address.",
+      });
+      return false;
+    }
+    const phoneOk = !phone || /^[0-9+\-\s()]{7,20}$/.test(phone);
+    if (!phoneOk) {
+      setStatus({
+        type: "error",
+        message: "Please enter a valid phone number.",
+      });
+      return false;
+    }
+    return true;
+  };
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    setStatus({ type: "", message: "" });
+    if (!validate()) return;
+
+    setSubmitting(true);
+
+    // === EmailJS config (use your IDs) ===
+    const serviceId = "service_lc3zqsj";
+    const templateId = "template_lgmyk3o";
+    const publicKey = "vwQ1UwMU_xiay6xqT";
+    const confirmationTemplateId = "template_dtk82zi";
+
+    const templateParams = {
+      to_name: "Sayam",
+      from_name: companyName,
+      company_name: companyName,
+      monthly_marketing_budget: budget || "Not provided",
+      client_name: name,
+      phone_no: phone || "Not provided",
+      email_id: email,
+      service_id: service || "Not selected",
+      designation: designation || "Not provided",
+    };
+
+    const confirmationParams = {
+      to_name: name,
+      to_email: email,
+      user_name: name,
+      user_email: email,
+    };
+
+    try {
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      await emailjs.send(
+        serviceId,
+        confirmationTemplateId,
+        confirmationParams,
+        publicKey
+      );
+
+      setForm(INITIAL);
+      setStatus({
+        type: "success",
+        message:
+          "Thanks! Your details are submitted. We’ve sent a confirmation to your email.",
+      });
+    } catch (err) {
+      console.error(err);
+      setStatus({
+        type: "error",
+        message: "Something went wrong. Please try again in a moment.",
+      });
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   const scrollLeft = () => {
     if (containerRef.current) {
@@ -819,6 +926,223 @@ export default function Home() {
           ></Image>
         </div>
       </div>
+
+      <section className="unnity-lead">
+        <div className="ul-wrap">
+          {/* Left: Visual + marketing points */}
+          <div className="ul-visual">
+            <div className="ul-portrait">
+              <Image
+                src="sayyam2.png"
+                width={0}
+                height={0}
+                alt="Sayam jain , Unnity"
+                unoptimized
+              ></Image>
+              <div className="ul-kpis">
+                <span className="ul-chip ul-chip-blue" aria-label="CPM">
+                  CPM
+                </span>
+                <span className="ul-chip ul-chip-yellow" aria-label="CTR">
+                  CTR
+                </span>
+                <span className="ul-chip ul-chip-teal" aria-label="CPR">
+                  CPR
+                </span>
+              </div>
+            </div>
+
+            <ul className="ul-points" aria-label="What we improve">
+              <li>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4 12l4 4L20 4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+                </svg>
+                Channel mix that actually converts (Meta + Google)
+              </li>
+              <li>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M3 12h18M3 6h18M3 18h18"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+                </svg>
+                Clear metrics: ROAS, CAC, AOV — not vanity numbers
+              </li>
+              <li>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 3v18M3 12h18"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+                </svg>
+                Custom strategies per brand, no templates
+              </li>
+            </ul>
+          </div>
+
+          {/* Right: Form */}
+          <div className="ul-form">
+            <h2>
+              Empower Your Brand With{" "}
+              <span>UNNITY DIGITAL MARKETING SOLUTIONS</span>
+            </h2>
+            <p className="ul-sub">
+              Amplify visibility, engage your audience, and drive meaningful
+              conversions. Unleash your brand’s full potential with Unnity.
+            </p>
+
+            <form onSubmit={submitHandler} noValidate>
+              <div className="ul-grid">
+                <div className="ul-field">
+                  <label htmlFor="companyName">Company Name</label>
+                  <input
+                    id="companyName"
+                    name="companyName"
+                    type="text"
+                    placeholder="Company Name"
+                    value={companyName}
+                    onChange={onChange}
+                    required
+                  />
+                </div>
+
+                <div className="ul-field">
+                  <label htmlFor="budget">Monthly Marketing Budget</label>
+                  <select
+                    id="budget"
+                    name="budget"
+                    value={budget}
+                    onChange={onChange}
+                  >
+                    <option value="">Monthly Marketing Budget</option>
+                    <option value="Less Than Rs 2L Budget">
+                      Less Than Rs 2L Budget
+                    </option>
+                    <option value="Rs 2L to Rs 5L">Rs 2L to Rs 5L</option>
+                    <option value="Rs 5L to Rs 25L">Rs 5L to Rs 25L</option>
+                    <option value="More Than 50L">More Than 50L</option>
+                    <option value="I am Looking For Organic Services">
+                      I am Looking For Organic Services
+                    </option>
+                  </select>
+                </div>
+
+                <div className="ul-field">
+                  <label htmlFor="name">Name</label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Name"
+                    value={name}
+                    onChange={onChange}
+                    required
+                  />
+                </div>
+
+                <div className="ul-field">
+                  <label htmlFor="phone">Phone Number</label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    placeholder="Phone Number"
+                    value={phone}
+                    onChange={onChange}
+                  />
+                </div>
+
+                <div className="ul-field ul-span-2">
+                  <label htmlFor="email">Email Address</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="Email Address"
+                    value={email}
+                    onChange={onChange}
+                    required
+                  />
+                </div>
+
+                <div className="ul-field">
+                  <label htmlFor="service">Choose A Service</label>
+                  <select
+                    id="service"
+                    name="service"
+                    value={service}
+                    onChange={onChange}
+                  >
+                    <option value="">Choose A Service</option>
+                    <option value="SEO">SEO</option>
+                    <option value="Paid Marketing (Google, Facebook & Amazon ads)">
+                      Paid Marketing (Google, Facebook & Amazon ads)
+                    </option>
+                    <option value="UI/UX">UI/UX</option>
+                    <option value="Website Development">
+                      Website Development
+                    </option>
+                    <option value="Website Maintenance">
+                      Website Maintenance
+                    </option>
+                    <option value="Shopify Migration">Shopify Migration</option>
+                  </select>
+                </div>
+
+                <div className="ul-field">
+                  <label htmlFor="designation">Designation</label>
+                  <input
+                    id="designation"
+                    name="designation"
+                    type="text"
+                    placeholder="Designation"
+                    value={designation}
+                    onChange={onChange}
+                  />
+                </div>
+              </div>
+
+              {status.message && (
+                <div
+                  className={`ul-status ${
+                    status.type === "error" ? "ul-error" : "ul-success"
+                  }`}
+                >
+                  {status.message}
+                </div>
+              )}
+
+              <button className="ul-submit" type="submit" disabled={submitting}>
+                {submitting ? "Submitting..." : "Submit"}
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
 
       <section className="top-choice-section">
         <div className="top-choice-left">
