@@ -9,13 +9,7 @@ export default function PrivacyPolicy() {
   return (
     <>
       <Header />
-      <Head>
-        <title>Privacy Policy – Unnity</title>
-        <meta
-          name="description"
-          content="Read our Privacy Policy to understand how Unnity handles your personal data, cookies, and security."
-        />
-      </Head>
+
       <div className="privacy-container">
         <h1>Privacy Policy – Unnity</h1>
         <p>
