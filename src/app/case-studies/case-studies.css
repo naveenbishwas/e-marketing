@@ -18,6 +18,7 @@
 .cs-container {
   max-width: 1200px;
   margin: 0 auto;
+  margin-top: 6%;
 }
 
 .cs-header {
@@ -139,4 +140,11 @@
 .cs-link:hover {
   color: #0f172a;
   border-color: #0f172a;
+}
+
+@media screen and (max-width: 768px) {
+  .cs-page {
+    background: var(--cs-bg);
+    padding: 20px 16px 96px;
+  }
 }

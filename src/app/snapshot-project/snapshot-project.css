@@ -36,7 +36,7 @@ body {
   font-size: 40px;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  margin-top: 6%;
+  margin-top: 12%;
   margin-bottom: 15px;
 }
 
@@ -133,4 +133,10 @@ body {
   font-size: 14px;
   color: var(--accent);
   margin-top: 2px;
+}
+
+@media screen and (max-width: 768px) {
+  .cs-header h1 {
+    font-size: 30px;
+  }
 }
