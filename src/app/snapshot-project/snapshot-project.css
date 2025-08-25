@@ -21,17 +21,17 @@ body {
   background: var(--bg);
 }
 
-.cs-container {
+.proj-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 32px 16px 64px;
 }
 
-.cs-header {
+.proj-header {
   margin-bottom: 5%;
 }
 
-.cs-header h1 {
+.proj-header h1 {
   margin: 0 0 6px;
   font-size: 40px;
   line-height: 1.1;
@@ -40,20 +40,19 @@ body {
   margin-bottom: 15px;
 }
 
-.cs-header p {
+.proj-header p {
   margin: 0 0 28px;
   color: var(--ink-dim);
   font-size: 16px;
 }
 
-.cs-grid {
+.proj-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 32px;
 }
 
-/* 3-up on desktop, 2-up tablet, 1-up mobile */
-.cs-card {
+.proj-card {
   grid-column: span 4;
   background: var(--card-bg);
   border: 1px solid var(--ring);
@@ -65,56 +64,52 @@ body {
 }
 
 @media (max-width: 1024px) {
-  .cs-card {
+  .proj-card {
     grid-column: span 6;
   }
 }
 @media (max-width: 640px) {
-  .cs-card {
+  .proj-card {
     grid-column: span 12;
   }
 }
 
-.cs-card:hover {
+.proj-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
   border-color: #dbe2ea;
 }
 
-.cs-card__link {
+.proj-card__link {
   display: block;
   color: inherit;
   text-decoration: none;
   height: 100%;
 }
 
-.cs-card__imageWrap {
+.proj-card__imageWrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10; /* keeps a consistent rectangle size */
-  background: #eaeef5; /* fallback background for empty space */
+  aspect-ratio: 16 / 10;
+  background: #eaeef5;
   overflow: hidden;
 }
 
-.cs-card__image {
+.proj-card__image {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* image fits fully without cropping */
+  object-fit: contain;
   display: block;
   transform: scale(1.001);
   transition: transform 0.25s ease;
-  background: #fff; /* optional: keeps padding space white */
+  background: #fff;
 }
 
-.cs-card:hover .cs-card__image {
+.proj-card:hover .proj-card__image {
   transform: scale(1.03);
 }
 
-.cs-card:hover .cs-card__image {
-  transform: scale(1.03);
-}
-
-.cs-card__body {
+.proj-card__body {
   padding: 16px 18px 18px;
   display: flex;
   flex-direction: column;
@@ -122,21 +117,21 @@ body {
   padding-top: 0;
 }
 
-.cs-card__title {
+.proj-card__title {
   font-size: 20px;
   line-height: 1.3;
   margin: 0;
   letter-spacing: -0.01em;
 }
 
-.cs-card__cta {
+.proj-card__cta {
   font-size: 14px;
   color: var(--accent);
   margin-top: 2px;
 }
 
 @media screen and (max-width: 768px) {
-  .cs-header h1 {
+  .proj-header h1 {
     font-size: 30px;
   }
 }

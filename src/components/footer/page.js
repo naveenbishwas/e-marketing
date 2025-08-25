@@ -54,13 +54,13 @@ export default function Footer() {
         <div className="footer-links">
           <div className="link-column">
             <div className="footer-social">
-              <a href="#">
+              <a href="https://www.instagram.com/_unnity/">
                 <FaInstagram />
               </a>
               <a href="#">
                 <FaFacebookF />
               </a>
-              <a href="#">
+              <a href="https://www.linkedin.com/in/sayam-jain-2708031b1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
                 <FaLinkedinIn />
               </a>
               <a href="#">

@@ -31,14 +31,17 @@ const Header = () => {
 
         <nav className={`nav-menu ${menuOpen ? "open" : ""}`}>
           <ul>
-            <li className="active">
-              <span>•</span> Home
-            </li>
-            <li>About</li>
-            <li>Feature</li>
-            <li>
-              Pages <span className="dropdown-arrow">▼</span>
-            </li>
+            <Link href="/">
+              <li className="active">
+                <span>•</span> Home
+              </li>
+            </Link>
+            <Link href="case-studies">
+              <li>Case Studies</li>
+            </Link>
+            <Link href="snapshot-project">
+              <li>Projects</li>
+            </Link>
           </ul>
         </nav>
 
