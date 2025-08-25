@@ -416,6 +416,7 @@
   margin-top: 10%;
   font-size: 17px;
   padding: 8px 16px;
+  display: none;
 }
 
 .top-choice-btn .arrow-wrapper .arrow {

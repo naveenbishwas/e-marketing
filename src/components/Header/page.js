@@ -40,7 +40,7 @@ const Header = () => {
               <li>Case Studies</li>
             </Link>
             <Link href="snapshot-project">
-              <li>Projects</li>
+              <li>See Our Work</li>
             </Link>
           </ul>
         </nav>

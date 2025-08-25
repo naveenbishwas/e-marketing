@@ -308,7 +308,6 @@ body {
   }
 
   .nav-menu li,
-  .nav-menu .active,
   .nav-menu .active span {
     color: #000;
   }
