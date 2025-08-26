@@ -54,16 +54,25 @@ export default function Footer() {
         <div className="footer-links">
           <div className="link-column">
             <div className="footer-social">
-              <a href="https://www.instagram.com/_unnity/">
+              <a href="https://www.instagram.com/_unnity/" target="_blank">
                 <FaInstagram />
               </a>
-              <a href="#">
+              <a
+                href="https://www.facebook.com/share/1BD8Xgy8zM/"
+                target="_blank"
+              >
                 <FaFacebookF />
               </a>
-              <a href="https://www.linkedin.com/in/sayam-jain-2708031b1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
+              <a
+                href="https://www.linkedin.com/company/unnityglobal/"
+                target="_blank"
+              >
                 <FaLinkedinIn />
               </a>
-              <a href="#">
+              <a
+                href="https://x.com/SayamJa92667175?t=DGzv7ROM6TDa81K7HYlu3g&s=08"
+                target="_blank"
+              >
                 <FaTimes />
               </a>
             </div>

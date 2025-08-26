@@ -296,6 +296,7 @@
   border: none;
   font-size: 17px;
   text-decoration: underline;
+  display: none;
 }
 
 .feature-image {
@@ -1542,6 +1543,7 @@ section.integration {
 /* socials as minimal pills */
 .member-socials {
   display: flex;
+  display: none;
   gap: 8px;
 }
 

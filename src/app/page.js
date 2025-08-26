@@ -1237,27 +1237,26 @@ export default function Home() {
 
           <div className="top-choice-right">
             <div className="stat">
-              <span className="stat-number">500,000+</span>
+              <span className="stat-number">$600,000</span>
+              <p className="stat-description">Monthly AD Revenue Handeled</p>
+            </div>
+            <div className="stat">
+              <span className="stat-number">$300,000</span>
               <p className="stat-description">
-                Join a vibrant community of successful marketers
+                Highest Monthly budget handled for a single brand
               </p>
             </div>
             <div className="stat">
-              <span className="stat-number">95%</span>
+              <span className="stat-number">70+</span>
               <p className="stat-description">
-                Our users love us for our exceptional support.
+                E-commerce & Lead Generation Brands
               </p>
             </div>
+
             <div className="stat">
-              <span className="stat-number">1 Million</span>
+              <span className="stat-number">15+</span>
               <p className="stat-description">
-                We are helping businesses send millions of emails daily.
-              </p>
-            </div>
-            <div className="stat">
-              <span className="stat-number">300+</span>
-              <p className="stat-description">
-                Easily connect with your favorite tools to boost your marketing.
+                Team of Marketing Specialists & Web Developers
               </p>
             </div>
           </div>
