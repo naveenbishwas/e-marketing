@@ -762,7 +762,7 @@ export default function Home() {
               unoptimized
             ></Image>
             <Image
-              src="/mad1.png"
+              src="/madve.png"
               width={0}
               height={0}
               alt=""
@@ -928,7 +928,7 @@ export default function Home() {
               unoptimized
             ></Image>
             <Image
-              src="/mad1.png"
+              src="/madve.png"
               width={0}
               height={0}
               alt=""
