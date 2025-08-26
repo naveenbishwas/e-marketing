@@ -1192,9 +1192,10 @@ export default function Home() {
           <div className="top-choice-left">
             <h2 className="top-choice-heading">See why we’re the top choice</h2>
             <p className="top-choice-description">
-              Join thousands of satisfied customers who trust us for their email
-              marketing needs. Our platform offers cutting-edge tools to enhance
-              engagement, drive conversions, and simplify marketing efforts.
+              Thousands of brands trust Unnity to power their growth. With our
+              data-driven strategies and cutting-edge tools, we help you boost
+              engagement, drive high-value conversions, and simplify your
+              marketing journey.
             </p>
             <button className="top-choice-btn">
               <span className="cta-button" id="on-top">
@@ -1238,7 +1239,9 @@ export default function Home() {
           <div className="top-choice-right">
             <div className="stat">
               <span className="stat-number">$600,000</span>
-              <p className="stat-description">Monthly AD Revenue Handeled</p>
+              <p className="stat-description">
+                Monthly AD Revenue Generated for the Brands
+              </p>
             </div>
             <div className="stat">
               <span className="stat-number">$300,000</span>

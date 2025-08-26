@@ -23,6 +23,7 @@
   font-weight: 600;
   max-width: 60%;
   line-height: 1.2;
+  text-transform: capitalize;
 }
 
 .get-in-touch {

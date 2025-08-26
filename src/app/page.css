@@ -395,6 +395,7 @@
   font-size: 3.2rem;
   font-weight: bold;
   margin-bottom: 24px;
+  text-transform: capitalize;
 }
 
 .top-choice-description {
@@ -938,6 +939,7 @@ section.integration {
   max-width: 50%;
   line-height: 1.15;
   letter-spacing: -0.5px;
+  text-transform: capitalize;
 }
 
 @media (max-width: 1024px) {
