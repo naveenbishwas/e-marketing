@@ -25,7 +25,7 @@ const features = [
     description:
       "We build custom solutions using Shopify, Next.js, and robust backend technologies. From eCommerce to web apps, we handle everything from databases to clean, scalable code.",
     link: "#",
-    image: "/shopify.png", // Save the first image locally
+    image: "/shopify.jpg", // Save the first image locally
     alt: "Email automation",
   },
   {
@@ -33,7 +33,7 @@ const features = [
     description:
       "We run high-converting Meta Ads that drive traffic, leads, and sales. From strategy to creatives and optimization, we manage it all for measurable growth.",
     link: "#",
-    image: "/meta-ads.png", // Save the second image locally
+    image: "/meta.jpg", // Save the second image locally
     alt: "Customizable templates",
   },
   {
@@ -41,7 +41,7 @@ const features = [
     description:
       "We create and manage data-driven Google Ads campaigns to boost visibility and conversions. From search to display, we optimize every click for maximum ROI.",
     link: "#",
-    image: "/google-ads3.png", // Save the third image locally
+    image: "/google.jpg", // Save the third image locally
     alt: "A/B Testing",
   },
   {
@@ -49,7 +49,7 @@ const features = [
     description:
       "We craft targeted LinkedIn Ads to connect you with decision-makers and drive B2B growth. From audience building to ad optimization, we deliver results that matter.",
     link: "#",
-    image: "/linkedin-ads.png",
+    image: "/linkedin.jpg",
     alt: "A/B Testing",
   },
   {
