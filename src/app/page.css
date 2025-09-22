@@ -183,10 +183,17 @@
   .hero-left p {
     font-size: 18px;
     margin: 24px 0;
+    margin-top: 15px;
   }
 
   .small-btn {
-    margin-top: 40px;
+    margin-top: 20px;
+  }
+
+  h1 {
+    /* line-height: unset !important; */
+    word-spacing: unset !important;
+    letter-spacing: unset !important;
   }
 
   .primary-btn {
@@ -216,7 +223,7 @@
   }
 
   .hero-left h1 {
-    font-size: 2.4rem;
+    font-size: 1.8rem;
   }
 
   .hero-left p {
@@ -351,10 +358,49 @@
   }
 
   .carousel-title {
-    font-size: 26px;
+    font-size: 23px;
     text-align: center;
     margin-bottom: 20px;
     max-width: 100%;
+  }
+
+  .logo-slider {
+    padding: 40px 0 !important;
+  }
+
+  .logo-slider h1 {
+    margin-bottom: 30px !important;
+    font-size: 1.5rem !important;
+  }
+
+  .ul-form h2 span {
+    color: #34348e;
+    font-size: 22px !important;
+  }
+
+  .ul-field input,
+  .ul-field select {
+    width: 100%;
+  }
+
+  #on-top {
+    font-size: 14px !important;
+    padding: 4px 16px !important;
+    margin-top: -5%;
+  }
+
+  .top-choice-left {
+    flex: 1 1 !important;
+  }
+
+  .arrow svg {
+    width: 15px !important;
+    height: 15px !important;
+  }
+
+  .top-choice-description {
+    font-size: 15px !important;
+    margin-top: 0 !important;
   }
 
   .nav-buttons {
@@ -362,7 +408,8 @@
   }
 
   .features-carousel {
-    margin-top: 46%;
+    /* margin-top: 46%; */
+    padding-top: 15%;
   }
 
   .title-nav span:nth-child(2) {
@@ -419,7 +466,7 @@
   margin-top: 10%;
   font-size: 17px;
   padding: 8px 16px;
-  display: none;
+  /* display: none; */
 }
 
 .top-choice-btn .arrow-wrapper .arrow {
@@ -476,12 +523,17 @@
 @media (max-width: 768px) {
   .top-choice-section {
     flex-direction: column;
-    padding: 50px 30px;
+    padding: 50px 20px;
   }
 
   .top-choice-right {
     grid-template-columns: auto auto;
     gap: 10px;
+    flex: 1 1;
+  }
+
+  .step-section {
+    padding-top: 40px !important;
   }
 
   .top-choice-heading {
@@ -493,8 +545,8 @@
   }
 
   .stat-description {
-    font-size: 15px;
-    margin-top: 18px;
+    font-size: 13px;
+    margin-top: 8px;
   }
 
   .stat {
@@ -681,9 +733,18 @@
   .step-section h1 {
     text-align: center;
     margin-bottom: 40px;
-    max-width: 700px;
+    max-width: 300px;
     margin-inline: auto;
-    font-size: 1.7rem;
+    font-size: 1.3rem;
+  }
+
+  .step-card {
+    gap: 4px !important;
+  }
+
+  .step-badge {
+    width: 46px;
+    height: 46px;
   }
 
   .step-section-df {

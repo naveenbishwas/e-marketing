@@ -211,6 +211,19 @@ body {
     gap: 0;
   }
 
+  .nav-menu .active {
+    display: none;
+  }
+
+  .phone-icon,
+  .phone-text {
+    color: #000 !important;
+  }
+
+  .header-left {
+    padding: 4px;
+  }
+
   .hamburger {
     display: none;
     background: var(--theme-color) !important;
@@ -222,6 +235,7 @@ body {
     color: #fff;
     font-size: 22px;
     font-weight: bold;
+    font-size: 30px;
   }
 
   img.logo {
@@ -264,7 +278,7 @@ body {
   .hamburger {
     display: flex;
     position: absolute;
-    top: 5px;
+    top: 11px;
     right: 24px;
     z-index: 2;
   }
@@ -282,7 +296,7 @@ body {
   .nav-menu {
     display: none;
     position: absolute;
-    top: 55px;
+    top: 63px;
     left: 20px;
     right: 20px;
     background: #fff;
