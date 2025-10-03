@@ -1,3 +1,8 @@
+h1,
+h2 {
+  font-family: "Urbanist";
+}
+
 .hero {
   position: absolute;
   top: 0;
@@ -538,7 +543,7 @@
   }
 
   .top-choice-heading {
-    font-size: 32px;
+    font-size: 28px;
     word-spacing: -3px;
     margin-bottom: 5px;
   }
@@ -752,6 +757,15 @@
 
   .step-section-df {
     padding: 0 25px;
+  }
+
+  h2,
+  h1 {
+    font-size: 1.5rem !important;
+  }
+
+  h3 {
+    font-size: 1.2rem !important;
   }
 }
 

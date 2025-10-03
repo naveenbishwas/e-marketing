@@ -130,6 +130,10 @@
     text-align: center;
   }
 
+  .footer {
+    padding: 80px 25px;
+  }
+
   .footer-heading {
     max-width: 100%;
     font-size: 2.5rem;
@@ -147,7 +151,7 @@
 
   .footer-main {
     flex-direction: column;
-    gap: 60px;
+    gap: 20px;
   }
 
   .footer-links {
@@ -167,6 +171,10 @@
     height: auto;
   }
 
+  .newsletter-formm {
+    max-width: 77%;
+  }
+
   .footer-links .link-column:first-child {
     margin-top: -11%;
   }
@@ -184,5 +192,40 @@
 
   .footer-links .link-column:last-child {
     margin-top: 15%;
+  }
+}
+
+/* MOBILE: first column full width, last 3 side-by-side */
+@media (max-width: 768px) {
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap; /* allow rows */
+    gap: 20px; /* spacing between columns */
+    min-width: 0; /* override 400px min-width */
+    flex-direction: row; /* override any earlier column direction */
+    justify-content: space-between;
+  }
+
+  /* all columns default: 1/3 width */
+  .footer-links .link-column {
+    flex: 1 0 33.333%;
+  }
+
+  /* first column takes full row */
+  .footer-links .link-column:first-child {
+    flex: 0 0 100%;
+    order: 0;
+  }
+
+  /* keep the remaining three together after the first */
+  .footer-links .link-column:nth-child(n + 2) {
+    order: 1;
+  }
+
+  /* remove mobile offsets that were pushing things around */
+  .footer-links .link-column:first-child,
+  .footer-links .link-column:nth-child(2),
+  .footer-links .link-column:last-child {
+    margin-top: 0 !important;
   }
 }
