@@ -183,7 +183,7 @@
   .hero-left p {
     font-size: 18px;
     margin: 24px 0;
-    margin-top: 15px;
+    margin-top: 8px;
   }
 
   .small-btn {
@@ -220,6 +220,7 @@
   #banner-btn {
     width: 200px;
     font-size: 15px;
+    border: 1px solid #23234e;
   }
 
   .hero-left h1 {
@@ -538,6 +539,8 @@
 
   .top-choice-heading {
     font-size: 32px;
+    word-spacing: -3px;
+    margin-bottom: 5px;
   }
 
   .stat-number {
@@ -955,6 +958,7 @@ section.integration {
   }
   .integration-right h1 {
     font-size: 2rem;
+    margin-bottom: -20px;
   }
   .integration-df {
     padding: 20px;
@@ -1427,6 +1431,7 @@ section.integration {
   }
   .ul-form h2 {
     font-size: 26px;
+    line-height: 1.2;
   }
 }
 

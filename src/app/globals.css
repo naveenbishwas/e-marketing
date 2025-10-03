@@ -57,9 +57,21 @@ a {
   color: inherit;
   text-decoration: none;
 }
+/* 
+@font-face {
+  font-family: "Urbanist";
+  src: url("/e-marketing/public/Urbanist/Urbanist-VariableFont_wght.ttf");
+} */
+@font-face {
+  font-family: "Urbanist";
+  src: url("/Urbanist/Urbanist-VariableFont_wght.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
 
 h1 {
   text-transform: capitalize;
+  font-family: "Urbanist";
 }
 
 @media (prefers-color-scheme: dark) {
