@@ -31,7 +31,7 @@ const Header = () => {
 
         <nav className={`nav-menu ${menuOpen ? "open" : ""}`}>
           <ul>
-            <Link href="tel:+919315003754">
+            <Link href="tel:+919315003754" id="phone-no-desk">
               <div className="phone">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -49,6 +49,9 @@ const Header = () => {
                 </svg>
                 <span className="phone-text">+91 931 500 3754</span>
               </div>
+            </Link>
+            <Link href="/">
+              <li>Home</li>
             </Link>
             <Link href="case-studies">
               <li>Case Studies</li>
