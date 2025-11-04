@@ -49,9 +49,9 @@ export default function CaseStudies() {
     },
     {
       id: 8,
-      title: "Aurave",
-      image: "/aurave.png",
-      href: "https://www.auravedecor.in/",
+      title: "Verma Jewellers",
+      image: "/verma.png",
+      href: "https://vermajewellers.in/",
     },
     {
       id: 9,
