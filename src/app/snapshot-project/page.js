@@ -55,9 +55,9 @@ export default function CaseStudies() {
     },
     {
       id: 9,
-      title: "HubHawks",
-      image: "/hub.png",
-      href: "https://sniper-ruddy.vercel.app/",
+      title: "Hubhawks Live",
+      image: "/hubhawks.png",
+      href: "https://hubhawkslive.com/",
     },
     {
       id: 10,
@@ -93,13 +93,6 @@ export default function CaseStudies() {
 
     {
       id: 15,
-      title: "Hubhawks Live",
-      image: "/hubhawks.png",
-      href: "https://hubhawkslive.com/",
-    },
-
-    {
-      id: 16,
       title: "Evara Matrimony",
       image: "/evara.png",
       href: "https://evaramatrimony.com/",
@@ -108,8 +101,9 @@ export default function CaseStudies() {
 
   return (
     <>
+      {/* Title-Description */}
       <Head>
-        <title>Every Project We’ve Shipped</title>
+        <title>Every Project We've Shipped</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="/css/case-studies.css" />
       </Head>
