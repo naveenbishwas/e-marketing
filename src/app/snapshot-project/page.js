@@ -2,6 +2,7 @@ import Head from "next/head";
 import "./snapshot-project.css";
 import Header from "@/components/Header/page";
 import Footer from "@/components/footer/page";
+import Image from "next/image";
 
 export default function CaseStudies() {
   const projects = [
@@ -109,7 +110,7 @@ export default function CaseStudies() {
     <>
       {/* Title-Description */}
       <Head>
-        <title>Every Project We've Shipped</title>
+        <title>Every Project We ve Shipped</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="/css/case-studies.css" />
       </Head>
@@ -120,7 +121,7 @@ export default function CaseStudies() {
           <h1>All Projects</h1>
           <p>
             Explore the complete collection of websites, funnels, and
-            performance campaigns we’ve executed — real projects that drove
+            performance campaigns we ve executed — real projects that drove
             measurable results for our clients.
           </p>
         </header>
@@ -135,13 +136,13 @@ export default function CaseStudies() {
                 target="_blank"
               >
                 <div className="proj-card__imageWrap">
-                  <img
+                  <Image
                     className="proj-card__image"
                     src={p.image}
                     alt={p.title}
-                    loading="lazy"
                     width="640"
                     height="420"
+                    unoptimized
                   />
                 </div>
                 <div className="proj-card__body">

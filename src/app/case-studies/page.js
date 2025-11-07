@@ -4,6 +4,7 @@ import Link from "next/link";
 import "./case-studies.css";
 import Header from "@/components/Header/page";
 import Footer from "@/components/footer/page";
+import Image from "next/image";
 
 const caseStudies = [
   {
@@ -59,7 +60,15 @@ export default function CaseStudiesPage() {
                 <p className="cs-excerpt">{item.excerpt}</p>
 
                 <div className="cs-media">
-                  <img src={item.image} alt={item.title} loading="lazy" />
+                  {/* <img src={item.image} alt={item.title} loading="lazy" /> */}
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    loading="lazy"
+                    width={0}
+                    height={0}
+                    unoptimized
+                  ></Image>
                 </div>
 
                 <div className="cs-actions">
