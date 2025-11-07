@@ -97,6 +97,12 @@ export default function CaseStudies() {
       image: "/evara.png",
       href: "https://evaramatrimony.com/",
     },
+    {
+      id: 16,
+      title: "The Craft Of Architecture",
+      image: "/craft.png",
+      href: "https://thecraftofarchitecture.net/",
+    },
   ];
 
   return (
