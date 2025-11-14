@@ -314,100 +314,97 @@ export default function Home() {
   const scrollerRef = useRef(null);
   const [q, setQ] = useState("");
   const [role, setRole] = useState("All");
-  const [form, setForm] = useState(INITIAL);
-  const [submitting, setSubmitting] = useState(false);
+  // const [form, setForm] = useState(INITIAL);
+  const [sending, setSending] = useState(false);
   const [status, setStatus] = useState({ type: "", message: "" });
+  const formRef = useRef(null);
 
-  const { companyName, budget, name, phone, email, service, designation } =
-    form;
+  // const { companyName, budget, name, phone, email, service, designation } =
+  //   form;
 
-  const onChange = (e) => {
-    const { name, value } = e.target;
-    setForm((f) => ({ ...f, [name]: value }));
+  const [formData, setFormData] = useState({
+    companyName: "",
+    budget: "",
+    name: "",
+    phone: "",
+    email: "",
+    service: "",
+    designation: "",
+  });
+
+  const handleNameChange = (e) => {
+    const value = e.target.value.replace(/[^a-zA-Z\s]/g, "");
+    setFormData((s) => ({ ...s, name: value }));
   };
 
-  const validate = () => {
-    if (!companyName || !name || !email) {
-      setStatus({
-        type: "error",
-        message: "Company, Name and Email are required.",
-      });
-      return false;
-    }
-    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    if (!emailOk) {
-      setStatus({
-        type: "error",
-        message: "Please enter a valid email address.",
-      });
-      return false;
-    }
-    const phoneOk = !phone || /^[0-9+\-\s()]{7,20}$/.test(phone);
-    if (!phoneOk) {
-      setStatus({
-        type: "error",
-        message: "Please enter a valid phone number.",
-      });
-      return false;
-    }
-    return true;
+  const handlePhoneChange = (e) => {
+    const value = e.target.value.replace(/\D/g, "").slice(0, 10);
+    setFormData((s) => ({ ...s, phone: value }));
   };
+
+  // const onChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setForm((f) => ({ ...f, [name]: value }));
+  // };
+
+  // const validate = () => {
+  //   if (!companyName || !name || !email) {
+  //     setStatus({
+  //       type: "error",
+  //       message: "Company, Name and Email are required.",
+  //     });
+  //     return false;
+  //   }
+  //   const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  //   if (!emailOk) {
+  //     setStatus({
+  //       type: "error",
+  //       message: "Please enter a valid email address.",
+  //     });
+  //     return false;
+  //   }
+  //   const phoneOk = !phone || /^[0-9+\-\s()]{7,20}$/.test(phone);
+  //   if (!phoneOk) {
+  //     setStatus({
+  //       type: "error",
+  //       message: "Please enter a valid phone number.",
+  //     });
+  //     return false;
+  //   }
+  //   return true;
+  // };
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    setStatus({ type: "", message: "" });
-    if (!validate()) return;
-
-    setSubmitting(true);
-
-    // === EmailJS config (use your IDs) ===
-    const serviceId = "service_lc3zqsj";
-    const templateId = "template_lgmyk3o";
-    const publicKey = "vwQ1UwMU_xiay6xqT";
-    const confirmationTemplateId = "template_dtk82zi";
-
-    const templateParams = {
-      to_name: "Sayam",
-      from_name: companyName,
-      company_name: companyName,
-      monthly_marketing_budget: budget || "Not provided",
-      client_name: name,
-      phone_no: phone || "Not provided",
-      email_id: email,
-      service_id: service || "Not selected",
-      designation: designation || "Not provided",
-    };
-
-    const confirmationParams = {
-      to_name: name,
-      to_email: email,
-      user_name: name,
-      user_email: email,
-    };
+    setSending(true);
 
     try {
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
-      await emailjs.send(
-        serviceId,
-        confirmationTemplateId,
-        confirmationParams,
-        publicKey
-      );
+      const res = await fetch("/api/send-mail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" }, // FIXED
+        body: JSON.stringify(formData),
+      });
 
-      setForm(INITIAL);
-      setStatus({
-        type: "success",
-        message:
-          "Thanks! Your details are submitted. We’ve sent a confirmation to your email.",
+      const data = await res.json();
+
+      if (!res.ok) throw new Error(data.error || "Failed to send email");
+
+      alert("Thanks! Your enquiry has been sent.");
+
+      setFormData({
+        companyName: "",
+        budget: "",
+        name: "",
+        phone: "",
+        email: "",
+        service: "",
+        designation: "",
       });
     } catch (err) {
-      console.error(err);
-      setStatus({
-        type: "error",
-        message: "Something went wrong. Please try again in a moment.",
-      });
+      console.error("Error sending mail:", err);
+      alert("Something went wrong. Please try again.");
     } finally {
-      setSubmitting(false);
+      setSending(false);
     }
   };
 
@@ -1053,7 +1050,7 @@ export default function Home() {
                 conversions. Unleash your brand’s full potential with Unnity.
               </p>
 
-              <form onSubmit={submitHandler} noValidate>
+              <form onSubmit={submitHandler} ref={formRef}>
                 <div className="ul-grid">
                   <div className="ul-field">
                     <label htmlFor="companyName">Company Name</label>
@@ -1062,8 +1059,13 @@ export default function Home() {
                       name="companyName"
                       type="text"
                       placeholder="Company Name"
-                      value={companyName}
-                      onChange={onChange}
+                      value={formData.companyName}
+                      onChange={(e) =>
+                        setFormData((s) => ({
+                          ...s,
+                          companyName: e.target.value,
+                        }))
+                      }
                       required
                     />
                   </div>
@@ -1073,8 +1075,10 @@ export default function Home() {
                     <select
                       id="budget"
                       name="budget"
-                      value={budget}
-                      onChange={onChange}
+                      value={formData.budget}
+                      onChange={(e) =>
+                        setFormData((s) => ({ ...s, budget: e.target.value }))
+                      }
                     >
                       <option value="">Monthly Marketing Budget</option>
                       <option value="Less Than Rs 2L Budget">
@@ -1096,8 +1100,10 @@ export default function Home() {
                       name="name"
                       type="text"
                       placeholder="Name"
-                      value={name}
-                      onChange={onChange}
+                      value={formData.name}
+                      onChange={(e) =>
+                        setFormData((s) => ({ ...s, name: e.target.value }))
+                      }
                       required
                     />
                   </div>
@@ -1109,8 +1115,8 @@ export default function Home() {
                       name="phone"
                       type="tel"
                       placeholder="Phone Number"
-                      value={phone}
-                      onChange={onChange}
+                      value={formData.phone}
+                      onChange={handlePhoneChange}
                     />
                   </div>
 
@@ -1121,8 +1127,10 @@ export default function Home() {
                       name="email"
                       type="email"
                       placeholder="Email Address"
-                      value={email}
-                      onChange={onChange}
+                      value={formData.email}
+                      onChange={(e) =>
+                        setFormData((s) => ({ ...s, email: e.target.value }))
+                      }
                       required
                     />
                   </div>
@@ -1132,8 +1140,10 @@ export default function Home() {
                     <select
                       id="service"
                       name="service"
-                      value={service}
-                      onChange={onChange}
+                      value={formData.service}
+                      onChange={(e) =>
+                        setFormData((s) => ({ ...s, service: e.target.value }))
+                      }
                     >
                       <option value="">Choose A Service</option>
                       <option value="SEO">SEO</option>
@@ -1160,8 +1170,13 @@ export default function Home() {
                       name="designation"
                       type="text"
                       placeholder="Designation"
-                      value={designation}
-                      onChange={onChange}
+                      value={formData.designation}
+                      onChange={(e) =>
+                        setFormData((s) => ({
+                          ...s,
+                          designation: e.target.value,
+                        }))
+                      }
                     />
                   </div>
                 </div>
@@ -1176,12 +1191,8 @@ export default function Home() {
                   </div>
                 )}
 
-                <button
-                  className="ul-submit"
-                  type="submit"
-                  disabled={submitting}
-                >
-                  {submitting ? "Submitting..." : "Submit"}
+                <button className="ul-submit" type="submit" disabled={sending}>
+                  {sending ? "sending..." : "Send Enquiry"}
                 </button>
               </form>
             </div>
