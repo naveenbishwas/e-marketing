@@ -20,13 +20,13 @@ const Travel = () => {
           </h2>
 
           <p className="dentistry-paragraph">
-            Brand E-sim's journey with Google Ads is a testament to strategic
-            scaling and optimization. From a modest beginning to achieving
-            record-breaking sales and conversion rates, this case study
-            showcases the power of targeted advertising and the effective use of
-            Google's algorithms. Let's dive into the details of how E-sim
-            leveraged Google Ads to maximize their ecommerce potential and
-            outperform the competition.
+            Brand E-sim&apos;s journey with Google Ads is a testament to
+            strategic scaling and optimization. From a modest beginning to
+            achieving record-breaking sales and conversion rates, this case
+            study showcases the power of targeted advertising and the effective
+            use of Google&apos;s algorithms. Let&apos;s dive into the details of
+            how E-sim leveraged Google Ads to maximize their ecommerce potential
+            and outperform the competition.
           </p>
         </div>
 
@@ -73,8 +73,8 @@ const Travel = () => {
               <div className="io-badge">2</div>
               <h3 className="io-step-title">Strategic Scaling</h3>
               <p className="io-step-text">
-                The focus was on strategic scaling to tap into the account's
-                full potential and increase revenue.
+                The focus was on strategic scaling to tap into the
+                account&apos;s full potential and increase revenue.
               </p>
             </article>
 
@@ -169,7 +169,7 @@ const Travel = () => {
               The ad account experienced a significant scale, jumping from $3000
               to an impressive $10,000 per day. This remarkable increase was a
               result of meticulous planning and execution, ensuring that the
-              client's investment yielded substantial returns.
+              client&apos;s investment yielded substantial returns.
             </p>
           </header>
 
@@ -201,9 +201,9 @@ const Travel = () => {
               Optimization and Conversion Performance
             </h2>
             <p className="oc-lead">
-              E-Travelsim's campaigns were optimized to maximize conversions,
-              resulting in a staggering 6600 conversions at a cost per
-              registration (CPR) of $12. This optimization was crucial in
+              E-Travelsim&apos;s campaigns were optimized to maximize
+              conversions, resulting in a staggering 6600 conversions at a cost
+              per registration (CPR) of $12. This optimization was crucial in
               ensuring that the increase in budget did not negatively impact the
               cost/conversion ratio.
             </p>
@@ -213,7 +213,7 @@ const Travel = () => {
             <article className="oc-card">
               <h3 className="oc-card-title">Conversions Achieved</h3>
               <p className="oc-card-text">
-                6600 conversions were generated, showcasing the campaign's
+                6600 conversions were generated, showcasing the campaign&apos;s
                 effectiveness.
               </p>
             </article>
@@ -244,11 +244,11 @@ const Travel = () => {
             </h2>
             <p className="gp-lead">
               Running search campaigns with multiple products and ad groups
-              under a single search campaign, E-Travelsim's ads were optimized
-              for conversions in regions with the highest purchase potential.
-              The campaigns were broken down by continents for granular
-              analysis, with each campaign targeting specific countries and
-              products.
+              under a single search campaign, E-Travelsim&apos;s ads were
+              optimized for conversions in regions with the highest purchase
+              potential. The campaigns were broken down by continents for
+              granular analysis, with each campaign targeting specific countries
+              and products.
             </p>
           </header>
 
@@ -264,8 +264,8 @@ const Travel = () => {
             <article className="gp-card">
               <h3 className="gp-card-title">Algorithmic Precision</h3>
               <p className="gp-card-text">
-                Google's algorithm was leveraged to optimize campaigns based on
-                target countries and products.
+                Google&apos;s algorithm was leveraged to optimize campaigns
+                based on target countries and products.
               </p>
             </article>
 
@@ -288,10 +288,11 @@ const Travel = () => {
               Algorithmic Collaboration
             </h2>
             <p className="ac-lead">
-              Working in tandem with Google's algorithm, slight adjustments were
-              made to the campaigns for enhanced impact. These strategic tweaks
-              resulted in positive outcomes across the board, demonstrating the
-              effectiveness of a nuanced approach to algorithmic advertising.
+              Working in tandem with Google&apos;s algorithm, slight adjustments
+              were made to the campaigns for enhanced impact. These strategic
+              tweaks resulted in positive outcomes across the board,
+              demonstrating the effectiveness of a nuanced approach to
+              algorithmic advertising.
             </p>
           </header>
 
@@ -299,7 +300,7 @@ const Travel = () => {
             <article className="ac-card">
               <h3 className="ac-card-title">Algorithmic Assistance</h3>
               <p className="ac-card-text">
-                Google's algorithm played a pivotal role in optimizing ad
+                Google&apos;s algorithm played a pivotal role in optimizing ad
                 delivery.
               </p>
             </article>
@@ -333,7 +334,7 @@ const Travel = () => {
             <p className="cs-lead">
               E-Travelsim identified and implemented strategies that were
               effective for competitors, adapting them to communicate the
-              brand's unique value proposition. This approach resulted in a
+              brand&apos;s unique value proposition. This approach resulted in a
               positive response across the campaigns, distinguishing E-Travelsim
               in a competitive market.
             </p>
@@ -354,7 +355,8 @@ const Travel = () => {
             </div>
             <div className="cs-card">
               <p className="cs-card-text">
-                Communicated E-Travelsim's unique selling points effectively.
+                Communicated E-Travelsim&apos;s unique selling points
+                effectively.
               </p>
             </div>
 
