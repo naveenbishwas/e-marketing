@@ -6,6 +6,7 @@
 
 .dentistry-text {
   flex: 1 1 58%;
+  margin-top: 5%;
 }
 
 .dentistry-title {
@@ -61,6 +62,7 @@
 .scaling {
   background: #f7f8fb;
   padding: 80px 24px;
+  padding-top: 30px;
 }
 
 .scaling-container {

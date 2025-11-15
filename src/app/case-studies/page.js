@@ -23,7 +23,7 @@ const caseStudies = [
     excerpt:
       "Mission to dominate the digital advertising space through Google Ads. The journey began with scaling efforts....",
     image: "/step-2.avif",
-    href: "/case-studies/home-appliances",
+    href: "/case-study-internals/home-appliance",
   },
   {
     id: "e-sim",
@@ -32,7 +32,7 @@ const caseStudies = [
     excerpt:
       "Brand E-Travelsim's journey with Google Ads is a testament to strategic scaling and optimization...",
     image: "/step-3.avif",
-    href: "/case-studies/e-sim",
+    href: "/case-study-internals/travel",
   },
   // ➜ Add more items here as needed
 ];
