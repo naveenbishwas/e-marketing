@@ -241,21 +241,21 @@ const members = [
     socials: { linkedin: "#", github: "#" },
   },
 
-  {
-    name: "Rishabh",
-    role: "Head of Tech Leads",
-    photo: "/rishabh.jpeg",
-    bio: "Leads development with a focus on code quality, scalability, and team mentorship.",
-    socials: { linkedin: "#", github: "#" },
-  },
+  // {
+  //   name: "Rishabh",
+  //   role: "Head of Tech Leads",
+  //   photo: "/rishabh.jpeg",
+  //   bio: "Leads development with a focus on code quality, scalability, and team mentorship.",
+  //   socials: { linkedin: "#", github: "#" },
+  // },
 
-  {
-    name: "Keshav",
-    role: "SEO",
-    photo: "/keshav.jpeg",
-    bio: "Crafts data-driven SEO strategies to improve visibility and search performance.",
-    socials: { linkedin: "#", github: "#" },
-  },
+  // {
+  //   name: "Keshav",
+  //   role: "SEO",
+  //   photo: "/keshav.jpeg",
+  //   bio: "Crafts data-driven SEO strategies to improve visibility and search performance.",
+  //   socials: { linkedin: "#", github: "#" },
+  // },
 
   {
     name: "Sarthak",
