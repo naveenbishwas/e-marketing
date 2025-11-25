@@ -44,16 +44,16 @@ h2 {
 }
 
 .hero-left h1 {
-  font-size: 4.2rem;
+  font-size: 4rem;
   margin-top: 20px;
-  line-height: 1.2;
+  line-height: 1.1;
   font-weight: 600;
   text-transform: capitalize;
 }
 
 .hero-left p {
-  font-size: 22px;
-  margin: 40px 0;
+  font-size: 20px;
+  margin: 20px 0;
   color: #333;
 }
 
@@ -66,7 +66,7 @@ h2 {
   border: none;
   border-radius: 6px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  margin-top: 30%;
+  margin-top: 20%;
 }
 
 .primary-btn {
@@ -162,11 +162,133 @@ h2 {
   width: 50%;
 }
 
-.hero-img {
+.laptop-wrapper {
+  position: relative;
+  width: 700px; /* desktop size */
+  margin-top: 5%;
+}
+
+.laptop-base {
   width: 100%;
   height: auto;
-  border-radius: 8px;
-  margin-top: -11%;
+  display: block;
+}
+
+/* Laptop screen area */
+.screen-slider {
+  position: absolute;
+  top: 3%;
+  left: 12%;
+  width: 76%;
+  height: 90%;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.fade-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.fade-slider .slide-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: fadeCycle 15s infinite;
+}
+
+/* Slide delays */
+.fade-slider .slide-img:nth-child(1) {
+  animation-delay: 0s;
+}
+.fade-slider .slide-img:nth-child(2) {
+  animation-delay: 3.33s;
+}
+.fade-slider .slide-img:nth-child(3) {
+  animation-delay: 6.66s;
+}
+
+/* Fade animation */
+@keyframes fadeCycle {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  } /* Fade in quick */
+  33% {
+    opacity: 1;
+  } /* Stay visible long */
+  38% {
+    opacity: 0;
+  } /* Fade out quick */
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .laptop-wrapper {
+    width: 500px;
+    margin-top: 20px;
+  }
+
+  .screen-slider {
+    top: 5%;
+    left: 12%;
+    width: 76%;
+    height: 86%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .laptop-wrapper {
+    width: 380px;
+    margin-top: 30px;
+  }
+
+  .screen-slider {
+    top: 6%;
+    left: 12%;
+    width: 76%;
+    height: 82%;
+  }
+}
+
+@media (max-width: 540px) {
+  .hero-right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .laptop-wrapper {
+    width: 300px;
+    margin-top: 25px;
+  }
+
+  .screen-slider {
+    top: 7%;
+    left: 12%;
+    width: 76%;
+    height: 80%;
+    border-radius: 6px;
+  }
 }
 
 /* ---------------------- */
@@ -179,6 +301,10 @@ h2 {
     padding: 0;
     text-align: left;
     margin-top: 12%;
+  }
+
+  .laptop-wrapper {
+    width: 100%;
   }
 
   .hero-left h1 {
@@ -243,33 +369,19 @@ h2 {
   }
 }
 
-.hero {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #f5f1e8;
-  padding: 60px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  z-index: 0;
-}
-
 .features-carousel {
   padding: 40px 20px;
   text-align: center;
   position: relative;
-  margin-top: 12%;
+  margin-top: 2%;
+  padding-bottom: 90px;
 }
 
 .carousel-title {
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 40px;
-  max-width: 70%;
-  text-align: left;
+  /* max-width: 70%; */
 }
 
 .carousel-wrapper {
@@ -314,8 +426,8 @@ h2 {
 
 .feature-image {
   width: 100%;
-  height: 400px;
-  object-fit: cover;
+  height: auto;
+  /* object-fit: cover;  */
   border-radius: 12px 12px 0 0;
 }
 
@@ -354,12 +466,12 @@ h2 {
 
 .title-nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 @media (max-width: 768px) {
   .title-nav {
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
   }
 
@@ -415,7 +527,16 @@ h2 {
 
   .features-carousel {
     /* margin-top: 46%; */
-    padding-top: 15%;
+    padding-top: 4%;
+    padding-bottom: 10%;
+  }
+
+  .features-carousel span {
+    margin-top: 3%;
+  }
+
+  .carousel-wrapper {
+    padding-bottom: 8%;
   }
 
   .title-nav span:nth-child(2) {

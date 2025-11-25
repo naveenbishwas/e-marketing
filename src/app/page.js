@@ -25,7 +25,7 @@ const features = [
     description:
       "We build custom solutions using Shopify, Next.js, and robust backend technologies. From eCommerce to web apps, we handle everything from databases to clean, scalable code.",
     link: "#",
-    image: "/shopify.jpg", // Save the first image locally
+    image: "/dev-sol.jpeg", // Save the first image locally
     alt: "Email automation",
   },
   {
@@ -33,7 +33,7 @@ const features = [
     description:
       "We run high-converting Meta Ads that drive traffic, leads, and sales. From strategy to creatives and optimization, we manage it all for measurable growth.",
     link: "#",
-    image: "/meta.jpg", // Save the second image locally
+    image: "/m-ads.jpeg", // Save the second image locally
     alt: "Customizable templates",
   },
   {
@@ -41,7 +41,7 @@ const features = [
     description:
       "We create and manage data-driven Google Ads campaigns to boost visibility and conversions. From search to display, we optimize every click for maximum ROI.",
     link: "#",
-    image: "/google.jpg", // Save the third image locally
+    image: "/g-ads.jpeg", // Save the third image locally
     alt: "A/B Testing",
   },
   {
@@ -49,7 +49,7 @@ const features = [
     description:
       "We craft targeted LinkedIn Ads to connect you with decision-makers and drive B2B growth. From audience building to ad optimization, we deliver results that matter.",
     link: "#",
-    image: "/linkedin.jpg",
+    image: "/link.jpeg",
     alt: "A/B Testing",
   },
   {
@@ -57,7 +57,7 @@ const features = [
     description:
       "We build strong brand identities that reflect your vision and resonate with your audience. From logos to visual systems, we create cohesive designs that leave a lasting impression.",
     link: "#",
-    image: "/brand-identity.png",
+    image: "/identity.jpeg",
     alt: "A/B Testing",
   },
 ];
@@ -538,15 +538,49 @@ export default function Home() {
                 </button>
               </a>
             </div>
+
             <div className="hero-right">
-              <Image
-                className="hero-img"
-                src="./section1.avif"
-                alt="Woman with phone"
-                width={0}
-                height={0}
-                unoptimized
-              ></Image>
+              <div className="laptop-wrapper">
+                {/* Laptop Image */}
+                <Image
+                  src="/laptop2.png"
+                  alt="Laptop"
+                  className="laptop-base"
+                  width={600}
+                  height={350}
+                  unoptimized
+                />
+
+                {/* Fade Slider Inside Laptop */}
+                <div className="screen-slider">
+                  <div className="fade-slider">
+                    <Image
+                      src="/graphic-new.png"
+                      alt="Slide 1"
+                      className="slide-img"
+                      width={800}
+                      height={500}
+                      unoptimized
+                    />
+                    <Image
+                      src="/design-new.png"
+                      alt="Slide 2"
+                      className="slide-img"
+                      width={800}
+                      height={500}
+                      unoptimized
+                    />
+                    <Image
+                      src="/seo-new.png"
+                      alt="Slide 3"
+                      className="slide-img"
+                      width={800}
+                      height={500}
+                      unoptimized
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
         </div>
@@ -555,10 +589,10 @@ export default function Home() {
           <div className="title-nav">
             <span>
               <h2 className="carousel-title">
-                Elevate Your Brand with Our Marketing Expertise
+                Elevate Your Brand with Our <br /> Marketing Expertise
               </h2>
             </span>
-            <span>
+            {/* <span>
               <button className="nav-btn left" onClick={scrollLeft}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -591,7 +625,7 @@ export default function Home() {
                   />
                 </svg>
               </button>
-            </span>
+            </span> */}
           </div>
 
           <div className="carousel-wrapper">
@@ -618,6 +652,40 @@ export default function Home() {
               ))}
             </div>
           </div>
+          <span>
+            <button className="nav-btn left" onClick={scrollLeft}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="size-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+                />
+              </svg>
+            </button>
+            <button className="nav-btn right" onClick={scrollRight}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="size-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                />
+              </svg>
+            </button>
+          </span>
         </div>
 
         <div className="logo-slider">
