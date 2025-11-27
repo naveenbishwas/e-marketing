@@ -104,6 +104,13 @@ export default function CaseStudies() {
       image: "/craft.png",
       href: "https://thecraftofarchitecture.net/",
     },
+
+    {
+      id: 17,
+      title: "Prateek Suri",
+      image: "/prateek-suri.png",
+      href: "https://author-rose.vercel.app/",
+    },
   ];
 
   return (
