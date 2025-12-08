@@ -6,39 +6,51 @@ import styles from "./Process.module.css";
 const steps = [
   {
     id: 1,
-    heading: "You share your vision with us",
+    heading: "Discovery & Understanding",
     paragraph:
-      "We conduct deep business discovery, audience research, and gap analysis to uncover what truly drives performance. This phase sets the foundation for smarter targeting, messaging, and conversion planning.",
+      "We begin by understanding your business goals, audience, positioning, and challenges to align expectations and create a strategic direction.",
   },
   {
     id: 2,
-    heading: "Build Strategy That Wins",
+    heading: "Market & Competitive Intelligence",
     paragraph:
-      "We create a measurable roadmap with positioning, channel strategy, targeting frameworks, and KPI alignment. Every move is engineered for growth, lead generation, campaign success, and long-term ROI.",
+      "We research your industry, study competitors, and analyse customer behaviour to uncover opportunities and guide positioning.",
   },
   {
     id: 3,
-    heading: "Execute With Precision",
+    heading: "Strategy & Offer Development",
     paragraph:
-      "We launch performance-focused campaigns, creatives, funnels, and automation built for engagement and conversion.  Implementation is agile — informed by data and designed for impact.",
+      "We build a conversion-focused strategy, refine your offer, define messaging pillars, and map customer journeys for maximum impact.",
   },
   {
     id: 4,
-    heading: "Optimize For Compoundings ROI",
+    heading: "Creative & Content Production",
     paragraph:
-      "We analyze performance, test hypotheses, refine creatives and audiences, and scale winning elements. This ongoing optimization drives continuous improvement, higher ROAS, and business growth.",
+      "Our team crafts compelling creatives, ads, videos, landing page content, and brand messaging aligned with growth objectives.",
   },
   {
     id: 5,
-    heading: "We launch, and grow together",
+    heading: "Technical Setup & Campaign Foundation",
     paragraph:
-      "Once approved, we go live and support you as you scale. Our team remains available to help optimize and improve as your business evolves.",
+      "We implement analytics, tracking, CRM flows, landing pages, automation, and attribution systems for seamless performance measurement.",
   },
   {
     id: 6,
-    heading: "We launch, and grow together",
+    heading: "Launch & Activation",
     paragraph:
-      "Once approved, we go live and support you as you scale. Our team remains available to help optimize and improve as your business evolves.",
+      "We execute campaigns across chosen platforms, allocate budgets strategically, and initiate testing to gather performance insights.",
+  },
+  {
+    id: 7,
+    heading: "Optimization, Testing & Scaling",
+    paragraph:
+      "We continuously monitor data, run A/B tests, improve funnels and targeting, and scale campaigns once profitability and efficiency are validated.",
+  },
+  {
+    id: 8,
+    heading: "Reporting, Innovation & Long-Term Growth",
+    paragraph:
+      "We provide clear reporting, share insights, and evolve strategy, creatives, and automation to drive compounding growth over time.",
   },
 ];
 
@@ -50,9 +62,6 @@ const Process = () => {
       <div className={styles.container}>
         <div className={styles.header}>
           <h2 className={styles.title}>Our Proven Growth Lifecycle</h2>
-          {/* <p className={styles.description}>
-                        Use this animation to give more information about your services, process, features, benefits and more, without crowding your webpage with text while keeping it engaging and interactive for visitors.
-                    </p> */}
         </div>
 
         <div className={styles.stepsContainer}>
