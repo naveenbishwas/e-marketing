@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useRef } from "react";
 import {
   motion,
@@ -7,145 +6,35 @@ import {
   useScroll,
   useMotionValueEvent,
 } from "framer-motion";
-
-const styles = `
-  .banner {
-    position: relative;
-    width: 100%;
-    height: 400vh;
-    background-color: #000;
-  }
-
-  .stickyContainer {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-
-  .backgroundContainer {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    overflow: hidden;
-  }
-
-  .videoBackground {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .dimOverlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 1;
-  }
-
-  .container {
-    position: relative;
-    z-index: 10;
-  }
-
-  .textWrapper {
-    position: relative;
-    display: inline-block;
-    font-size: 15vw;
-    font-weight: 900;
-    line-height: 1;
-    text-transform: uppercase;
-    color: transparent;
-    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.5);
-    font-family: sans-serif;
-    user-select: none;
-  }
-
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    color: #fff;
-    -webkit-text-stroke: 0;
-    background: transparent;
-    z-index: 2;
-    pointer-events: none;
-  }
-
-  .customCursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    background-color: #fff;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    mix-blend-mode: difference;
-  }
-
-  .scrollIndicator {
-    position: fixed;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 50;
-    color: white;
-    font-size: 0.875rem;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 0.5rem 1rem;
-    border-radius: 9999px;
-  }
-`;
+import styles from "./DirectionAwareBanner.module.css";
 
 const slides = [
   {
     id: 1,
     text: "Insight",
-    image:
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200",
+    image: "/images/marketing_team_banner.png",
   },
   {
     id: 2,
     text: "Execution",
-    image:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200",
+    image: "/industry_furnishing_1764314743864.png",
   },
   {
     id: 3,
     text: "Impact",
-    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200",
+    image: "/industry_pharmacy_1764314726665.png",
   },
   {
     id: 4,
-    text: "We are Unity",
-    image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1200",
+    text: "We are Unnity",
+    image: "/industry_furnishing_1764314743864.png",
   },
 ];
 
 const DirectionAwareBanner = () => {
   const [isHovered, setIsHovered] = useState(false);
-  const [direction, setDirection] = useState("left");
-  const [mousePosition, setMousePosition] = useState({
-    x: 0,
-    y: 0,
-    moveX: 0,
-    moveY: 0,
-  });
+  const [direction, setDirection] = useState("left"); // left, right, top, bottom
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [activeSlide, setActiveSlide] = useState(0);
 
   const containerRef = useRef(null);
@@ -156,16 +45,13 @@ const DirectionAwareBanner = () => {
     offset: ["start start", "end end"],
   });
 
-  // Fixed: Proper slide transitions for 4 slides
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    if (latest < 0.25) {
+    if (latest < 0.33) {
       setActiveSlide(0);
-    } else if (latest < 0.5) {
+    } else if (latest < 0.66) {
       setActiveSlide(1);
-    } else if (latest < 0.75) {
-      setActiveSlide(2);
     } else {
-      setActiveSlide(3);
+      setActiveSlide(2);
     }
   });
 
@@ -184,159 +70,181 @@ const DirectionAwareBanner = () => {
   };
 
   const handleMouseMove = (e) => {
+    // Calculate magnetic movement
+    // Move text slightly towards cursor (e.g., 20px max)
     const { clientX, clientY } = e;
-    const moveX = (clientX - window.innerWidth / 2) * 0.05;
+    const moveX = (clientX - window.innerWidth / 2) * 0.05; // 5% movement
     const moveY = (clientY - window.innerHeight / 2) * 0.05;
 
     setMousePosition({ x: clientX, y: clientY, moveX, moveY });
   };
 
+  // Helper to detect direction
   const getDirection = (e, item) => {
-    const rect = item.getBoundingClientRect();
-    const w = rect.width;
-    const h = rect.height;
+    // Width and height of the element
+    const w = item.offsetWidth;
+    const h = item.offsetHeight;
 
+    // Calculate the position of the mouse relative to the center of the element
+    // e.pageX/Y gives position relative to document
+    // item.getBoundingClientRect() gives position relative to viewport
+    const rect = item.getBoundingClientRect();
     const x = (e.clientX - rect.left - w / 2) * (w > h ? h / w : 1);
     const y = (e.clientY - rect.top - h / 2) * (h > w ? w / h : 1);
 
+    // Calculate the angle and direction
+    // 0: top, 1: right, 2: bottom, 3: left
     const d = Math.round(Math.atan2(y, x) / 1.57079633 + 5) % 4;
 
-    const directions = ["top", "right", "bottom", "left"];
-    return directions[d] || "left";
+    switch (d) {
+      case 0:
+        return "top";
+      case 1:
+        return "right";
+      case 2:
+        return "bottom";
+      case 3:
+        return "left";
+      default:
+        return "left";
+    }
   };
 
+  // Framer Motion variants for the clip-path animation
   const variants = {
     initial: (dir) => {
-      const clips = {
-        top: "inset(100% 0 0 0)",
-        bottom: "inset(0 0 100% 0)",
-        left: "inset(0 100% 0 0)",
-        right: "inset(0 0 0 100%)",
-      };
-      return { clipPath: clips[dir] || clips.left };
+      switch (dir) {
+        case "top":
+          return { clipPath: "inset(100% 0 0 0)" };
+        case "bottom":
+          return { clipPath: "inset(0 0 100% 0)" };
+        case "left":
+          return { clipPath: "inset(0 100% 0 0)" };
+        case "right":
+          return { clipPath: "inset(0 0 0 100%)" };
+        default:
+          return { clipPath: "inset(0 100% 0 0)" };
+      }
     },
     animate: {
       clipPath: "inset(0 0 0 0)",
       transition: { duration: 0.6, ease: [0.33, 1, 0.68, 1] },
     },
     exit: (dir) => {
-      const clips = {
-        top: "inset(0 0 100% 0)",
-        bottom: "inset(100% 0 0 0)",
-        left: "inset(0 0 0 100%)",
-        right: "inset(0 100% 0 0)",
-      };
-      return { clipPath: clips[dir] || clips.left };
+      switch (dir) {
+        case "top":
+          return { clipPath: "inset(0 0 100% 0)" };
+        case "bottom":
+          return { clipPath: "inset(100% 0 0 0)" };
+        case "left":
+          return { clipPath: "inset(0 0 0 100%)" };
+        case "right":
+          return { clipPath: "inset(0 100% 0 0)" };
+        default:
+          return { clipPath: "inset(0 0 0 100%)" };
+      }
     },
   };
 
   return (
-    <>
-      <style>{styles}</style>
-      <section className="banner" ref={containerRef}>
-        <div
-          className="stickyContainer"
-          ref={stickyRef}
-          onMouseMove={handleMouseMove}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          style={{ cursor: isHovered ? "none" : "default" }}
+    <section className={styles.banner} ref={containerRef}>
+      <div
+        className={styles.stickyContainer}
+        ref={stickyRef}
+        onMouseMove={handleMouseMove}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        style={{ cursor: isHovered ? "none" : "default" }}
+      >
+        {/* Custom Cursor */}
+        <motion.div
+          className={styles.customCursor}
+          animate={{
+            x: mousePosition.x - 10,
+            y: mousePosition.y - 10,
+            scale: isHovered ? 4 : 0,
+            opacity: isHovered ? 1 : 0,
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 150,
+            damping: 15,
+            mass: 0.1,
+          }}
+        />
+
+        {/* Background Video/Image Container - Scales down on hover */}
+        <motion.div
+          className={styles.backgroundContainer}
+          initial={{ width: "100%", height: "100%", borderRadius: "0px" }}
+          animate={{
+            width: isHovered ? "90%" : "100%",
+            height: isHovered ? "90%" : "100%",
+            borderRadius: isHovered ? "30px" : "0px",
+          }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
         >
-          {/* Custom Cursor */}
-          <motion.div
-            className="customCursor"
-            animate={{
-              x: mousePosition.x - 10,
-              y: mousePosition.y - 10,
-              scale: isHovered ? 4 : 0,
-              opacity: isHovered ? 1 : 0,
-            }}
-            transition={{
-              type: "spring",
-              stiffness: 150,
-              damping: 15,
-              mass: 0.1,
-            }}
-          />
+          <AnimatePresence initial={false}>
+            <motion.img
+              key={activeSlide}
+              src={slides[activeSlide].image}
+              alt="Agency Team"
+              className={styles.videoBackground}
+              initial={{ y: "100%" }}
+              animate={{
+                y: 0,
+                filter: isHovered ? "grayscale(0%)" : "grayscale(100%)",
+              }}
+              exit={{ y: "-100%" }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            />
+          </AnimatePresence>
+          <div className={styles.dimOverlay}></div>
+        </motion.div>
 
-          {/* Background Container */}
-          <motion.div
-            className="backgroundContainer"
-            animate={{
-              width: isHovered ? "90%" : "100%",
-              height: isHovered ? "90%" : "100%",
-              borderRadius: isHovered ? "30px" : "0px",
-            }}
-            transition={{ duration: 0.6, ease: "easeInOut" }}
-          >
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={activeSlide}
-                src={slides[activeSlide].image}
-                alt={slides[activeSlide].text}
-                className="videoBackground"
-                initial={{ y: "100%" }}
-                animate={{
-                  y: 0,
-                  filter: isHovered ? "grayscale(0%)" : "grayscale(100%)",
-                }}
-                exit={{ y: "-100%" }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              />
-            </AnimatePresence>
-            <div className="dimOverlay"></div>
-          </motion.div>
+        <div className={styles.container}>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeSlide}
+              className={styles.textWrapper}
+              initial={{ y: 100, opacity: 0 }}
+              animate={{
+                y: isHovered ? mousePosition.moveY : 0,
+                opacity: 1,
+                scale: isHovered ? 1.1 : 1,
+                x: isHovered ? mousePosition.moveX : 0,
+              }}
+              exit={{ y: -100, opacity: 0 }}
+              transition={{
+                y: { type: "spring", stiffness: 400, damping: 30 },
+                opacity: { duration: 0.2 },
+                scale: { duration: 0.4, ease: "easeInOut" },
+                x: { type: "spring", stiffness: 400, damping: 30 },
+                default: { duration: 0.3, ease: "easeOut" },
+              }}
+            >
+              {slides[activeSlide].text}
 
-          {/* Text Container */}
-          <div className="container">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeSlide}
-                className="textWrapper"
-                initial={{ y: 100, opacity: 0 }}
-                animate={{
-                  y: isHovered ? mousePosition.moveY : 0,
-                  opacity: 1,
-                  scale: isHovered ? 1.1 : 1,
-                  x: isHovered ? mousePosition.moveX : 0,
-                }}
-                exit={{ y: -100, opacity: 0 }}
-                transition={{
-                  y: { type: "spring", stiffness: 400, damping: 30 },
-                  opacity: { duration: 0.2 },
-                  scale: { duration: 0.4, ease: "easeInOut" },
-                  x: { type: "spring", stiffness: 400, damping: 30 },
-                  default: { duration: 0.3, ease: "easeOut" },
-                }}
-              >
-                {slides[activeSlide].text}
-
-                {/* Reveal Overlay */}
-                <AnimatePresence custom={direction} mode="wait">
-                  {isHovered && (
-                    <motion.div
-                      className="overlay"
-                      custom={direction}
-                      variants={variants}
-                      initial="initial"
-                      animate="animate"
-                      exit="exit"
-                    >
-                      {slides[activeSlide].text}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            </AnimatePresence>
-          </div>
+              {/* The Reveal Overlay */}
+              <AnimatePresence custom={direction} mode="wait">
+                {isHovered && (
+                  <motion.div
+                    className={styles.overlay}
+                    custom={direction}
+                    variants={variants}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                  >
+                    {slides[activeSlide].text}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          </AnimatePresence>
         </div>
-      </section>
-
-      {/* Scroll Indicator */}
-      <div className="scrollIndicator">
-        Scroll to see slides: {activeSlide + 1} / {slides.length}
       </div>
-    </>
+    </section>
   );
 };
 

@@ -1276,7 +1276,7 @@ export default function Home() {
               engagement, drive high-value conversions, and simplify your
               marketing journey.
             </p>
-            <button className="top-choice-btn">
+            {/* <button className="top-choice-btn">
               <span className="cta-button" id="on-top">
                 More About
                 <span className="arrow-wrapper">
@@ -1312,7 +1312,7 @@ export default function Home() {
                   </span>
                 </span>
               </span>
-            </button>
+            </button> */}
           </div>
 
           <div className="top-choice-right">
