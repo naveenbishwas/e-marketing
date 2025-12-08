@@ -1,0 +1,157 @@
+.section {
+    display: flex;
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--foreground);
+    overflow: hidden;
+    padding: 50px;
+    align-items: center;
+}
+
+.leftColumn {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 600px;
+    /* Fixed height for the animation container */
+}
+
+.rightColumn {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 60px;
+}
+
+.gridContainer {
+    width: 500px;
+    height: 500px;
+    position: relative;
+}
+
+.cardWrapper {
+    position: absolute;
+    width: 240px;
+    /* Approx half of 500 minus gap */
+    height: 240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    /* Initial positions will be handled by Framer Motion variants, 
+       but we can set defaults here if needed, or just rely on absolute positioning */
+}
+
+.svgContainer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
+}
+
+.label {
+    position: absolute;
+    z-index: 30;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #000000;
+    pointer-events: none;
+    mix-blend-mode: normal;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.contentWrapper {
+    max-width: 700px;
+}
+
+.contentTitle {
+    font-size: 64px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    line-height: 1.1;
+    color: #000000;
+}
+
+.columnsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.group {
+    margin-bottom: 20px;
+}
+
+.groupTitle {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #000000;
+    margin-bottom: 15px;
+    font-weight: 700;
+    border-bottom: 1px solid #23234d;
+    padding-bottom: 10px;
+}
+
+.contentList {
+    list-style: none;
+    padding: 0;
+}
+
+.contentItem {
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    transition: color 0.3s ease;
+}
+
+.contentItem:hover {
+    color: #23234d;
+}
+
+@media (max-width: 1024px) {
+    .section {
+        flex-direction: column;
+        padding: 50px 20px;
+    }
+
+    .leftColumn,
+    .rightColumn {
+        width: 100%;
+    }
+
+    .leftColumn {
+        margin-bottom: 60px;
+        height: 400px;
+    }
+
+    .gridContainer {
+        width: 350px;
+        height: 350px;
+    }
+
+    .cardWrapper {
+        width: 160px;
+        height: 160px;
+    }
+
+    .rightColumn {
+        padding-left: 0;
+    }
+
+    .columnsContainer {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}

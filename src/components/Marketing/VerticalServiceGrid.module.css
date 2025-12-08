@@ -1,0 +1,162 @@
+.section {
+    display: flex;
+    min-height: 100vh;
+    background: #000;
+    color: #fff;
+    overflow: hidden;
+    padding: 50px;
+    align-items: center;
+}
+
+.leftColumn {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* overflow: hidden; Optional: if we want to hide the non-active parts strictly */
+}
+
+.rightColumn {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 60px;
+}
+
+.gridWindow {
+    width: 500px;
+    /* Size of the visible area (approx 2x2 grid size or slightly larger) */
+    height: 500px;
+    position: relative;
+    /* overflow: hidden;  Uncomment if we want a "window" effect */
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 100%;
+    height: 100%;
+    /* The transform will be applied here by Framer Motion */
+}
+
+.cardContainer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.svgContainer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.label {
+    position: absolute;
+    z-index: 20;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #fff;
+    pointer-events: none;
+    mix-blend-mode: difference;
+}
+
+/* Active state z-index boost */
+.active {
+    z-index: 10;
+}
+
+.contentWrapper {
+    max-width: 700px;
+}
+
+.contentTitle {
+    font-size: 64px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    line-height: 1.1;
+    color: #fff;
+}
+
+.columnsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.group {
+    margin-bottom: 20px;
+}
+
+.groupTitle {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    margin-bottom: 15px;
+    font-weight: 700;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+.contentList {
+    list-style: none;
+    padding: 0;
+}
+
+.contentItem {
+    font-size: 16px;
+    color: #ccc;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    transition: color 0.3s ease;
+}
+
+.contentItem:hover {
+    color: #fff;
+}
+
+@media (max-width: 1024px) {
+    .section {
+        flex-direction: column;
+        padding: 50px 20px;
+    }
+
+    .leftColumn,
+    .rightColumn {
+        width: 100%;
+    }
+
+    .leftColumn {
+        margin-bottom: 60px;
+        height: 400px;
+    }
+
+    .rightColumn {
+        padding-left: 0;
+    }
+
+    .gridWindow {
+        width: 350px;
+        height: 350px;
+    }
+
+    .columnsContainer {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}

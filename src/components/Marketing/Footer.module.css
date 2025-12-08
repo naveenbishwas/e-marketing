@@ -1,0 +1,177 @@
+.footer {
+    background: #111;
+    color: #fff;
+    padding: 100px 0 40px;
+    border-top: 1px solid #222;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+    gap: 40px;
+    margin-bottom: 80px;
+    border-bottom: 1px solid #222;
+    padding-bottom: 80px;
+}
+
+.brand h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.brand p {
+    color: #888;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 300px;
+}
+
+.address p {
+    color: #666;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.links h4 {
+    margin-bottom: 25px;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.links ul {
+    list-style: none;
+}
+
+.links ul li {
+    color: #888;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: color 0.3s;
+    font-size: 15px;
+}
+
+.links ul li:hover {
+    color: #fff;
+}
+
+.newsletter h4 {
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.newsletter p {
+    color: #888;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.newsletterForm {
+    display: flex;
+    background: #222;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.newsletterForm input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 10px 15px;
+    color: #fff;
+    outline: none;
+}
+
+.newsletterForm button {
+    background: #23234d;
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.newsletterForm button:hover {
+    background: #3a3a6b;
+}
+
+.keywords {
+    margin-bottom: 60px;
+}
+
+.keywords h4 {
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.keywordList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.keywordList span {
+    font-size: 13px;
+    color: #666;
+    padding: 6px 12px;
+    border: 1px solid #333;
+    border-radius: 20px;
+    transition: all 0.3s;
+    cursor: default;
+}
+
+.keywordList span:hover {
+    border-color: #555;
+    color: #aaa;
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #444;
+    font-size: 14px;
+}
+
+.legalLinks {
+    display: flex;
+    gap: 20px;
+}
+
+.legalLinks span {
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.legalLinks span:hover {
+    color: #666;
+}
+
+@media (max-width: 900px) {
+    .top {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .top {
+        grid-template-columns: 1fr;
+    }
+
+    .bottom {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

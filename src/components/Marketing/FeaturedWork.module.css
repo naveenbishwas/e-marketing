@@ -1,0 +1,238 @@
+.featuredWork {
+  height: 130vh;
+  /* Needs to be tall to allow "sticky" time */
+  background: #000000;
+  color: #fff;
+  position: relative;
+  padding: 5% 0;
+}
+
+.pointsList {
+  margin-top: 10px;
+  padding-left: 20px;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: #a6a6a6;
+}
+
+.pointsList li {
+  margin-bottom: 6px;
+}
+
+.stickyContainer {
+  position: -webkit-sticky;
+  /* Safari support */
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  /* The visible part is always full viewport */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Vertically center content */
+  z-index: 10;
+  /* Ensure it stays on top if needed */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.header {
+  text-align: center;
+  /* Center the header */
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 10;
+  flex-shrink: 0;
+  /* Don't shrink header */
+}
+
+.heading {
+  font-size: 56px;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #fff, #888);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subheading {
+  font-size: 20px;
+  color: #888;
+}
+
+.contentWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  flex: 1;
+  /* Take remaining height */
+  width: 100%;
+  max-height: 600px;
+  /* Limit content height */
+  margin: auto 0;
+  /* Center vertically in remaining space */
+}
+
+.textColumn {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.textSection {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  opacity: 0;
+  transition: all 0.5s ease;
+  pointer-events: none;
+}
+
+.activeText {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%);
+}
+
+.metaWrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.number {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.line {
+  width: 40px;
+  height: 2px;
+  background: #fff;
+}
+
+.projectName {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.1;
+  color: #fff;
+}
+
+.projectDesc {
+  font-size: 18px;
+  color: #ccc;
+  line-height: 1.6;
+  max-width: 450px;
+}
+
+.imageColumn {
+  position: relative;
+  height: 100%;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.imageCard {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.6s ease;
+}
+
+/* Future images are hidden below */
+.future {
+  transform: translateY(100%);
+  z-index: 2;
+}
+
+/* Active image is visible */
+.active {
+  transform: translateY(0);
+  z-index: 2;
+  filter: brightness(1);
+}
+
+/* Past images stay behind and dim */
+.past {
+  transform: translateY(0);
+  z-index: 1;
+  filter: brightness(0.4);
+}
+
+.imageCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .contentWrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .stickyImageWrapper {
+    position: relative;
+    top: 0;
+    height: 400px;
+    margin-bottom: 40px;
+  }
+
+  .imageColumn {
+    order: -1;
+  }
+
+  .textSection {
+    min-height: auto;
+    margin-bottom: 60px;
+    opacity: 1;
+  }
+
+  .imageCard {
+    display: none;
+  }
+
+  .imageCard.active {
+    display: block;
+    position: relative;
+    transform: none;
+  }
+}
