@@ -189,42 +189,44 @@ h2 {
   position: relative;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
 .fade-slider .slide-img {
   position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  animation: fadeCycle 15s infinite;
+  animation: fadeCycle 9s infinite;
 }
 
-/* Slide delays */
+/* slide timing (3 slides = 3s each) */
 .fade-slider .slide-img:nth-child(1) {
   animation-delay: 0s;
 }
 .fade-slider .slide-img:nth-child(2) {
-  animation-delay: 3.33s;
+  animation-delay: 3s;
 }
 .fade-slider .slide-img:nth-child(3) {
-  animation-delay: 6.66s;
+  animation-delay: 6s;
 }
 
-/* Fade animation */
+/* NO dead zone animation */
 @keyframes fadeCycle {
   0% {
     opacity: 0;
   }
-  5% {
+  10% {
     opacity: 1;
-  } /* Fade in quick */
+  }
   33% {
     opacity: 1;
-  } /* Stay visible long */
-  38% {
+  }
+  43% {
     opacity: 0;
-  } /* Fade out quick */
+  }
   100% {
     opacity: 0;
   }

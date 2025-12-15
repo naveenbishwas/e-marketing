@@ -520,7 +520,7 @@ export default function Home() {
                 <div className="screen-slider">
                   <div className="fade-slider">
                     <Image
-                      src="/graphic-new.png"
+                      src="/g1.jpeg"
                       alt="Slide 1"
                       className="slide-img"
                       width={800}
@@ -528,7 +528,7 @@ export default function Home() {
                       unoptimized
                     />
                     <Image
-                      src="/design-new.png"
+                      src="/p1.jpeg"
                       alt="Slide 2"
                       className="slide-img"
                       width={800}
@@ -536,7 +536,7 @@ export default function Home() {
                       unoptimized
                     />
                     <Image
-                      src="/seo-new.png"
+                      src="/w1.jpeg"
                       alt="Slide 3"
                       className="slide-img"
                       width={800}
