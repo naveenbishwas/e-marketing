@@ -1,10 +1,12 @@
 .privacy-container {
   max-width: 800px;
-  margin: 40px auto;
+  margin: 0px auto;
   padding: 0 20px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #222;
   line-height: 1.7;
+  padding-top: 10%;
+  padding-bottom: 5%;
 }
 
 .privacy-container h1 {
