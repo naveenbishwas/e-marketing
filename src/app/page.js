@@ -319,9 +319,6 @@ export default function Home() {
   const [status, setStatus] = useState({ type: "", message: "" });
   const formRef = useRef(null);
 
-  // const { companyName, budget, name, phone, email, service, designation } =
-  //   form;
-
   const [formData, setFormData] = useState({
     companyName: "",
     budget: "",
@@ -341,38 +338,6 @@ export default function Home() {
     const value = e.target.value.replace(/\D/g, "").slice(0, 10);
     setFormData((s) => ({ ...s, phone: value }));
   };
-
-  // const onChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setForm((f) => ({ ...f, [name]: value }));
-  // };
-
-  // const validate = () => {
-  //   if (!companyName || !name || !email) {
-  //     setStatus({
-  //       type: "error",
-  //       message: "Company, Name and Email are required.",
-  //     });
-  //     return false;
-  //   }
-  //   const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  //   if (!emailOk) {
-  //     setStatus({
-  //       type: "error",
-  //       message: "Please enter a valid email address.",
-  //     });
-  //     return false;
-  //   }
-  //   const phoneOk = !phone || /^[0-9+\-\s()]{7,20}$/.test(phone);
-  //   if (!phoneOk) {
-  //     setStatus({
-  //       type: "error",
-  //       message: "Please enter a valid phone number.",
-  //     });
-  //     return false;
-  //   }
-  //   return true;
-  // };
 
   const submitHandler = async (e) => {
     e.preventDefault();

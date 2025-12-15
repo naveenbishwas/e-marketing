@@ -20,9 +20,9 @@ export default function Showcase() {
       <Header />
       <DirectionAwareBanner />
       <Process />
-      <ImageAccordion />
       <FeaturedWork />
       <TrustIcons />
+      <ImageAccordion />
       <ProportionalServiceGrid />
       {/* <ClientLogoGrid /> */}
       <Industries />

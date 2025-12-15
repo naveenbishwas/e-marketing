@@ -26,7 +26,13 @@ const slides = [
   },
   {
     id: 4,
-    text: "We are Unnity",
+    // text: "We are Unnity",
+    text: (
+      <>
+        We are <br />
+        Unnity
+      </>
+    ),
     image: "/industry_furnishing_1764314743864.png",
   },
 ];
@@ -45,14 +51,19 @@ const DirectionAwareBanner = () => {
     offset: ["start start", "end end"],
   });
 
+  // useMotionValueEvent(scrollYProgress, "change", (latest) => {
+  //   if (latest < 0.33) {
+  //     setActiveSlide(0);
+  //   } else if (latest < 0.66) {
+  //     setActiveSlide(1);
+  //   } else {
+  //     setActiveSlide(2);
+  //   }
+  // });
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    if (latest < 0.33) {
-      setActiveSlide(0);
-    } else if (latest < 0.66) {
-      setActiveSlide(1);
-    } else {
-      setActiveSlide(2);
-    }
+    const slideCount = slides.length;
+    const index = Math.min(slideCount - 1, Math.floor(latest * slideCount));
+    setActiveSlide(index);
   });
 
   const handleMouseEnter = (e) => {
