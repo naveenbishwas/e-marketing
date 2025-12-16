@@ -36,7 +36,7 @@ const Industries = () => {
     <section className={styles.industries} ref={sectionRef}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <h2 className={styles.heading}>Industry Agnostic</h2>
+          <h2 className={styles.heading}>We are made for Every Industry</h2>
           <p className={styles.subheading}>Deep expertise across verticals.</p>
         </div>
 

@@ -34,6 +34,25 @@ const SocialProof = () => {
     },
   ];
 
+  const logos = [
+    "/empire1.png",
+    "/aqua1.png",
+    "/comforto.png",
+    "/da1.png",
+    "/adpl2.png",
+    "/edoofa.png",
+    "/hardoll.png",
+    "/hub1.png",
+    "/nira.png",
+    "/orchid-blue.png",
+    "/poco.png",
+    "/sain.png",
+    "/sky.png",
+    "/aurave1.png",
+    "/uk.png",
+    "/cupid1.png",
+  ];
+
   const changeReview = (direction) => {
     if (isAnimating) return;
     setIsAnimating(true);
@@ -52,131 +71,59 @@ const SocialProof = () => {
   return (
     <section className={styles.socialProof}>
       <div className={styles.container}>
-        <div className={styles.logoSlider}>
+        <div className={styles.logoSection}>
           <h1 className={styles.heading}>Trusted by Leading Brands</h1>
 
-          <div className={styles.logoTrack}>
-            <Image src="/empire1.png" width={0} height={0} alt="" unoptimized />
-            <Image src="/aqua1.png" width={0} height={0} alt="" unoptimized />
-            <Image
-              src="/comforto.png"
-              width={0}
-              height={0}
-              alt=""
-              unoptimized
-            />
-            <Image src="/da1.png" width={0} height={0} alt="" unoptimized />
-            <Image src="/adpl2.png" width={0} height={0} alt="" unoptimized />
-            <Image src="/edoofa.png" width={0} height={0} alt="" unoptimized />
-            <Image src="/hardoll.png" width={0} height={0} alt="" unoptimized />
-            <Image src="/hub1.png" width={0} height={0} alt="" unoptimized />
-            <Image src="/nira.png" width={0} height={0} alt="" unoptimized />
-            <Image
-              src="/orchid-blue.png"
-              width={0}
-              height={0}
-              alt=""
-              unoptimized
-            />
-            <Image src="/poco.png" width={0} height={0} alt="" unoptimized />
-            <Image src="/sain.png" width={0} height={0} alt="" unoptimized />
-            <Image src="/sky.png" width={0} height={0} alt="" unoptimized />
-            <Image src="/aurave1.png" width={0} height={0} alt="" unoptimized />
-            <Image src="/uk.png" width={0} height={0} alt="" unoptimized />
-            <Image src="/cupid1.png" width={0} height={0} alt="" unoptimized />
-            <Image
-              src="/e-travel.avif"
-              width={0}
-              height={0}
-              alt=""
-              unoptimized
-            />
-            <Image src="/isu1.png" width={0} height={0} alt="" unoptimized />
-            <Image src="/kapur1.png" width={0} height={0} alt="" unoptimized />
-            <Image src="/madve.png" width={0} height={0} alt="" unoptimized />
-            <Image
-              src="/mireads.avif"
-              width={0}
-              height={0}
-              alt=""
-              unoptimized
-            />
-            <Image
-              src="/power-mower.webp"
-              width={0}
-              height={0}
-              alt=""
-              unoptimized
-            />
-            <Image
-              src="/uberlyfe1.png"
-              width={0}
-              height={0}
-              alt=""
-              unoptimized
-            />
-            <Image src="/hub1.png" width={0} height={0} alt="" unoptimized />
+          {/* Row 1 – Left to Right */}
+          <div className={styles.marqueeWrapper}>
+            <div className={`${styles.marquee} ${styles.leftToRight}`}>
+              {logos.map((logo, i) => (
+                <Image
+                  key={`row1-${i}`}
+                  src={logo}
+                  width={0}
+                  height={0}
+                  alt=""
+                  unoptimized
+                />
+              ))}
+              {logos.map((logo, i) => (
+                <Image
+                  key={`row1-dup-${i}`}
+                  src={logo}
+                  width={0}
+                  height={0}
+                  alt=""
+                  unoptimized
+                />
+              ))}
+            </div>
+          </div>
 
-            {/* duplicate logos for seamless loop */}
-            <Image src="/empire1.png" width={0} height={0} alt="" unoptimized />
-            <Image src="/aqua1.png" width={0} height={0} alt="" unoptimized />
-            <Image
-              src="/comforto.png"
-              width={0}
-              height={0}
-              alt=""
-              unoptimized
-            />
-            <Image src="/da1.png" width={0} height={0} alt="" unoptimized />
-            <Image src="/edoofa.png" width={0} height={0} alt="" unoptimized />
-            <Image src="/hardoll.png" width={0} height={0} alt="" unoptimized />
-            <Image src="/hub1.png" width={0} height={0} alt="" unoptimized />
-            <Image src="/nira.png" width={0} height={0} alt="" unoptimized />
-            <Image
-              src="/orchid-blue.png"
-              width={0}
-              height={0}
-              alt=""
-              unoptimized
-            />
-            <Image src="/poco.png" width={0} height={0} alt="" unoptimized />
-            <Image src="/sain.png" width={0} height={0} alt="" unoptimized />
-            <Image src="/sky.png" width={0} height={0} alt="" unoptimized />
-            <Image src="/aurave1.png" width={0} height={0} alt="" unoptimized />
-            <Image src="/uk.png" width={0} height={0} alt="" unoptimized />
-            <Image src="/cupid1.png" width={0} height={0} alt="" unoptimized />
-            <Image
-              src="/e-travel.avif"
-              width={0}
-              height={0}
-              alt=""
-              unoptimized
-            />
-            <Image src="/isu1.png" width={0} height={0} alt="" unoptimized />
-            <Image src="/kapur1.png" width={0} height={0} alt="" unoptimized />
-            <Image src="/madve.png" width={0} height={0} alt="" unoptimized />
-            <Image
-              src="/mireads.avif"
-              width={0}
-              height={0}
-              alt=""
-              unoptimized
-            />
-            <Image
-              src="/power-mower.webp"
-              width={0}
-              height={0}
-              alt=""
-              unoptimized
-            />
-            <Image
-              src="/uberlyfe1.png"
-              width={0}
-              height={0}
-              alt=""
-              unoptimized
-            />
-            <Image src="/hub1.png" width={0} height={0} alt="" unoptimized />
+          {/* Row 2 – Right to Left */}
+          <div className={styles.marqueeWrapper}>
+            <div className={`${styles.marquee} ${styles.rightToLeft}`}>
+              {logos.map((logo, i) => (
+                <Image
+                  width={0}
+                  height={0}
+                  key={`row2-${i}`}
+                  src={logo}
+                  alt=""
+                  unoptimized
+                />
+              ))}
+              {logos.map((logo, i) => (
+                <Image
+                  width={0}
+                  height={0}
+                  key={`row2-dup-${i}`}
+                  src={logo}
+                  alt=""
+                  unoptimized
+                />
+              ))}
+            </div>
           </div>
         </div>
 

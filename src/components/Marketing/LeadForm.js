@@ -83,7 +83,7 @@ const LeadForm = () => {
           </p>
           <div className={styles.contactInfo}>
             <div className={styles.infoItem}>
-              <span>📞</span> +1 (555) 123-4567
+              <span>📞</span> +91 931 500 3754
             </div>
             <div className={styles.infoItem}>
               <span>✉️</span> hello@agency.com

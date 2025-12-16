@@ -2,6 +2,7 @@
   padding: 120px 0;
   background: var(--background);
   overflow: hidden;
+  padding-top: 0;
 }
 
 .container {
@@ -9,10 +10,14 @@
   margin: 0 auto;
   padding: 0 20px;
 }
-
 .logoSection {
-  margin-bottom: 120px;
   text-align: center;
+  margin-bottom: 120px;
+  margin-top: 9%;
+}
+
+.heading {
+  margin-bottom: 40px;
 }
 
 .marqueeWrapper {
@@ -25,25 +30,66 @@
     black 90%,
     transparent
   );
+  margin-bottom: 30px;
 }
 
+/* Base marquee */
 .marquee {
   display: flex;
   gap: 80px;
   width: max-content;
-  animation: scroll 40s linear infinite;
   align-items: center;
+  animation-duration: 80s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
-.brandItem {
-  font-size: 32px;
-  white-space: nowrap;
-  transition: color 0.3s;
-  cursor: default;
+/* Pause only hovered row */
+.marquee:hover {
+  animation-play-state: paused;
 }
 
-.brandItem:hover {
-  color: #afadad;
+/* Directions */
+.leftToRight {
+  animation-name: scrollLTR;
+}
+
+.rightToLeft {
+  animation-name: scrollRTL;
+}
+
+/* Keyframes */
+@keyframes scrollLTR {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes scrollRTL {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Images */
+.marquee img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  /* filter: grayscale(100%); */
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.marquee img:hover {
+  /* filter: grayscale(0%); */
+  opacity: 1;
 }
 
 .testimonialSection {
