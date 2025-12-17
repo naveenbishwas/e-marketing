@@ -1,13 +1,11 @@
 "use client";
 import { useRef, useState } from "react";
 import styles from "./LeadForm.module.css";
-
 const LeadForm = () => {
   const [focused, setFocused] = useState({});
   const formRef = useRef(null);
   const [sending, setSending] = useState(false);
   const [status, setStatus] = useState({ type: "", message: "" });
-
   const [formData, setFormData] = useState({
     companyName: "",
     budget: "",
@@ -17,34 +15,26 @@ const LeadForm = () => {
     service: "",
     designation: "",
   });
-
   const handleNameChange = (e) => {
     const value = e.target.value.replace(/[^a-zA-Z\s]/g, "");
     setFormData((s) => ({ ...s, name: value }));
   };
-
   const handlePhoneChange = (e) => {
     const value = e.target.value.replace(/\D/g, "").slice(0, 10);
     setFormData((s) => ({ ...s, phone: value }));
   };
-
   const submitHandler = async (e) => {
     e.preventDefault();
     setSending(true);
-
     try {
       const res = await fetch("/api/send-mail", {
         method: "POST",
         headers: { "Content-Type": "application/json" }, // FIXED
         body: JSON.stringify(formData),
       });
-
       const data = await res.json();
-
       if (!res.ok) throw new Error(data.error || "Failed to send email");
-
       alert("Thanks! Your enquiry has been sent.");
-
       setFormData({
         companyName: "",
         budget: "",
@@ -61,17 +51,14 @@ const LeadForm = () => {
       setSending(false);
     }
   };
-
   const handleFocus = (name) => {
     setFocused((prev) => ({ ...prev, [name]: true }));
   };
-
   const handleBlur = (name, value) => {
     if (!value) {
       setFocused((prev) => ({ ...prev, [name]: false }));
     }
   };
-
   return (
     <section className={styles.leadForm} id="contact">
       <div className={styles.container}>
@@ -85,12 +72,11 @@ const LeadForm = () => {
             <div className={styles.infoItem}>
               <span>📞</span> +91 931 500 3754
             </div>
-            <div className={styles.infoItem}>
+            {/* <div className={styles.infoItem}>
               <span>✉️</span> hello@agency.com
-            </div>
+            </div> */}
           </div>
         </div>
-
         <form onSubmit={submitHandler} ref={formRef} className="ul-grid-from">
           <div className="ul-grid">
             <div className="ul-field">
@@ -110,7 +96,6 @@ const LeadForm = () => {
                 required
               />
             </div>
-
             <div className="ul-field">
               <label htmlFor="budget">Monthly Marketing Budget</label>
               <select
@@ -133,7 +118,6 @@ const LeadForm = () => {
                 </option>
               </select>
             </div>
-
             <div className="ul-field">
               <label htmlFor="name">Name</label>
               <input
@@ -148,7 +132,6 @@ const LeadForm = () => {
                 required
               />
             </div>
-
             <div className="ul-field">
               <label htmlFor="phone">Phone Number</label>
               <input
@@ -160,7 +143,6 @@ const LeadForm = () => {
                 onChange={handlePhoneChange}
               />
             </div>
-
             <div className="ul-field ul-span-2">
               <label htmlFor="email">Email Address</label>
               <input
@@ -175,7 +157,6 @@ const LeadForm = () => {
                 required
               />
             </div>
-
             <div className="ul-field">
               <label htmlFor="service">Choose A Service</label>
               <select
@@ -197,7 +178,6 @@ const LeadForm = () => {
                 <option value="Shopify Migration">Shopify Migration</option>
               </select>
             </div>
-
             <div className="ul-field">
               <label htmlFor="designation">Designation</label>
               <input
@@ -215,7 +195,6 @@ const LeadForm = () => {
               />
             </div>
           </div>
-
           {status.message && (
             <div
               className={`ul-status ${
@@ -225,7 +204,6 @@ const LeadForm = () => {
               {status.message}
             </div>
           )}
-
           <button className="ul-submit" type="submit" disabled={sending}>
             {sending ? "sending..." : "Send Enquiry"}
           </button>
@@ -234,5 +212,4 @@ const LeadForm = () => {
     </section>
   );
 };
-
 export default LeadForm;

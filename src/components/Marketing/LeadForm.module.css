@@ -22,7 +22,6 @@
   background: #23234d;
   border-radius: 2px;
 }
-
 .container {
   max-width: 1200px;
   width: 100%;
@@ -30,9 +29,8 @@
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   gap: 100px;
-  align-items: start;
+  align-items: center;
 }
-
 .heading {
   font-size: 64px;
   margin-bottom: 20px;
@@ -42,20 +40,17 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 .subheading {
   font-size: 20px;
   color: #888;
   margin-bottom: 60px;
   line-height: 1.6;
 }
-
 .contactInfo {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
-
 .infoItem {
   display: flex;
   align-items: center;
@@ -67,11 +62,9 @@
   border-radius: 12px;
   transition: background 0.3s;
 }
-
 .infoItem:hover {
   background: rgba(255, 255, 255, 0.1);
 }
-
 .form {
   background: #ffffff;
   padding: 50px;
@@ -82,13 +75,11 @@
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   border: 1px solid #222;
 }
-
 .row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 25px;
 }
-
 .inputGroup {
   position: relative;
   background: rgba(255, 255, 255, 0.2);
@@ -97,17 +88,14 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   transition: all 0.3s;
 }
-
 .textarea {
   height: 150px;
 }
-
 .inputGroup.active {
   border-color: #23234d;
   background: #000;
   box-shadow: 0 0 0 4px rgba(35, 35, 77, 0.1);
 }
-
 .inputGroup label {
   position: absolute;
   left: 20px;
@@ -117,13 +105,11 @@
   pointer-events: none;
   font-size: 16px;
 }
-
 .inputGroup.active label {
   top: 10px;
   font-size: 12px;
   color: #23234d;
 }
-
 .inputGroup input,
 .inputGroup select,
 .inputGroup textarea {
@@ -137,7 +123,6 @@
   outline: none;
   resize: none;
 }
-
 .button {
   margin-top: 20px;
   height: 64px;
@@ -150,55 +135,45 @@
   cursor: pointer;
   transition: all 0.3s;
 }
-
 .button:hover {
   background: #3a3a6b;
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(35, 35, 77, 0.2);
 }
-
 @media (max-width: 900px) {
   .container {
     grid-template-columns: 1fr;
   }
-
   .row {
     grid-template-columns: 1fr;
   }
-
   .heading {
     font-size: 48px;
   }
 }
 /* FORM WRAPPER */
 :global(.ul-grid-from) {
-  background: #ffffff;
-  border-radius: 28px;
   padding: 48px 40px 40px;
   max-width: 700px;
   margin: 0 auto;
   box-shadow: 0 0 0 1px #e6e6e6;
 }
-
 /* GRID LAYOUT */
 :global(.ul-grid) {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 26px 28px;
 }
-
 /* FIELD */
 :global(.ul-field) {
   position: relative;
   display: flex;
   flex-direction: column;
 }
-
 /* SPAN FULL WIDTH */
 :global(.ul-span-2) {
   grid-column: span 2;
 }
-
 /* LABEL */
 :global(.ul-field label) {
   position: absolute;
@@ -213,7 +188,6 @@
   padding: 0 6px;
   display: none;
 }
-
 /* INPUT + SELECT */
 :global(.ul-field input),
 :global(.ul-field select) {
@@ -228,18 +202,15 @@
   transition: border 0.25s ease;
   width: 100%;
 }
-
 /* EMAIL FULL WIDTH – VISUALLY BIGGER */
 :global(.ul-span-2 input) {
   height: 72px;
 }
-
 /* FOCUS / FILLED STATE */
 :global(.ul-field input:focus),
 :global(.ul-field select:focus) {
   border-color: #2a2a55;
 }
-
 :global(.ul-field input:focus + label),
 :global(.ul-field input:not(:placeholder-shown) + label),
 :global(.ul-field select:focus + label),
@@ -248,7 +219,6 @@
   font-size: 13px;
   color: #2a2a55;
 }
-
 /* SELECT FIX */
 :global(.ul-field select) {
   appearance: none;
@@ -258,7 +228,6 @@
   background-size: 16px;
   cursor: pointer;
 }
-
 /* STATUS MESSAGE */
 :global(.ul-status) {
   margin-top: 22px;
@@ -266,17 +235,14 @@
   border-radius: 12px;
   font-size: 14px;
 }
-
 :global(.ul-error) {
   background: #ffecec;
   color: #b40000;
 }
-
 :global(.ul-success) {
   background: #ecfff4;
   color: #0f7a4a;
 }
-
 /* SUBMIT BUTTON */
 :global(.ul-submit) {
   width: 100%;
@@ -291,31 +257,25 @@
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
 :global(.ul-submit:hover) {
   transform: translateY(-1px);
   box-shadow: 0 10px 24px rgba(42, 42, 85, 0.25);
 }
-
 :global(.ul-submit:disabled) {
   opacity: 0.6;
   cursor: not-allowed;
 }
-
 /* MOBILE */
 @media (max-width: 768px) {
   :global(.ul-grid-from) {
     padding: 36px 24px;
   }
-
   :global(.ul-grid) {
     grid-template-columns: 1fr;
   }
-
   :global(.ul-span-2) {
     grid-column: span 1;
   }
-
   :global(.ul-submit) {
     height: 64px;
     font-size: 18px;

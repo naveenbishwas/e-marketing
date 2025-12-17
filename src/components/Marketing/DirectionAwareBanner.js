@@ -5,9 +5,9 @@ import {
   AnimatePresence,
   useScroll,
   useMotionValueEvent,
+  useSpring,
 } from "framer-motion";
 import styles from "./DirectionAwareBanner.module.css";
-
 const slides = [
   {
     id: 1,
@@ -26,87 +26,70 @@ const slides = [
   },
   {
     id: 4,
-    // text: "We are Unnity",
     text: (
       <>
-        We are <br />
-        Unnity
+        The unnity <br />
+        Way
       </>
     ),
     image: "/industry_furnishing_1764314743864.png",
   },
 ];
-
 const DirectionAwareBanner = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [direction, setDirection] = useState("left"); // left, right, top, bottom
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [activeSlide, setActiveSlide] = useState(0);
-
   const containerRef = useRef(null);
   const stickyRef = useRef(null);
-
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
-
-  // useMotionValueEvent(scrollYProgress, "change", (latest) => {
-  //   if (latest < 0.33) {
-  //     setActiveSlide(0);
-  //   } else if (latest < 0.66) {
-  //     setActiveSlide(1);
-  //   } else {
-  //     setActiveSlide(2);
-  //   }
-  // });
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+  const smoothProgress = useSpring(scrollYProgress, {
+    mass: 0.1,
+    stiffness: 100,
+    damping: 20,
+  });
+  useMotionValueEvent(smoothProgress, "change", (latest) => {
     const slideCount = slides.length;
     const index = Math.min(slideCount - 1, Math.floor(latest * slideCount));
     setActiveSlide(index);
   });
-
   const handleMouseEnter = (e) => {
     if (!stickyRef.current) return;
     const dir = getDirection(e, stickyRef.current);
     setDirection(dir);
     setIsHovered(true);
   };
-
   const handleMouseLeave = (e) => {
     if (!stickyRef.current) return;
     const dir = getDirection(e, stickyRef.current);
     setDirection(dir);
     setIsHovered(false);
   };
-
   const handleMouseMove = (e) => {
     // Calculate magnetic movement
     // Move text slightly towards cursor (e.g., 20px max)
     const { clientX, clientY } = e;
     const moveX = (clientX - window.innerWidth / 2) * 0.05; // 5% movement
     const moveY = (clientY - window.innerHeight / 2) * 0.05;
-
     setMousePosition({ x: clientX, y: clientY, moveX, moveY });
   };
-
   // Helper to detect direction
   const getDirection = (e, item) => {
     // Width and height of the element
     const w = item.offsetWidth;
     const h = item.offsetHeight;
-
     // Calculate the position of the mouse relative to the center of the element
     // e.pageX/Y gives position relative to document
     // item.getBoundingClientRect() gives position relative to viewport
     const rect = item.getBoundingClientRect();
     const x = (e.clientX - rect.left - w / 2) * (w > h ? h / w : 1);
     const y = (e.clientY - rect.top - h / 2) * (h > w ? w / h : 1);
-
     // Calculate the angle and direction
     // 0: top, 1: right, 2: bottom, 3: left
     const d = Math.round(Math.atan2(y, x) / 1.57079633 + 5) % 4;
-
     switch (d) {
       case 0:
         return "top";
@@ -120,7 +103,6 @@ const DirectionAwareBanner = () => {
         return "left";
     }
   };
-
   // Framer Motion variants for the clip-path animation
   const variants = {
     initial: (dir) => {
@@ -156,7 +138,6 @@ const DirectionAwareBanner = () => {
       }
     },
   };
-
   return (
     <section className={styles.banner} ref={containerRef}>
       <div
@@ -183,7 +164,6 @@ const DirectionAwareBanner = () => {
             mass: 0.1,
           }}
         />
-
         {/* Background Video/Image Container - Scales down on hover */}
         <motion.div
           className={styles.backgroundContainer}
@@ -212,7 +192,6 @@ const DirectionAwareBanner = () => {
           </AnimatePresence>
           <div className={styles.dimOverlay}></div>
         </motion.div>
-
         <div className={styles.container}>
           <AnimatePresence mode="wait">
             <motion.div
@@ -235,7 +214,6 @@ const DirectionAwareBanner = () => {
               }}
             >
               {slides[activeSlide].text}
-
               {/* The Reveal Overlay */}
               <AnimatePresence custom={direction} mode="wait">
                 {isHovered && (
@@ -258,5 +236,4 @@ const DirectionAwareBanner = () => {
     </section>
   );
 };
-
 export default DirectionAwareBanner;

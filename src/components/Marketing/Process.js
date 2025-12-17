@@ -55,7 +55,7 @@ const steps = [
 ];
 
 const Process = () => {
-  const [activeStep, setActiveStep] = useState(null);
+  const [activeStep, setActiveStep] = useState(1);
 
   return (
     <section className={styles.processSection}>
