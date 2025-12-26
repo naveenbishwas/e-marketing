@@ -11,6 +11,7 @@ import DirectionAwareBanner from "@/components/Marketing/DirectionAwareBanner";
 // import ClientLogoGrid from '@/components/Marketing/ClientLogoGrid';
 import ImageAccordion from "@/components/Marketing/ImageAccordion";
 import Header from "@/components/Header/page";
+import StickyScrollAnimation from "@/components/Marketing/StickyScrollAnimation"
 import Footer from "@/components/footer/page";
 
 export default function Showcase() {
@@ -20,12 +21,13 @@ export default function Showcase() {
       <Header />
       <DirectionAwareBanner />
       <Process />
-      <FeaturedWork />
+      {/* <FeaturedWork /> */}
       <TrustIcons />
       <ImageAccordion />
       <ProportionalServiceGrid />
       {/* <ClientLogoGrid /> */}
-      <Industries />
+      {/* <Industries /> */}
+      <StickyScrollAnimation/>
       <SocialProof />
       <LeadForm />
       <Footer />

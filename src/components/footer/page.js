@@ -47,7 +47,7 @@ const Footer = () => {
               <div className={styles.contactItem}>
                 <FaMapMarkerAlt className={styles.contactIcon} />
                 <span>
-                  SF-40, 2nd Floor, Pearl Omaxe, Netaji Subhash Place,
+                  SF-32, 2nd Floor, Pearl Omaxe, Netaji Subhash Place,
                   Pitampura, New Delhi – 110034
                 </span>
               </div>
