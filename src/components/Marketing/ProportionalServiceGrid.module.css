@@ -1,157 +1,145 @@
 .section {
-    display: flex;
-    min-height: 100vh;
-    background: var(--background);
-    color: var(--foreground);
-    overflow: hidden;
-    padding: 50px;
-    align-items: center;
-}
-
-.leftColumn {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 5rem 0;
+    background-color: #f5f5f7;
     position: relative;
-    height: 600px;
-    /* Fixed height for the animation container */
 }
 
-.rightColumn {
-    width: 50%;
+.header {
+    margin-bottom: 5rem;
+    padding: 0 1rem;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.heading {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #1d1d1f;
+    line-height: 1.1;
+}
+
+.subheading {
+    font-size: 1.25rem;
+    color: #86868b;
+    line-height: 1.6;
+}
+
+.cardsContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding-left: 60px;
-}
-
-.gridContainer {
-    width: 500px;
-    height: 500px;
+    width: 100%;
     position: relative;
+    /* Ensure enough space for scrolling */
+    padding-bottom: 10vh;
 }
 
 .cardWrapper {
-    position: absolute;
-    width: 240px;
-    /* Approx half of 500 minus gap */
-    height: 240px;
+    height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    cursor: pointer;
-    /* Initial positions will be handled by Framer Motion variants, 
-       but we can set defaults here if needed, or just rely on absolute positioning */
+    justify-content: center;
+    position: sticky;
+    top: 0;
 }
 
-.svgContainer {
+.card {
+    width: 100%;
+    max-width: 1300px;
+    height: 600px;
+    border-radius: 3rem;
+    padding: 0;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    transform-origin: top center;
+    position: relative;
+}
+
+.cardContent {
+    display: flex;
     width: 100%;
     height: 100%;
+}
+
+.imageSide {
+    width: 45%;
+    height: 100%;
+    padding: 2rem;
+}
+
+.imageContainer {
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem;
+    overflow: hidden;
     position: relative;
-    filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
 }
 
-.label {
-    position: absolute;
-    z-index: 30;
-    font-size: 18px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    color: #000000;
-    pointer-events: none;
-    mix-blend-mode: normal;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.contentWrapper {
-    max-width: 700px;
-}
-
-.contentTitle {
-    font-size: 64px;
-    font-weight: 800;
-    margin-bottom: 40px;
-    line-height: 1.1;
-    color: #000000;
-}
-
-.columnsContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-}
-
-.column {
+.textSide {
+    width: 55%;
+    padding: 4rem;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    justify-content: center;
 }
 
-.group {
-    margin-bottom: 20px;
-}
-
-.groupTitle {
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #000000;
-    margin-bottom: 15px;
+.projectName {
+    font-size: 2.5rem;
     font-weight: 700;
-    border-bottom: 1px solid #23234d;
-    padding-bottom: 10px;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
 }
 
-.contentList {
+.projectDesc {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.pointsList {
     list-style: none;
     padding: 0;
 }
 
-.contentItem {
-    font-size: 16px;
-    color: #000000;
-    margin-bottom: 10px;
+.point {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    opacity: 0.85;
     line-height: 1.5;
-    transition: color 0.3s ease;
-}
-
-.contentItem:hover {
-    color: #23234d;
 }
 
 @media (max-width: 1024px) {
-    .section {
+    .card {
+        height: auto;
+        min-height: 600px;
         flex-direction: column;
-        padding: 50px 20px;
     }
 
-    .leftColumn,
-    .rightColumn {
+    .cardContent {
+        flex-direction: column;
+    }
+
+    .imageSide {
         width: 100%;
+        height: 300px;
+        padding: 1.5rem 1.5rem 0 1.5rem;
     }
 
-    .leftColumn {
-        margin-bottom: 60px;
-        height: 400px;
+    .textSide {
+        width: 100%;
+        padding: 2rem;
     }
 
-    .gridContainer {
-        width: 350px;
-        height: 350px;
-    }
-
-    .cardWrapper {
-        width: 160px;
-        height: 160px;
-    }
-
-    .rightColumn {
-        padding-left: 0;
-    }
-
-    .columnsContainer {
-        grid-template-columns: 1fr;
-        gap: 20px;
+    .projectName {
+        font-size: 2rem;
     }
 }
