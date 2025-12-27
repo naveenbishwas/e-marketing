@@ -6,8 +6,8 @@ const services = [
     {
         id: 'powermowers',
         label: 'POWERMOWERS',
-        color: '#4a5fdc',
-        gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        color: '#0b194bff',
+        gradient: 'linear-gradient(135deg, #0b194bff 0%, #728defff 100%)',
         content: {
             title: "eCommerce Growth",
             description: "Scaled from $50k to $160k monthly sales with 30x ROAS",
@@ -20,8 +20,8 @@ const services = [
     {
         id: 'dronacharya',
         label: 'DRONACHARYA',
-        color: '#f093fb',
-        gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+        color: '#0b194bff',
+        gradient: 'linear-gradient(135deg, #0b194bff 0%, #728defff 100%)',
         content: {
             title: "High-Ticket Lead Gen",
             description: "Generated Rs. 6 Lakhs from Rs. 2 Lakhs spend with 3x ROAS",
@@ -34,8 +34,8 @@ const services = [
     {
         id: 'hubhawks',
         label: 'HUBHAWKS',
-        color: '#4facfe',
-        gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+        color: '#0b194bff',
+        gradient: 'linear-gradient(135deg, #0b194bff 0%, #728defff 100%)',
         content: {
             title: "Service Aggregator",
             description: "Reduced CPL by 90% from Rs. 250 to Rs. 30-50",
@@ -48,8 +48,8 @@ const services = [
     {
         id: 'cupid',
         label: 'CUPID',
-        color: '#43e97b',
-        gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+        color: '#0b194bff',
+        gradient: 'linear-gradient(135deg, #0b194bff 0%, #728defff 100%)',
         content: {
             title: "Fashion & Apparel",
             description: "₹1.72 Cr sales in 12 months, scaled from ₹15k/month",
@@ -62,8 +62,8 @@ const services = [
     {
         id: 'uberlyfe',
         label: 'UBERLYFE',
-        color: '#fa709a',
-        gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+        color: '#0b194bff',
+        gradient: 'linear-gradient(135deg, #0b194bff 0%, #728defff 100%)',
         content: {
             title: "Home Furnishing",
             description: "₹2.17 Cr revenue in 6 months with 11.27 ROAS",

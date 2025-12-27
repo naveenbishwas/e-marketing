@@ -21,8 +21,8 @@ const SocialProof = () => {
       image: null,
     },
     {
-      text: "This is just a token to show we’ll be working together — the amount doesn’t reflect your sincerity, which I deeply value. I’m confident I can help bring you more clients; if you share a short blurb, I can circulate it in my founder groups to generate strong leads. Please don’t treat this as a retainer, but as a way to keep our collaboration active for now.",
-      author: "— Sagar K. | Sr. Manager - Performance Marketing",
+      text: "I highly recommend Sayam J. for his exceptional capabilities and performance. During his time at 'Unbundl', Sayam efficiently managed our ad accounts, focusing on driving high-quality leads. He consistently showed reliability and responsibility in this role. Sayam's expertise in digital marketing was evident as he contributed significantly to our campaign successes. Based on his proven track record and deep domain knowledge, I wholeheartedly endorse Sayam for any role requiring digital marketing expertise. He's a valuable asset to any team.",
+      author: "— Vandita, Founder-Iyurved",
       role: "Dentistry",
       image: null,
     },
