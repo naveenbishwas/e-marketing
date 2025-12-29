@@ -201,6 +201,7 @@
   background: transparent;
   transition: border 0.25s ease;
   width: 100%;
+  color: #8d8c8c;
 }
 /* EMAIL FULL WIDTH – VISUALLY BIGGER */
 :global(.ul-span-2 input) {

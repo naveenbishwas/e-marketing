@@ -72,7 +72,8 @@ const services = [
                 { title: "THE RESULTS", items: ["₹2.17 Cr in 6 Months", "11.27 ROAS", "71% Sales Growth"] }
             ]
         }
-    }
+    },
+   
 ];
 
 const getVariants = (activeId) => {

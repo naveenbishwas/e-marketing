@@ -178,6 +178,14 @@ const testimonials = [
     feedback:
       "I highly recommend Sayam J. for his exceptional capabilities and performance. During his time at 'Unbundl', Sayam efficiently managed our ad accounts, focusing on driving high-quality leads. He consistently showed reliability and responsibility in this role. Sayam's expertise in digital marketing was evident as he contributed significantly to our campaign successes. Based on his proven track record and deep domain knowledge, I wholeheartedly endorse Sayam for any role requiring digital marketing expertise. He's a valuable asset to any team.",
   },
+   {
+    image: "/testimonial-1.avif",
+    name: "— Cupidclothings- Tanya",
+    role: "Apparel",
+    companyLogo: "/logo-enterprise.svg",
+    feedback:
+      "Cupid started its own website in 2020, and since then our journey with Mr. Sayam and his team at Team Unnity has been closely associated with our growth. They handle both performance marketing and social media for us. We began with a modest daily ad budget of around ₹500+, and over time their team has successfully scaled it to ₹20,000+ per day. Reason for continuity have been their deep involvement with data—they regularly share detailed Excel reports, conduct weekly review meetings, and ensure clear communication at every stage.Compared to other agencies we’ve worked with, the personal touch and strong understanding of our brand make a real difference. Their team continuously brings in updated strategies, tools, and industry knowledge, which helps keep our ads aligned with both performance goals and long-term brand growth.Overall, the consistency, transparency, and commitment from Team Unnity have been a strong support in scaling our business.",
+  },
   {
     image: "/testimonial-4.avif",
     name: "Alex Johnson",

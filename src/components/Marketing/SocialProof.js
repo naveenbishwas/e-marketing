@@ -26,6 +26,12 @@ const SocialProof = () => {
       role: "Dentistry",
       image: null,
     },
+       {
+      text: "Cupid started its own website in 2020, and since then our journey with Mr. Sayam and his team at Team Unnity has been closely associated with our growth. They handle both performance marketing and social media for us. We began with a modest daily ad budget of around ₹500+, and over time their team has successfully scaled it to ₹20,000+ per day. Reason for continuity have been their deep involvement with data—they regularly share detailed Excel reports, conduct weekly review meetings, and ensure clear communication at every stage.Compared to other agencies we’ve worked with, the personal touch and strong understanding of our brand make a real difference. Their team continuously brings in updated strategies, tools, and industry knowledge, which helps keep our ads aligned with both performance goals and long-term brand growth.Overall, the consistency, transparency, and commitment from Team Unnity have been a strong support in scaling our business.",
+      author: "— Cupidclothings- Tanya",
+      role: "Apparel",
+      image: null,
+    },
     {
       text: "We've streamlined our processes, cut costs, and significantly improved customer satisfaction. Its been a game-changer for our business!",
       author: "— Alex Johnson",

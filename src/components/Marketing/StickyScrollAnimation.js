@@ -21,8 +21,8 @@ const StickyScrollAnimation = () => {
         "Leveraging Google Shopping feeds as the primary growth lever for search-driven demand",
         "Structuring campaigns to scale during peak demand without hurting efficiency",
       ],
-      image: "/images/tiger_patch.png", // Placeholder
-      color: "#166534", // Green
+      image: "/brand-img3.png", // Placeholder
+      color: "#2d5b88", // Green
       textColor: "#ffffff",
     },
     {
@@ -35,8 +35,8 @@ const StickyScrollAnimation = () => {
         "Adjusting ad strategy based on market demand shifts and seasonality",
         "Real-time inventory availability on landing pages",
       ],
-      image: "/images/varsity_d_patch.png", // Placeholder
-      color: "#1e40af", // Blue
+      image: "/brand-img1.png", // Placeholder
+      color: "#191a3a", // Blue
       textColor: "#ffffff",
     },
     {
@@ -49,8 +49,8 @@ const StickyScrollAnimation = () => {
         "Lead quality improved by focusing on feature-led communication",
         "Drone marketing requires experimentation backed by understanding—not guesswork.",
       ],
-      image: "/images/fist_patch.png", // Placeholder
-      color: "#be185d", // Pink
+     image: "/brand-img2.png",// Placeholder
+      color: "#23234d", // Pink
       textColor: "#ffffff",
     },
     {
@@ -63,7 +63,7 @@ const StickyScrollAnimation = () => {
         "Building a structured lead qualification and distribution system",
         "Reduced lead cost from ₹250 to ₹50 while maintaining quality",
       ],
-      image: "/images/fist_patch.png", // Placeholder
+      image: "/brand-img4.png",
       color: "#111827", // Dark
       textColor: "#ffffff",
     },
