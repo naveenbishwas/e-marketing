@@ -371,6 +371,18 @@ h2 {
   }
 }
 
+.meta img{
+  width: 250px;
+  height: auto;
+}
+
+.google-meta-partners {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6%;
+}
+
 .features-carousel {
   padding: 40px 20px;
   text-align: center;

@@ -558,6 +558,43 @@ export default function Home() {
           </section>
         </div>
 
+        <div className="google-meta-partners">
+           <span className="meta">
+            <a
+              href="https://www.google.com/partners/agency?id=8065698223"
+              target="_blank"
+              rel="noopener noreferrer"
+              // style={{ position: "fixed", bottom: "20px", right: "20px", zIndex: 9999 }}
+            >
+              <Image
+                src="./Meta_Business_Partners_two_line_lockup_positive_primary_RGB.png"
+                alt="Meta Partner"
+                width={0}
+                height={0}
+                unoptimized
+              />
+            </a>
+           </span>
+          {/* Google Partner Badge */}
+          <span>
+            <a
+              href="https://www.google.com/partners/agency?id=8065698223"
+              target="_blank"
+              rel="noopener noreferrer"
+              // style={{ position: "fixed", bottom: "20px", right: "20px", zIndex: 9999 }}
+            >
+              <Image
+                src="./Untitled_design__58_-removebg-preview.png"
+                alt="Google Partner"
+                width={150}
+                height={150}
+                unoptimized
+              />
+            </a>
+           </span>
+
+        </div>
+
         <div className="features-carousel">
           <div className="title-nav">
             <span>
