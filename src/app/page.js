@@ -560,7 +560,6 @@ export default function Home() {
 
         <div className="google-meta-partners">
            <span className="meta">
-            
               <Image
                 src="./Meta_Business_Partners_two_line_lockup_positive_primary_RGB.png"
                 alt="Meta Partner"
@@ -570,7 +569,7 @@ export default function Home() {
               />
            </span>
           {/* Google Partner Badge */}
-          <span>
+          <span className="google">
             <a
               href="https://www.google.com/partners/agency?id=8065698223"
               target="_blank"
@@ -580,8 +579,8 @@ export default function Home() {
               <Image
                 src="./Untitled_design__58_-removebg-preview.png"
                 alt="Google Partner"
-                width={150}
-                height={150}
+                width={0}
+                height={0}
                 unoptimized
               />
             </a>
