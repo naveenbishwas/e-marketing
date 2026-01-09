@@ -1,13 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import "./page.css"; 
+import "./page.css"
 import Header from "@/components/Header/page";
 import { useState, useRef, useEffect, useMemo } from "react";
 import Link from "next/link";
 import Footer from "@/components/footer/page";
-import emailjs from "@emailjs/browser";
-import Head from "next/head";
 
 const INITIAL = {
   companyName: "",
@@ -178,7 +176,7 @@ const testimonials = [
     feedback:
       "I highly recommend Sayam J. for his exceptional capabilities and performance. During his time at 'Unbundl', Sayam efficiently managed our ad accounts, focusing on driving high-quality leads. He consistently showed reliability and responsibility in this role. Sayam's expertise in digital marketing was evident as he contributed significantly to our campaign successes. Based on his proven track record and deep domain knowledge, I wholeheartedly endorse Sayam for any role requiring digital marketing expertise. He's a valuable asset to any team.",
   },
-   {
+  {
     image: "/testimonial-1.avif",
     name: "— Cupidclothings- Tanya",
     role: "Apparel",
@@ -559,22 +557,22 @@ export default function Home() {
         </div>
 
         <div className="google-meta-partners">
-           <span className="meta">
-              <Image
-                src="./Meta_Business_Partners_two_line_lockup_positive_primary_RGB.png"
-                alt="Meta Partner"
-                width={0}
-                height={0}
-                unoptimized
-              />
-           </span>
+          <span className="meta">
+            <Image
+              src="./Meta_Business_Partners_two_line_lockup_positive_primary_RGB.png"
+              alt="Meta Partner"
+              width={0}
+              height={0}
+              unoptimized
+            />
+          </span>
           {/* Google Partner Badge */}
           <span className="google">
             <a
               href="https://www.google.com/partners/agency?id=8065698223"
               target="_blank"
               rel="noopener noreferrer"
-              // style={{ position: "fixed", bottom: "20px", right: "20px", zIndex: 9999 }}
+            // style={{ position: "fixed", bottom: "20px", right: "20px", zIndex: 9999 }}
             >
               <Image
                 src="./Untitled_design__58_-removebg-preview.png"
@@ -584,7 +582,7 @@ export default function Home() {
                 unoptimized
               />
             </a>
-           </span>
+          </span>
 
         </div>
 
@@ -1254,9 +1252,8 @@ export default function Home() {
 
                 {status.message && (
                   <div
-                    className={`ul-status ${
-                      status.type === "error" ? "ul-error" : "ul-success"
-                    }`}
+                    className={`ul-status ${status.type === "error" ? "ul-error" : "ul-success"
+                      }`}
                   >
                     {status.message}
                   </div>
