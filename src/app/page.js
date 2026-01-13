@@ -1412,7 +1412,7 @@ export default function Home() {
                                   width={185}
                                   height={240}
                                   className="integration-img"
-                                  loading="eager"
+                                  unoptimized
                                 />
                               </div>
                               <h3 className="integration-title">{item.alt}</h3>
@@ -1426,7 +1426,7 @@ export default function Home() {
                                   width={185}
                                   height={240}
                                   className="integration-img"
-                                  loading="eager"
+                                  unoptimized
                                 />
                               </div>
                               <h3 className="integration-title">{item.alt}</h3>
@@ -1621,6 +1621,8 @@ export default function Home() {
               </div>
             </header>
 
+
+            {/* team grid */}
             <div className="team-grid">
               {shown.map((m, i) => (
                 <article className="member-card" key={i}>
