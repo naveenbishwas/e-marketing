@@ -16,7 +16,7 @@ const HomeApplianceMarketingSection = () => {
     },
     {
       label: "Conversion-Focused Campaigns",
-      desc: "The integration of custom labels allowed for more targeted campaigns, driving conversions.",
+      desc: "The integration of custom labels allowed for more targeted campaign, driving conversions.",
     },
   ];
 
