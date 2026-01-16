@@ -1118,7 +1118,7 @@ export default function Home() {
                                   width={185}
                                   height={240}
                                   className="integration-img"
-                                  loading="eager"
+                                  sizes="(max-width: 768px) 150px, 185px"
                                 />
                               </div>
                               <h3 className="integration-title">{item.alt}</h3>
@@ -1132,7 +1132,7 @@ export default function Home() {
                                   width={185}
                                   height={240}
                                   className="integration-img"
-                                  loading="eager"
+                                  sizes="(max-width: 768px) 150px, 185px"
                                 />
                               </div>
                               <h3 className="integration-title">{item.alt}</h3>
