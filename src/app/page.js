@@ -559,11 +559,11 @@ export default function Home() {
         <div className="google-meta-partners">
           <span className="meta">
             <Image
-              src="./Meta_Business_Partners_two_line_lockup_positive_primary_RGB.png"
+              src="/Meta_Business_Partners_two_line_lockup_positive_primary_RGB.png"
               alt="Meta Partner"
               width={0}
               height={0}
-
+              sizes="100vw"
             />
           </span>
           {/* Google Partner Badge */}
@@ -575,10 +575,11 @@ export default function Home() {
             // style={{ position: "fixed", bottom: "20px", right: "20px", zIndex: 9999 }}
             >
               <Image
-                src="./Untitled_design__58_-removebg-preview.png"
+                src="/Untitled_design__58_-removebg-preview.png"
                 alt="Google Partner"
                 width={0}
                 height={0}
+                sizes="100vw"
 
               />
             </a>
@@ -640,6 +641,7 @@ export default function Home() {
 
                     width={0}
                     height={0}
+                    sizes="100vw"
                   />
                   <h3 className="feature-label">{feature.title}</h3>
                   <p className="feature-desc">{feature.description}</p>
@@ -696,6 +698,7 @@ export default function Home() {
               src="/empire1.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -703,6 +706,7 @@ export default function Home() {
               src="/aqua1.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -710,6 +714,7 @@ export default function Home() {
               src="/comforto.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -717,6 +722,7 @@ export default function Home() {
               src="/da1.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -724,6 +730,7 @@ export default function Home() {
               src="/adpl2.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -731,6 +738,7 @@ export default function Home() {
               src="/edoofa.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -739,6 +747,7 @@ export default function Home() {
               src="/hardoll.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -746,6 +755,7 @@ export default function Home() {
               src="/hub1.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -754,6 +764,7 @@ export default function Home() {
               src="/nira.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -761,6 +772,7 @@ export default function Home() {
               src="/orchid-blue.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -768,6 +780,7 @@ export default function Home() {
               src="/poco.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -775,6 +788,7 @@ export default function Home() {
               src="/sain.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -782,6 +796,7 @@ export default function Home() {
               src="/sky.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -789,6 +804,7 @@ export default function Home() {
               src="/aurave1.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -796,6 +812,7 @@ export default function Home() {
               src="/uk.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -803,6 +820,7 @@ export default function Home() {
               src="/cupid1.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -810,6 +828,7 @@ export default function Home() {
               src="/e-travel.avif"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -817,6 +836,7 @@ export default function Home() {
               src="/isu1.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -824,6 +844,7 @@ export default function Home() {
               src="/kapur1.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -831,6 +852,7 @@ export default function Home() {
               src="/madve.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -838,6 +860,7 @@ export default function Home() {
               src="/mireads.avif"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -845,6 +868,7 @@ export default function Home() {
               src="/power-mower.webp"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -852,6 +876,7 @@ export default function Home() {
               src="/uberlyfe1.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -859,6 +884,7 @@ export default function Home() {
               src="/hub1.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -868,6 +894,7 @@ export default function Home() {
               src="/empire1.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -875,6 +902,7 @@ export default function Home() {
               src="/aqua1.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -882,6 +910,7 @@ export default function Home() {
               src="/comforto.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -889,6 +918,7 @@ export default function Home() {
               src="/da1.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -897,6 +927,7 @@ export default function Home() {
               src="/edoofa.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -905,6 +936,7 @@ export default function Home() {
               src="/hardoll.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -912,6 +944,7 @@ export default function Home() {
               src="/hub1.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -920,6 +953,7 @@ export default function Home() {
               src="/nira.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -927,6 +961,7 @@ export default function Home() {
               src="/orchid-blue.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -934,6 +969,7 @@ export default function Home() {
               src="/poco.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -941,6 +977,7 @@ export default function Home() {
               src="/sain.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -948,6 +985,7 @@ export default function Home() {
               src="/sky.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -955,6 +993,7 @@ export default function Home() {
               src="/aurave1.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -962,6 +1001,7 @@ export default function Home() {
               src="/uk.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -969,6 +1009,7 @@ export default function Home() {
               src="/cupid1.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -976,6 +1017,7 @@ export default function Home() {
               src="/e-travel.avif"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -983,6 +1025,7 @@ export default function Home() {
               src="/isu1.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -990,6 +1033,7 @@ export default function Home() {
               src="/kapur1.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -997,6 +1041,7 @@ export default function Home() {
               src="/madve.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -1004,6 +1049,7 @@ export default function Home() {
               src="/mireads.avif"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -1011,6 +1057,7 @@ export default function Home() {
               src="/power-mower.webp"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -1018,6 +1065,7 @@ export default function Home() {
               src="/uberlyfe1.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -1025,6 +1073,7 @@ export default function Home() {
               src="/hub1.png"
               width={0}
               height={0}
+              sizes="100vw"
               alt=""
 
             ></Image>
@@ -1037,9 +1086,10 @@ export default function Home() {
             <div className="ul-visual">
               <div className="ul-portrait">
                 <Image
-                  src="sayyam2.png"
+                  src="/sayyam2.png"
                   width={0}
                   height={0}
+                  sizes="100vw"
                   alt="Sayam jain , Unnity"
 
                 ></Image>
@@ -1259,7 +1309,7 @@ export default function Home() {
                   </div>
                 )}
 
-                <button className="ul-submit" type="submit" disabled={sending}>
+                <button className="ul-submit" type="submit" disabled={sending} id="submit-btn">
                   {sending ? "sending..." : "Send Enquiry"}
                 </button>
               </form>
@@ -1370,6 +1420,7 @@ export default function Home() {
                         className="step-image"
                         width={0}
                         height={0}
+                        sizes="100vw"
 
                       />
                     </div>
@@ -1630,6 +1681,7 @@ export default function Home() {
                       src={m.photo}
                       width={0}
                       height={0}
+                      sizes="100vw"
                       alt={m.name}
                       loading="lazy"
 
