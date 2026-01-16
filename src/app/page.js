@@ -729,7 +729,7 @@ export default function Home() {
                 height={0}
                 sizes="200px"
                 alt="Brand Logo"
-                style={{ width: "auto", height: "auto" }}
+                style={{ width: "auto", height: "60px" }}
               />
             ))}
           </div>
