@@ -7,6 +7,33 @@ import { useState, useRef, useEffect, useMemo } from "react";
 import Link from "next/link";
 import Footer from "@/components/footer/page";
 
+const LOGO_IMAGES = [
+  "/empire1.png",
+  "/aqua1.png",
+  "/comforto.png",
+  "/da1.png",
+  "/adpl2.png",
+  "/edoofa.png",
+  "/hardoll.png",
+  "/hub1.png",
+  "/nira.png",
+  "/orchid-blue.png",
+  "/poco.png",
+  "/sain.png",
+  "/sky.png",
+  "/aurave1.png",
+  "/uk.png",
+  "/cupid1.png",
+  "/e-travel.avif",
+  "/isu1.png",
+  "/kapur1.png",
+  "/madve.png",
+  "/mireads.avif",
+  "/power-mower.webp",
+  "/uberlyfe1.png",
+  "/hub1.png",
+];
+
 const INITIAL = {
   companyName: "",
   budget: "",
@@ -641,7 +668,7 @@ export default function Home() {
 
                     width={0}
                     height={0}
-                    sizes="100vw"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <h3 className="feature-label">{feature.title}</h3>
                   <p className="feature-desc">{feature.description}</p>
@@ -694,389 +721,17 @@ export default function Home() {
         <div className="logo-slider">
           <h1>Trusted by Leading Brands</h1>
           <div className="logo-track">
-            <Image
-              src="/empire1.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/aqua1.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/comforto.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/da1.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/adpl2.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/edoofa.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-
-            <Image
-              src="/hardoll.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/hub1.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-
-            <Image
-              src="/nira.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/orchid-blue.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/poco.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/sain.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/sky.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/aurave1.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/uk.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/cupid1.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/e-travel.avif"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/isu1.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/kapur1.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/madve.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/mireads.avif"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/power-mower.webp"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/uberlyfe1.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/hub1.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-
-            {/* Repeat the same logos to make the loop seamless */}
-            <Image
-              src="/empire1.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/aqua1.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/comforto.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/da1.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-
-            <Image
-              src="/edoofa.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-
-            <Image
-              src="/hardoll.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/hub1.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-
-            <Image
-              src="/nira.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/orchid-blue.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/poco.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/sain.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/sky.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/aurave1.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/uk.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/cupid1.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/e-travel.avif"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/isu1.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/kapur1.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/madve.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/mireads.avif"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/power-mower.webp"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/uberlyfe1.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
-            <Image
-              src="/hub1.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt=""
-
-            ></Image>
+            {[...LOGO_IMAGES, ...LOGO_IMAGES].map((src, index) => (
+              <Image
+                key={index}
+                src={src}
+                width={0}
+                height={0}
+                sizes="200px"
+                alt="Brand Logo"
+                style={{ width: "auto", height: "auto" }}
+              />
+            ))}
           </div>
         </div>
 
@@ -1089,7 +744,7 @@ export default function Home() {
                   src="/sayyam2.png"
                   width={0}
                   height={0}
-                  sizes="100vw"
+                  sizes="(max-width: 768px) 100vw, 520px"
                   alt="Sayam jain , Unnity"
 
                 ></Image>
@@ -1420,7 +1075,7 @@ export default function Home() {
                         className="step-image"
                         width={0}
                         height={0}
-                        sizes="100vw"
+                        sizes="(max-width: 680px) 100vw, 50vw"
 
                       />
                     </div>
