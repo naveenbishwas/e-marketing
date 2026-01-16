@@ -16,7 +16,7 @@ import Footer from "@/components/footer/page";
 
 export default function Showcase() {
   return (
-    <main style={{ minHeight: "100vh" }}>
+    <main style={{ minHeight: "100dvh" }}>
       {/* <Navbar /> */}
       <Header />
       <DirectionAwareBanner />
@@ -27,7 +27,7 @@ export default function Showcase() {
       <ProportionalServiceGrid />
       {/* <ClientLogoGrid /> */}
       {/* <Industries /> */}
-      <StickyScrollAnimation/>
+      <StickyScrollAnimation />
       <SocialProof />
       <LeadForm />
       <Footer />

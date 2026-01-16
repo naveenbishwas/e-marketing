@@ -1,6 +1,6 @@
 .section {
     display: flex;
-    min-height: 100vh;
+    min-height: 100dvh;
     background: #000;
     color: #fff;
     overflow: hidden;
@@ -82,6 +82,7 @@
     line-height: 1.1;
     background: linear-gradient(to right, #fff, #888);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 

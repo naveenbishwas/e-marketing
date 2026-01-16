@@ -1,5 +1,6 @@
 "use client";
 import { useState, useRef } from "react";
+import Image from "next/image";
 import {
   motion,
   AnimatePresence,
@@ -176,10 +177,8 @@ const DirectionAwareBanner = () => {
           transition={{ duration: 0.6, ease: "easeInOut" }}
         >
           <AnimatePresence initial={false}>
-            <motion.img
+            <motion.div
               key={activeSlide}
-              src={slides[activeSlide].image}
-              alt="Agency Team"
               className={styles.videoBackground}
               initial={{ y: "100%" }}
               animate={{
@@ -188,7 +187,15 @@ const DirectionAwareBanner = () => {
               }}
               exit={{ y: "-100%" }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            />
+            >
+              <Image
+                src={slides[activeSlide].image}
+                alt="Agency Team"
+                fill
+                style={{ objectFit: "cover" }}
+                sizes="(max-width: 768px) 100vw, 90vw"
+              />
+            </motion.div>
           </AnimatePresence>
           <div className={styles.dimOverlay}></div>
         </motion.div>

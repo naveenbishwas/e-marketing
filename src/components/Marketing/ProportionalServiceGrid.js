@@ -73,18 +73,18 @@ const services = [
             ]
         }
     },
-   
+
 ];
 
 const getVariants = (activeId) => {
     const centerX = 200;
     const centerY = 200;
-    
+
     const topLeft = { x: 30, y: 30 };
     const topRight = { x: 370, y: 30 };
     const bottomLeft = { x: 30, y: 370 };
     const bottomRight = { x: 370, y: 370 };
-    
+
     if (activeId === 'powermowers') return {
         powermowers: { x: centerX, y: centerY, scale: 1, rotate: 0, zIndex: 20 },
         dronacharya: { ...topRight, scale: 0.75, rotate: 8, zIndex: 1 },
@@ -136,7 +136,7 @@ const ProportionalServiceGrid = () => {
     return (
         <section style={{
             display: 'flex',
-            minHeight: '100vh',
+            minHeight: '100dvh',
             background: 'linear-gradient(to bottom, #ffffff 0%, #f8f9ff 100%)',
             padding: '80px 60px',
             gap: '80px',
@@ -157,7 +157,7 @@ const ProportionalServiceGrid = () => {
                     {services.map((service) => {
                         const variant = currentVariants[service.id] || { x: 0, y: 0, scale: 0.7, rotate: 0, zIndex: 1 };
                         const isActive = activeId === service.id;
-                        
+
                         return (
                             <motion.div
                                 key={service.id}
@@ -182,9 +182,9 @@ const ProportionalServiceGrid = () => {
                                 onClick={() => setActiveId(service.id)}
                                 whileHover={{ scale: variant.scale * 1.05 }}
                             >
-                                <div style={{ 
-                                    position: 'relative', 
-                                    width: '100%', 
+                                <div style={{
+                                    position: 'relative',
+                                    width: '100%',
                                     height: '100%',
                                     filter: isActive ? 'drop-shadow(0 20px 40px rgba(0,0,0,0.15))' : 'drop-shadow(0 4px 8px rgba(0,0,0,0.08))'
                                 }}>
@@ -307,7 +307,7 @@ const ProportionalServiceGrid = () => {
                             gap: '40px'
                         }}>
                             {activeService.content.groups.map((group, index) => (
-                                <motion.div 
+                                <motion.div
                                     key={index}
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}

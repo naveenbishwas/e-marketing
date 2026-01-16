@@ -519,7 +519,7 @@ export default function Home() {
                   className="laptop-base"
                   width={600}
                   height={350}
-                  unoptimized
+
                 />
 
                 {/* Fade Slider Inside Laptop */}
@@ -531,7 +531,7 @@ export default function Home() {
                       className="slide-img"
                       width={800}
                       height={500}
-                      unoptimized
+
                     />
                     <Image
                       src="/p1.jpeg"
@@ -539,7 +539,7 @@ export default function Home() {
                       className="slide-img"
                       width={800}
                       height={500}
-                      unoptimized
+
                     />
                     <Image
                       src="/w1.jpeg"
@@ -547,7 +547,7 @@ export default function Home() {
                       className="slide-img"
                       width={800}
                       height={500}
-                      unoptimized
+
                     />
                   </div>
                 </div>
@@ -563,7 +563,7 @@ export default function Home() {
               alt="Meta Partner"
               width={0}
               height={0}
-              unoptimized
+
             />
           </span>
           {/* Google Partner Badge */}
@@ -579,7 +579,7 @@ export default function Home() {
                 alt="Google Partner"
                 width={0}
                 height={0}
-                unoptimized
+
               />
             </a>
           </span>
@@ -637,7 +637,7 @@ export default function Home() {
                     src={feature.image}
                     alt={feature.alt}
                     className="feature-image"
-                    unoptimized
+
                     width={0}
                     height={0}
                   />
@@ -697,42 +697,42 @@ export default function Home() {
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/aqua1.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/comforto.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/da1.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/adpl2.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/edoofa.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
 
             <Image
@@ -740,14 +740,14 @@ export default function Home() {
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/hub1.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
 
             <Image
@@ -755,112 +755,112 @@ export default function Home() {
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/orchid-blue.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/poco.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/sain.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/sky.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/aurave1.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/uk.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/cupid1.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/e-travel.avif"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/isu1.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/kapur1.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/madve.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/mireads.avif"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/power-mower.webp"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/uberlyfe1.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/hub1.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
 
             {/* Repeat the same logos to make the loop seamless */}
@@ -869,28 +869,28 @@ export default function Home() {
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/aqua1.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/comforto.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/da1.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
 
             <Image
@@ -898,7 +898,7 @@ export default function Home() {
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
 
             <Image
@@ -906,14 +906,14 @@ export default function Home() {
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/hub1.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
 
             <Image
@@ -921,112 +921,112 @@ export default function Home() {
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/orchid-blue.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/poco.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/sain.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/sky.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/aurave1.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/uk.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/cupid1.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/e-travel.avif"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/isu1.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/kapur1.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/madve.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/mireads.avif"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/power-mower.webp"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/uberlyfe1.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
             <Image
               src="/hub1.png"
               width={0}
               height={0}
               alt=""
-              unoptimized
+
             ></Image>
           </div>
         </div>
@@ -1041,7 +1041,7 @@ export default function Home() {
                   width={0}
                   height={0}
                   alt="Sayam jain , Unnity"
-                  unoptimized
+
                 ></Image>
                 <div className="ul-kpis">
                   <span className="ul-chip ul-chip-blue" aria-label="CPM">
@@ -1370,7 +1370,7 @@ export default function Home() {
                         className="step-image"
                         width={0}
                         height={0}
-                        unoptimized
+
                       />
                     </div>
                   </article>
@@ -1632,7 +1632,7 @@ export default function Home() {
                       height={0}
                       alt={m.name}
                       loading="lazy"
-                      unoptimized
+
                     ></Image>
                   </div>
 
