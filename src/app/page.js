@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import "./page.css"
+import "./page.css";
 import Header from "@/components/Header/page";
+import FloatingLines from "@/components/reactBits/FloatingLines";
 import { useState, useRef, useEffect, useMemo } from "react";
 import Link from "next/link";
 import Footer from "@/components/footer/page";
@@ -440,7 +441,7 @@ export default function Home() {
 
   const visibleTestimonials = testimonials.slice(
     startIndex,
-    startIndex + cardsPerView
+    startIndex + cardsPerView,
   );
 
   const handleNext = () => {
@@ -464,7 +465,7 @@ export default function Home() {
 
   const roles = useMemo(
     () => ["All", ...Array.from(new Set(members.map((m) => m.role)))],
-    []
+    [],
   );
 
   const shown = useMemo(() => {
@@ -486,102 +487,116 @@ export default function Home() {
         {/* Hero inside relative wrapper */}
         <div className="hero-wrapper">
           <section className="hero">
-            <div className="hero-left">
-              <button className="small-btn">
-                Elevate your business to the next level
-              </button>
-              <h1>Empower Your Brand With UNNITY </h1>
-              <p>
-                At Unnity, we help brands grow in the digital world. Our
-                tailored marketing solutions boost your online presence, engage
-                your audience, and drive real results. Let Unnity unlock your
-                brand’s full potential.
-              </p>
-
-              <a href="https://calendly.com/sayam-unnity/30min?month=2025-08">
-                <button className="cta-button" id="banner-btn">
-                  Start your free trial
-                  <span className="arrow-wrapper">
-                    <span className="arrow first-arrow">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                        />
-                      </svg>
-                    </span>
-                    <span className="arrow second-arrow">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                </button>
-              </a>
+            {/* floating lines */}
+            <div className="hero-floatingLines">
+              <FloatingLines
+                enabledWaves={["top", "middle", "bottom"]}
+                lineCount={5}
+                lineDistance={5}
+                bendRadius={11.5}
+                bendStrength={-0.5}
+                interactive={true}
+                parallax={true}
+              />
             </div>
+            {/* Overlay effect */}
+            <div className="hero-overlay" />
+            {/* hero content */}
+            <div className="hero-alignment">
+              <div className="hero-left">
+                <button className="small-btn">
+                  Elevate your business to the next level
+                </button>
+                <h1>Empower Your Brand With UNNITY </h1>
+                <p>
+                  At Unnity, we help brands grow in the digital world. Our
+                  tailored marketing solutions boost your online presence,
+                  engage your audience, and drive real results. Let Unnity
+                  unlock your brand’s full potential.
+                </p>
 
-            <div className="hero-right">
-              <div className="laptop-wrapper">
-                {/* Laptop Image */}
-                <Image
-                  src="/laptop2.png"
-                  alt="Laptop"
-                  className="laptop-base"
-                  width={600}
-                  height={350}
+                <a href="https://calendly.com/sayam-unnity/30min?month=2025-08">
+                  <button className="cta-button" id="banner-btn">
+                    Start your free trial
+                    <span className="arrow-wrapper">
+                      <span className="arrow first-arrow">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                          />
+                        </svg>
+                      </span>
+                      <span className="arrow second-arrow">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </button>
+                </a>
+              </div>
 
-                />
+              <div className="hero-right">
+                <div className="laptop-wrapper">
+                  {/* Laptop Image */}
+                  <Image
+                    src="/laptop2.png"
+                    alt="Laptop"
+                    className="laptop-base"
+                    width={600}
+                    height={350}
+                  />
 
-                {/* Fade Slider Inside Laptop */}
-                <div className="screen-slider">
-                  <div className="fade-slider">
-                    <Image
-                      src="/g1.jpeg"
-                      alt="Slide 1"
-                      className="slide-img"
-                      width={800}
-                      height={500}
-
-                    />
-                    <Image
-                      src="/p1.jpeg"
-                      alt="Slide 2"
-                      className="slide-img"
-                      width={800}
-                      height={500}
-
-                    />
-                    <Image
-                      src="/w1.jpeg"
-                      alt="Slide 3"
-                      className="slide-img"
-                      width={800}
-                      height={500}
-
-                    />
+                  {/* Fade Slider Inside Laptop */}
+                  <div className="screen-slider">
+                    <div className="fade-slider">
+                      <Image
+                        src="/g1.jpeg"
+                        alt="Slide 1"
+                        className="slide-img"
+                        width={800}
+                        height={500}
+                      />
+                      <Image
+                        src="/p1.jpeg"
+                        alt="Slide 2"
+                        className="slide-img"
+                        width={800}
+                        height={500}
+                      />
+                      <Image
+                        src="/w1.jpeg"
+                        alt="Slide 3"
+                        className="slide-img"
+                        width={800}
+                        height={500}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </section>
         </div>
+        {/* End hero..(shubham) */}
 
         <div className="google-meta-partners">
           <span className="meta">
@@ -599,7 +614,7 @@ export default function Home() {
               href="https://www.google.com/partners/agency?id=8065698223"
               target="_blank"
               rel="noopener noreferrer"
-            // style={{ position: "fixed", bottom: "20px", right: "20px", zIndex: 9999 }}
+              // style={{ position: "fixed", bottom: "20px", right: "20px", zIndex: 9999 }}
             >
               <Image
                 src="/Untitled_design__58_-removebg-preview.png"
@@ -607,11 +622,9 @@ export default function Home() {
                 width={0}
                 height={0}
                 sizes="100vw"
-
               />
             </a>
           </span>
-
         </div>
 
         <div className="features-carousel">
@@ -665,7 +678,6 @@ export default function Home() {
                     src={feature.image}
                     alt={feature.alt}
                     className="feature-image"
-
                     width={0}
                     height={0}
                     sizes="(max-width: 768px) 100vw, 50vw"
@@ -746,7 +758,6 @@ export default function Home() {
                   height={0}
                   sizes="(max-width: 768px) 100vw, 520px"
                   alt="Sayam jain , Unnity"
-
                 ></Image>
                 <div className="ul-kpis">
                   <span className="ul-chip ul-chip-blue" aria-label="CPM">
@@ -957,14 +968,20 @@ export default function Home() {
 
                 {status.message && (
                   <div
-                    className={`ul-status ${status.type === "error" ? "ul-error" : "ul-success"
-                      }`}
+                    className={`ul-status ${
+                      status.type === "error" ? "ul-error" : "ul-success"
+                    }`}
                   >
                     {status.message}
                   </div>
                 )}
 
-                <button className="ul-submit" type="submit" disabled={sending} id="submit-btn">
+                <button
+                  className="ul-submit"
+                  type="submit"
+                  disabled={sending}
+                  id="submit-btn"
+                >
                   {sending ? "sending..." : "Send Enquiry"}
                 </button>
               </form>
@@ -1076,7 +1093,6 @@ export default function Home() {
                         width={0}
                         height={0}
                         sizes="(max-width: 680px) 100vw, 50vw"
-
                       />
                     </div>
                   </article>
@@ -1139,7 +1155,7 @@ export default function Home() {
                             </>
                           )}
                         </div>
-                      )
+                      ),
                     )}
                   </div>
                 </div>
@@ -1339,7 +1355,6 @@ export default function Home() {
                       sizes="100vw"
                       alt={m.name}
                       loading="lazy"
-
                     ></Image>
                   </div>
 
