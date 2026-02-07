@@ -11,6 +11,7 @@ import { FaFire } from "react-icons/fa";
 import { LuZap } from "react-icons/lu";
 import { IoDiamondOutline } from "react-icons/io5";
 import Loading from "./loading";
+import { hover } from "framer-motion";
 
 const LOGO_IMAGES = [
   "/empire1.png",
@@ -355,7 +356,7 @@ export default function Home() {
   const [sending, setSending] = useState(false);
   const [status, setStatus] = useState({ type: "", message: "" });
   const formRef = useRef(null);
-
+  const [hoverCard, setHoverCard] = useState(null);
   const [loading, setLoading] = useState(true);
   const [formData, setFormData] = useState({
     companyName: "",
@@ -495,7 +496,6 @@ export default function Home() {
     <>
       <main className="page-wrapper">
         <Header />
-
         {/* Hero inside relative wrapper */}
         <div className="hero-wrapper">
           <section className="hero">
@@ -638,7 +638,6 @@ export default function Home() {
           </section>
         </div>
         {/* End hero..(shubham) */}
-
         <div className="google-meta-partners">
           <span className="meta">
             <Image
@@ -667,110 +666,79 @@ export default function Home() {
             </a>
           </span>
         </div>
+        {/* features-cards with smooth animation expand */}
 
-        <div className="features-carousel">
-          <div className="title-nav">
-            <span>
-              <h2 className="carousel-title">
-                Elevate Your Brand with Our <br /> Marketing Expertise
-              </h2>
-            </span>
-            {/* <span>
-              <button className="nav-btn left" onClick={scrollLeft}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="size-6"
+        <div className="carousel-wrapper">
+          <button className="nav-btn left" onClick={scrollLeft}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="size-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+              />
+            </svg>
+          </button>
+
+          <div className="carousel-container">
+            {features.map((feature, index) => (
+              <div
+                className="feature-card"
+                key={index}
+                onMouseEnter={() => setHoverCard(index)}
+                onMouseLeave={() => setHoverCard(null)}
+              >
+                <img
+                  src={feature.image}
+                  alt={feature.alt}
+                  className="feature-image"
+                  style={{
+                    backdropFilter: hoverCard !== index ? "none" : "blur(4px)",
+                  }}
+                />
+                {/* Dark overlay */}
+                <div
+                  className={` ${hoverCard === index ? "none-overlay" : "feature-overlay"}`}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
-                  />
-                </svg>
-              </button>
-              <button className="nav-btn right" onClick={scrollRight}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="size-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                  />
-                </svg>
-              </button>
-            </span> */}
-          </div>
-
-          <div className="carousel-wrapper">
-            <div className="carousel-container" ref={containerRef}>
-              {features.map((feature, index) => (
-                <div className="feature-card" key={index}>
-                  <Image
-                    src={feature.image}
-                    alt={feature.alt}
-                    className="feature-image"
-                    width={0}
-                    height={0}
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                  <h3 className="feature-label">{feature.title}</h3>
-                  <p className="feature-desc">{feature.description}</p>
-
-                  <span>
-                    <Link href={feature.link}>
-                      <button>Read more detail</button>
-                    </Link>
-                  </span>
+                  {" "}
                 </div>
-              ))}
-            </div>
+                <div
+                  className={`feature-content ${hoverCard === index ? "expanded" : ""}`}
+                >
+                  <h3 className="feature-title">{feature.title}</h3>
+                  <p className="feature-description">{feature.description}</p>
+                  <a href={feature.link} className="feature-link">
+                    Learn More
+                  </a>
+                </div>
+              </div>
+            ))}
           </div>
-          <span>
-            <button className="nav-btn left" onClick={scrollLeft}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="size-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
-                />
-              </svg>
-            </button>
-            <button className="nav-btn right" onClick={scrollRight}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="size-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                />
-              </svg>
-            </button>
-          </span>
-        </div>
 
+          <button className="nav-btn right" onClick={scrollRight}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="size-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+              />
+            </svg>
+          </button>
+        </div>
+        {/* Trusted */}
         <div className="logo-slider">
           <h1>Trusted by Leading Brands</h1>
           <div className="logo-track">
@@ -787,7 +755,6 @@ export default function Home() {
             ))}
           </div>
         </div>
-
         <section className="unnity-lead">
           <div className="ul-wrap">
             {/* Left: Visual + marketing points */}
@@ -1029,7 +996,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
         <section className="top-choice-section">
           <div className="top-choice-left">
             <h2 className="top-choice-heading">See why we’re the top choice</h2>
@@ -1106,7 +1072,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
         <section className="step-section">
           <span className="step-heading">
             <h1>Client Success Through Smart Digital Strategy</h1>
@@ -1148,7 +1113,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
         <section className="integration">
           <div className="integration-df">
             <div className="integration-left">
@@ -1249,7 +1213,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
         <section className="testimonial-section">
           <div className="testimonial-header">
             <h2>What our customers are saying</h2>
@@ -1346,7 +1309,6 @@ export default function Home() {
             ))}
           </div>
         </section>
-
         <section className="team-section">
           <div className="team-container">
             <header className="team-header">
@@ -1446,7 +1408,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
         <Footer />
       </main>
     </>
