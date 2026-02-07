@@ -7,6 +7,10 @@ import FloatingLines from "@/components/reactBits/FloatingLines";
 import { useState, useRef, useEffect, useMemo } from "react";
 import Link from "next/link";
 import Footer from "@/components/footer/page";
+import { FaFire } from "react-icons/fa";
+import { LuZap } from "react-icons/lu";
+import { IoDiamondOutline } from "react-icons/io5";
+import Loading from "./loading";
 
 const LOGO_IMAGES = [
   "/empire1.png",
@@ -348,11 +352,11 @@ export default function Home() {
   const scrollerRef = useRef(null);
   const [q, setQ] = useState("");
   const [role, setRole] = useState("All");
-  // const [form, setForm] = useState(INITIAL);
   const [sending, setSending] = useState(false);
   const [status, setStatus] = useState({ type: "", message: "" });
   const formRef = useRef(null);
 
+  const [loading, setLoading] = useState(true);
   const [formData, setFormData] = useState({
     companyName: "",
     budget: "",
@@ -479,6 +483,14 @@ export default function Home() {
     });
   }, [q, role]);
 
+  // Loading state....//
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+  if (loading) return <Loading />;
+
   return (
     <>
       <main className="page-wrapper">
@@ -507,88 +519,117 @@ export default function Home() {
                 <button className="small-btn">
                   Elevate your business to the next level
                 </button>
-                <h1>Empower Your Brand With UNNITY </h1>
+                <h1>
+                  Crafting Digital <br /> Brands That Stand Out{" "}
+                </h1>
                 <p>
                   At Unnity, we help brands grow in the digital world. Our
                   tailored marketing solutions boost your online presence,
                   engage your audience, and drive real results. Let Unnity
                   unlock your brand’s full potential.
                 </p>
-
-                <a href="https://calendly.com/sayam-unnity/30min?month=2025-08">
-                  <button className="cta-button" id="banner-btn">
-                    Start your free trial
-                    <span className="arrow-wrapper">
-                      <span className="arrow first-arrow">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="1.5"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                          />
-                        </svg>
+                <div className="cta-btn-wrapper">
+                  <a href="https://calendly.com/sayam-unnity/30min?month=2025-08">
+                    <button className="cta-button" id="banner-btn">
+                      Start your free trial
+                      <span className="arrow-wrapper">
+                        <span className="arrow first-arrow">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                            />
+                          </svg>
+                        </span>
+                        <span className="arrow second-arrow">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                            />
+                          </svg>
+                        </span>
                       </span>
-                      <span className="arrow second-arrow">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="1.5"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                          />
-                        </svg>
+                    </button>
+                  </a>
+                  {/* second cta */}
+                  <a href="https://calendly.com/sayam-unnity/30min?month=2025-08">
+                    <button className="cta-button" id="banner-btn">
+                      View Portfolio
+                      <span className="arrow-wrapper">
+                        <span className="arrow first-arrow">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                            />
+                          </svg>
+                        </span>
+                        <span className="arrow second-arrow">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                            />
+                          </svg>
+                        </span>
                       </span>
-                    </span>
-                  </button>
-                </a>
+                    </button>
+                  </a>
+                </div>
               </div>
 
               <div className="hero-right">
-                <div className="laptop-wrapper">
-                  {/* Laptop Image */}
-                  <Image
-                    src="/laptop2.png"
-                    alt="Laptop"
-                    className="laptop-base"
-                    width={600}
-                    height={350}
-                  />
+                <div className="flying-badge-wrapper">
+                  <div className="flying-badge">
+                    <LuZap className="badge-icon fire" />
+                    <div>
+                      <h4 className="badge-text">Graphic Design</h4>
+                      <p>Designs that demand attention</p>
+                    </div>
+                  </div>
 
-                  {/* Fade Slider Inside Laptop */}
-                  <div className="screen-slider">
-                    <div className="fade-slider">
-                      <Image
-                        src="/g1.jpeg"
-                        alt="Slide 1"
-                        className="slide-img"
-                        width={800}
-                        height={500}
-                      />
-                      <Image
-                        src="/p1.jpeg"
-                        alt="Slide 2"
-                        className="slide-img"
-                        width={800}
-                        height={500}
-                      />
-                      <Image
-                        src="/w1.jpeg"
-                        alt="Slide 3"
-                        className="slide-img"
-                        width={800}
-                        height={500}
-                      />
+                  <div className="flying-badge second">
+                    <FaFire className="badge-icon fire" />
+                    <div>
+                      <h4 className="badge-text">Performance Marketing</h4>
+                      <p>Clicks to customers</p>
+                    </div>
+                  </div>
+
+                  <div className="flying-badge third">
+                    <IoDiamondOutline className="badge-icon fire" />
+                    <div>
+                      <h4 className="badge-text">Website Design</h4>
+                      <p>Built to impress and perform</p>
                     </div>
                   </div>
                 </div>

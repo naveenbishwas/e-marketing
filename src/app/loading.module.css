@@ -1,0 +1,126 @@
+.body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.loaderContainer {
+  position: relative;
+}
+
+.textWrapper {
+  display: flex;
+  gap: 8px;
+  position: relative;
+}
+
+.letter {
+  font-size: 80px;
+  font-weight: bold;
+  color: #23234d;
+  opacity: 0;
+  transform: translateY(50px) rotateX(-90deg);
+  animation: letterDrop 0.6s ease-out forwards;
+  position: relative;
+}
+
+.letter:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.letter:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.letter:nth-child(3) {
+  animation-delay: 0.5s;
+}
+.letter:nth-child(4) {
+  animation-delay: 0.7s;
+}
+.letter:nth-child(5) {
+  animation-delay: 0.9s;
+}
+.letter:nth-child(6) {
+  animation-delay: 1.1s;
+}
+
+.primary {
+  color: #ffffff;
+  text-shadow:
+    0 0 20px rgba(255, 255, 255, 0.3),
+    0 0 40px rgba(255, 255, 255, 0.2);
+}
+
+.circleWrap {
+  position: relative;
+}
+
+.circle {
+  position: absolute;
+  width: 70px;
+  height: 180px;
+  border-radius: 80px;
+  border: 2px solid #3a3a6e;
+  opacity: 0;
+  animation: createCircle 0.5s ease-out 0.7s forwards;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* .loadingBar {
+  position: absolute;
+  bottom: -80px;
+  width: 300px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+} */
+
+/* .loadingProgress {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #23234d 0%, #ffd700 100%);
+  animation: loadProgress 4s ease-out forwards;
+} */
+
+@keyframes letterDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) rotateX(-90deg);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+  }
+}
+
+@keyframes createCircle {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0) rotate(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1) rotate(180deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(360deg);
+  }
+}
+
+/* @keyframes loadProgress {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+} */
