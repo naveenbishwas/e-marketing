@@ -12,6 +12,7 @@ import { LuZap } from "react-icons/lu";
 import { IoDiamondOutline } from "react-icons/io5";
 import Loading from "./loading";
 import { hover } from "framer-motion";
+import metaAds from "../../public/meta_ads.jpeg";
 
 const LOGO_IMAGES = [
   "/empire1.png",
@@ -56,7 +57,7 @@ const features = [
     description:
       "We build custom solutions using Shopify, Next.js, and robust backend technologies. From eCommerce to web apps, we handle everything from databases to clean, scalable code.",
     link: "#",
-    image: "/dev-sol.jpeg", // Save the first image locally
+    image: "/Dev_sol.jpeg", // Save the first image locally
     alt: "Email automation",
   },
   {
@@ -64,7 +65,7 @@ const features = [
     description:
       "We run high-converting Meta Ads that drive traffic, leads, and sales. From strategy to creatives and optimization, we manage it all for measurable growth.",
     link: "#",
-    image: "/m-ads.jpeg", // Save the second image locally
+    image: "/meta_ads.jpeg", // Save the second image locally
     alt: "Customizable templates",
   },
   {
@@ -72,7 +73,7 @@ const features = [
     description:
       "We create and manage data-driven Google Ads campaigns to boost visibility and conversions. From search to display, we optimize every click for maximum ROI.",
     link: "#",
-    image: "/g-ads.jpeg", // Save the third image locally
+    image: "/google-ads.jpeg", // Save the third image locally
     alt: "A/B Testing",
   },
   {
@@ -80,7 +81,7 @@ const features = [
     description:
       "We craft targeted LinkedIn Ads to connect you with decision-makers and drive B2B growth. From audience building to ad optimization, we deliver results that matter.",
     link: "#",
-    image: "/link.jpeg",
+    image: "/linkdin-ads.jpeg",
     alt: "A/B Testing",
   },
   {
@@ -88,7 +89,7 @@ const features = [
     description:
       "We build strong brand identities that reflect your vision and resonate with your audience. From logos to visual systems, we create cohesive designs that leave a lasting impression.",
     link: "#",
-    image: "/identity.jpeg",
+    image: "/brand_id.jpeg",
     alt: "A/B Testing",
   },
 ];
