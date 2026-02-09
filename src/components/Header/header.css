@@ -31,7 +31,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #23234d;
+  background: #070c1a;
   padding: 5px 24px;
   border-radius: 50px;
   margin: 20px auto;
@@ -42,7 +42,8 @@ body {
   width: 100%;
   left: 5%;
   z-index: 11111;
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+  box-shadow:
+    rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
     rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   color: #fff;
   border: 0.5px solid #fff;
@@ -125,7 +126,7 @@ body {
 
 .cta-button {
   background-color: #ffffff;
-  color: #23234d;
+  color: rgb(16, 24, 44);
   border: none;
   padding: 5px 24px;
   border-radius: 9999px;
@@ -142,7 +143,7 @@ body {
 }
 
 .cta-button:hover {
-  background-color: #1b1b3a;
+  background-color: #0b111f;
   color: #fff;
   border: 1px solid #fff;
 }
@@ -154,7 +155,7 @@ body {
 }
 
 .arrow {
-  background-color: #23234d;
+  background-color: rgb(16, 24, 44);
   border-radius: 50%;
   width: 30px;
   height: 30px;
@@ -230,7 +231,7 @@ body {
 
   .hamburger {
     display: none;
-    background: var(--theme-color) !important;
+    background: #070c1a !important;
     width: 35px;
     height: 35px;
   }

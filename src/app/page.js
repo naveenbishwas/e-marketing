@@ -13,6 +13,7 @@ import { IoDiamondOutline } from "react-icons/io5";
 import Loading from "./loading";
 import { hover } from "framer-motion";
 import metaAds from "../../public/meta_ads.jpeg";
+import CountUp from "@/components/reactBits/CountUp";
 
 const LOGO_IMAGES = [
   "/empire1.png",
@@ -639,90 +640,61 @@ export default function Home() {
           </section>
         </div>
         {/* End hero..(shubham) */}
-        <div className="google-meta-partners">
-          <span className="meta">
-            <Image
-              src="/Meta_Business_Partners_two_line_lockup_positive_primary_RGB.png"
-              alt="Meta Partner"
-              width={0}
-              height={0}
-              sizes="100vw"
-            />
-          </span>
-          {/* Google Partner Badge */}
-          <span className="google">
-            <a
-              href="https://www.google.com/partners/agency?id=8065698223"
-              target="_blank"
-              rel="noopener noreferrer"
-              // style={{ position: "fixed", bottom: "20px", right: "20px", zIndex: 9999 }}
-            >
-              <Image
-                src="/Untitled_design__58_-removebg-preview.png"
-                alt="Google Partner"
-                width={0}
-                height={0}
-                sizes="100vw"
-              />
-            </a>
-          </span>
+        <div className="partners-section">
+          <h1>OFFICIAL MARKETING PARTNERS</h1>
+          <div className="google-meta-partners">
+            <div className="partner">
+              <img src="/Meta-bg.png" />
+              <span>Meta Business Partners</span>
+            </div>
+            <div className="partner">
+              <img src="/Google-bg.png" />
+              <span>Google Partners</span>
+            </div>
+          </div>
         </div>
+
         {/* features-cards with smooth animation expand */}
-
         <div className="carousel-wrapper">
-          <button className="nav-btn left" onClick={scrollLeft}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="size-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
-              />
-            </svg>
-          </button>
+          {/* Carousel section */}
+          <div className="carousel-base">
+            <h1 className="carousel-title">
+              Elevate Your Brand with Our Marketing Expertise
+            </h1>
 
-          <div className="carousel-container">
-            {features.map((feature, index) => (
-              <div
-                className="feature-card"
-                key={index}
-                onMouseEnter={() => setHoverCard(index)}
-                onMouseLeave={() => setHoverCard(null)}
-              >
-                <img
-                  src={feature.image}
-                  alt={feature.alt}
-                  className="feature-image"
-                  style={{
-                    backdropFilter: hoverCard !== index ? "none" : "blur(4px)",
-                  }}
-                />
-                {/* Dark overlay */}
+            <div className="carousel-container">
+              {features.map((feature, index) => (
                 <div
-                  className={` ${hoverCard === index ? "none-overlay" : "feature-overlay"}`}
+                  className="feature-card"
+                  key={index}
+                  // onMouseEnter={() => setHoverCard(index)}
+                  // onMouseLeave={() => setHoverCard(null)}
                 >
-                  {" "}
+                  <img
+                    src={feature.image}
+                    alt={feature.alt}
+                    className="feature-image"
+                    style={{
+                      backdropFilter:
+                        hoverCard !== index ? "none" : "blur(4px)",
+                    }}
+                  />
+                  {/* Dark overlay */}
+                  <div
+                    className={` ${hoverCard === index ? "none-overlay" : "feature-overlay"}`}
+                  >
+                    {" "}
+                  </div>
+                  <div className={`feature-content `}>
+                    <h3 className="feature-title">{feature.title}</h3>
+                    <p className="feature-description">{feature.description}</p>
+                  </div>
                 </div>
-                <div
-                  className={`feature-content ${hoverCard === index ? "expanded" : ""}`}
-                >
-                  <h3 className="feature-title">{feature.title}</h3>
-                  <p className="feature-description">{feature.description}</p>
-                  <a href={feature.link} className="feature-link">
-                    Learn More
-                  </a>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
-          <button className="nav-btn right" onClick={scrollRight}>
+          {/* <button className="nav-btn right" onClick={scrollRight}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -738,6 +710,22 @@ export default function Home() {
               />
             </svg>
           </button>
+          <button className="nav-btn left" onClick={scrollLeft}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="size-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+              />
+            </svg>
+          </button> */}
         </div>
         {/* Trusted */}
         <div className="logo-slider">
@@ -997,82 +985,87 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* start top choise section (Shubham) */}
+
         <section className="top-choice-section">
-          <div className="top-choice-left">
-            <h2 className="top-choice-heading">See why we’re the top choice</h2>
-            <p className="top-choice-description">
-              Thousands of brands trust Unnity to power their growth. With our
-              data-driven strategies and cutting-edge tools, we help you boost
-              engagement, drive high-value conversions, and simplify your
-              marketing journey.
+          <div className="title">
+            <h1>Why brands choose Unnity</h1>
+            <p>
+              Unnity helps thousands of brands grow through smart data, proven
+              strategies, and tools designed to simplify marketing while driving
+              real conversions.
             </p>
-            {/* <button className="top-choice-btn">
-              <span className="cta-button" id="on-top">
-                More About
-                <span className="arrow-wrapper">
-                  <span className="arrow first-arrow">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                      />
-                    </svg>
-                  </span>
-                  <span className="arrow second-arrow">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                      />
-                    </svg>
-                  </span>
-                </span>
-              </span>
-            </button> */}
           </div>
-
-          <div className="top-choice-right">
-            <div className="stat">
-              <span className="stat-number">$600,000</span>
-              <p className="stat-description">
-                Monthly AD Revenue Generated for the Brands
-              </p>
-            </div>
-            <div className="stat">
-              <span className="stat-number">$300,000</span>
-              <p className="stat-description">
-                Highest Monthly budget handled for a single brand
-              </p>
-            </div>
-            <div className="stat">
-              <span className="stat-number">70+</span>
-              <p className="stat-description">
-                E-commerce & Lead Generation Brands
-              </p>
+          <div className="top-choice-grid">
+            <div className="choice-card">
+              <div className="count-number">
+                $
+                <CountUp
+                  from={0}
+                  to={600}
+                  separator=""
+                  direction="up"
+                  duration={2}
+                  className="count-up-text"
+                  startCounting
+                />
+                +
+              </div>
+              <p className="count-label">Monthly Ad Revenue</p>
             </div>
 
-            <div className="stat">
-              <span className="stat-number">15+</span>
-              <p className="stat-description">
-                Team of Marketing Specialists & Web Developers
-              </p>
+            <div className="choice-card">
+              <div className="count-number">
+                $
+                <CountUp
+                  from={0}
+                  to={300}
+                  separator=""
+                  direction="up"
+                  duration={2}
+                  className="count-up-text"
+                  startCounting
+                />
+                +
+              </div>
+              <p className="count-label">Max Monthly Budget</p>
+            </div>
+
+            <div className="choice-card">
+              <div className="count-number">
+                <CountUp
+                  from={0}
+                  to={70}
+                  separator=""
+                  direction="up"
+                  duration={2}
+                  className="count-up-text"
+                  startCounting
+                />
+                +
+              </div>
+              <p className="count-label">Global Brands Scaled</p>
+            </div>
+
+            <div className="choice-card">
+              <div className="count-number">
+                <CountUp
+                  from={0}
+                  to={15}
+                  separator=""
+                  direction="up"
+                  duration={2}
+                  className="count-up-text"
+                  startCounting
+                />
+                +
+              </div>
+              <p className="count-label">Specialist Team</p>
             </div>
           </div>
         </section>
+        {/* end top-choice */}
         <section className="step-section">
           <span className="step-heading">
             <h1>Client Success Through Smart Digital Strategy</h1>
