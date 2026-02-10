@@ -3,7 +3,6 @@
 import Image from "next/image";
 import "./page.css";
 import Header from "@/components/Header/page";
-import FloatingLines from "@/components/reactBits/FloatingLines";
 import { useState, useRef, useEffect, useMemo } from "react";
 import Link from "next/link";
 import Footer from "@/components/footer/page";
@@ -11,10 +10,12 @@ import { FaFire } from "react-icons/fa";
 import { LuZap } from "react-icons/lu";
 import { IoDiamondOutline } from "react-icons/io5";
 import Loading from "./loading";
-import { hover } from "framer-motion";
-import metaAds from "../../public/meta_ads.jpeg";
 import CountUp from "@/components/reactBits/CountUp";
-
+import dynamic from "next/dynamic";
+const FloatingLines = dynamic(
+  () => import("@/components/reactBits/FloatingLines"),
+  { ssr: false },
+);
 const LOGO_IMAGES = [
   "/empire1.png",
   "/aqua1.png",
@@ -641,11 +642,11 @@ export default function Home() {
         </div>
         {/* End hero..(shubham) */}
         <div className="partners-section">
-          <h1>OFFICIAL MARKETING PARTNERS</h1>
+          <h2 className="heading-patners">OFFICIAL MARKETING PARTNERS</h2>
           <div className="google-meta-partners">
             <div className="partner">
               <img src="/Meta-bg.png" />
-              <span>Meta Business Partners</span>
+              <span>Business Partners</span>
             </div>
             <div className="partner">
               <img src="/Google-bg.png" />
@@ -664,27 +665,14 @@ export default function Home() {
 
             <div className="carousel-container">
               {features.map((feature, index) => (
-                <div
-                  className="feature-card"
-                  key={index}
-                  // onMouseEnter={() => setHoverCard(index)}
-                  // onMouseLeave={() => setHoverCard(null)}
-                >
+                <div className="feature-card" key={index}>
                   <img
                     src={feature.image}
                     alt={feature.alt}
                     className="feature-image"
-                    style={{
-                      backdropFilter:
-                        hoverCard !== index ? "none" : "blur(4px)",
-                    }}
                   />
                   {/* Dark overlay */}
-                  <div
-                    className={` ${hoverCard === index ? "none-overlay" : "feature-overlay"}`}
-                  >
-                    {" "}
-                  </div>
+                  <div className={`feature-overlay`}> </div>
                   <div className={`feature-content `}>
                     <h3 className="feature-title">{feature.title}</h3>
                     <p className="feature-description">{feature.description}</p>

@@ -406,7 +406,7 @@ h2 {
 
 @media (max-width: 1024px) {
   .hero-right {
-    width: 100%;
+    /* width: 100%; */
     display: flex;
     justify-content: center;
   }
@@ -623,6 +623,13 @@ h2 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-top: 20px;
+}
+.heading-patners {
+  font-size: 16px !important;
+  font-weight: bold;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
 }
 
 .google-meta-partners {
@@ -630,7 +637,7 @@ h2 {
   justify-content: center;
   align-items: center;
   gap: 40px;
-  padding: 40px 20px;
+  padding: 0px 20px 40px 20px !important;
 }
 
 .partner {
@@ -753,29 +760,6 @@ h2 {
 .carousel-container::-webkit-scrollbar {
   display: none;
 }
-
-.feature-card {
-  position: relative;
-  scroll-snap-align: start;
-  border-radius: 18px;
-  overflow: hidden;
-  flex-shrink: 0;
-  width: 240px;
-  height: 400px;
-  transition: all 0.8s ease-in-out;
-  cursor: pointer;
-}
-
-.feature-overlay {
-  opacity: 1;
-  backdrop-filter: blur(1px);
-  transition: opacity 0.8s ease-in-out;
-}
-
-.feature-card:hover .feature-overlay {
-  opacity: 0;
-}
-
 .feature-overlay {
   position: absolute;
   top: 0;
@@ -787,18 +771,14 @@ h2 {
   transition: opacity 0.8s ease-in-out;
 }
 
-.none-overlay {
-  opacity: 0;
-  transition: opacity 0.8s ease-in-out;
+.feature-overlay {
+  opacity: 1;
+  backdrop-filter: blur(1px);
+  transition: opacity 0.4s ease-in-out;
 }
 
-.feature-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-  backdrop-filter: blur;
-  transition: all 0.8s ease-in-out;
+.feature-card:hover .feature-overlay {
+  opacity: 0;
 }
 
 .feature-content {
@@ -816,6 +796,58 @@ h2 {
   color: white;
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   max-width: 100%;
+}
+
+.feature-card:hover .feature-title {
+  font-size: 24px;
+}
+.feature-card:hover .feature-description {
+  opacity: 1;
+  max-height: 120px;
+  transform: translateY(0);
+}
+
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 10px 0;
+  flex: 1;
+  max-width: calc(100% - 140px);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+.feature-card {
+  position: relative;
+  scroll-snap-align: start;
+  border-radius: 18px;
+  overflow: hidden;
+  flex-shrink: 0;
+  width: 240px;
+  height: 400px;
+  transition: all 0.6s ease-in-out;
+  cursor: pointer;
+}
+
+.feature-card:hover {
+  width: 330px;
+}
+
+.feature-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  backdrop-filter: blur;
+  transition: all 0.6s ease-in-out;
 }
 
 .feature-card:hover .feature-content {
@@ -841,43 +873,8 @@ h2 {
   max-height: 0;
   overflow: hidden;
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.2s;
   line-height: 1.5;
-}
-
-/* Initial state */
-.feature-description {
-  opacity: 0;
-  max-height: 0;
-  transform: translateY(20px);
-  transition: all 0.35s ease;
-}
-
-.feature-card:hover .feature-description {
-  opacity: 1;
-  max-height: 120px;
-  transform: translateY(0);
-}
-
-.feature-link {
-  display: inline-block;
-  color: #fff;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 500;
-  border-bottom: 2px solid transparent;
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(10px);
-}
-
-.feature-content.expanded .feature-link {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.3s;
-}
-
-.feature-link:hover {
-  border-bottom-color: #fff;
 }
 
 /* 600px se kam screens ke liye */
@@ -968,125 +965,6 @@ h2 {
   .feature-card:hover {
     height: 230px;
   }
-}
-.carousel-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  padding: 10px 0;
-  flex: 1;
-  max-width: calc(100% - 140px);
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.carousel-container::-webkit-scrollbar {
-  display: none;
-}
-
-.feature-card {
-  position: relative;
-  scroll-snap-align: start;
-  border-radius: 18px;
-  overflow: hidden;
-  flex-shrink: 0;
-  width: 240px;
-  height: 400px;
-  transition: all 0.8s ease-in-out;
-  cursor: pointer;
-}
-
-.feature-card:hover {
-  width: 330px;
-}
-
-/* .feature-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(14, 14, 24, 0.748);
-  opacity: 1;
-  transition: opacity 0.8s ease-in-out;
-}
-
-.none-overlay {
-  opacity: 0;
-  transition: opacity 0.8s ease-in-out;
-} */
-
-.feature-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-  backdrop-filter: blur;
-  transition: all 0.8s ease-in-out;
-}
-
-.feature-content {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 20px;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.9) 0%,
-    rgba(0, 0, 0, 0.7) 50%,
-    transparent 100%
-  );
-  color: white;
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  max-width: 100%;
-}
-
-.feature-card:hover .feature-content {
-  max-width: 380px;
-  padding: 30px;
-}
-
-.feature-title {
-  font-size: 20px;
-  font-weight: 700;
-  margin: 0 0 8px 0;
-  transition: all 0.5s ease;
-}
-
-.feature-card:hover .feature-title {
-  font-size: 24px;
-}
-
-.feature-description {
-  font-size: 14px;
-  margin: 0 0 12px 0;
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  line-height: 1.5;
-}
-
-.feature-content.expanded .feature-description {
-  opacity: 1;
-  max-height: 100px;
-  margin: 10px 0 15px 0;
-}
-
-.feature-link {
-  display: inline-block;
-  color: #fff;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 500;
-  border-bottom: 2px solid transparent;
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(10px);
 }
 
 @media (max-width: 600px) {

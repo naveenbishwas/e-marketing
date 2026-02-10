@@ -286,14 +286,25 @@ export default function FloatingLines({
 
   useEffect(() => {
     if (!containerRef.current) return;
+    if (containerRef.current.childElementCount > 0) return;
 
     const scene = new Scene();
 
     const camera = new OrthographicCamera(-1, 1, 1, -1, 0, 1);
     camera.position.z = 1;
 
-    const renderer = new WebGLRenderer({ antialias: true, alpha: false });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    const renderer = new WebGLRenderer({
+      antialias: true,
+      alpha: false,
+    });
+    renderer.setPixelRatio(1);
+    {
+      // multiple rendering aoid  blurriness on high lag screens
+    }
+
+    renderer.domElement.style.width = "100%";
+    renderer.domElement.style.height = "100%";
+
     renderer.domElement.style.width = "100%";
     renderer.domElement.style.height = "100%";
     containerRef.current.appendChild(renderer.domElement);
