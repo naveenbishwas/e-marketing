@@ -1463,7 +1463,7 @@ h2 {
   }
 
   .step-section-df {
-    padding: 0 25px;
+    padding: 25px;
   }
 
   h2,
@@ -2168,7 +2168,7 @@ section.integration {
 .ul-submit {
   margin-top: 16px;
   width: 100%;
-  background: var(--accent);
+  background-color: #080e1c;
   color: #fff;
   font-weight: 700;
   padding: 14px 18px;
@@ -2190,7 +2190,7 @@ section.integration {
 }
 
 .ul-submit:hover {
-  background: #3f4293;
+  background: #080e1c;
 }
 
 @media (max-width: 1024px) {
