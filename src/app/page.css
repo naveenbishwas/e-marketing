@@ -2168,7 +2168,7 @@ section.integration {
 .ul-submit {
   margin-top: 16px;
   width: 100%;
-  background-color: #080e1c;
+  background-color: #080e1c !important;
   color: #fff;
   font-weight: 700;
   padding: 14px 18px;
@@ -2190,7 +2190,7 @@ section.integration {
 }
 
 .ul-submit:hover {
-  background: #080e1c;
+  background: #0f172f !important;
 }
 
 @media (max-width: 1024px) {
