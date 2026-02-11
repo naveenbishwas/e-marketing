@@ -495,7 +495,7 @@ export default function Home() {
         {/* Hero inside relative wrapper */}
         <div className="hero-wrapper">
           <section className="hero">
-            {/* floating lines */}
+            {/* Floating Lines Background */}
             <div className="hero-floatingLines">
               <FloatingLines
                 enabledWaves={["top", "middle", "bottom"]}
@@ -507,25 +507,36 @@ export default function Home() {
                 parallax={true}
               />
             </div>
-            {/* Overlay effect */}
+
+            {/* Dark Overlay Effect */}
             <div className="hero-overlay" />
-            {/* hero content */}
+
+            {/* Main Hero Content */}
             <div className="hero-alignment">
+              {/* Left Section - Text Content */}
               <div className="hero-left">
                 <button className="small-btn">
                   Elevate your business to the next level
                 </button>
+
                 <h1>
-                  Crafting Digital <br /> Brands That Stand Out{" "}
+                  Crafting Digital <br /> Brands That Stand Out
                 </h1>
+
                 <p>
                   At Unnity, we help brands grow in the digital world. Our
                   tailored marketing solutions boost your online presence,
                   engage your audience, and drive real results. Let Unnity
-                  unlock your brand’s full potential.
+                  unlock your brand's full potential.
                 </p>
+
+                {/* CTA Buttons */}
                 <div className="cta-btn-wrapper">
-                  <a href="https://calendly.com/sayam-unnity/30min?month=2025-08">
+                  <a
+                    href="https://calendly.com/sayam-unnity/30min?month=2025-08"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <button className="cta-button" id="banner-btn">
                       Start your free trial
                       <span className="arrow-wrapper">
@@ -562,8 +573,12 @@ export default function Home() {
                       </span>
                     </button>
                   </a>
-                  {/* second cta */}
-                  <a href="https://calendly.com/sayam-unnity/30min?month=2025-08">
+
+                  <a
+                    href="https://calendly.com/sayam-unnity/30min?month=2025-08"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <button className="cta-button" id="banner-btn">
                       View Portfolio
                       <span className="arrow-wrapper">
@@ -603,8 +618,10 @@ export default function Home() {
                 </div>
               </div>
 
+              {/* Right Section - Flying Badges */}
               <div className="hero-right">
                 <div className="flying-badge-wrapper">
+                  {/* Badge 1 - Graphic Design */}
                   <div className="flying-badge">
                     <LuZap className="badge-icon fire" />
                     <div>
@@ -613,6 +630,7 @@ export default function Home() {
                     </div>
                   </div>
 
+                  {/* Badge 2 - Performance Marketing */}
                   <div className="flying-badge second">
                     <FaFire className="badge-icon fire" />
                     <div>
@@ -621,6 +639,7 @@ export default function Home() {
                     </div>
                   </div>
 
+                  {/* Badge 3 - Website Design */}
                   <div className="flying-badge third">
                     <IoDiamondOutline className="badge-icon fire" />
                     <div>
@@ -633,21 +652,21 @@ export default function Home() {
             </div>
           </section>
         </div>
-        {/* End hero..(shubham) */}
+
+        {/* Partners Section */}
         <div className="partners-section">
           <h2 className="heading-patners">OFFICIAL MARKETING PARTNERS</h2>
           <div className="google-meta-partners">
             <div className="partner">
-              <img src="/Meta-bg.png" />
+              <img src="/Meta-bg.png" alt="Meta Business Partner" />
               <span>Business Partners</span>
             </div>
             <div className="partner">
-              <img src="/Google-bg.png" />
+              <img src="/Google-bg.png" alt="Google Partner" />
               <span>Google Partners</span>
             </div>
           </div>
         </div>
-
         {/* features-cards with smooth animation expand */}
         <div className="carousel-wrapper">
           {/* Carousel section */}
@@ -674,39 +693,6 @@ export default function Home() {
               ))}
             </div>
           </div>
-
-          {/* <button className="nav-btn right" onClick={scrollRight}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="size-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-              />
-            </svg>
-          </button>
-          <button className="nav-btn left" onClick={scrollLeft}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="size-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
-              />
-            </svg>
-          </button> */}
         </div>
         {/* Trusted */}
         <div className="logo-slider">
