@@ -6,7 +6,13 @@ import Header from "@/components/Header/page";
 import { useState, useRef, useEffect, useMemo } from "react";
 import Link from "next/link";
 import Footer from "@/components/footer/page";
-import { FaFire } from "react-icons/fa";
+import {
+  FaFire,
+  FaGithub,
+  FaLinkedin,
+  FaLinkedinIn,
+  FaTwitter,
+} from "react-icons/fa";
 import { LuZap } from "react-icons/lu";
 import { IoDiamondOutline } from "react-icons/io5";
 import Loading from "./loading";
@@ -235,76 +241,63 @@ const members = [
     name: "Sayyam Jain",
     role: "Founder & CEO",
     photo: "/sayyam2.png",
-    bio: "Leads strategy and growth. 10+ yrs in performance marketing.",
-    socials: { linkedin: "#", twitter: "#" },
   },
   {
     name: "Muskan",
     role: "Social Media",
-    photo: "/muskan.jpeg",
-    bio: "Owns content, community and creator partnerships.",
-    socials: { linkedin: "#", instagram: "#" },
+    photo: "/muskan-2.jpg",
   },
 
   {
     name: "Anjali",
     role: "Marketing",
     photo: "/anjali.jpeg",
-    bio: "Transforms market insights into powerful campaigns that deliver results.",
-    socials: { linkedin: "#", github: "#" },
   },
   {
     name: "Naveen",
-    role: "Frontend & Shopify Dev & Next.js",
-    photo: "/naveen.jpeg",
-    bio: "Builds lightning-fast React apps with Next.js and SSR..",
-    socials: { linkedin: "#", github: "#" },
+    role: "Web Developer",
+    photo: "/naveen-01.jpeg",
   },
   {
-    name: "Dheeraj",
-    role: "Frontend & Shopify Dev & Backend-DB",
-    photo: "/dheeraj.jpeg",
-    bio: "Creates fast, customized eCommerce experiences on Shopify.",
-    socials: { linkedin: "#", github: "#" },
+    name: "Shubham",
+    role: "Web Developer",
+    photo: "/shubham.jpeg",
   },
   {
     name: "Manisha",
     role: "Creatives",
-    photo: "/manisha.jpeg",
-    bio: "Blends design thinking with brand vision to craft impactful creative campaigns.",
-    socials: { linkedin: "#", github: "#" },
+    photo: "/manisha.jpg",
   },
 
   {
     name: "Rohit",
     role: "Head of Marketing",
     photo: "/rohit2.jpeg",
-    bio: "Drives brand growth through strategic campaigns, data insights, and creative leadership.",
-    socials: { linkedin: "#", github: "#" },
   },
-
-  // {
-  //   name: "Rishabh",
-  //   role: "Head of Tech Leads",
-  //   photo: "/rishabh.jpeg",
-  //   bio: "Leads development with a focus on code quality, scalability, and team mentorship.",
-  //   socials: { linkedin: "#", github: "#" },
-  // },
-
-  // {
-  //   name: "Keshav",
-  //   role: "SEO",
-  //   photo: "/keshav.jpeg",
-  //   bio: "Crafts data-driven SEO strategies to improve visibility and search performance.",
-  //   socials: { linkedin: "#", github: "#" },
-  // },
-
+  {
+    name: "Muskan",
+    role: "Project Coordinator",
+    photo: "/muskanT.jpg",
+  },
   {
     name: "Sarthak",
-    role: "Marketing",
+    role: "Marketing Executive",
     photo: "/sarthak.jpeg",
-    bio: "Blends creativity and strategy to connect brands with the right audience.",
-    socials: { linkedin: "#", github: "#" },
+  },
+  {
+    name: "Yalka",
+    role: "Video Editor Intern",
+    photo: "/yalka.jpg",
+  },
+  {
+    name: "Himanshu",
+    role: "Social Media Intern",
+    photo: "/himanshu.jpg",
+  },
+  {
+    name: "Moksh Chauhan",
+    role: "Marketing",
+    photo: "/moksh.jpg",
   },
 ];
 
@@ -1332,7 +1325,6 @@ export default function Home() {
               {shown.map((m, i) => (
                 <article className="member-card" key={i}>
                   <div className="avatar-wrap">
-                    {/* <img src={m.photo} alt={m.name} loading="lazy" /> */}
                     <Image
                       src={m.photo}
                       width={0}
@@ -1340,14 +1332,15 @@ export default function Home() {
                       sizes="100vw"
                       alt={m.name}
                       loading="lazy"
-                    ></Image>
+                    />
+                    {/* Dark overlay on hover */}
+                    <div className="member-overlay"></div>
                   </div>
 
                   <div className="member-info">
                     <h3 className="member-name">{m.name}</h3>
                     <div className="member-role">{m.role}</div>
-                    <p className="member-bio">{m.bio}</p>
-
+                    {/* 
                     {!!m.socials && (
                       <div className="member-socials">
                         {m.socials.linkedin && (
@@ -1355,7 +1348,7 @@ export default function Home() {
                             href={m.socials.linkedin}
                             aria-label={`${m.name} on LinkedIn`}
                           >
-                            in
+                            <FaLinkedinIn />
                           </Link>
                         )}
                         {m.socials.twitter && (
@@ -1363,15 +1356,15 @@ export default function Home() {
                             href={m.socials.twitter}
                             aria-label={`${m.name} on Twitter`}
                           >
-                            x
+                            <FaTwitter />
                           </Link>
                         )}
                         {m.socials.instagram && (
                           <Link
                             href={m.socials.instagram}
-                            aria-label={`${m.name} on Instagram`}
+                            aria-label={`${m.name} on instagram`}
                           >
-                            ig
+                            <FaGithub />
                           </Link>
                         )}
                         {m.socials.github && (
@@ -1379,11 +1372,11 @@ export default function Home() {
                             href={m.socials.github}
                             aria-label={`${m.name} on GitHub`}
                           >
-                            gh
+                            <FaGithub />
                           </Link>
                         )}
                       </div>
-                    )}
+                    )} */}
                   </div>
                 </article>
               ))}

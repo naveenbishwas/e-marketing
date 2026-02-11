@@ -119,12 +119,14 @@ vec3 getLineColor(float t, vec3 baseColor) {
 }
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
-  vec2 baseUv = (2.0 * fragCoord - iResolution.xy) / iResolution.y;
+  // CRITICAL FIX: Use fixed aspect ratio independent of actual screen size
+  float fixedHeight = 1080.0;
+  vec2 baseUv = (2.0 * fragCoord - iResolution.xy) / fixedHeight;
   baseUv.y *= -1.0;
   
-  if (parallax) {
-    baseUv += parallaxOffset;
-  }
+  // Mouse interaction UV (uses actual resolution)
+  vec2 screenUv = (2.0 * fragCoord - iResolution.xy) / iResolution.y;
+  screenUv.y *= -1.0;
 
   vec3 col = vec3(0.0);
 

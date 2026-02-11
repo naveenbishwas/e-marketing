@@ -1,0 +1,44 @@
+.hero-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #111; /* Background dark rakha hai taaki grid pop kare */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.grid-background {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 1; /* Full visibility for images */
+}
+
+/* Images ko aur sharp dikhane ke liye */
+.grid-background img {
+  object-fit: cover;
+  filter: contrast(1.1) brightness(1); /* Brightness maintain rakhi hai */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  pointer-events: none; /* Taaki grid ke mouse-move effects block na ho */
+}
+
+.hero-title {
+  font-size: 6rem;
+  font-weight: 900;
+  color: white;
+  text-transform: uppercase;
+  /* Text shadow add kiya hai taaki bright images ke upar text dikhe */
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+}
