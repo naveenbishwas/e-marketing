@@ -60,17 +60,12 @@ h2 {
 #submit-btn:hover {
   background-color: #080e1c;
 }
-
-/* This wraps the hero section */
 .hero-wrapper {
   min-height: 750px;
-  /* height same or more than your hero */
 }
 
-/* To make space for absolute hero */
 .after-hero {
   padding-top: 600px;
-  /* match the height of .hero */
 }
 
 @media (max-width: 240px) {
@@ -1126,7 +1121,7 @@ h2 {
 /* Top Choice Section */
 .top-choice-section {
   padding: 80px 40px;
-  background-color: #080e1c;
+  background-color: #0f032b;
   color: #fff;
   text-align: center;
 }
@@ -1339,7 +1334,7 @@ h2 {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: #10182c;
+  background: #0f032b;
   /* deep navy */
   color: #fff;
   font-weight: 700;
@@ -1414,7 +1409,7 @@ h2 {
 }
 
 .cs-btn button {
-  background: #10182c;
+  background: #0f032b;
   /* use your brand color */
   color: #fff;
   padding: 14px 34px;
@@ -1428,7 +1423,7 @@ h2 {
 }
 
 .cs-btn button:hover {
-  background: var(--themeHover-color);
+  background: #0b021f;
   /* slightly lighter/darker shade */
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
@@ -1504,7 +1499,7 @@ section.integration {
   justify-content: center;
   gap: 40px;
   padding: 60px;
-  background: #080e1c;
+  background: #0f032b;
   overflow: hidden;
   margin-top: 7%;
   border-radius: 21px;
@@ -1769,7 +1764,7 @@ section.integration {
 }
 
 .nav-btn {
-  background: rgb(16, 24, 44);
+  background: #0f032b;
   border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 12px 14px;
   border-radius: 10px;
@@ -1782,7 +1777,7 @@ section.integration {
 }
 
 .nav-btn:hover {
-  background: var(--themeHover-color);
+  background: #0a021e;
   transform: translateY(-2px);
 }
 
@@ -2168,7 +2163,7 @@ section.integration {
 .ul-submit {
   margin-top: 16px;
   width: 100%;
-  background-color: #080e1c !important;
+  background-color: #0f032b !important;
   color: #fff;
   font-weight: 700;
   padding: 14px 18px;
@@ -2190,7 +2185,7 @@ section.integration {
 }
 
 .ul-submit:hover {
-  background: #0f172f !important;
+  background: #0a021d !important;
 }
 
 @media (max-width: 1024px) {

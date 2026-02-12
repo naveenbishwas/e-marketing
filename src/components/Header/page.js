@@ -73,7 +73,7 @@ const Header = () => {
             onMouseEnter={() => setDropOpen(true)}
             onMouseLeave={() => setDropOpen(false)}
           >
-            {/* <div
+            <div
               className="drop-trigger"
               onClick={() => setDropOpen(!dropOpen)}
             >
@@ -81,7 +81,7 @@ const Header = () => {
               <span className={`dropdown-arrow ${dropOpen ? "rotate" : ""}`}>
                 ▾
               </span>
-            </div> */}
+            </div>
 
             <ul className={`drop-down ${dropOpen ? "show" : ""}`}>
               <Link href="/creative">
