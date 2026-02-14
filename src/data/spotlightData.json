@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "Lorem 75",
+    "sale": 799,
+    "purchase": 12998,
+    "CAC": 100,
+    "ROAS": 3.5,
+    "image": "/creative/img1.webp"
+  },
+  {
+    "id": 2,
+    "title": "Lorem 76",
+    "sale": 799,
+    "purchase": 12998,
+    "CAC": 100,
+    "ROAS": 3.5,
+    "image": "/creative/img2.webp"
+  },
+  {
+    "id": 3,
+    "title": "Lorem 77",
+    "sale": 799,
+    "purchase": 12998,
+    "CAC": 100,
+    "ROAS": 3.5,
+    "image": "/creative/img3.webp"
+  },
+  {
+    "id": 4,
+    "title": "Lorem 78",
+    "sale": 799,
+    "purchase": 12998,
+    "CAC": 100,
+    "ROAS": 3.5,
+    "image": "/creative/img4.webp"
+  },
+  {
+    "id": 5,
+    "title": "Lorem 79",
+    "sale": 799,
+    "purchase": 12998,
+    "CAC": 100,
+    "ROAS": 3.5,
+    "image": "/creative/img5.webp"
+  },
+  {
+    "id": 6,
+    "title": "Lorem 80",
+    "sale": 799,
+    "purchase": 12998,
+    "CAC": 100,
+    "ROAS": 3.5,
+    "image": "/creative/img6.webp"
+  },
+  {
+    "id": 7,
+    "title": "Lorem 81",
+    "sale": 799,
+    "purchase": 12998,
+    "CAC": 100,
+    "ROAS": 3.5,
+    "image": "/creative/img7.webp"
+  },
+  {
+    "id": 8,
+    "title": "Lorem 82",
+    "sale": 799,
+    "purchase": 12998,
+    "CAC": 100,
+    "ROAS": 3.5,
+    "image": "/creative/img8.webp"
+  }
+]

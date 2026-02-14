@@ -1650,7 +1650,7 @@ section.integration {
   margin-top: 10%;
 }
 
-/* CTA */
+/* CTA
 .cta-button {
   background: #f7e03c;
   color: #000;
@@ -1663,7 +1663,7 @@ section.integration {
   align-items: center;
   gap: 10px;
   transition: background 0.3s ease;
-}
+} */
 
 #integration-btn {
   background-color: #fff;
@@ -2079,17 +2079,7 @@ section.integration {
   flex: 0 0 16px;
 }
 
-.ul-form h2 {
-  font-size: 32px;
-  line-height: 1;
-  color: var(--ink);
-  margin: 0 0 20px;
-  font-size: 3rem;
-  font-weight: bold;
-  text-align: left;
-}
-
-.ul-form h2 span {
+.ul-form span {
   color: #070c1a;
   font-size: 33px;
 }

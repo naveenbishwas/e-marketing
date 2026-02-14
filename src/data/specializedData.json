@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "Creative Design",
+    "images": [
+      "/creative/creative-1.webp",
+      "/creative/creative-2.webp",
+      "/creative/creative-3.webp",
+      "/creative/creative-4.webp",
+      "/creative/creative-5.webp"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Digital Marketing",
+    "images": [
+      "/creative/img6.webp",
+      "/creative/img7.webp",
+      "/creative/img8.webp",
+      "/creative/img9.webp",
+      "/creative/img10.webp"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Branding Design",
+    "images": [
+      "/creative/img11.webp",
+      "/creative/img12.webp",
+      "/creative/img13.webp",
+      "/creative/img14.webp"
+    ]
+  }
+]

@@ -33,7 +33,7 @@ const LOGO_IMAGES = [
   "/hub1.png",
   "/nira.png",
   "/orchid-blue.png",
-  "/poco.png",
+  "/wow-heads.png",
   "/sain.png",
   "/sky.png",
   "/aurave1.png",
@@ -238,7 +238,7 @@ const testimonials = [
 
 const members = [
   {
-    name: "Sayyam Jain",
+    name: "Sayam Jain",
     role: "Founder & CEO",
     photo: "/sayyam2.png",
   },
@@ -266,7 +266,7 @@ const members = [
   {
     name: "Manisha",
     role: "Creatives",
-    photo: "/manisha.jpg",
+    photo: "/manisha-03.jpeg",
   },
 
   {
@@ -574,11 +574,7 @@ export default function Home() {
                     </button>
                   </a>
 
-                  <a
-                    href="https://calendly.com/sayam-unnity/30min?month=2025-08"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <Link href="/case-studies" rel="noopener noreferrer">
                     <button className="cta-button" id="banner-btn">
                       View Portfolio
                       <span className="arrow-wrapper">
@@ -614,7 +610,7 @@ export default function Home() {
                         </span>
                       </span>
                     </button>
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -790,13 +786,10 @@ export default function Home() {
 
             {/* Right: Form */}
             <div className="ul-form">
-              <h2>
-                Empower Your Brand With{" "}
-                <span>UNNITY DIGITAL MARKETING SOLUTIONS</span>
-              </h2>
+              <span>Your Growth Partner in the Digital Era</span>
               <p className="ul-sub">
-                Amplify visibility, engage your audience, and drive meaningful
-                conversions. Unleash your brand’s full potential with Unnity.
+                Let’s create impact — fill in the form and we’ll take it from
+                there.
               </p>
 
               <form onSubmit={submitHandler} ref={formRef}>
