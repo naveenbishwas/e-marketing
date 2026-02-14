@@ -1321,6 +1321,12 @@ h2 {
     transform 0.2s ease,
     box-shadow 0.2s ease;
 }
+.step-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.1);
+  border: 1px solid #0f032b;
+  transition: all 0.4s ease;
+}
 
 .step-card-link:hover .step-card,
 .step-card-link:focus-visible .step-card {
@@ -2175,7 +2181,7 @@ section.integration {
 }
 
 .ul-submit:hover {
-  background: #0a021d !important;
+  background: #0d0325 !important;
 }
 
 @media (max-width: 1024px) {
