@@ -711,6 +711,8 @@
     opacity: 1;
   }
 }
+/* ================= GRID LAYOUT ================= */
+
 .spotlight-wrraper {
   display: grid;
   width: 90%;
@@ -742,40 +744,21 @@
   }
 }
 
-.spotlight-wrraper {
-  display: grid;
-  width: 90%;
-  max-width: 1400px;
-  margin: 0 auto;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  padding: 2rem 1rem;
-}
-
-@media (min-width: 768px) {
-  .spotlight-wrraper {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-}
-
-@media (min-width: 1200px) {
-  .spotlight-wrraper {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-  }
-}
+/* ================= CARD ================= */
 
 .spotlight-card {
   position: relative;
   border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
-  aspect-ratio: 4/4;
+  min-height: 260px; /* aspect-ratio removed to allow text fit */
+  height: 100%;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   animation: floatCard 3s ease-in-out infinite;
 }
+
+/* ================= FLOAT ANIMATION ================= */
 
 @keyframes floatCard {
   0%,
@@ -790,28 +773,28 @@
 .spotlight-card:nth-child(2) {
   animation-delay: 0.5s;
 }
-
 .spotlight-card:nth-child(3) {
   animation-delay: 1s;
 }
-
 .spotlight-card:nth-child(4) {
   animation-delay: 1.5s;
 }
-
 .spotlight-card:nth-child(5) {
   animation-delay: 2s;
 }
-
 .spotlight-card:nth-child(6) {
   animation-delay: 2.5s;
 }
+
+/* ================= HOVER ================= */
 
 .spotlight-card:hover {
   transform: translateY(-12px) scale(1.02);
   box-shadow: 0 12px 40px rgba(15, 3, 43, 0.3);
   animation: none;
 }
+
+/* ================= IMAGE ================= */
 
 .spotlight-card img {
   width: 100%;
@@ -826,16 +809,16 @@
   transform: scale(1.05);
 }
 
+/* ================= INFO OVERLAY ================= */
+
 .spotlight-info-wrraper {
   position: absolute;
-  top: 20px;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
+  inset: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: clamp(10px, 1vw, 20px);
   border-radius: 12px;
   background: linear-gradient(
     135deg,
@@ -843,7 +826,7 @@
     rgba(15, 3, 43, 0.85)
   );
   backdrop-filter: blur(10px);
-  padding: 1.5rem;
+  padding: clamp(12px, 1.5vw, 24px);
   opacity: 0;
   transform: scale(0.95);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -855,60 +838,37 @@
   transform: scale(1);
 }
 
+/* ================= TITLE ================= */
+
 .spotlight-info-wrraper h4 {
-  position: absolute;
-  top: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
   color: #ffffff;
-  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-size: clamp(14px, 1.6vw, 22px);
   font-weight: 700;
   margin: 0;
   text-align: center;
-  letter-spacing: 0.5px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  animation: slideDown 0.5s ease forwards;
+  line-height: 1.3;
+  width: 100%;
 }
 
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -15px);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, 0);
-  }
-}
+/* ================= STATS GRID ================= */
 
 .spotlight-info {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem 2rem;
-  color: white;
   width: 100%;
-  max-width: 280px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(8px, 1vw, 20px);
+  color: white;
   text-align: center;
-  animation: fadeInUp 0.6s ease 0.15s backwards;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+/* ================= VALUES ================= */
 
 .spotlight-info p {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  gap: 0.4rem;
+  font-size: clamp(13px, 1.4vw, 22px);
   font-weight: 700;
   line-height: 1.2;
   color: #ffffff;
@@ -920,51 +880,31 @@
   color: #a78bfa;
 }
 
+/* ================= LABEL ================= */
+
 .spotlight-info span {
-  font-size: clamp(0.65rem, 1.5vw, 0.75rem);
+  font-size: clamp(9px, 0.7vw, 12px);
   font-weight: 600;
-  letter-spacing: 1.5px;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.7);
-  margin-top: 0.25rem;
 }
+
+/* ================= MOBILE ================= */
+
 @media (max-width: 767px) {
   .spotlight-wrraper {
     gap: 1.2rem;
     padding: 1.5rem 0.5rem;
   }
 
-  .spotlight-card {
-    aspect-ratio: 4/5;
-  }
-
-  .spotlight-info {
-    gap: 1rem 1.5rem;
-  }
-
   .spotlight-info-wrraper {
-    top: 15px;
-    left: 15px;
-    right: 15px;
-    bottom: 15px;
-    padding: 1rem;
+    inset: 15px;
   }
 }
 
-/* Tablet specific adjustments */
-@media (min-width: 768px) and (max-width: 1199px) {
-  .spotlight-card {
-    aspect-ratio: 3/4;
-  }
-}
+/* ================= ACCESSIBILITY ================= */
 
-@media (min-width: 1200px) {
-  .spotlight-wrraper {
-    padding: 2.5rem 1rem;
-  }
-}
-
-/* Accessibility */
 .spotlight-card:focus-visible {
   outline: 3px solid #a78bfa;
   outline-offset: 4px;
@@ -983,5 +923,39 @@
 
   .spotlight-card:hover {
     transform: translateY(-4px);
+  }
+}
+
+/* sm mobile screen */
+
+@media (max-width: 640px) {
+  .spotlight-card {
+    min-height: 300px;
+  }
+  .spotlight-info-wrraper {
+    inset: 18px;
+    padding: 24px 14px;
+    gap: 14px;
+  }
+
+  .spotlight-info-wrraper h4 {
+    font-size: 22px;
+    line-height: 1.35;
+    letter-spacing: 0.3px;
+  }
+
+  .spotlight-info {
+    gap: 14px 10px;
+  }
+
+  .spotlight-info p {
+    font-size: 20px;
+    line-height: 1.25;
+    gap: 2px;
+    padding-bottom: 15px;
+  }
+  .spotlight-info span {
+    font-size: 14px;
+    letter-spacing: 0.6px;
   }
 }

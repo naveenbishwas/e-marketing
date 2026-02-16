@@ -68,15 +68,15 @@ h2 {
   padding-top: 600px;
 }
 
-@media (max-width: 240px) {
+/* @media (max-width: 240px) {
   .hero-wrapper {
     min-height: 460px;
   }
-}
+} */
 
 @media screen and (min-width: 240px) and (max-width: 767px) {
   .hero-wrapper {
-    min-height: 580px;
+    min-height: 700px;
   }
 }
 
@@ -506,6 +506,33 @@ h2 {
 
   .second {
     left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-left {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+    margin-top: 12%;
+  }
+
+  .hero-left h1 {
+    font-size: 3rem;
+    padding-bottom: 10px;
+  }
+
+  .hero-left p {
+    font-size: 18px;
+    margin: 24px 0;
+    margin-top: 8px;
+  }
+  .cta-btn-wrapper {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    display: flex;
   }
 }
 

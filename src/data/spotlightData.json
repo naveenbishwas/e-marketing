@@ -1,57 +1,57 @@
 [
   {
     "id": 1,
-    "title": "Lorem 75",
-    "sale": 799,
-    "purchase": 12998,
-    "CAC": 100,
-    "ROAS": 3.5,
-    "image": "/creative/img1.webp"
+    "title": "Cupid Clothings",
+    "sale": "324,788.05",
+    "purchase": 242,
+    "CAC": 317.14,
+    "ROAS": 4.23,
+    "image": "/spotlights/spotlight-1.png"
   },
   {
     "id": 2,
-    "title": "Lorem 76",
-    "sale": 799,
-    "purchase": 12998,
-    "CAC": 100,
-    "ROAS": 3.5,
-    "image": "/creative/img2.webp"
+    "title": "Cupid Clothings",
+    "sale": "121,405.50",
+    "purchase": 105,
+    "CAC": 340.19,
+    "ROAS": 3.4,
+    "image": "/spotlights/spotlight-2.png"
   },
   {
     "id": 3,
-    "title": "Lorem 77",
-    "sale": 799,
-    "purchase": 12998,
-    "CAC": 100,
-    "ROAS": 3.5,
-    "image": "/creative/img3.webp"
+    "title": "Uberlyfe",
+    "sale": "1,124,062",
+    "purchase": 108,
+    "CAC": 693.63,
+    "ROAS": 15.01,
+    "image": "/spotlights/spotlight-3.png"
   },
   {
     "id": 4,
-    "title": "Lorem 78",
-    "sale": 799,
-    "purchase": 12998,
-    "CAC": 100,
-    "ROAS": 3.5,
-    "image": "/creative/img4.webp"
+    "title": "Uberlyfe",
+    "sale": "455,851",
+    "purchase": 51,
+    "CAC": 548.5,
+    "ROAS": 16.3,
+    "image": "/spotlights/spotlight-4.png"
   },
   {
     "id": 5,
     "title": "Lorem 79",
-    "sale": 799,
-    "purchase": 12998,
-    "CAC": 100,
-    "ROAS": 3.5,
-    "image": "/creative/img5.webp"
+    "sale": "$64,851.82",
+    "purchase": 287,
+    "CAC": "$12.84",
+    "ROAS": 17.6,
+    "image": "/spotlights/spotlight-5.png"
   },
   {
     "id": 6,
     "title": "Lorem 80",
-    "sale": 799,
-    "purchase": 12998,
-    "CAC": 100,
-    "ROAS": 3.5,
-    "image": "/creative/img6.webp"
+    "sale": "$38,784.76",
+    "purchase": 138,
+    "CAC": "$11.26",
+    "ROAS": 24.97,
+    "image": "/spotlights/spotlight-6.png"
   },
   {
     "id": 7,

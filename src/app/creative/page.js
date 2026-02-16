@@ -64,13 +64,10 @@ export default function Creative() {
   // ================= HOVER SCROLL (SPECIALIZED) =================
   const scrollRefs = useRef([]);
   const animationRefs = useRef([]);
-  const runningRefs = useRef([]); // ⭐ track running state
-
+  const runningRefs = useRef([]);
   const startScroll = (i) => {
     const container = scrollRefs.current[i];
     if (!container) return;
-
-    // ⭐ already running? don't start again
     if (runningRefs.current[i]) return;
 
     runningRefs.current[i] = true;
@@ -150,7 +147,7 @@ export default function Creative() {
         <div className="explore-wrraper">
           <div className="main-heading">
             <p className="sub-heading">CREATIVE PORTFOLIO</p>
-            <h1>Explore Our Brand Ecosystem</h1>
+            <h1>Meet the Brands We've Scaled</h1>
           </div>
 
           <div className="explore-tab-wrraper">
@@ -188,7 +185,7 @@ export default function Creative() {
         <div className="explore-wrraper">
           <div className="main-heading">
             <p className="sub-heading">OUR EXPERTISE</p>
-            <h1>Specialized Solutions</h1>
+            <h1>OUR EXPERTISE</h1>
           </div>
 
           <div className="specialized-wrraper">
@@ -218,7 +215,7 @@ export default function Creative() {
         <div className="explore-wrraper">
           <div className="main-heading">
             <p className="sub-heading">OUR EXPERTISE</p>
-            <h1>Performance Spotlight</h1>
+            <h1>In the Spotlight</h1>
           </div>
           {/* <PerformanceSpotlight showcase /> */}
           <div className="spotlight-wrraper">
