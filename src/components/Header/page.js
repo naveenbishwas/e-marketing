@@ -91,12 +91,12 @@ const Header = () => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            {/* <div className="drop-trigger" onClick={handleClick}>
+            <div className="drop-trigger" onClick={handleClick}>
               See Our Work
               <span className={`dropdown-arrow ${dropOpen ? "rotate" : ""}`}>
                 ▾
               </span>
-            </div> */}
+            </div>
 
             {/* DESKTOP */}
             {!isMobile && (

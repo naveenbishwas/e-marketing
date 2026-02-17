@@ -7,23 +7,25 @@
       "/creative/creative-2.webp",
       "/creative/creative-3.webp",
       "/creative/creative-4.webp",
-      "/creative/creative-5.webp"
+      "/creative/creative-5.webp",
+      "/creative/creative-6.webp"
     ]
   },
   {
     "id": 2,
-    "title": "Digital Marketing",
+    "title": "Development",
     "images": [
-      "/creative/img6.webp",
-      "/creative/img7.webp",
-      "/creative/img8.webp",
-      "/creative/img9.webp",
-      "/creative/img10.webp"
+      "/creative/development-2.png",
+      "/creative/development-1.png",
+      "/creative/development-3.png",
+      "/creative/development-4.png",
+      "/creative/development-5.png",
+      "/creative/development-6.png"
     ]
   },
   {
     "id": 3,
-    "title": "Branding Design",
+    "title": "Social Media",
     "images": [
       "/creative/img11.webp",
       "/creative/img12.webp",
