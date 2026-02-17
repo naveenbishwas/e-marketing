@@ -1,5 +1,8 @@
 "use client";
 
+// Module-level flag — persists across route changes, resets on full page reload
+let hasLoaded = false;
+
 import Image from "next/image";
 import "./page.css";
 import Header from "@/components/Header/page";
@@ -65,7 +68,7 @@ const features = [
     description:
       "We build custom solutions using Shopify, Next.js, and robust backend technologies. From eCommerce to web apps, we handle everything from databases to clean, scalable code.",
     link: "#",
-    image: "/Dev_sol.jpeg", // Save the first image locally
+    image: "/Dev_sol.jpeg",
     alt: "Email automation",
   },
   {
@@ -73,7 +76,7 @@ const features = [
     description:
       "We run high-converting Meta Ads that drive traffic, leads, and sales. From strategy to creatives and optimization, we manage it all for measurable growth.",
     link: "#",
-    image: "/meta_ads.jpeg", // Save the second image locally
+    image: "/meta_ads.jpeg",
     alt: "Customizable templates",
   },
   {
@@ -81,7 +84,7 @@ const features = [
     description:
       "We create and manage data-driven Google Ads campaigns to boost visibility and conversions. From search to display, we optimize every click for maximum ROI.",
     link: "#",
-    image: "/google-ads.jpeg", // Save the third image locally
+    image: "/google-ads.jpeg",
     alt: "A/B Testing",
   },
   {
@@ -199,7 +202,7 @@ const testimonials = [
     role: "BabLouie",
     companyLogo: "/logo-optimal.svg",
     feedback:
-      "In the early days of our brand-building journey, one thing that stood out about Unnity was its relentless drive — constantly experimenting, refining, and pushing forward until results were achieved. This grit and unwavering commitment to delivering outcomes truly make Unnity a company that’s in it to win",
+      "In the early days of our brand-building journey, one thing that stood out about Unnity was its relentless drive — constantly experimenting, refining, and pushing forward until results were achieved. This grit and unwavering commitment to delivering outcomes truly make Unnity a company that's in it to win",
   },
   {
     image: "/testimonial-1.avif",
@@ -207,9 +210,8 @@ const testimonials = [
     role: "Website Development and Performance Marketing",
     companyLogo: "/logo-enterprise.svg",
     feedback:
-      "I hired Unnity for performance marketing of Sain Milks, and they did a fantastic job in delivering the promised goals. The team is highly experienced, meticulous, and gathered valuable insights about the industry and its users to achieve even better results. They also designed the Sain Milks website, which I loved — it’s user-friendly, aesthetically pleasing, and professionally built. I was so impressed that I entrusted them with another website for my other business, Tashe, and they are doing an excellent job on that as well. Wishing Unnity even greater success in the future — highly recommended!",
+      "I hired Unnity for performance marketing of Sain Milks, and they did a fantastic job in delivering the promised goals. The team is highly experienced, meticulous, and gathered valuable insights about the industry and its users to achieve even better results. They also designed the Sain Milks website, which I loved — it's user-friendly, aesthetically pleasing, and professionally built. I was so impressed that I entrusted them with another website for my other business, Tashe, and they are doing an excellent job on that as well. Wishing Unnity even greater success in the future — highly recommended!",
   },
-
   {
     image: "/testimonial-1.avif",
     name: "— Vandita, Founder-Iyurved",
@@ -224,7 +226,7 @@ const testimonials = [
     role: "Apparel",
     companyLogo: "/logo-enterprise.svg",
     feedback:
-      "Cupid started its own website in 2020, and since then our journey with Mr. Sayam and his team at Team Unnity has been closely associated with our growth. They handle both performance marketing and social media for us. We began with a modest daily ad budget of around ₹500+, and over time their team has successfully scaled it to ₹20,000+ per day. Reason for continuity have been their deep involvement with data—they regularly share detailed Excel reports, conduct weekly review meetings, and ensure clear communication at every stage.Compared to other agencies we’ve worked with, the personal touch and strong understanding of our brand make a real difference. Their team continuously brings in updated strategies, tools, and industry knowledge, which helps keep our ads aligned with both performance goals and long-term brand growth.Overall, the consistency, transparency, and commitment from Team Unnity have been a strong support in scaling our business.",
+      "Cupid started its own website in 2020, and since then our journey with Mr. Sayam and his team at Team Unnity has been closely associated with our growth. They handle both performance marketing and social media for us. We began with a modest daily ad budget of around ₹500+, and over time their team has successfully scaled it to ₹20,000+ per day. Reason for continuity have been their deep involvement with data—they regularly share detailed Excel reports, conduct weekly review meetings, and ensure clear communication at every stage.Compared to other agencies we've worked with, the personal touch and strong understanding of our brand make a real difference. Their team continuously brings in updated strategies, tools, and industry knowledge, which helps keep our ads aligned with both performance goals and long-term brand growth.Overall, the consistency, transparency, and commitment from Team Unnity have been a strong support in scaling our business.",
   },
   {
     image: "/testimonial-4.avif",
@@ -247,7 +249,6 @@ const members = [
     role: "Social Media",
     photo: "/muskan-2.jpg",
   },
-
   {
     name: "Anjali",
     role: "Marketing",
@@ -268,7 +269,6 @@ const members = [
     role: "Creatives",
     photo: "/manisha-03.jpeg",
   },
-
   {
     name: "Rohit",
     role: "Head of Marketing",
@@ -344,6 +344,7 @@ const columns = [0, 1, 2].map((col) => gallery.filter((_, i) => i % 3 === col));
 
 export default function Home() {
   const containerRef = useRef(null);
+  const [loading, setLoading] = useState(!hasLoaded);
   const [startIndex, setStartIndex] = useState(0);
   const [cardsPerView, setCardsPerView] = useState(2);
   const scrollerRef = useRef(null);
@@ -353,7 +354,6 @@ export default function Home() {
   const [status, setStatus] = useState({ type: "", message: "" });
   const formRef = useRef(null);
   const [hoverCard, setHoverCard] = useState(null);
-  const [loading, setLoading] = useState(true);
   const [formData, setFormData] = useState({
     companyName: "",
     budget: "",
@@ -363,6 +363,49 @@ export default function Home() {
     service: "",
     designation: "",
   });
+
+  useEffect(() => {
+    const updateView = () => {
+      if (window.innerWidth <= 768) {
+        setCardsPerView(1);
+      } else {
+        setCardsPerView(2);
+      }
+    };
+
+    updateView();
+    window.addEventListener("resize", updateView);
+    return () => window.removeEventListener("resize", updateView);
+  }, []);
+
+  const roles = useMemo(
+    () => ["All", ...Array.from(new Set(members.map((m) => m.role)))],
+    [],
+  );
+
+  const shown = useMemo(() => {
+    return members.filter((m) => {
+      const matchesRole = role === "All" || m.role === role;
+      const matchesQ =
+        !q ||
+        m.name.toLowerCase().includes(q.toLowerCase()) ||
+        m.role.toLowerCase().includes(q.toLowerCase());
+      return matchesRole && matchesQ;
+    });
+  }, [q, role]);
+
+  // Loading effect — runs after ALL hooks, never skips any hook
+  useEffect(() => {
+    if (hasLoaded) return;
+    const timer = setTimeout(() => {
+      hasLoaded = true;
+      setLoading(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // ── All hooks declared. Safe conditional return ──
+  if (loading) return <Loading />;
 
   const handleNameChange = (e) => {
     const value = e.target.value.replace(/[^a-zA-Z\s]/g, "");
@@ -381,7 +424,7 @@ export default function Home() {
     try {
       const res = await fetch("/api/send-mail", {
         method: "POST",
-        headers: { "Content-Type": "application/json" }, // FIXED
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
@@ -426,20 +469,6 @@ export default function Home() {
     }
   };
 
-  useEffect(() => {
-    const updateView = () => {
-      if (window.innerWidth <= 768) {
-        setCardsPerView(1);
-      } else {
-        setCardsPerView(2);
-      }
-    };
-
-    updateView(); // Initial check
-    window.addEventListener("resize", updateView);
-    return () => window.removeEventListener("resize", updateView);
-  }, []);
-
   const visibleTestimonials = testimonials.slice(
     startIndex,
     startIndex + cardsPerView,
@@ -460,33 +489,9 @@ export default function Home() {
   const scrollOne = (dir = 1) => {
     const el = scrollerRef.current;
     if (!el) return;
-    const step = el.clientWidth; // width of the visible area
+    const step = el.clientWidth;
     el.scrollBy({ left: dir * step, behavior: "smooth" });
   };
-
-  const roles = useMemo(
-    () => ["All", ...Array.from(new Set(members.map((m) => m.role)))],
-    [],
-  );
-
-  const shown = useMemo(() => {
-    return members.filter((m) => {
-      const matchesRole = role === "All" || m.role === role;
-      const matchesQ =
-        !q ||
-        m.name.toLowerCase().includes(q.toLowerCase()) ||
-        m.role.toLowerCase().includes(q.toLowerCase());
-      return matchesRole && matchesQ;
-    });
-  }, [q, role]);
-
-  // Loading state....//
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000);
-    return () => clearTimeout(timer);
-  }, []);
-  if (loading) return <Loading />;
 
   return (
     <>
@@ -663,14 +668,13 @@ export default function Home() {
             </div>
           </div>
         </div>
-        {/* features-cards with smooth animation expand */}
+
+        {/* features-cards */}
         <div className="carousel-wrapper">
-          {/* Carousel section */}
           <div className="carousel-base">
             <h1 className="carousel-title">
               Elevate Your Brand with Our Marketing Expertise
             </h1>
-
             <div className="carousel-container">
               {features.map((feature, index) => (
                 <div className="feature-card" key={index}>
@@ -679,7 +683,6 @@ export default function Home() {
                     alt={feature.alt}
                     className="feature-image"
                   />
-                  {/* Dark overlay */}
                   <div className={`feature-overlay`}> </div>
                   <div className={`feature-content `}>
                     <h3 className="feature-title">{feature.title}</h3>
@@ -690,6 +693,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+
         {/* Trusted */}
         <div className="logo-slider">
           <h1>Trusted by Leading Brands</h1>
@@ -707,6 +711,7 @@ export default function Home() {
             ))}
           </div>
         </div>
+
         <section className="unnity-lead">
           <div className="ul-wrap">
             {/* Left: Visual + marketing points */}
@@ -788,7 +793,7 @@ export default function Home() {
             <div className="ul-form">
               <span>Your Growth Partner in the Digital Era</span>
               <p className="ul-sub">
-                Let’s create impact — fill in the form and we’ll take it from
+                Let's create impact — fill in the form and we'll take it from
                 there.
               </p>
 
@@ -946,8 +951,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* start top choise section (Shubham) */}
-
+        {/* top choice section */}
         <section className="top-choice-section">
           <div className="title">
             <h1>Why brands choose Unnity</h1>
@@ -974,7 +978,6 @@ export default function Home() {
               </div>
               <p className="count-label">Monthly Ad Revenue</p>
             </div>
-
             <div className="choice-card">
               <div className="count-number">
                 $
@@ -991,7 +994,6 @@ export default function Home() {
               </div>
               <p className="count-label">Max Monthly Budget</p>
             </div>
-
             <div className="choice-card">
               <div className="count-number">
                 <CountUp
@@ -1007,7 +1009,6 @@ export default function Home() {
               </div>
               <p className="count-label">Global Brands Scaled</p>
             </div>
-
             <div className="choice-card">
               <div className="count-number">
                 <CountUp
@@ -1025,7 +1026,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        {/* end top-choice */}
+
         <section className="step-section">
           <span className="step-heading">
             <h1>Client Success Through Smart Digital Strategy</h1>
@@ -1041,10 +1042,8 @@ export default function Home() {
                 >
                   <article className="step-card">
                     <div className="step-badge">{step.number}</div>
-
                     <h3 className="step-title">{step.title}</h3>
                     <p className="step-description">{step.description}</p>
-
                     <div className="step-image-wrap">
                       <Image
                         src={step.image}
@@ -1059,7 +1058,6 @@ export default function Home() {
                 </Link>
               ))}
             </div>
-
             <div className="cs-btn">
               <Link href="/case-studies">
                 <button>View All</button>
@@ -1067,6 +1065,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+
         <section className="integration">
           <div className="integration-df">
             <div className="integration-left">
@@ -1124,7 +1123,7 @@ export default function Home() {
             <div className="integration-right">
               <h1>Real projects shipped, measurable results</h1>
               <p>
-                A snapshot of the work we’ve delivered — websites, funnels, and
+                A snapshot of the work we've delivered — websites, funnels, and
                 performance campaigns that moved the needle for our clients.
               </p>
               <Link href="/snapshot-project">
@@ -1167,6 +1166,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+
         <section className="testimonial-section">
           <div className="testimonial-header">
             <h2>What our customers are saying</h2>
@@ -1230,7 +1230,6 @@ export default function Home() {
                   </svg>
                 </div>
 
-                {/* optional stars (remove if you don’t need ratings) */}
                 {t.rating && (
                   <div className="stars" aria-label={`${t.rating} out of 5`}>
                     {[...Array(5)].map((_, i) => (
@@ -1263,6 +1262,7 @@ export default function Home() {
             ))}
           </div>
         </section>
+
         <section className="team-section">
           <div className="team-container">
             <header className="team-header">
@@ -1272,7 +1272,6 @@ export default function Home() {
                   The people behind your performance wins.
                 </p>
               </div>
-
               <div className="team-controls">
                 <div className="search">
                   <input
@@ -1283,7 +1282,6 @@ export default function Home() {
                     aria-label="Search team"
                   />
                 </div>
-
                 <div className="filters">
                   <select
                     value={role}
@@ -1312,56 +1310,18 @@ export default function Home() {
                       alt={m.name}
                       loading="lazy"
                     />
-                    {/* Dark overlay on hover */}
                     <div className="member-overlay"></div>
                   </div>
-
                   <div className="member-info">
                     <h3 className="member-name">{m.name}</h3>
                     <div className="member-role">{m.role}</div>
-                    {/* 
-                    {!!m.socials && (
-                      <div className="member-socials">
-                        {m.socials.linkedin && (
-                          <Link
-                            href={m.socials.linkedin}
-                            aria-label={`${m.name} on LinkedIn`}
-                          >
-                            <FaLinkedinIn />
-                          </Link>
-                        )}
-                        {m.socials.twitter && (
-                          <Link
-                            href={m.socials.twitter}
-                            aria-label={`${m.name} on Twitter`}
-                          >
-                            <FaTwitter />
-                          </Link>
-                        )}
-                        {m.socials.instagram && (
-                          <Link
-                            href={m.socials.instagram}
-                            aria-label={`${m.name} on instagram`}
-                          >
-                            <FaGithub />
-                          </Link>
-                        )}
-                        {m.socials.github && (
-                          <Link
-                            href={m.socials.github}
-                            aria-label={`${m.name} on GitHub`}
-                          >
-                            <FaGithub />
-                          </Link>
-                        )}
-                      </div>
-                    )} */}
                   </div>
                 </article>
               ))}
             </div>
           </div>
         </section>
+
         <Footer />
       </main>
     </>
