@@ -114,7 +114,6 @@ const Header = () => {
                 </li>
               </ul>
             )}
-
             {/* MOBILE */}
             {isMobile && (
               <ul className={`mobile-dropdown ${dropOpen ? "show" : ""}`}>
