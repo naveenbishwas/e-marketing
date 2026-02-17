@@ -1319,43 +1319,6 @@ export default function Home() {
                   <div className="member-info">
                     <h3 className="member-name">{m.name}</h3>
                     <div className="member-role">{m.role}</div>
-                    {/* 
-                    {!!m.socials && (
-                      <div className="member-socials">
-                        {m.socials.linkedin && (
-                          <Link
-                            href={m.socials.linkedin}
-                            aria-label={`${m.name} on LinkedIn`}
-                          >
-                            <FaLinkedinIn />
-                          </Link>
-                        )}
-                        {m.socials.twitter && (
-                          <Link
-                            href={m.socials.twitter}
-                            aria-label={`${m.name} on Twitter`}
-                          >
-                            <FaTwitter />
-                          </Link>
-                        )}
-                        {m.socials.instagram && (
-                          <Link
-                            href={m.socials.instagram}
-                            aria-label={`${m.name} on instagram`}
-                          >
-                            <FaGithub />
-                          </Link>
-                        )}
-                        {m.socials.github && (
-                          <Link
-                            href={m.socials.github}
-                            aria-label={`${m.name} on GitHub`}
-                          >
-                            <FaGithub />
-                          </Link>
-                        )}
-                      </div>
-                    )} */}
                   </div>
                 </article>
               ))}
