@@ -10,12 +10,7 @@ function SpecializedCard({ item }) {
   const halfRef = useRef(0);
 
   // 4x repeat — strip always longer than widest card
-  const loopImages = [
-    ...item.images,
-    ...item.images,
-    ...item.images,
-    ...item.images,
-  ];
+  const loopImages = [...item.images, ...item.images];
 
   useEffect(() => {
     const strip = stripRef.current;
@@ -78,7 +73,7 @@ export default function SpecializedSection({ specializedData }) {
     <section className="specialized-section">
       <div className="explore-wrraper">
         <div className="main-heading">
-          <p className="sub-heading">OUR EXPERTISE</p>
+          {/* <p className="sub-heading">OUR EXPERTISE</p> */}
           <h1>OUR EXPERTISE</h1>
         </div>
         <div className="sc-wrapper">
