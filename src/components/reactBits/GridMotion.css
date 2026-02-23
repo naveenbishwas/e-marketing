@@ -30,7 +30,7 @@
   gap: 1rem;
   flex: none;
   position: relative;
-  top: 200px;
+  /* top: 200px; */
   width: 150vw;
   height: 150vh;
   display: grid;
@@ -103,6 +103,8 @@
     gap: 1rem;
     flex: none;
     position: relative;
+    top: 200px; /* ✅ Only mobile offset */
+
     width: 350vw;
     height: 150vh;
     display: grid;
