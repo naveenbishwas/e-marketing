@@ -37,7 +37,7 @@
   },
   {
     "id": 5,
-    "title": "Lorem 79",
+    "title": "PowerMowers",
     "sale": "$64,851.82",
     "purchase": 287,
     "CAC": "$12.84",
@@ -46,7 +46,7 @@
   },
   {
     "id": 6,
-    "title": "Lorem 80",
+    "title": "PowerMowers",
     "sale": "$38,784.76",
     "purchase": 138,
     "CAC": "$11.26",
@@ -55,20 +55,19 @@
   },
   {
     "id": 7,
-    "title": "Lorem 81",
-    "sale": 799,
-    "purchase": 12998,
-    "CAC": 100,
-    "ROAS": 3.5,
-    "image": "/creative/img7.webp"
+    "title": "WoolenHouse",
+    "sale": "30,181.40",
+    "purchase": 55,
+    "CAC": 130,
+    "image": "/spotlights/spotlight-7.png"
   },
   {
     "id": 8,
-    "title": "Lorem 82",
-    "sale": 799,
-    "purchase": 12998,
-    "CAC": 100,
-    "ROAS": 3.5,
-    "image": "/creative/img8.webp"
+    "title": "WoolenHouse",
+    "sale": "27,255.90",
+    "purchase": 38,
+    "CAC": 162.89,
+    "ROAS": 4.4,
+    "image": "/spotlights/spotlight-8.png"
   }
 ]

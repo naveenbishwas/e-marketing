@@ -122,7 +122,7 @@ const Footer = () => {
               </div>
               <div className={styles.contactItem}>
                 <FaEnvelope className={styles.contactIcon} />
-                <span>info@unnity.com</span>
+                <span>sayam@unnity.in</span>
               </div>
               <Link
                 href="https://calendly.com/sayam-unnity/30min?month=2025-12"

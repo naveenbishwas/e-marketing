@@ -19,6 +19,12 @@ void main() {
 }
 `;
 
+// ─── KEY CHANGE ───
+// Each wave now gets its own direction uniform:
+//   topDir    = -1.0  → right to left
+//   middleDir = +1.0  → left to right
+//   bottomDir = -1.0  → right to left
+// The wave() function receives a `dir` float and multiplies x_movement by it.
 const fragmentShader = `
 precision highp float;
 
@@ -41,6 +47,11 @@ uniform float bottomLineDistance;
 uniform vec3 topWavePosition;
 uniform vec3 middleWavePosition;
 uniform vec3 bottomWavePosition;
+
+// per-wave direction: +1.0 = left→right, -1.0 = right→left
+uniform float topDir;
+uniform float middleDir;
+uniform float bottomDir;
 
 uniform vec2 iMouse;
 uniform bool interactive;
@@ -65,51 +76,41 @@ mat2 rotate(float r) {
 
 vec3 background_color(vec2 uv) {
   vec3 col = vec3(0.0);
-
   float y = sin(uv.x - 0.2) * 0.3 - 0.1;
   float m = uv.y - y;
-
   col += mix(BLUE, BLACK, smoothstep(0.0, 1.0, abs(m)));
   col += mix(PINK, BLACK, smoothstep(0.0, 1.0, abs(m - 0.8)));
   return col * 0.5;
 }
 
 vec3 getLineColor(float t, vec3 baseColor) {
-  if (lineGradientCount <= 0) {
-    return baseColor;
-  }
+  if (lineGradientCount <= 0) return baseColor;
 
   vec3 gradientColor;
-  
   if (lineGradientCount == 1) {
     gradientColor = lineGradient[0];
   } else {
     float clampedT = clamp(t, 0.0, 0.9999);
-    float scaled = clampedT * float(lineGradientCount - 1);
-    int idx = int(floor(scaled));
-    float f = fract(scaled);
-    int idx2 = min(idx + 1, lineGradientCount - 1);
-
-    vec3 c1 = lineGradient[idx];
-    vec3 c2 = lineGradient[idx2];
-    
-    gradientColor = mix(c1, c2, f);
+    float scaled   = clampedT * float(lineGradientCount - 1);
+    int   idx      = int(floor(scaled));
+    float f        = fract(scaled);
+    int   idx2     = min(idx + 1, lineGradientCount - 1);
+    gradientColor  = mix(lineGradient[idx], lineGradient[idx2], f);
   }
-  
   return gradientColor * 0.5;
 }
 
-  float wave(vec2 uv, float offset, vec2 screenUv, vec2 mouseUv, bool shouldBend) {
-  float time = iTime * animationSpeed;
-
+// dir: +1.0 moves left→right, -1.0 moves right→left
+float wave(vec2 uv, float offset, vec2 screenUv, vec2 mouseUv, bool shouldBend, float dir) {
+  float time       = iTime * animationSpeed;
   float x_offset   = offset;
-  float x_movement = time * 0.1;
+  float x_movement = dir * time * 0.1;   // <-- direction applied here
   float amp        = sin(offset + time * 0.2) * 0.3;
   float y          = sin(uv.x + x_offset + x_movement) * amp;
 
   if (shouldBend) {
-    vec2 d = screenUv - mouseUv;
-    float influence = exp(-dot(d, d) * bendRadius); // radial falloff around cursor
+    vec2  d         = screenUv - mouseUv;
+    float influence = exp(-dot(d, d) * bendRadius);
     float bendOffset = (mouseUv.y - screenUv.y) * influence * bendStrength * bendInfluence;
     y += bendOffset;
   }
@@ -119,76 +120,64 @@ vec3 getLineColor(float t, vec3 baseColor) {
 }
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
-  // CRITICAL FIX: Use fixed aspect ratio independent of actual screen size
   float fixedHeight = 1080.0;
   vec2 baseUv = (2.0 * fragCoord - iResolution.xy) / fixedHeight;
   baseUv.y *= -1.0;
-  
-  // Mouse interaction UV (uses actual resolution)
+
   vec2 screenUv = (2.0 * fragCoord - iResolution.xy) / iResolution.y;
   screenUv.y *= -1.0;
 
   vec3 col = vec3(0.0);
-
-  vec3 b = lineGradientCount > 0 ? vec3(0.0) : background_color(baseUv);
+  vec3 b   = lineGradientCount > 0 ? vec3(0.0) : background_color(baseUv);
 
   vec2 mouseUv = vec2(0.0);
   if (interactive) {
     mouseUv = (2.0 * iMouse - iResolution.xy) / iResolution.y;
     mouseUv.y *= -1.0;
   }
-  
+
+  // ── BOTTOM — right to left (bottomDir = -1.0) ──
   if (enableBottom) {
     for (int i = 0; i < bottomLineCount; ++i) {
-      float fi = float(i);
-      float t = fi / max(float(bottomLineCount - 1), 1.0);
-      vec3 lineCol = getLineColor(t, b);
-      
-      float angle = bottomWavePosition.z * log(length(baseUv) + 1.0);
-      vec2 ruv = baseUv * rotate(angle);
+      float fi     = float(i);
+      float t      = fi / max(float(bottomLineCount - 1), 1.0);
+      vec3  lineCol = getLineColor(t, b);
+      float angle  = bottomWavePosition.z * log(length(baseUv) + 1.0);
+      vec2  ruv    = baseUv * rotate(angle);
       col += lineCol * wave(
         ruv + vec2(bottomLineDistance * fi + bottomWavePosition.x, bottomWavePosition.y),
-        1.5 + 0.2 * fi,
-        baseUv,
-        mouseUv,
-        interactive
+        1.5 + 0.2 * fi, baseUv, mouseUv, interactive, bottomDir
       ) * 0.2;
     }
   }
 
+  // ── MIDDLE — left to right (middleDir = +1.0) ──
   if (enableMiddle) {
     for (int i = 0; i < middleLineCount; ++i) {
-      float fi = float(i);
-      float t = fi / max(float(middleLineCount - 1), 1.0);
-      vec3 lineCol = getLineColor(t, b);
-      
-      float angle = middleWavePosition.z * log(length(baseUv) + 1.0);
-      vec2 ruv = baseUv * rotate(angle);
+      float fi     = float(i);
+      float t      = fi / max(float(middleLineCount - 1), 1.0);
+      vec3  lineCol = getLineColor(t, b);
+      float angle  = middleWavePosition.z * log(length(baseUv) + 1.0);
+      vec2  ruv    = baseUv * rotate(angle);
       col += lineCol * wave(
         ruv + vec2(middleLineDistance * fi + middleWavePosition.x, middleWavePosition.y),
-        2.0 + 0.15 * fi,
-        baseUv,
-        mouseUv,
-        interactive
+        2.0 + 0.15 * fi, baseUv, mouseUv, interactive, middleDir
       );
     }
   }
 
+  // ── TOP — right to left (topDir = -1.0) ──
   if (enableTop) {
     for (int i = 0; i < topLineCount; ++i) {
-      float fi = float(i);
-      float t = fi / max(float(topLineCount - 1), 1.0);
-      vec3 lineCol = getLineColor(t, b);
-      
-      float angle = topWavePosition.z * log(length(baseUv) + 1.0);
-      vec2 ruv = baseUv * rotate(angle);
-      ruv.x *= -1.0;
+      float fi     = float(i);
+      float t      = fi / max(float(topLineCount - 1), 1.0);
+      vec3  lineCol = getLineColor(t, b);
+      float angle  = topWavePosition.z * log(length(baseUv) + 1.0);
+      vec2  ruv    = baseUv * rotate(angle);
+      ruv.x       *= -1.0;
       col += lineCol * wave(
         ruv + vec2(topLineDistance * fi + topWavePosition.x, topWavePosition.y),
-        1.0 + 0.2 * fi,
-        baseUv,
-        mouseUv,
-        interactive
+        1.0 + 0.2 * fi, baseUv, mouseUv, interactive, topDir
       ) * 0.1;
     }
   }
@@ -206,16 +195,10 @@ void main() {
 const MAX_GRADIENT_STOPS = 8;
 
 function hexToVec3(hex) {
-  let value = hex.trim();
-
-  if (value.startsWith("#")) {
-    value = value.slice(1);
-  }
-
-  let r = 255;
-  let g = 255;
-  let b = 255;
-
+  let value = hex.trim().replace(/^#/, "");
+  let r = 255,
+    g = 255,
+    b = 255;
   if (value.length === 3) {
     r = parseInt(value[0] + value[0], 16);
     g = parseInt(value[1] + value[1], 16);
@@ -225,7 +208,6 @@ function hexToVec3(hex) {
     g = parseInt(value.slice(2, 4), 16);
     b = parseInt(value.slice(4, 6), 16);
   }
-
   return new Vector3(r / 255, g / 255, b / 255);
 }
 
@@ -245,6 +227,11 @@ export default function FloatingLines({
   parallax = true,
   parallaxStrength = 0.2,
   mixBlendMode = "screen",
+  // ── NEW props: control direction per wave ──
+  // +1.0 = left→right  |  -1.0 = right→left
+  topDirection = -1.0, // right → left  (default)
+  middleDirection = 1.0, // left  → right (default)
+  bottomDirection = -1.0, // right → left  (default)
 }) {
   const containerRef = useRef(null);
   const targetMouseRef = useRef(new Vector2(-1000, -1000));
@@ -291,22 +278,11 @@ export default function FloatingLines({
     if (containerRef.current.childElementCount > 0) return;
 
     const scene = new Scene();
-
     const camera = new OrthographicCamera(-1, 1, 1, -1, 0, 1);
     camera.position.z = 1;
 
-    const renderer = new WebGLRenderer({
-      antialias: true,
-      alpha: false,
-    });
+    const renderer = new WebGLRenderer({ antialias: true, alpha: false });
     renderer.setPixelRatio(1);
-    {
-      // multiple rendering aoid  blurriness on high lag screens
-    }
-
-    renderer.domElement.style.width = "100%";
-    renderer.domElement.style.height = "100%";
-
     renderer.domElement.style.width = "100%";
     renderer.domElement.style.height = "100%";
     containerRef.current.appendChild(renderer.domElement);
@@ -350,6 +326,11 @@ export default function FloatingLines({
         ),
       },
 
+      // ── direction uniforms ──
+      topDir: { value: topDirection },
+      middleDir: { value: middleDirection },
+      bottomDir: { value: bottomDirection },
+
       iMouse: { value: new Vector2(-1000, -1000) },
       interactive: { value: interactive },
       bendRadius: { value: bendRadius },
@@ -372,10 +353,9 @@ export default function FloatingLines({
     if (linesGradient && linesGradient.length > 0) {
       const stops = linesGradient.slice(0, MAX_GRADIENT_STOPS);
       uniforms.lineGradientCount.value = stops.length;
-
       stops.forEach((hex, i) => {
-        const color = hexToVec3(hex);
-        uniforms.lineGradient.value[i].set(color.x, color.y, color.z);
+        const c = hexToVec3(hex);
+        uniforms.lineGradient.value[i].set(c.x, c.y, c.z);
       });
     }
 
@@ -384,7 +364,6 @@ export default function FloatingLines({
       vertexShader,
       fragmentShader,
     });
-
     const geometry = new PlaneGeometry(2, 2);
     const mesh = new Mesh(geometry, material);
     scene.add(mesh);
@@ -393,41 +372,33 @@ export default function FloatingLines({
 
     const setSize = () => {
       const el = containerRef.current;
+      if (!el) return;
       const width = el.clientWidth || 1;
       const height = el.clientHeight || 1;
-
       renderer.setSize(width, height, false);
-
-      const canvasWidth = renderer.domElement.width;
-      const canvasHeight = renderer.domElement.height;
-      uniforms.iResolution.value.set(canvasWidth, canvasHeight, 1);
+      const cw = renderer.domElement.width;
+      const ch = renderer.domElement.height;
+      uniforms.iResolution.value.set(cw, ch, 1);
     };
-
     setSize();
 
     const ro =
       typeof ResizeObserver !== "undefined"
         ? new ResizeObserver(setSize)
         : null;
-
-    if (ro && containerRef.current) {
-      ro.observe(containerRef.current);
-    }
+    if (ro && containerRef.current) ro.observe(containerRef.current);
 
     const handlePointerMove = (event) => {
       const rect = renderer.domElement.getBoundingClientRect();
       const x = event.clientX - rect.left;
       const y = event.clientY - rect.top;
       const dpr = renderer.getPixelRatio();
-
       targetMouseRef.current.set(x * dpr, (rect.height - y) * dpr);
       targetInfluenceRef.current = 1.0;
 
       if (parallax) {
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const offsetX = (x - centerX) / rect.width;
-        const offsetY = -(y - centerY) / rect.height;
+        const offsetX = (x - rect.width / 2) / rect.width;
+        const offsetY = -(y - rect.height / 2) / rect.height;
         targetParallaxRef.current.set(
           offsetX * parallaxStrength,
           offsetY * parallaxStrength,
@@ -451,7 +422,6 @@ export default function FloatingLines({
       if (interactive) {
         currentMouseRef.current.lerp(targetMouseRef.current, mouseDamping);
         uniforms.iMouse.value.copy(currentMouseRef.current);
-
         currentInfluenceRef.current +=
           (targetInfluenceRef.current - currentInfluenceRef.current) *
           mouseDamping;
@@ -473,11 +443,7 @@ export default function FloatingLines({
 
     return () => {
       cancelAnimationFrame(raf);
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      if (ro && containerRef.current) {
-        ro.disconnect();
-      }
-
+      if (ro && containerRef.current) ro.disconnect();
       if (interactive) {
         renderer.domElement.removeEventListener(
           "pointermove",
@@ -488,7 +454,6 @@ export default function FloatingLines({
           handlePointerLeave,
         );
       }
-
       geometry.dispose();
       material.dispose();
       renderer.dispose();
@@ -512,15 +477,16 @@ export default function FloatingLines({
     mouseDamping,
     parallax,
     parallaxStrength,
+    topDirection,
+    middleDirection,
+    bottomDirection,
   ]);
 
   return (
     <div
       ref={containerRef}
       className="w-full h-full relative overflow-hidden floating-lines-container"
-      style={{
-        mixBlendMode: mixBlendMode,
-      }}
+      style={{ mixBlendMode }}
     />
   );
 }

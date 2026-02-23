@@ -1,15 +1,13 @@
 "use client";
 
-import React, { useEffect, useRef, useState, useCallback } from "react";
-import "./creative-project.css";
+import React, { useEffect, useRef, useState } from "react";
 import GridMotion from "@/components/reactBits/GridMotion";
 import Header from "@/components/Header/page";
 import creativeData from "../../data/creativeData.json";
-import specializedData from "../../data/specializedData.json";
 import spotlightData from "../../data/spotlightData.json";
 import { Playfair_Display } from "next/font/google";
 import Footer from "@/components/footer/page";
-import SpecializedSection from "./Specializedsection";
+import Link from "next/link";
 
 const font = Playfair_Display({ subsets: ["latin"], style: "italic" });
 
@@ -21,6 +19,7 @@ const items = Array.from(
 export default function Creative() {
   const [activeTab, setActiveTab] = useState("CUPID CLOTHING");
   const [isPaused, setIsPaused] = useState(false);
+  const [underline, setUnderline] = useState({ left: 0, width: 0 });
 
   const tabs = [
     "CUPID CLOTHING",
@@ -29,6 +28,31 @@ export default function Creative() {
     "HUBHAWAKS",
     "DRONACHARYA",
   ];
+
+  const tabRefs = useRef({});
+  const tabsContainerRef = useRef(null);
+
+  // Measure exact button position → pixel-perfect underline
+  useEffect(() => {
+    const activeBtn = tabRefs.current[activeTab];
+    const container = tabsContainerRef.current;
+    if (!activeBtn || !container) return;
+
+    const updateUnderline = () => {
+      const btnRect = activeBtn.getBoundingClientRect();
+      const containerRect = container.getBoundingClientRect();
+      setUnderline({
+        left: btnRect.left - containerRect.left + container.scrollLeft,
+        width: btnRect.width,
+      });
+    };
+
+    updateUnderline();
+
+    const ro = new ResizeObserver(updateUnderline);
+    ro.observe(container);
+    return () => ro.disconnect();
+  }, [activeTab]);
 
   const filtredData = creativeData.filter((item) => item.title === activeTab);
   const scrollRef = useRef(null);
@@ -40,19 +64,16 @@ export default function Creative() {
 
     let animationId;
     const speed = 1;
-
     let firstSetWidth = 0;
 
     const measure = () => {
       const firstCard = container.firstElementChild;
       if (!firstCard) return;
-
-      const cardCount = filtredData.length;
       const cardWidth = firstCard.getBoundingClientRect().width;
       const marginRight = parseFloat(
         getComputedStyle(firstCard).marginRight || "0",
       );
-      firstSetWidth = (cardWidth + marginRight) * cardCount;
+      firstSetWidth = (cardWidth + marginRight) * filtredData.length;
     };
 
     const rafId = requestAnimationFrame(() => {
@@ -64,9 +85,6 @@ export default function Creative() {
     const autoScroll = () => {
       if (!isPaused) {
         container.scrollLeft += speed;
-
-        if (firstSetWidth <= 0) measure();
-
         if (firstSetWidth > 0 && container.scrollLeft >= firstSetWidth) {
           container.scrollLeft -= firstSetWidth;
         }
@@ -85,125 +103,179 @@ export default function Creative() {
       <Header />
 
       {/* HERO */}
-      <div className="creative-hero-wrapper">
-        <div className="hero-overlay-creative"></div>
+      <div className="relative w-full min-h-[520px] md:h-screen overflow-hidden">
+        <div className="absolute inset-0 bg-white/60 md:bg-white/70 z-10" />
+
         <GridMotion items={items} gradientColor="black" />
 
-        <div className="creative-hero-content">
-          <span className="creative-subHeading">EXCELLENCE IN DESIGN</span>
+        <div className="relative md:absolute md:inset-0 z-20 flex flex-col items-center justify-center text-center px-6 md:px-10 py-24 md:py-0 gap-5">
+          <span className="uppercase tracking-[2px] text-[12px] text-neutral-700 font-bold">
+            Excellence in Design
+          </span>
 
-          <h1 className="creative-main-heading">
+          <h1 className="text-6xl md:text-[7.5rem] font-black tracking-[-3px]">
             Designed <br />
-            <span className="creative-heading">
-              to be{" "}
-              <span className={`${font.className} creative-italic`}>
-                looked at
-              </span>
+            to be{" "}
+            <span className={font.className + " text-[#072266]"}>
+              looked at
             </span>
           </h1>
 
-          <span>
+          <p className="text-neutral-700 max-w-md text-[15px] leading-relaxed">
             We craft visual stories that command attention and define brand
             legacies.
-          </span>
+          </p>
 
-          <button className="creative-cta-button">
-            Start now
-            <span className="arrow-wrapper">
-              <span className="arrow first-arrow">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                </svg>
+          {/* SVG Arrow Button */}
+          <Link href="https://calendly.com/sayam-unnity/30min">
+            <button className="group flex items-center gap-3 bg-white text-[#0f032b] hover:bg-[#0f032b] hover:text-white hover:border-white hover:border px-6 py-2 rounded-full text-sm font-medium overflow-hidden cursor-pointer transition-all duration-200 ease-in-out group">
+              Start now
+              <span className="relative w-5 h-5 overflow-hidden rounded-full bg-[#0f032b] text-white">
+                <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-6 ">
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                  </svg>
+                </span>
+
+                <span className="absolute inset-0 flex items-center justify-center -translate-x-6 transition-transform duration-300 group-hover:translate-x-0 group-hover:bg-white group-hover:text-[#0f032b]">
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                  </svg>
+                </span>
               </span>
-              <span className="arrow second-arrow">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                </svg>
-              </span>
-            </span>
-          </button>
+            </button>
+          </Link>
         </div>
       </div>
 
-      {/* TAB GALLERY */}
-      <section>
-        <div className="explore-wrraper">
-          <div className="main-heading">
-            {/* <p className="sub-heading">CREATIVE PORTFOLIO</p> */}
-            <h1>Meet the Brands We've Scaled</h1>
-          </div>
+      {/* TABS */}
+      <section className="pt-24 pb-10 max-w-[1350px] w-full mx-auto">
+        <h2 className="text-center text-3xl md:text-[3.25rem] font-black tracking-[-1.5px] mb-14">
+          Meet the Brands We've Scaled
+        </h2>
 
-          <div className="explore-tab-wrraper">
-            {tabs.map((tab, index) => (
-              <div
-                key={index}
-                className={`tab ${activeTab === tab ? "active" : ""}`}
-                onClick={() => setActiveTab(tab)}
-              >
-                <h5>{tab}</h5>
-                {activeTab === tab && <span />}
-              </div>
-            ))}
-          </div>
-
+        {/* Tabs Wrapper */}
+        <div className="relative overflow-x-auto no-scrollbar">
           <div
-            ref={scrollRef}
-            className="creatives-images"
-            onTouchStart={() => setIsPaused(true)}
-            onTouchEnd={() => setIsPaused(false)}
+            ref={tabsContainerRef}
+            className="relative flex w-max md:w-full md:justify-center border-b border-neutral-200"
           >
-            {loopData.map((item, index) => (
-              <div key={`${item.title}-${index}`} className="creatives-image">
-                <img src={item.image} alt={item.title} loading="lazy" />
-              </div>
+            {/* Underline — left/width set from real DOM measurements */}
+            <span
+              className="absolute bottom-0 h-[3px] rounded-full bg-black transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]"
+              style={{
+                left: underline.left,
+                width: underline.width,
+              }}
+            />
+
+            {tabs.map((tab) => (
+              <button
+                key={tab}
+                ref={(el) => (tabRefs.current[tab] = el)}
+                onClick={() => setActiveTab(tab)}
+                className={`
+                  relative pb-4 px-5 text-[11px] md:text-[13px] font-black whitespace-nowrap tracking-[0.15em] uppercase cursor-pointer
+                  transition-colors duration-300
+                  ${
+                    activeTab === tab
+                      ? "text-black"
+                      : "text-neutral-400 hover:text-neutral-600"
+                  }
+                `}
+              >
+                {tab}
+              </button>
             ))}
           </div>
         </div>
+
+        {/* IMAGE STRIP */}
+        <div
+          ref={scrollRef}
+          className="flex gap-5 overflow-hidden px-6 py-10"
+          onTouchStart={() => setIsPaused(true)}
+          onTouchEnd={() => setIsPaused(false)}
+        >
+          {loopData.map((item, index) => (
+            <div
+              key={`${item.title}-${index}`}
+              className="group flex-shrink-0 w-[260px] h-[260px] md:w-[300px] md:h-[300px] rounded-2xl overflow-hidden shadow-sm transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl"
+            >
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+            </div>
+          ))}
+        </div>
       </section>
 
-      {/* SPECIALIZED — replaced with new component */}
-      <SpecializedSection specializedData={specializedData} />
+      {/* SPOTLIGHT */}
+      <section className="py-16 bg-neutral-50">
+        <h2 className="text-center text-3xl md:text-[3.25rem] font-black tracking-[-1.5px] mb-14">
+          In the Spotlight
+        </h2>
 
-      {/* PERFORMANCE SPOTLIGHT */}
-      <section className="performance-spotlight">
-        <div className="explore-wrraper">
-          <div className="main-heading">
-            {/* <p className="sub-heading">OUR EXPERTISE</p> */}
-            <h1>In the Spotlight</h1>
-          </div>
+        <div className="grid w-[90%] max-w-[1400px] mx-auto gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {spotlightData.map((item) => (
+            <div
+              key={item.id}
+              className="group relative overflow-hidden rounded-2xl shadow-sm transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl"
+            >
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
 
-          <div className="spotlight-wrraper">
-            {spotlightData.map((item) => (
-              <div key={item.id} className="spotlight-card">
-                <img src={item.image} alt={item.title} loading="lazy" />
-                <div className="spotlight-info-wrraper">
-                  <h4>{item.title}</h4>
-                  <div className="spotlight-info">
-                    <p>
-                      {item.purchase}
-                      <br />
-                      <span>PURCHASE</span>
-                    </p>
-                    <p>
-                      {item.CAC}
-                      <br />
-                      <span>CAC</span>
-                    </p>
-                    <p>
-                      {item.sale}
-                      <br />
-                      <span>SALE</span>
-                    </p>
-                    <p>
-                      {item.ROAS}
-                      <br />
-                      <span>ROAS</span>
-                    </p>
+              <div className="absolute inset-0 bg-[#0f032b]/70 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col justify-center items-center text-white p-6">
+                <h4 className="text-xl font-black tracking-tight mb-5">
+                  {item.title}
+                </h4>
+
+                <div className="grid grid-cols-2 gap-3 w-full text-sm">
+                  <div className="bg-white/10 rounded-xl px-3 py-2.5">
+                    <p className="font-bold">{item.purchase}</p>
+                    <span className="text-[10px] text-white/50 font-bold tracking-widest uppercase">
+                      Purchase
+                    </span>
+                  </div>
+                  <div className="bg-white/10 rounded-xl px-3 py-2.5">
+                    <p className="font-bold">{item.CAC}</p>
+                    <span className="text-[10px] text-white/50 font-bold tracking-widest uppercase">
+                      CAC
+                    </span>
+                  </div>
+                  <div className="bg-white/10 rounded-xl px-3 py-2.5">
+                    <p className="font-bold">{item.sale}</p>
+                    <span className="text-[10px] text-white/50 font-bold tracking-widest uppercase">
+                      Sale
+                    </span>
+                  </div>
+                  <div className="bg-white/10 rounded-xl px-3 py-2.5">
+                    <p className="font-bold">{item.ROAS}</p>
+                    <span className="text-[10px] text-white/50 font-bold tracking-widest uppercase">
+                      ROAS
+                    </span>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
 
