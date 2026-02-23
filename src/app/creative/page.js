@@ -169,7 +169,7 @@ export default function Creative() {
       </div>
 
       {/* TABS */}
-      <section className="pt-24 pb-10 max-w-[1350px] w-full mx-auto">
+      <section className="px-4 pt-24 pb-10 max-w-[1350px] w-full mx-auto">
         <h2 className="text-center text-[clamp(1.8rem,3vw,3rem)] font-bold text-[#111] mb-12 tracking-tight">
           Meet the Brands We've Scaled
         </h2>
@@ -180,7 +180,7 @@ export default function Creative() {
             ref={tabsContainerRef}
             className="relative flex w-max md:w-full md:justify-center border-b border-neutral-200"
           >
-            {/* Underline — left/width set from real DOM measurements */}
+            {/* Underline */}
             <span
               className="absolute bottom-0 h-[3px] rounded-full bg-black transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]"
               style={{
