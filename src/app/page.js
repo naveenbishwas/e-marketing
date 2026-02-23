@@ -494,7 +494,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* RIGHT — All Purple, Staggered Depth */}
+            {/* RIGHT  */}
             <div className="w-1/2 flex items-center justify-center max-md:w-full md:mt-16">
               <div className="relative flex flex-col gap-8 md:gap-20 w-full max-w-[400px] max-md:flex-row max-md:flex-wrap max-md:justify-center max-sm:flex-col">
                 {/* Ambient background glow — fills the right panel */}
@@ -1187,15 +1187,6 @@ export default function Home() {
                       loading="lazy"
                       className="w-full h-full object-cover block transition-transform duration-500 group-hover:scale-[1.08]"
                     />
-<<<<<<< ours
-                    {/* Dark overlay on hover */}
-                    <div className="member-overlay"></div>
-                  </div>
-
-                  <div className="member-info">
-                    <h3 className="member-name">{m.name}</h3>
-                    <div className="member-role">{m.role}</div>
-=======
                     <div className="absolute inset-0 z-10 bg-linear-to-b from-transparent via-black/40 to-black/80 pointer-events-none" />
                     <div className="absolute bottom-0 left-0 right-0 p-5 z-10 transition-transform duration-300 translate-y-1 group-hover:-translate-y-2 max-sm:p-4">
                       <h3 className="text-xl text-white font-extrabold tracking-wide mb-1.5 max-sm:text-base">
@@ -1208,7 +1199,6 @@ export default function Home() {
                     <div className="absolute inset-0 z-0 bg-black/0 group-hover:bg-black/40">
                       {" "}
                     </div>
->>>>>>> theirs
                   </div>
                 </article>
               ))}
