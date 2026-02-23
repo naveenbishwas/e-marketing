@@ -494,7 +494,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* RIGHT — All Purple, Staggered Depth */}
+            {/* RIGHT  */}
             <div className="w-1/2 flex items-center justify-center max-md:w-full md:mt-16">
               <div className="relative flex flex-col gap-8 md:gap-20 w-full max-w-[400px] max-md:flex-row max-md:flex-wrap max-md:justify-center max-sm:flex-col">
                 {/* Ambient background glow — fills the right panel */}
