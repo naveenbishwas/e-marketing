@@ -494,13 +494,13 @@ export default function Home() {
               </div>
             </div>
 
-            {/* RIGHT  */}
+            {/* RIGHT — All Purple, Staggered Depth */}
             <div className="w-1/2 flex items-center justify-center max-md:w-full md:mt-16">
               <div className="relative flex flex-col gap-8 md:gap-20 w-full max-w-[400px] max-md:flex-row max-md:flex-wrap max-md:justify-center max-sm:flex-col">
-                {/* Ambient background glow — fills the right panel */}
+                {/* Ambient background glow */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-[#7c3aed]/10 rounded-full blur-3xl pointer-events-none" />
 
-                {/* ── Badge 1 — Graphic Design (top, pushed right) ── */}
+                {/* ── Badge 1  */}
                 <div className="relative self-end max-w-full w-full group">
                   {/* outer glow ring */}
                   <div className="absolute -inset-px rounded-lg bg-gradient-to-br from-[#a78bfa]/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -547,7 +547,7 @@ export default function Home() {
                           />
                         ))}
                         <span className="text-[9px] text-white/20 ml-1 tracking-widest">
-                          pixel perfect
+                          Design That Converts
                         </span>
                       </div>
                     </div>
@@ -596,7 +596,7 @@ export default function Home() {
                           />
                         ))}
                         <span className="text-[9px] text-white/20 ml-1 tracking-widest">
-                          pixel perfect
+                          ROAS optimization
                         </span>
                       </div>
                     </div>
@@ -983,7 +983,7 @@ export default function Home() {
             CASE STUDIES
         ----------------------------*/}
         <section className="bg-[#f9fafb] py-12 md:py-20">
-          <h1 className="text-center max-w-2xl mx-auto text-4xl font-bold leading-tight text-[#222] mb-16 px-4 max-md:text-xl max-md:mb-10 max-md:max-w-xs">
+          <h1 className="text-center text-[clamp(1.8rem,3vw,3rem)] font-bold text-[#111] mb-12 tracking-tight">
             Client Success Through Smart Digital Strategy
           </h1>
           <div className="px-5 pb-10">
