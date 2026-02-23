@@ -15,6 +15,10 @@ const items = Array.from(
   { length: 28 },
   (_, i) => `/creative/img${i + 1}.webp`,
 );
+const itemsOnSmscreen = Array.from(
+  { length: 14 },
+  (_, i) => `/creative/img${i + 1}.webp`,
+);
 
 export default function Creative() {
   const [activeTab, setActiveTab] = useState("CUPID CLOTHING");
@@ -105,8 +109,12 @@ export default function Creative() {
       {/* HERO */}
       <div className="relative w-full min-h-[520px] md:h-screen overflow-hidden">
         <div className="absolute inset-0 bg-white/60 md:bg-white/70 z-10" />
-
-        <GridMotion items={items} gradientColor="black" />
+        <div className="max-w-full w-full hidden md:block">
+          <GridMotion items={items} gradientColor="black" />
+        </div>
+        <div className="max-w-full w-full md:hidden">
+          <GridMotion items={itemsOnSmscreen} gradientColor="black" />
+        </div>
 
         <div className="relative md:absolute md:inset-0 z-20 flex flex-col items-center justify-center text-center px-6 md:px-10 py-24 md:py-0 gap-5">
           <span className="uppercase tracking-[2px] text-[12px] text-neutral-700 font-bold">
@@ -162,7 +170,7 @@ export default function Creative() {
 
       {/* TABS */}
       <section className="pt-24 pb-10 max-w-[1350px] w-full mx-auto">
-        <h2 className="text-center text-3xl md:text-[3.25rem] font-black tracking-[-1.5px] mb-14">
+        <h2 className="text-center text-[clamp(1.8rem,3vw,3rem)] font-bold text-[#111] mb-12 tracking-tight">
           Meet the Brands We've Scaled
         </h2>
 
@@ -206,8 +214,8 @@ export default function Creative() {
         <div
           ref={scrollRef}
           className="flex gap-5 overflow-hidden px-6 py-10"
-          onTouchStart={() => setIsPaused(true)}
-          onTouchEnd={() => setIsPaused(false)}
+          // onTouchStart={() => setIsPaused(true)}
+          // onTouchEnd={() => setIsPaused(false)}
         >
           {loopData.map((item, index) => (
             <div
@@ -226,7 +234,7 @@ export default function Creative() {
 
       {/* SPOTLIGHT */}
       <section className="py-16 bg-neutral-50">
-        <h2 className="text-center text-3xl md:text-[3.25rem] font-black tracking-[-1.5px] mb-14">
+        <h2 className="text-center text-[clamp(1.8rem,3vw,3rem)] font-bold text-[#111] mb-12 tracking-tight">
           In the Spotlight
         </h2>
 

@@ -108,9 +108,13 @@ const Header = () => {
         }
       `}
             >
-              <li className="px-6 py-3 hover:bg-white/10 cursor-pointer">
-                <Link href="/creative">Creative</Link>
-              </li>
+              <Link
+                href="/creative"
+                className="bg-[#0f032b] block px-6 py-3 hover:bg-white/10 cursor-pointer"
+              >
+                Creative
+              </Link>
+
               {/* <li className="px-6 py-3 hover:bg-white/10 cursor-pointer">
                 <Link href="/marketing">Marketing</Link>
               </li>

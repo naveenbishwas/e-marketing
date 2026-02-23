@@ -547,7 +547,7 @@ export default function Home() {
                           />
                         ))}
                         <span className="text-[9px] text-white/20 ml-1 tracking-widest">
-                          pixel perfect
+                          Design That Converts
                         </span>
                       </div>
                     </div>
@@ -983,7 +983,7 @@ export default function Home() {
             CASE STUDIES
         ----------------------------*/}
         <section className="bg-[#f9fafb] py-12 md:py-20">
-          <h1 className="text-center max-w-2xl mx-auto text-4xl font-bold leading-tight text-[#222] mb-16 px-4 max-md:text-xl max-md:mb-10 max-md:max-w-xs">
+          <h1 className="text-center text-[clamp(1.8rem,3vw,3rem)] font-bold text-[#111] mb-12 tracking-tight">
             Client Success Through Smart Digital Strategy
           </h1>
           <div className="px-5 pb-10">
