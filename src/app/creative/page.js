@@ -136,13 +136,13 @@ export default function Creative() {
 
           {/* SVG Arrow Button */}
           <Link href="https://calendly.com/sayam-unnity/30min">
-            <button className="group flex items-center gap-3 bg-white text-[#0f032b] hover:bg-[#0f032b] hover:text-white hover:border-white hover:border px-6 py-2 rounded-full text-sm font-medium overflow-hidden cursor-pointer transition-all duration-200 ease-in-out group">
-              Start now
-              <span className="relative w-5 h-5 overflow-hidden rounded-full bg-[#0f032b] text-white">
-                <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-6 ">
+            <button className="group flex items-center gap-3 bg-white text-[#0f032b] hover:bg-[#0f032b] hover:text-white hover:border hover:border-white px-6 py-2.5 rounded-full text-base font-medium overflow-hidden cursor-pointer transition-all duration-200 max-sm:w-full max-sm:justify-center">
+              Start Now
+              <span className="relative w-7 h-7 overflow-hidden rounded-full bg-[#0f032b] text-white flex-shrink-0">
+                <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-8">
                   <svg
                     viewBox="0 0 24 24"
-                    className="w-4 h-4"
+                    className="w-5 h-5"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
@@ -150,11 +150,10 @@ export default function Creative() {
                     <path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                   </svg>
                 </span>
-
-                <span className="absolute inset-0 flex items-center justify-center -translate-x-6 transition-transform duration-300 group-hover:translate-x-0 group-hover:bg-white group-hover:text-[#0f032b]">
+                <span className="absolute inset-0 flex items-center justify-center -translate-x-8 transition-transform duration-300 group-hover:translate-x-0 group-hover:bg-white group-hover:text-[#0f032b]">
                   <svg
                     viewBox="0 0 24 24"
-                    className="w-4 h-4"
+                    className="w-5 h-5"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
