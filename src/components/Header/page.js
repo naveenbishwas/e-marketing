@@ -229,7 +229,7 @@ const Header = () => {
                 >
                   Creative
                 </Link>
-                <Link
+                {/* <Link
                   href="/marketing"
                   className="block py-2 pl-3 cursor-pointer"
                 >
@@ -240,7 +240,7 @@ const Header = () => {
                   className="block py-2 pl-3 cursor-pointer"
                 >
                   Advertisement
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>

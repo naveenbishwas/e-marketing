@@ -260,7 +260,7 @@ function TestimonialSlider({ testimonials }) {
               />
             </svg>
           </div>
-          <p className="text-xl leading-relaxed text-[#2b2b2b] mb-8 max-sm:text-base">
+          <p className="text-lg leading-relaxed text-[#2b2b2b] mb-8 max-sm:text-base">
             {t.feedback}
           </p>
           <div className="flex items-center justify-between flex-wrap gap-4 border-t border-[#e6e0d3] pt-6">
@@ -447,7 +447,7 @@ export default function Home() {
               <h1 className="lg:text-6xl font-semibold md:leading-10 lg:leading-18 capitalize mt-5 md:text-4xl sm:text-3xl text-3xl">
                 Crafting Digital <br /> Brands That Stand Out
               </h1>
-              <p className="text-xl my-5 pb-10 text-[#c1bdbd] max-md:text-lg max-sm:text-base font-satoshi">
+              <p className="text-lg leading-relaxed my-5 pb-10 text-[#c1bdbd]  max-sm:text-base">
                 At Unnity, we help brands grow in the digital world. Our
                 tailored marketing solutions boost your online presence, engage
                 your audience, and drive real results. Let Unnity unlock your
