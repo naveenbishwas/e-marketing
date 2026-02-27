@@ -1,7 +1,7 @@
 "use client";
 
 let hasLoaded = false;
-
+import React from "react";
 import Image from "next/image";
 import Header from "@/components/Header/page";
 import { useState, useRef, useEffect, useMemo } from "react";
@@ -18,6 +18,9 @@ const FloatingLines = dynamic(
   () => import("@/components/reactBits/FloatingLines"),
   { ssr: false },
 );
+const LightRays = dynamic(() => import("@/components/reactBits/LightRays"), {
+  ssr: false,
+});
 
 const LOGO_IMAGES = [
   "/empire1.png",
@@ -332,6 +335,7 @@ function TestimonialSlider({ testimonials }) {
 // --------------------------------------------
 export default function Home() {
   const formRef = useRef(null);
+  const sectionRef = useRef(null);
   const [loading, setLoading] = useState(!hasLoaded);
   const [q, setQ] = useState("");
   const [role, setRole] = useState("All");
@@ -409,17 +413,91 @@ export default function Home() {
       setSending(false);
     }
   };
+  const handleMouseMove = (e) => {
+    const section = sectionRef.current;
+
+    if (!section) return;
+    const rect = section.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    section.style.setProperty("--mx", `${x}px`);
+    section.style.setProperty("--my", `${y}px`);
+  };
 
   return (
     <>
       <main>
         <Header />
+        <section
+          ref={sectionRef}
+          onMouseMove={handleMouseMove}
+          className="relative w-full min-h-screen bg-[#0c0322] text-white overflow-hidden flex flex-col"
+          style={{ "--mx": "50%", "--my": "50%" }}
+        >
+          {/* ── GRID BACKGROUND ── */}
+          <div
+            className="absolute inset-0 z-0 pointer-events-none"
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(167,139,250,0.07) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(167,139,250,0.07) 1px, transparent 1px)
+              `,
+              backgroundSize: "48px 48px",
+            }}
+          />
 
-        {/* =============================
-        Hero with floating lines(react-bits)
-        ================================= */}
-        <section className="relative w-full bg-linear-to-b from-[#030614] to-[#0b1221] text-white overflow-hidden px-8 pt-16 pb-20 max-md:px-5">
-          <div className="absolute inset-0 z-10">
+          {/* ── CURSOR GLOW (follows mouse) ── */}
+          <div
+            className="absolute inset-0 z-10 pointer-events-none transition-opacity duration-300"
+            style={{
+              background: `radial-gradient(
+                600px circle at var(--mx) var(--my),
+                rgba(124,58,237,0.13) 0%,
+                rgba(79,31,191,0.07) 40%,
+                transparent 70%
+              )`,
+            }}
+          />
+
+          {/* ── GRID CURSOR HIGHLIGHT — cells light up near cursor ── */}
+          <div
+            className="absolute inset-0 z-[1] pointer-events-none"
+            style={{
+              background: `radial-gradient(
+                200px circle at var(--mx) var(--my),
+                rgba(167,139,250,0.06) 0%,
+                transparent 100%
+              )`,
+              backgroundImage: `
+                linear-gradient(rgba(167,139,250,0.12) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(167,139,250,0.12) 1px, transparent 1px)
+              `,
+              backgroundSize: "48px 48px",
+              maskImage: `radial-gradient(280px circle at var(--mx) var(--my), black 0%, transparent 100%)`,
+              WebkitMaskImage: `radial-gradient(280px circle at var(--mx) var(--my), black 0%, transparent 100%)`,
+            }}
+          />
+
+          {/* ── Dark gradient overlay on top of grid ── */}
+          <div className="absolute inset-0 z-[2] bg-gradient-to-b from-[#0F032B]/80 via-[#0F032B]/40 to-[#0F032B]/90 pointer-events-none" />
+          <div className="w-full h-[650px] absolute -bottom-2 z-10 hidden md:block">
+            <LightRays
+              raysOrigin="bottom-center"
+              raysColor="#ffffff"
+              raysSpeed={1}
+              lightSpread={0.5}
+              rayLength={3}
+              followMouse={true}
+              mouseInfluence={0.1}
+              noiseAmount={0}
+              distortion={0}
+              className="custom-rays"
+              pulsating={false}
+              fadeDistance={1}
+              saturation={1}
+            />
+          </div>
+          <div className="md:hidden absolute inset-0 z-0">
             <FloatingLines
               enabledWaves={["top", "middle", "bottom"]}
               lineCount={5}
@@ -434,224 +512,338 @@ export default function Home() {
             />
           </div>
 
-          {/* Dark overlay */}
-          <div className="absolute inset-0 z-10 bg-linear-to-b from-[rgba(2,4,16,0.67)] to-[rgba(11,18,33,0.69)]" />
+          {/* Soft purple glow top */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[450px] rounded-full bg-[#6d28d9]/8 blur-[140px] z-[2] pointer-events-none" />
+          {/* Soft purple glow bottom */}
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full bg-[#4c1d95]/5 blur-[110px] z-[2] pointer-events-none" />
 
-          {/* Hero content */}
-          <div className="relative top-10 sm:top-0 z-20 flex flex-row justify-between items-center gap-8 pb-10 max-md:flex-col max-md:items-start">
-            {/* LEFT */}
-            <div className="max-w-3xl w-full pl-10 pr-5 max-md:w-full max-md:pl-0 max-sm:text-center">
-              <button className="bg-white text-black px-4 py-2 text-sm font-bold rounded-md shadow mb-8 mt-[10%] max-sm:mt-5">
+          {/* ════════════════════════════════════
+              LEFT SIDE PANEL
+          ════════════════════════════════════ */}
+          <div className="absolute left-0 top-0 bottom-0 w-14 z-[3] hidden lg:flex flex-col items-center justify-between py-10 pointer-events-none select-none">
+            <div
+              className="flex flex-col items-center gap-3"
+              style={{
+                writingMode: "vertical-rl",
+                transform: "rotate(180deg)",
+              }}
+            >
+              <span className="w-px h-10 bg-gradient-to-t from-white/15 to-transparent" />
+              <span
+                className="text-[10px] font-semibold tracking-[0.25em] uppercase text-white/20"
+                style={{ fontFamily: "'DM Sans', sans-serif" }}
+              >
+                Digital Agency
+              </span>
+            </div>
+            <span
+              style={{
+                writingMode: "vertical-rl",
+                transform: "rotate(180deg)",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontWeight: 800,
+                fontSize: "clamp(2rem, 3.5vw, 3.2rem)",
+                letterSpacing: "0.3em",
+                color: "transparent",
+                WebkitTextStroke: "1px rgba(167,139,250,0.12)",
+              }}
+            >
+              UNNITY
+            </span>
+            <div
+              className="flex flex-col items-center gap-3"
+              style={{
+                writingMode: "vertical-rl",
+                transform: "rotate(180deg)",
+              }}
+            >
+              <span
+                className="text-[10px] font-semibold tracking-[0.25em] uppercase text-white/20"
+                style={{ fontFamily: "'DM Sans', sans-serif" }}
+              >
+                Est. 2024
+              </span>
+              <span className="w-px h-10 bg-gradient-to-b from-white/15 to-transparent" />
+            </div>
+            <div className="absolute right-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/[0.06] to-transparent" />
+          </div>
+
+          {/* ════════════════════════════════════
+              RIGHT SIDE PANEL
+          ════════════════════════════════════ */}
+          <div className="absolute right-0 top-0 bottom-0 w-14 z-[3] hidden lg:flex flex-col items-center justify-between py-10 pointer-events-none select-none">
+            <div
+              className="flex flex-col items-center gap-3"
+              style={{ writingMode: "vertical-rl" }}
+            >
+              <span className="w-px h-10 bg-gradient-to-t from-white/15 to-transparent" />
+              <span
+                className="text-[10px] font-semibold tracking-[0.25em] uppercase text-white/20"
+                style={{ fontFamily: "'DM Sans', sans-serif" }}
+              >
+                50+ Brands
+              </span>
+            </div>
+            <span
+              style={{
+                writingMode: "vertical-rl",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontWeight: 800,
+                fontSize: "clamp(2rem, 3.5vw, 3.2rem)",
+                letterSpacing: "0.3em",
+                color: "transparent",
+                WebkitTextStroke: "1px rgba(167,139,250,0.12)",
+              }}
+            >
+              UNNITY
+            </span>
+            <div
+              className="flex flex-col items-center gap-3"
+              style={{ writingMode: "vertical-rl" }}
+            >
+              <span
+                className="text-[10px] font-semibold tracking-[0.25em] uppercase text-white/20"
+                style={{ fontFamily: "'DM Sans', sans-serif" }}
+              >
+                Scroll Down
+              </span>
+              <span className="w-px h-10 bg-gradient-to-b from-white/15 to-transparent" />
+            </div>
+            <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/[0.06] to-transparent" />
+          </div>
+
+          {/* ══════════════════════════════════
+              CENTER HERO CONTENT
+          ══════════════════════════════════ */}
+          <div className="relative top-8 z-10 flex-1 flex flex-col items-center justify-center text-center px-6 lg:px-20 pt-20 pb-8">
+            {/* Pill label */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.04] mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#a78bfa] animate-pulse flex-shrink-0" />
+              <span
+                className="text-[11px] font-medium text-white/50 tracking-[0.2em] uppercase"
+                style={{ fontFamily: "'DM Sans', sans-serif" }}
+              >
                 Elevate your business to the next level
-              </button>
-              <h1 className="lg:text-6xl font-semibold md:leading-10 lg:leading-18 capitalize mt-5 md:text-4xl sm:text-3xl text-3xl">
-                Crafting Digital <br /> Brands That Stand Out
-              </h1>
-              <p className="text-lg leading-relaxed my-5 pb-10 text-[#c1bdbd]  max-sm:text-base">
-                At Unnity, we help brands grow in the digital world. Our
-                tailored marketing solutions boost your online presence, engage
-                your audience, and drive real results. Let Unnity unlock your
-                brand's full potential.
-              </p>
-              <div className="flex gap-5 items-center flex-wrap max-sm:justify-center">
-                {[
-                  {
-                    href: "https://calendly.com/sayam-unnity/30min",
-                    label: "Start Your Free Trial",
-                  },
-                  { href: "/case-studies", label: "View Portfolio" },
-                ].map(({ href, label }) => (
-                  <Link key={label} href={href}>
-                    <button className="group flex items-center gap-3 bg-white text-[#0f032b] hover:bg-[#0f032b] hover:text-white hover:border hover:border-white px-6 py-2.5 rounded-full text-base font-medium overflow-hidden cursor-pointer transition-all duration-200 max-sm:w-full max-sm:justify-center">
-                      {label}
-                      <span className="relative w-7 h-7 overflow-hidden rounded-full bg-[#0f032b] text-white flex-shrink-0">
-                        <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-8">
-                          <svg
-                            viewBox="0 0 24 24"
-                            className="w-5 h-5"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                          >
-                            <path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                          </svg>
-                        </span>
-                        <span className="absolute inset-0 flex items-center justify-center -translate-x-8 transition-transform duration-300 group-hover:translate-x-0 group-hover:bg-white group-hover:text-[#0f032b]">
-                          <svg
-                            viewBox="0 0 24 24"
-                            className="w-5 h-5"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                          >
-                            <path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                          </svg>
-                        </span>
-                      </span>
-                    </button>
-                  </Link>
-                ))}
-              </div>
+              </span>
             </div>
 
-            {/* RIGHT — All Purple, Staggered Depth */}
-            <div className="w-1/2 flex items-center justify-center max-md:w-full md:mt-16">
-              <div className="relative flex flex-col gap-8 md:gap-20 w-full max-w-[400px] max-md:flex-row max-md:flex-wrap max-md:justify-center max-sm:flex-col">
-                {/* Ambient background glow */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-[#7c3aed]/10 rounded-full blur-3xl pointer-events-none" />
+            {/* Headline */}
+            <h1
+              className="max-w-[800px] w-full"
+              style={{
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontWeight: 700,
+                fontSize: "clamp(2.4rem, 5vw, 4.8rem)",
+                lineHeight: "1.08",
+                letterSpacing: "-0.03em",
+              }}
+            >
+              <span className="block text-white">Crafting Digital Brands</span>
+              <span className="block mt-1 bg-gradient-to-r from-[#e0d7ff] via-[#a78bfa] to-[#7c3aed] bg-clip-text text-transparent">
+                That Stand Out.
+              </span>
+            </h1>
 
-                {/* ── Badge 1  */}
-                <div className="relative self-end max-w-full w-full group">
-                  {/* outer glow ring */}
-                  <div className="absolute -inset-px rounded-lg bg-gradient-to-br from-[#a78bfa]/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="relative flex items-center gap-4 px-5 py-4 rounded-lg border border-[#a78bfa]/20 bg-gradient-to-br from-[#13103a]/90 to-[#0c0e1f]/95 backdrop-blur-md shadow-[0_8px_32px_rgba(124,58,237,0.15)] group-hover:shadow-[0_8px_40px_rgba(167,139,250,0.25)] group-hover:-translate-y-1 transition-all duration-400 overflow-hidden">
-                    {/* shimmer top */}
-                    <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#a78bfa]/50 to-transparent" />
-                    {/* left accent bar */}
-                    <div className="absolute left-0 top-4 bottom-4 w-[3px] rounded-full bg-gradient-to-b from-[#a78bfa] to-[#7c3aed]" />
-                    {/* glow corner */}
-                    <div className="absolute -top-4 -right-4 w-16 h-16 bg-[#a78bfa]/15 rounded-full blur-xl group-hover:bg-[#a78bfa]/25 transition-all duration-500" />
+            {/* Divider */}
+            <div className="w-12 h-px bg-[#a78bfa]/40 my-5" />
 
-                    {/* Recycle circle */}
-                    <div className="relative flex-shrink-0 w-12 h-12">
-                      <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-[#a78bfa] border-r-[#a78bfa]/35 animate-spin [animation-duration:3s]" />
-                      <div className="absolute inset-[4px] rounded-full border border-transparent border-b-[#7c3aed]/50 border-l-[#7c3aed]/25 animate-spin [animation-duration:2s] [animation-direction:reverse]" />
-                      <div className="absolute inset-[9px] rounded-full bg-[#a78bfa]/15 animate-pulse" />
-                      <div className="absolute inset-[8px] rounded-full bg-[#09061a] border border-[#a78bfa]/25 flex items-center justify-center">
-                        <LuZap className="text-xs text-[#a78bfa]" />
-                      </div>
-                    </div>
+            {/* Body */}
+            <p
+              className="text-base leading-[1.85] text-white/45 max-w-[600px]"
+              style={{ fontFamily: "'DM Sans', sans-serif" }}
+            >
+              At <span className="text-white/70 font-medium">Unnity</span>, we
+              help brands grow in the digital world. Our tailored marketing
+              solutions boost your online presence, engage your audience, and
+              drive real results.
+            </p>
 
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-0.5">
-                        <span className="text-sm font-bold text-white">
-                          Graphic Design
-                        </span>
-                        <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-[#a78bfa]/15 text-[#a78bfa] font-semibold border border-[#a78bfa]/30">
-                          CREATIVE
-                        </span>
-                      </div>
-                      <p className="text-[11px] text-white/40">
-                        Designs that demand attention
-                      </p>
-                      <div className="flex items-center gap-1.5 mt-2">
-                        {[1, 2, 3].map((i) => (
-                          <div
-                            key={i}
-                            className="rounded-full bg-[#a78bfa]/50 animate-pulse"
-                            style={{
-                              width: i * 5 + 3,
-                              height: i * 5 + 3,
-                              animationDelay: `${i * 0.3}s`,
-                            }}
-                          />
-                        ))}
-                        <span className="text-[9px] text-white/20 ml-1 tracking-widest">
-                          Design That Converts
-                        </span>
-                      </div>
-                    </div>
+            {/* CTA Buttons */}
+            <div className="flex items-center gap-4 flex-wrap justify-center mt-8">
+              {[
+                {
+                  href: "https://calendly.com/sayam-unnity/30min",
+                  label: "Start Your Free Trial",
+                  primary: false,
+                },
+                {
+                  href: "/case-studies",
+                  label: "View Portfolio",
+                  primary: true,
+                },
+              ].map(({ href, label, primary }) => (
+                <Link key={label} href={href}>
+                  <button
+                    className={`group flex items-center gap-3 text-[#0f032b] ${primary ? "bg-[#0f032b] text-white border border-white/20" : "bg-white"} hover:bg-[#0f032b] hover:text-white hover:border hover:border-white px-6 py-2.5 rounded-full text-base font-medium overflow-hidden cursor-pointer transition-all duration-200 max-sm:w-full max-sm:justify-center`}
+                  >
+                    {label}
+                    <span className="relative w-7 h-7 overflow-hidden rounded-full bg-[#0f032b] text-white flex-shrink-0">
+                      <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-8">
+                        <svg
+                          viewBox="0 0 24 24"
+                          className="w-5 h-5"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                        </svg>
+                      </span>
+                      <span className="absolute inset-0 flex items-center justify-center -translate-x-8 transition-transform duration-300 group-hover:translate-x-0 group-hover:bg-white group-hover:text-[#0f032b]">
+                        <svg
+                          viewBox="0 0 24 24"
+                          className="w-5 h-5"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                        </svg>
+                      </span>
+                    </span>
+                  </button>
+                </Link>
+              ))}
+            </div>
+
+            {/* Trust row */}
+            <div className="flex items-center gap-5 py-6">
+              <div className="flex -space-x-2.5">
+                {[
+                  "/cupid1.png",
+                  "/hub1.png",
+                  "/empire1.png",
+                  "/wow-heads.png",
+                ].map((img, i) => (
+                  <div
+                    key={i}
+                    className="w-7 h-7 rounded-full border border-[#4e3f8be6] flex items-center justify-center text-[9px] font-bold overflow-hidden cursor-zoom-in hover:scale-150 transition-all duration-200"
+                  >
+                    <img src={img} className="w-full h-full object-cover" />
                   </div>
-                </div>
-
-                {/* ── Badge 2 — Performance Marketing (middle, pushed left, slightly bigger) ── */}
-                <div className="relative self-start max-w-full w-full group md:-ml-18">
-                  <div className="absolute -inset-px rounded-lg bg-gradient-to-bl from-[#a78bfa]/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="relative flex items-center gap-4 px-5 py-5 rounded-lg border border-[#a78bfa]/25 bg-gradient-to-br from-[#16123f]/95 to-[#0c0e1f]/95 backdrop-blur-md shadow-[0_8px_40px_rgba(124,58,237,0.2)] group-hover:shadow-[0_8px_48px_rgba(167,139,250,0.3)] group-hover:-translate-y-1 transition-all duration-400 overflow-hidden">
-                    <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#a78bfa]/60 to-transparent" />
-                    <div className="absolute left-0 top-4 bottom-4 w-[3px] rounded-full bg-gradient-to-b from-[#c4b5fd] to-[#a78bfa]" />
-                    <div className="absolute -top-6 -left-6 w-20 h-20 bg-[#7c3aed]/20 rounded-full blur-2xl group-hover:bg-[#7c3aed]/30 transition-all duration-500" />
-
-                    <div className="relative flex-shrink-0 w-13 h-13">
-                      <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-[#c4b5fd] border-r-[#c4b5fd]/35 animate-spin [animation-duration:2.5s] [animation-direction:reverse]" />
-                      <div className="absolute inset-[4px] rounded-full border border-transparent border-b-[#a78bfa]/50 border-l-[#a78bfa]/25 animate-spin [animation-duration:1.8s]" />
-                      <div className="absolute inset-[9px] rounded-full bg-[#c4b5fd]/15 animate-pulse [animation-delay:0.3s]" />
-                      <div className="absolute inset-[8px] rounded-full bg-[#09061a] border border-[#c4b5fd]/25 flex items-center justify-center">
-                        <FaFire className="text-xs text-[#c4b5fd]" />
-                      </div>
-                    </div>
-
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-0.5">
-                        <span className="text-sm font-bold text-white">
-                          Performance Marketing
-                        </span>
-                        <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-[#a78bfa]/15 text-[#c4b5fd] font-semibold border border-[#c4b5fd]/30">
-                          ROI
-                        </span>
-                      </div>
-                      <p className="text-[11px] text-white/40">
-                        Clicks to customers
-                      </p>
-                      <div className="flex items-center gap-1.5 mt-2">
-                        {[1, 2, 3].map((i) => (
-                          <div
-                            key={i}
-                            className="rounded-full bg-[#a78bfa]/50 animate-pulse"
-                            style={{
-                              width: i * 5 + 3,
-                              height: i * 5 + 3,
-                              animationDelay: `${i * 0.3}s`,
-                            }}
-                          />
-                        ))}
-                        <span className="text-[9px] text-white/20 ml-1 tracking-widest">
-                          ROAS optimization
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* ── Badge 3 — Website Design (bottom, pushed right, smallest) ── */}
-                <div className="relative self-end max-w-full w-full group">
-                  <div className="absolute -inset-px rounded-lg bg-gradient-to-br from-[#a78bfa]/25 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="relative flex items-center gap-4 px-5 py-4 rounded-lg border border-[#a78bfa]/15 bg-gradient-to-br from-[#110e30]/90 to-[#0c0e1f]/90 backdrop-blur-md shadow-[0_4px_24px_rgba(124,58,237,0.12)] group-hover:shadow-[0_8px_36px_rgba(167,139,250,0.22)] group-hover:-translate-y-1 transition-all duration-400 overflow-hidden">
-                    <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#a78bfa]/40 to-transparent" />
-                    <div className="absolute left-0 top-4 bottom-4 w-[3px] rounded-full bg-gradient-to-b from-[#a78bfa]/60 to-[#7c3aed]/40" />
-                    <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-[#a78bfa]/12 rounded-full blur-xl group-hover:bg-[#a78bfa]/22 transition-all duration-500" />
-
-                    <div className="relative flex-shrink-0 w-12 h-12">
-                      <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-[#a78bfa]/80 border-r-[#a78bfa]/25 animate-spin [animation-duration:4s]" />
-                      <div className="absolute inset-[4px] rounded-full border border-transparent border-b-[#7c3aed]/40 border-l-[#7c3aed]/20 animate-spin [animation-duration:2.8s] [animation-direction:reverse]" />
-                      <div className="absolute inset-[9px] rounded-full bg-[#a78bfa]/12 animate-pulse [animation-delay:0.6s]" />
-                      <div className="absolute inset-[8px] rounded-full bg-[#09061a] border border-[#a78bfa]/20 flex items-center justify-center">
-                        <IoDiamondOutline className="text-xs text-[#a78bfa]/80" />
-                      </div>
-                    </div>
-
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-0.5">
-                        <span className="text-sm font-bold text-white/90">
-                          Website Design
-                        </span>
-                        <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-[#a78bfa]/12 text-[#a78bfa]/80 font-semibold border border-[#a78bfa]/20">
-                          UI/UX
-                        </span>
-                      </div>
-                      <p className="text-[11px] text-white/35">
-                        Built to impress and perform
-                      </p>
-                      <div className="flex items-center gap-1.5 mt-2">
-                        {[1, 2, 3].map((i) => (
-                          <div
-                            key={i}
-                            className="rounded-full bg-[#a78bfa]/50 animate-pulse"
-                            style={{
-                              width: i * 5 + 3,
-                              height: i * 5 + 3,
-                              animationDelay: `${i * 0.3}s`,
-                            }}
-                          />
-                        ))}
-                        <span className="text-[9px] text-white/20 ml-1 tracking-widest">
-                          pixel perfect
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
+              <div className="h-4 w-px bg-white/10" />
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-0.5">
+                  {[1, 2, 3, 4, 5].map((i) => (
+                    <svg
+                      key={i}
+                      className="w-2.5 h-2.5 text-[#a78bfa]"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <span
+                  className="text-[11px] text-white/30"
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  Trusted by 50+ brands
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* ══════════════════════════════════
+              BOTTOM — SERVICE BADGES
+          ══════════════════════════════════ */}
+          <div className="relative z-10 w-full px-6 lg:px-20 pb-8">
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-5" />
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {[
+                {
+                  icon: <LuZap className="w-4 h-4 text-[#a78bfa]" />,
+                  tag: "Creative",
+                  title: "Graphic Design",
+                  desc: "Designs that demand attention",
+                  sub: "Design That Converts",
+                  tagColor:
+                    "text-[#a78bfa] border-[#a78bfa]/25 bg-[#a78bfa]/10",
+                  featured: false,
+                },
+                {
+                  icon: <FaFire className="w-4 h-4 text-[#c4b5fd]" />,
+                  tag: "ROI",
+                  title: "Performance Marketing",
+                  desc: "Clicks to customers",
+                  sub: "ROAS Optimization",
+                  tagColor:
+                    "text-[#c4b5fd] border-[#c4b5fd]/25 bg-[#c4b5fd]/10",
+                  featured: true,
+                },
+                {
+                  icon: <IoDiamondOutline className="w-4 h-4 text-[#a78bfa]" />,
+                  tag: "UI/UX",
+                  title: "Website Design",
+                  desc: "Built to impress and perform",
+                  sub: "Pixel Perfect",
+                  tagColor:
+                    "text-[#a78bfa] border-[#a78bfa]/20 bg-[#a78bfa]/10",
+                  featured: false,
+                },
+              ].map(({ icon, tag, title, desc, sub, tagColor, featured }) => (
+                <div
+                  key={title}
+                  className={`group relative flex items-center gap-4 px-5 py-4 rounded-2xl border transition-all duration-300 hover:-translate-y-0.5 overflow-hidden cursor-default
+                    ${
+                      featured
+                        ? "border-[#a78bfa]/30 bg-[#0e0b28]/90 hover:shadow-[0_8px_28px_rgba(167,139,250,0.15)]"
+                        : "border-white/[0.07] bg-[#0b0920]/80 hover:border-white/12"
+                    }`}
+                >
+                  <div
+                    className={`absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent ${featured ? "via-[#a78bfa]/45" : "via-white/8"} to-transparent`}
+                  />
+                  <div
+                    className={`absolute left-0 top-3 bottom-3 w-[2.5px] rounded-full bg-gradient-to-b ${featured ? "from-[#c4b5fd] to-[#8b5cf6]" : "from-[#a78bfa]/45 to-[#7c3aed]/15"}`}
+                  />
+
+                  <div
+                    className={`flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center border ${featured ? "bg-[#a78bfa]/12 border-[#a78bfa]/25" : "bg-white/[0.04] border-white/[0.07]"}`}
+                  >
+                    {icon}
+                  </div>
+
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-0.5">
+                      <span
+                        className="text-[13px] font-semibold text-white leading-none"
+                        style={{
+                          fontFamily: "'Plus Jakarta Sans', sans-serif",
+                        }}
+                      >
+                        {title}
+                      </span>
+                      <span
+                        className={`text-[9px] px-1.5 py-[3px] rounded-md font-semibold uppercase tracking-wider border ${tagColor}`}
+                        style={{ fontFamily: "'DM Sans', sans-serif" }}
+                      >
+                        {tag}
+                      </span>
+                    </div>
+                    <p
+                      className="text-[11.5px] text-white/38"
+                      style={{ fontFamily: "'DM Sans', sans-serif" }}
+                    >
+                      {desc} · <span className="text-white/20">{sub}</span>
+                    </p>
+                  </div>
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="w-3.5 h-3.5 text-white/12 group-hover:text-[#a78bfa]/50 flex-shrink-0 transition-colors duration-200"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                  </svg>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -757,7 +949,7 @@ export default function Home() {
         <section className="bg-[#fafbff] py-12 px-4">
           <div className="max-w-6xl mx-auto grid grid-cols-2 gap-10 items-center max-lg:grid-cols-1">
             <div className="relative">
-              <div className="relative rounded-full bg-[radial-gradient(120%_120%_at_30%_20%,#fff_0%,#f3f5fb_45%,#efeefe_100%)] border-2 border-[#ececf6] aspect-square grid place-items-center overflow-hidden max-lg:max-w-lg max-lg:mx-auto">
+              <div className="relative rounded-full bg-[radial-linear(120%_120%_at_30%_20%,#fff_0%,#f3f5fb_45%,#efeefe_100%)] border-2 border-[#ececf6] aspect-square grid place-items-center overflow-hidden max-lg:max-w-lg max-lg:mx-auto">
                 <Image
                   src="/sayyam2.png"
                   width={0}
@@ -809,7 +1001,7 @@ export default function Home() {
                     },
                   ].map(({ id, label, type, placeholder, required }) => (
                     <div key={id} className="flex flex-col gap-2">
-                      <label htmlFor={id} className="text-xs text-[#5f6577]">
+                      <label htmlFor={id} className="text-base text-[#5f6577]">
                         {label}
                       </label>
                       <input
@@ -834,7 +1026,7 @@ export default function Home() {
                   ))}
 
                   <div className="flex flex-col gap-2 col-span-2 max-sm:col-span-1">
-                    <label htmlFor="email" className="text-xs text-[#5f6577]">
+                    <label htmlFor="email" className="text-base text-[#5f6577]">
                       Email Address
                     </label>
                     <input
@@ -847,7 +1039,7 @@ export default function Home() {
                       onChange={(e) =>
                         setFormData((s) => ({ ...s, email: e.target.value }))
                       }
-                      className="border border-[#e6e8f0] bg-white px-3 py-3.5 rounded-lg text-sm text-[#757575] outline-none transition-all focus:border-[#242448] focus:shadow-[0_0_0_3px_rgba(36,36,72,0.12)]"
+                      className="border border-[#e6e8f0] bg-white px-3 py-3.5 rounded-lg text-base text-[#757575] outline-none transition-all focus:border-[#242448] focus:shadow-[0_0_0_3px_rgba(36,36,72,0.12)]"
                     />
                   </div>
 
@@ -879,7 +1071,7 @@ export default function Home() {
                     },
                   ].map(({ id, label, options }) => (
                     <div key={id} className="flex flex-col gap-2">
-                      <label htmlFor={id} className="text-xs text-[#5f6577]">
+                      <label htmlFor={id} className="text-base text-[#5f6577]">
                         {label}
                       </label>
                       <select
@@ -889,7 +1081,7 @@ export default function Home() {
                         onChange={(e) =>
                           setFormData((s) => ({ ...s, [id]: e.target.value }))
                         }
-                        className="border border-[#e6e8f0] bg-white px-3 py-3.5 rounded-lg text-sm text-[#757575] outline-none transition-all focus:border-[#242448] appearance-none"
+                        className="border border-[#e6e8f0] bg-white px-3 py-3.5 rounded-lg text-base text-[#757575] outline-none transition-all focus:border-[#242448] appearance-none"
                       >
                         {options.map((o) => (
                           <option key={o}>{o}</option>
@@ -901,7 +1093,7 @@ export default function Home() {
 
                 {status.message && (
                   <div
-                    className={`mt-2 p-3 rounded-lg text-sm ${status.type === "error" ? "bg-[#fff1f1] text-[#a21d1d] border border-[#ffd6d6]" : "bg-[#e9f9ef] text-[#176a3a] border border-[#c6efcf]"}`}
+                    className={`mt-2 p-3 rounded-lg text-base ${status.type === "error" ? "bg-[#fff1f1] text-[#a21d1d] border border-[#ffd6d6]" : "bg-[#e9f9ef] text-[#176a3a] border border-[#c6efcf]"}`}
                   >
                     {status.message}
                   </div>
