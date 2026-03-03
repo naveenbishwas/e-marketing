@@ -708,7 +708,7 @@ export default function Home() {
             </div>
 
             {/* Trust row */}
-            <div className="flex items-center gap-5 py-6">
+            <div className="flex flex-col md:flex-row items-center gap-3 md:gap-5 py-6">
               <div className="flex -space-x-2.5">
                 {[
                   "/cupid1.png",
@@ -725,7 +725,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <div className="h-4 w-px bg-white/10" />
+              <div className="hidden md:block h-4 w-px bg-white/10" />
               <div className="flex items-center gap-3">
                 <div className="flex items-center gap-0.5">
                   {[1, 2, 3, 4, 5].map((i) => (
@@ -1214,7 +1214,7 @@ export default function Home() {
             </div>
             {/* for sm or mobile screen slider*/}
             {/* Mobile Slider */}
-            <div className="md:hidden w-full overflow-x-auto">
+            <div className="md:hidden w-full mb-8 overflow-x-auto">
               <div className="flex gap-5 px-5 snap-x snap-mandatory scroll-smooth">
                 {steps.map((step, i) => (
                   <Link
