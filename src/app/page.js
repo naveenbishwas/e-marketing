@@ -340,6 +340,7 @@ export default function Home() {
   const [q, setQ] = useState("");
   const [role, setRole] = useState("All");
   const [sending, setSending] = useState(false);
+  const [currentDisplay, setCurrentDisplay] = useState(0);
   const [status, setStatus] = useState({ type: "", message: "" });
   const [formData, setFormData] = useState({
     companyName: "",
@@ -649,7 +650,7 @@ export default function Home() {
 
             {/* Body */}
             <p
-              className="text-base leading-[1.85] text-white/45 max-w-[600px]"
+              className="text-balance leading-[1.85] text-white/45 max-w-[600px]"
               style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
               At <span className="text-white/70 font-medium">Unnity</span>, we
@@ -714,6 +715,7 @@ export default function Home() {
                   "/hub1.png",
                   "/empire1.png",
                   "/wow-heads.png",
+                  // "/plusss.png",
                 ].map((img, i) => (
                   <div
                     key={i}
@@ -965,7 +967,7 @@ export default function Home() {
               <span className="text-[#070c1a] text-3xl font-bold">
                 Your Growth Partner in the Digital Era
               </span>
-              <p className="my-4 mb-6 text-[#5f6577] max-w-lg">
+              <p className="my-4 mb-6 text-[#5f6577] text-base">
                 Let's create impact — fill in the form and we'll take it from
                 there.
               </p>
@@ -1119,7 +1121,7 @@ export default function Home() {
             <h1 className="text-5xl font-bold leading-tight mb-5 max-md:text-4xl max-sm:text-3xl">
               Why brands choose Unnity
             </h1>
-            <p className="text-lg text-white/80 leading-relaxed max-w-2xl mx-auto max-sm:text-base">
+            <p className="md:text-lg leading-[1.5] text-white/45 max-w-2xl mx-auto">
               Unnity helps thousands of brands grow through smart data, proven
               strategies, and tools designed to simplify marketing while driving
               real conversions.
@@ -1179,7 +1181,7 @@ export default function Home() {
             Client Success Through Smart Digital Strategy
           </h1>
           <div className="px-5 pb-10">
-            <div className="max-w-5xl mx-auto grid grid-cols-3 gap-7 mb-7 max-[1100px]:grid-cols-2 max-[680px]:grid-cols-1">
+            <div className="hidden max-w-5xl mx-auto md:grid grid-cols-3 gap-7 mb-7 max-[1100px]:grid-cols-2 max-[680px]:grid-cols-1">
               {steps.map((step, i) => (
                 <Link
                   key={i}
@@ -1210,6 +1212,45 @@ export default function Home() {
                 </Link>
               ))}
             </div>
+            {/* for sm or mobile screen slider*/}
+            {/* Mobile Slider */}
+            <div className="md:hidden w-full overflow-x-auto">
+              <div className="flex gap-5 px-5 snap-x snap-mandatory scroll-smooth">
+                {steps.map((step, i) => (
+                  <Link
+                    key={i}
+                    href={step.href || "#"}
+                    className="snap-center shrink-0 max-w-sm w-full"
+                  >
+                    <article className="bg-white rounded-2xl p-7 shadow-[0_12px_36px_rgba(0,0,0,0.06)] flex flex-col gap-3 h-full transition-all duration-200 hover:border hover:border-[#0f032b]">
+                      <div className="w-14 h-14 rounded-full bg-[#0f032b] text-white font-bold text-lg flex items-center justify-center">
+                        {step.number}
+                      </div>
+
+                      <h3 className="text-xl font-extrabold text-[#0f172a]">
+                        {step.title}
+                      </h3>
+
+                      <p className="text-[#4b5563] text-base leading-relaxed">
+                        {step.description}
+                      </p>
+
+                      <div className="mt-2 rounded-2xl overflow-hidden shadow">
+                        <Image
+                          src={step.image}
+                          alt={step.title}
+                          width={0}
+                          height={0}
+                          sizes="100vw"
+                          className="w-full h-auto object-cover"
+                        />
+                      </div>
+                    </article>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
             <div className="flex justify-center">
               <Link href="/case-studies">
                 <button className="bg-[#0f032b] hover:bg-[#0b021f] text-white px-9 py-3.5 text-base font-semibold border-0 rounded-full cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)]">
@@ -1275,7 +1316,7 @@ export default function Home() {
               <h1 className="text-5xl text-white leading-tight mb-5 max-md:text-3xl">
                 Real projects shipped, measurable results
               </h1>
-              <p className="text-lg leading-relaxed text-[#c2c2c2] mb-8">
+              <p className="md:text-lg leading-[1.5] text-white/45 mb-8">
                 A snapshot of the work we've delivered — websites, funnels, and
                 performance campaigns that moved the needle for our clients.
               </p>
