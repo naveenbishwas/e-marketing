@@ -396,7 +396,7 @@ export default function Home() {
   });
 
   const roles = useMemo(
-    () => ["All Members", ...Array.from(new Set(members.map((m) => m.role)))],
+    () => ["All", ...Array.from(new Set(members.map((m) => m.role)))],
     [],
   );
   const shown = useMemo(
