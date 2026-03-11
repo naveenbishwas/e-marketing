@@ -85,7 +85,7 @@ const Footer = () => {
 
           {/* Company Column */}
           <div className={styles.footerColumn}>
-            <h4 className={styles.columnTitle}>Company</h4>
+            <h4 className={styles.columnTitle}>Quick Links</h4>
             <ul className={styles.linkList}>
               <li>
                 <Link href="/">Home</Link>
@@ -99,9 +99,9 @@ const Footer = () => {
               <li>
                 <Link href="/privacy">Privacy Policy</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/terms">Terms Of Service</Link>
-              </li>
+              </li> */}
             </ul>
           </div>
 

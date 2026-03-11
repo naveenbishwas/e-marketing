@@ -115,12 +115,9 @@ const Header = () => {
                 Creative
               </Link>
 
-              {/* <li className="px-6 py-3 hover:bg-white/10 cursor-pointer">
-                <Link href="/marketing">Marketing</Link>
-              </li>
               <li className="px-6 py-3 hover:bg-white/10 cursor-pointer">
-                <Link href="/advertisement">Advertisement</Link>
-              </li> */}
+                <Link href="/snapshot-project">Our Projects</Link>
+              </li>
             </ul>
           </div>
         </nav>
@@ -229,18 +226,12 @@ const Header = () => {
                 >
                   Creative
                 </Link>
-                {/* <Link
-                  href="/marketing"
-                  className="block py-2 pl-3 cursor-pointer"
-                >
-                  Marketing
-                </Link>
                 <Link
-                  href="/advertisement"
+                  href="/snapshot-project"
                   className="block py-2 pl-3 cursor-pointer"
                 >
-                  Advertisement
-                </Link> */}
+                  Our Projects
+                </Link>
               </div>
             </div>
           </div>

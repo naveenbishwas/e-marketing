@@ -143,7 +143,7 @@ const testimonials = [
     name: "— Alex Johnson",
     role: "Sales Director",
     feedback:
-      "We've streamlined our processes, cut costs, and significantly improved customer satisfaction. Its been a game-changer for our business!",
+      "We've streamlined our processes, cut costs, and significantly improved customer satisfaction. Its been a game-changer for our business and we're grateful to Unnity for their invaluable support. We highly recommend their services to anyone looking to optimize their digital marketing strategy and drive growth.",
   },
 ];
 
@@ -206,130 +206,173 @@ const columns = [0, 1, 2].map((col) => gallery.filter((_, i) => i % 3 === col));
 // --------------------------------------------
 // Smooth Testimonial Slider
 // --------------------------------------------
-function TestimonialSlider({ testimonials }) {
+function TestimonialSlider() {
   const [current, setCurrent] = useState(0);
-  const [visible, setVisible] = useState(true);
-  const [slideDir, setSlideDir] = useState("next");
-  const total = testimonials.length;
+  const [prev, setPrev] = useState(null);
+  const [isAnimating, setIsAnimating] = useState(false);
   const timerRef = useRef(null);
+  const total = testimonials.length;
 
-  const goTo = (idx, dir) => {
-    setSlideDir(dir);
-    setVisible(false);
+  const goTo = (idx) => {
+    if (isAnimating) return;
+    setPrev(current);
+    setIsAnimating(true);
     setTimeout(() => {
       setCurrent((idx + total) % total);
-      setVisible(true);
-    }, 350);
+      setPrev(null);
+      setIsAnimating(false);
+    }, 500);
   };
 
-  const next = () => goTo(current + 1, "next");
-  const prev = () => goTo(current - 1, "prev");
+  const next = () => goTo(current + 1);
+
+  const startTimer = () => {
+    clearInterval(timerRef.current);
+    timerRef.current = setInterval(next, 4000);
+  };
 
   useEffect(() => {
-    timerRef.current = setInterval(next, 5000);
+    startTimer();
     return () => clearInterval(timerRef.current);
   }, [current]);
 
   const t = testimonials[current];
-
-  const slideStyle = {
-    transition: "opacity 0.35s ease, transform 0.35s ease",
-    opacity: visible ? 1 : 0,
-    transform: visible
-      ? "translateX(0)"
-      : slideDir === "next"
-        ? "translateX(-40px)"
-        : "translateX(40px)",
-  };
+  const nextIdx = (current + 1) % total;
 
   return (
-    <section className="bg-[#f9f5ec] py-12 px-5">
-      <div className="max-w-4xl mx-auto">
-        <div className="flex justify-between items-center gap-4 mb-10 flex-wrap max-md:justify-center">
-          <h2 className="text-[clamp(2rem,4vw,3rem)] font-bold text-[#111] leading-tight tracking-tight capitalize max-md:text-center">
+    <section className="bg-[#f9f5ec] py-16 px-5">
+      <style jsx>{`
+        @keyframes fadeSlideIn {
+          from {
+            opacity: 0;
+            transform: translateY(18px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes fadeSlideOut {
+          from {
+            opacity: 1;
+            transform: translateY(0);
+          }
+          to {
+            opacity: 0;
+            transform: translateY(-18px);
+          }
+        }
+        .slide-in {
+          animation: fadeSlideIn 0.5s ease forwards;
+        }
+        .slide-out {
+          animation: fadeSlideOut 0.5s ease forwards;
+        }
+      `}</style>
+
+      <div className="max-w-3xl mx-auto">
+        {/* Header */}
+        <div className="mb-10 text-center">
+          <h2 className="text-[clamp(1.8rem,3vw,3rem)] font-bold text-[#111] leading-tight tracking-tight">
             What our customers are saying
           </h2>
         </div>
 
-        <div
-          style={slideStyle}
-          className="bg-white border border-[#e6e0d3] rounded-2xl p-10 shadow-[0_10px_40px_rgba(17,24,39,0.08)] max-sm:p-6 min-h-72"
-        >
-          <div className="text-[#d1c6ad] mb-6">
-            <svg width="44" height="44" viewBox="0 0 24 24">
-              <path
-                d="M9.5 7C7.6 7 6 8.6 6 10.5S7.6 14 9.5 14c.3 0 .5 0 .8-.1-.3 1.3-1.1 2.6-2.6 3.9-.3.3-.3.8 0 1.1.3.3.8.3 1.1 0 2.2-1.9 3.2-4 3.2-6.1V10.5C12 8.6 10.4 7 8.5 7h1zM18.5 7c-1.9 0-3.5 1.6-3.5 3.5S16.6 14 18.5 14c.3 0 .5 0 .8-.1-.3 1.3-1.1 2.6-2.6 3.9-.3.3-.3.8 0 1.1.3.3.8.3 1.1 0 2.2-1.9 3.2-4 3.2-6.1V10.5C21 8.6 19.4 7 17.5 7h1z"
-                fill="currentColor"
-              />
-            </svg>
-          </div>
-          <p className="text-lg leading-relaxed text-[#2b2b2b] mb-8 max-sm:text-base">
-            {t.feedback}
-          </p>
-          <div className="flex items-center justify-between flex-wrap gap-4 border-t border-[#e6e0d3] pt-6">
-            <div>
-              <strong className="text-base font-bold text-[#111] block">
-                {t.name}
-              </strong>
-              <span className="text-sm text-[#666] mt-0.5 block">{t.role}</span>
+        {/* Card */}
+        <div className="relative">
+          {/* Outgoing */}
+          {isAnimating && prev !== null && (
+            <div className="slide-out absolute inset-0 pointer-events-none">
+              <TestimonialCard t={testimonials[prev]} />
             </div>
-            <div className="flex gap-2 items-center">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => {
-                    clearInterval(timerRef.current);
-                    goTo(i, i > current ? "next" : "prev");
-                  }}
-                  className={`rounded-full transition-all duration-300 ${i === current ? "w-6 h-2.5 bg-[#0f032b]" : "w-2.5 h-2.5 bg-[#ccc] hover:bg-[#999]"}`}
-                  aria-label={`Go to ${i + 1}`}
-                />
-              ))}
-            </div>
+          )}
+
+          {/* Incoming */}
+          <div className={isAnimating ? "slide-in" : ""}>
+            <TestimonialCard t={t} />
           </div>
         </div>
 
-        <p className="text-center text-sm text-[#aaa] mt-4 tracking-wide">
-          {current + 1} / {total}
-        </p>
-
-        <div className="max-w-full w-full flex gap-2.5 justify-center mt-4">
-          {[prev, next].map((fn, i) => (
+        {/* Dots */}
+        <div className="flex justify-center gap-2 mt-8">
+          {testimonials.map((_, i) => (
             <button
               key={i}
               onClick={() => {
-                clearInterval(timerRef.current);
-                fn();
+                startTimer();
+                goTo(i);
               }}
-              className="bg-[#0f032b] hover:bg-[#1a0550] text-white p-3 rounded-xl transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
-              aria-label={i === 0 ? "Previous" : "Next"}
-            >
-              <svg
-                viewBox="0 0 24 24"
-                width="20"
-                height="20"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path
-                  d={
-                    i === 0
-                      ? "M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
-                      : "M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                  }
-                />
-              </svg>
-            </button>
+              disabled={isAnimating}
+              aria-label={`Go to ${i + 1}`}
+              className={`rounded-full transition-all duration-300 disabled:cursor-not-allowed
+                ${
+                  i === current
+                    ? "w-7 h-2 bg-[#111]"
+                    : "w-2 h-2 bg-[#ccc] hover:bg-[#999]"
+                }`}
+            />
           ))}
         </div>
+
+        {/* Counter */}
+        <p className="text-center text-xs text-[#bbb] mt-3 tracking-widest">
+          {String(current + 1).padStart(2, "0")} /{" "}
+          {String(total).padStart(2, "0")}
+        </p>
       </div>
     </section>
   );
 }
 
+function TestimonialCard({ t }) {
+  return (
+    <div className="bg-white border border-[#e8e0d0] rounded-2xl p-10 shadow-[0_8px_48px_rgba(17,24,39,0.07)] max-sm:p-6">
+      {/* Stars */}
+      <div className="flex gap-1 mb-6">
+        {[...Array(5)].map((_, i) => (
+          <svg
+            key={i}
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="#f5a623"
+          >
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+          </svg>
+        ))}
+      </div>
+
+      {/* Quote */}
+      <p className="text-[1.08rem] leading-[1.8] text-[#2b2b2b] mb-8 max-sm:text-base">
+        "{t.feedback}"
+      </p>
+
+      {/* Author */}
+      <div className="flex items-center gap-4 border-t border-[#ede8de] pt-6">
+        {t.avatar ? (
+          <img
+            src={t.avatar}
+            alt={t.name}
+            className="w-11 h-11 rounded-full object-cover ring-2 ring-[#e8e0d0]"
+          />
+        ) : (
+          <div
+            className="w-11 h-11 rounded-full bg-[#f0ebe0] ring-2 ring-[#e8e0d0]
+            flex items-center justify-center text-[#a0855b] font-bold text-base"
+          >
+            {t.name?.[0]}
+          </div>
+        )}
+        <div>
+          <strong className="text-sm font-bold text-[#111] block">
+            {t.name}
+          </strong>
+          <span className="text-xs text-[#888] mt-0.5 block">{t.role}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
 // --------------------------------------------
 // Main Page
 // --------------------------------------------
@@ -353,7 +396,7 @@ export default function Home() {
   });
 
   const roles = useMemo(
-    () => ["All", ...Array.from(new Set(members.map((m) => m.role)))],
+    () => ["All Members", ...Array.from(new Set(members.map((m) => m.role)))],
     [],
   );
   const shown = useMemo(
@@ -1104,7 +1147,7 @@ export default function Home() {
                 <button
                   type="submit"
                   disabled={sending}
-                  className="mt-4 w-full bg-[#0f032b] hover:bg-[#0d0325] text-white font-bold py-3.5 px-5 border-0 rounded-xl cursor-pointer transition-all active:translate-y-px disabled:opacity-65 disabled:cursor-not-allowed"
+                  className="mt-4 w-full bg-[#130435] hover:bg-[#0d0325] text-white font-bold py-3.5 px-5 border-0 rounded-xl cursor-pointer transition-all active:translate-y-px disabled:opacity-65 disabled:cursor-not-allowed"
                 >
                   {sending ? "Sending..." : "Send Enquiry"}
                 </button>
@@ -1121,7 +1164,7 @@ export default function Home() {
             <h1 className="text-5xl font-bold leading-tight mb-5 max-md:text-4xl max-sm:text-3xl">
               Why brands choose Unnity
             </h1>
-            <p className="md:text-lg leading-[1.5] text-white/45 max-w-2xl mx-auto">
+            <p className="md:text-lg leading-normal text-white/45 max-w-2xl mx-auto">
               Unnity helps thousands of brands grow through smart data, proven
               strategies, and tools designed to simplify marketing while driving
               real conversions.
@@ -1177,7 +1220,7 @@ export default function Home() {
             CASE STUDIES
         ----------------------------*/}
         <section className="bg-[#f9fafb] py-12 md:py-20">
-          <h1 className="text-center text-[clamp(1.8rem,3vw,3rem)] font-bold text-[#111] mb-12 tracking-tight">
+          <h1 className="text-center text-[clamp(1.8rem,3vw,3rem)] font-bold text-[#111] mb-12 tracking-tight px-4">
             Client Success Through Smart Digital Strategy
           </h1>
           <div className="px-5 pb-10">
@@ -1382,21 +1425,21 @@ export default function Home() {
                   The people behind your performance wins.
                 </p>
               </div>
-              <div className="flex gap-3 items-center flex-wrap">
+              <div className="flex gap-3 items-center overflow-hidden max-w-sm w-full">
                 <input
                   type="text"
                   placeholder="Search by name or role"
                   value={q}
                   onChange={(e) => setQ(e.target.value)}
-                  className="h-10 min-w-60 px-3 rounded-xl border border-[#b9b9b9] bg-white text-[#111] outline-none transition-all focus:border-blue-700 focus:shadow-[0_0_0_3px_rgba(30,64,175,0.12)]"
+                  className="h-10 min-w-52 px-3 rounded-xl border border-[#b9b9b9] bg-white text-[#111] outline-none transition-all focus:border-blue-700 focus:shadow-[0_0_0_3px_rgba(30,64,175,0.12)]"
                 />
                 <select
                   value={role}
                   onChange={(e) => setRole(e.target.value)}
-                  className="h-10 border border-[#b9b9b9] rounded-xl bg-white text-[#111] px-3 outline-none cursor-pointer"
+                  className="h-10 border border-[#b9b9b9] rounded-xl min-w-20 bg-white text-[#111] px-3 outline-none cursor-pointer"
                 >
                   {roles.map((r) => (
-                    <option key={r} value={r}>
+                    <option key={r} value={r} className="-ml-10">
                       {r}
                     </option>
                   ))}
