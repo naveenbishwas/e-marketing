@@ -523,7 +523,7 @@ export default function Home() {
 
           {/* ── Dark gradient overlay on top of grid ── */}
           <div className="absolute inset-0 z-2 bg-linear-to-b from-[#0F032B]/80 via-[#0F032B]/40 to-[#0F032B]/90 pointer-events-none" />
-          <div className="w-full h-[650px] absolute -bottom-2 z-10 hidden md:block">
+          <div className="w-full h-[850px] absolute -bottom-2 z-10 hidden md:block">
             <LightRays
               raysOrigin="bottom-center"
               raysColor="#ffffff"
@@ -692,10 +692,9 @@ export default function Home() {
               className="text-balance leading-[1.85] text-white/45 max-w-[600px]"
               style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
-              At <h1 className="text-white/70 font-medium">Unnity</h1>, we help
-              brands grow in the digital world. Our tailored marketing solutions
-              boost your online presence, engage your audience, and drive real
-              results.
+              At <strong>Unnity</strong>, we help brands grow in the digital
+              world. Our tailored marketing solutions boost your online
+              presence, engage your audience, and drive real results.
             </p>
 
             {/* CTA Buttons */}
