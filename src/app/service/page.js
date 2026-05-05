@@ -192,6 +192,51 @@ const page = () => {
       description: `Campaigns live in days. Creative reviews in 24–48 hours. When you need speed, we deliver.`,
     },
   ];
+  //  We Differently
+  const WeDifferently = [
+    {
+      id: 1,
+      title: "Close Campaign Monitoring",
+      description: `We don't check campaigns once a week. We track performance daily, catching drops in delivery, rising CPMs, or creative fatigue before they eat into your budget.`,
+    },
+    {
+      id: 2,
+      title: "Metrics That Actually Mean Something",
+      description: `We don't just report ROAS and call it a day. We read what the numbers are telling us, CPM, CTR, hook rate, landing page drop off, and translate that into a clear next move.  `,
+    },
+    {
+      id: 3,
+      title: "We Understand Your Business First",
+      description: `Before we touch targeting or copy, we understand what you're actually dealing with, seasonality, margins, customer objections, sales team feedback. The strategy comes from there.`,
+    },
+    {
+      id: 4,
+      title: "The Real Picture, Always",
+      description:
+        "No spin, no vanity screenshots. We tell you honestly where campaigns are, where they're headed, and what's genuinely working vs. what we're still figuring out.",
+    },
+    {
+      id: 5,
+      title: "Broader Business Consultation",
+      description: `If something outside the ad account is limiting your results, your landing page, your offer, your pricing, we'll tell you. We're not going to quietly optimise ads on top of a broken funnel.`,
+    },
+    {
+      id: 6,
+      title: "Profitable, Sustainable Growth",
+      description: `We optimise for margins, not just volume. Scaling fast means nothing if the unit economics don't hold. We build for growth that keeps working, not just for a good looking month end report.`,
+    },
+    {
+      id: 7,
+      title: "Creative Built on Data, Not Just Aesthetics",
+      description: `Most agencies make ads that look good. We build creatives based on what the audience actually responds to, angles, hooks, formats, backed by what the metrics tell us.`,
+    },
+    {
+      id: 8,
+      title: "We Don't Hide Behind the Algorithm",
+      description:
+        "A lot of agencies blame Meta or Google when results dip. We take ownership. If something isn't working, we diagnose it and fix it, not deflect it.",
+    },
+  ];
 
   return (
     <>
@@ -740,12 +785,12 @@ const page = () => {
         <div className="grid grid-cols-1 lg:grid-cols-4 max-w-[1300px] mx-auto">
           {/* column 1 */}
           <div className="lg:sticky lg:top-10 self-start pb-10 lg:pb-0 lg:pr-10">
-            <h2
+            <h1
               className="text-[clamp(1.9rem,3vw,2.8rem)] font-extrabold leading-[1.08] tracking-tight text-white mb-5"
               style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
             >
               Our Performance Marketing Process - From Strategy to Scale
-            </h2>
+            </h1>
 
             <p
               className="text-base leading-[1.75] text-white/38"
@@ -783,7 +828,7 @@ const page = () => {
                     {step.title}
                   </p>
                   <p
-                    className="text-[13px] leading-[1.78] text-white/42"
+                    className="text-[14px] leading-[1.78] text-white/42"
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
                   >
                     {step.description}
@@ -798,7 +843,7 @@ const page = () => {
       <section className="text-black py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-[1300px] mx-auto ">
           {/* first column */}
-          <div className="flex flex-col gap-4 items-center justify-center">
+          <div className="flex flex-col gap-6 items-start justify-center">
             <h1
               className="text-[clamp(1.9rem,3vw,2.8rem)] font-extrabold leading-[1.08] tracking-tightmb-5"
               style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
@@ -810,6 +855,35 @@ const page = () => {
               expertise is what consistently delivers stronger results for our
               clients.
             </span>
+            <Link href="https://calendly.com/sayam-unnity/30min">
+              <button className="group flex items-center gap-3 bg-[#0f032b] text-white hover:bg-white hover:text-[#0f032b] hover:border hover:border-[#0f032b] px-6 py-2.5 rounded-full text-base font-medium overflow-hidden cursor-pointer transition-all duration-200 max-sm:w-full max-sm:justify-center">
+                Talk to our experts
+                <span className="relative w-7 h-7 overflow-hidden rounded-full bg-[#fff] text-black shrink-0">
+                  <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-8">
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+                  </span>
+                  <span className="absolute inset-0 flex items-center justify-center -translate-x-8 transition-transform duration-300 group-hover:translate-x-0 group-hover:bg-[#0f032b] group-hover:text-white">
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+                  </span>
+                </span>
+              </button>
+            </Link>
           </div>
           {/* sec column */}
           <div>
@@ -826,7 +900,7 @@ const page = () => {
 
                 <div>
                   <p
-                    className="text-[1.08rem] leading-[1.8] text-[#2b2b2b] max-sm:text-base"
+                    className="text-[1rem] leading-[1.5] text-[#2b2b2b] max-sm:text-base"
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
                   >
                     {card.description}
@@ -835,6 +909,51 @@ const page = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+      {/* Why Do Differently */}
+      <section>
+        <div className="max-w-3xl mx-auto text-center px-4 mb-10">
+          <h1
+            className="text-[clamp(1.45rem,2.6vw,2.1rem)] font-bold tracking-tight leading-tight text-[#0c0322] mb-3"
+            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+          >
+            What We Do Differently in Performance Marketing
+          </h1>
+          <p
+            className="text-[13.5px] leading-[1.75] text-[#5f6577]"
+            style={{ fontFamily: "'DM Sans', sans-serif" }}
+          >
+            Most agencies set campaigns live and step back.{" "}
+            <strong>
+              We stay in — every week, every metric, every decision.
+            </strong>{" "}
+            Here is exactly what that looks like in practice.
+          </p>
+        </div>
+        {/*Card Grid  */}
+        <div className="max-w-7xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
+          {WeDifferently.map((card) => (
+            <div
+              key={card.id}
+              className="flex items-center gap-5 border border-[#e8e0d0] rounded-md p-5 shadow-[0_8px_48px_rgba(17,24,39,0.07)] mb-5"
+            >
+              <span className="text-[2.4rem] font-extrabold leading-none tracking-tighter text-[#0c0322]/07 mb-4 select-none">
+                {String(card.id).padStart(2, "0")}
+              </span>
+
+              <span className="block w-7 h-0.5 rounded-full bg-linear-to-r from-[#0F032B] to-[#a78bfa] mb-3" />
+
+              <div>
+                <p
+                  className="text-[1rem] leading-[1.5] text-[#2b2b2b] max-sm:text-base"
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {card.description}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </>
