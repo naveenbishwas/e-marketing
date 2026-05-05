@@ -5,7 +5,7 @@ import FloatingLines from "@/components/reactBits/FloatingLines";
 import LightRays from "@/components/reactBits/LightRays";
 import Link from "next/link";
 import Image from "next/image";
-import { desc } from "framer-motion/client";
+import { title } from "node:process";
 
 const page = () => {
   const formRef = useRef(null);
@@ -128,6 +128,68 @@ const page = () => {
       id: 6,
       title: "Campaign Reporting & Analytics",
       description: `Real-time digital marketing analytics dashboards that show exactly where your budget is going and what it is returning - honest numbers, clear attribution, no vanity metrics.`,
+    },
+  ];
+
+  const WorkStrategy = [
+    {
+      id: 1,
+      title: "Business & Goal Discovery",
+      description: `We start by understanding your business model, margins, customer profile, and revenue targets — not just your ad budget. Every performance marketing strategy we build comes from this foundation, not a template.`,
+    },
+    {
+      id: 2,
+      title: "Audience Research & Targeting Strategy",
+      description: `Detailed audience maps built for [COUNTRY] — interest clusters, custom segments, lookalikes, and retargeting pools — grounded in real market data and competitor intelligence, not guesswork.`,
+    },
+    {
+      id: 3,
+      title: "Audience Research & Targeting Strategy",
+      description: `We develop creatives, copy angles, and video briefs built around what your audience actually responds to — hooks, formats, and messaging tested against real data, not gut feel.`,
+    },
+    {
+      id: 4,
+      title: "Ad Creative & Copy Development",
+      description: `Campaigns go live with a structured testing framework across creatives, audiences, and placements — data decides which combinations earn more budget, typically within the first two weeks.`,
+    },
+    {
+      id: 5,
+      title: "Continuous Optimisation & Scaling",
+      description: `Winning ad sets get scaled — budgets increased, audiences expanded, landing page optimisation flagged where needed — so performance holds as spend grows, not just in the first month.`,
+    },
+    {
+      id: 6,
+      title: "Reporting, Analytics & Strategy Reviews",
+      description: `Weekly digital marketing analytics reports and monthly strategy reviews — real campaign numbers, honest analysis, and a clear picture of what we're doing next and why.`,
+    },
+  ];
+
+  // Why Choose us
+  const ChooseUs = [
+    {
+      id: 1,
+      title: "ROI-First, Always",
+      description: `Every decision is measured against one question: does this improve return on ad spend?`,
+    },
+    {
+      id: 2,
+      title: "Full-Funnel Thinking",
+      description: `We review your entire funnel and identify what limits conversion before scaling any campaign.`,
+    },
+    {
+      id: 3,
+      title: "Dedicated Account Management",
+      description: `One point of contact who understands your campaigns in depth — not a rotating team.`,
+    },
+    {
+      id: 4,
+      title: "Radical Transparency",
+      description: `No vanity metrics, no hidden fees. You see exactly what's working and what we're doing about it — every week.`,
+    },
+    {
+      id: 5,
+      title: "Fast, Reliable Execution",
+      description: `Campaigns live in days. Creative reviews in 24–48 hours. When you need speed, we deliver.`,
     },
   ];
 
@@ -626,12 +688,12 @@ const page = () => {
       <section className="py-16 bg-[#F9FAFB] px-4">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center px-4 mb-10">
-          <h2
+          <h1
             className="text-[clamp(1.45rem,2.6vw,2.1rem)] font-bold tracking-tight leading-tight text-[#0c0322] mb-3"
             style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
           >
             Performance Marketing Services That Drive Measurable Growth
-          </h2>
+          </h1>
           <p
             className="text-[13.5px] leading-[1.75] text-[#5f6577]"
             style={{ fontFamily: "'DM Sans', sans-serif" }}
@@ -671,6 +733,108 @@ const page = () => {
               </p>
             </div>
           ))}
+        </div>
+      </section>
+      {/* Strategy to Scale */}
+      <section className="w-full bg-[#0c0322] py-16 px-6 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-4 max-w-[1300px] mx-auto">
+          {/* column 1 */}
+          <div className="lg:sticky lg:top-10 self-start pb-10 lg:pb-0 lg:pr-10">
+            <h2
+              className="text-[clamp(1.9rem,3vw,2.8rem)] font-extrabold leading-[1.08] tracking-tight text-white mb-5"
+              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+            >
+              Our Performance Marketing Process - From Strategy to Scale
+            </h2>
+
+            <p
+              className="text-base leading-[1.75] text-white/38"
+              style={{ fontFamily: "'DM Sans', sans-serif" }}
+            >
+              A structured campaign management process built for [COUNTRY]
+              businesses - from the first brief to fully optimised, profitably
+              scaling ads.
+            </p>
+          </div>
+
+          {/* RIGHT - steps */}
+          <div className=" col-span-3">
+            {WorkStrategy.map((step, index) => (
+              <div
+                key={step.id}
+                className={`border-l border-white/07 flex gap-0 py-8 ${index !== WorkStrategy.length - 1 ? "border-b border-white/07" : ""}`}
+              >
+                {/* Number */}
+                <div className="w-20 flex-shrink-0 flex justify-center pt-0.5">
+                  <span
+                    className="text-[13px] font-bold tracking-wide text-[#06d6a0]"
+                    style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+                  >
+                    {String(step.id).padStart(2, "0")}
+                  </span>
+                </div>
+
+                {/* Content */}
+                <div className="pr-8 ">
+                  <p
+                    className="text-[15px] font-bold text-white leading-snug mb-2"
+                    style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+                  >
+                    {step.title}
+                  </p>
+                  <p
+                    className="text-[13px] leading-[1.78] text-white/42"
+                    style={{ fontFamily: "'DM Sans', sans-serif" }}
+                  >
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* Why Choose Us */}
+      <section className="text-black py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-[1300px] mx-auto ">
+          {/* first column */}
+          <div className="flex flex-col gap-4 items-center justify-center">
+            <h1
+              className="text-[clamp(1.9rem,3vw,2.8rem)] font-extrabold leading-[1.08] tracking-tightmb-5"
+              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+            >
+              Why [COUNTRY] Businesses Choose Unnity
+            </h1>
+            <span>
+              We specialise exclusively in Meta and Google Ads. That focused
+              expertise is what consistently delivers stronger results for our
+              clients.
+            </span>
+          </div>
+          {/* sec column */}
+          <div>
+            {ChooseUs.map((card) => (
+              <div
+                key={card.id}
+                className="flex items-center gap-5 border border-[#e8e0d0] rounded-md p-4 shadow-[0_8px_48px_rgba(17,24,39,0.07)] mb-5"
+              >
+                <span className="text-[2.4rem] font-extrabold leading-none tracking-tighter text-[#0c0322]/07 mb-4 select-none">
+                  {String(card.id).padStart(2, "0")}
+                </span>
+
+                <span className="block w-7 h-0.5 rounded-full bg-linear-to-r from-[#0F032B] to-[#a78bfa] mb-3" />
+
+                <div>
+                  <p
+                    className="text-[1.08rem] leading-[1.8] text-[#2b2b2b] max-sm:text-base"
+                    style={{ fontFamily: "'DM Sans', sans-serif" }}
+                  >
+                    {card.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </>
