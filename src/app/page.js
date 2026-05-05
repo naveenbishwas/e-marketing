@@ -556,7 +556,7 @@ export default function Home() {
           </div>
 
           {/* Soft purple glow top */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[450px] rounded-full bg-[#6d28d9]/8 blur-[140px] z-[2] pointer-events-none" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-175 h-112.5 rounded-full bg-[#6d28d9]/8 blur-[140px] z-2 pointer-events-none" />
           {/* Soft purple glow bottom */}
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-75 rounded-full bg-[#4c1d95]/5 blur-[110px] z-2 pointer-events-none" />
 
@@ -689,7 +689,7 @@ export default function Home() {
 
             {/* Body */}
             <p
-              className="text-balance leading-[1.85] text-white/45 max-w-[600px]"
+              className="text-balance leading-[1.85] text-white/45 max-w-150"
               style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
               At <strong>Unnity</strong>, we help brands grow in the digital
