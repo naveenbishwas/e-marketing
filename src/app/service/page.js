@@ -95,7 +95,7 @@ const page = () => {
       id: 2,
       title: "Google Ads Management",
       description:
-        "Search, Shopping, Display, and Performance Max campaigns built to maximise ROAS and eliminate wasted spend — structured Google Ads management for [COUNTRY] businesses.",
+        "Search, Shopping, Display, and Performance Max campaigns built to maximise ROAS and eliminate wasted spend - structured Google Ads management for [COUNTRY] businesses.",
     },
     {
       id: 3,
@@ -134,7 +134,7 @@ const page = () => {
       id: 2,
       title: "Audience Research & Targeting Strategy",
       description:
-        "Detailed audience maps built for [COUNTRY] — interest clusters, custom segments, lookalikes, and retargeting pools — grounded in real market data and competitor intelligence, not guesswork.",
+        "Detailed audience maps built for [COUNTRY] - interest clusters, custom segments, lookalikes, and retargeting pools - grounded in real market data and competitor intelligence, not guesswork.",
     },
     {
       id: 3,
@@ -266,7 +266,7 @@ const page = () => {
       title: "Founder, D2C Apparel Brand",
       stars: 5,
       review:
-        "Unnity completely transformed our Meta campaigns. ROAS went from 1.8× to 4.5× in three months — without increasing our budget. Exceptional team.",
+        "Unnity completely transformed our Meta campaigns. ROAS went from 1.8× to 4.5× in three months - without increasing our budget. Exceptional team.",
     },
     {
       id: 2,
@@ -274,7 +274,7 @@ const page = () => {
       title: "Marketing Head, SaaS Company",
       stars: 4.9,
       review:
-        "The reporting alone is worth it — we finally understood what our ads were doing. Strategy is sharp and results have stayed consistent month after month.",
+        "The reporting alone is worth it - we finally understood what our ads were doing. Strategy is sharp and results have stayed consistent month after month.",
     },
     {
       id: 3,
@@ -282,7 +282,7 @@ const page = () => {
       title: "CEO, B2B Services Firm",
       stars: 5,
       review:
-        "We tried three agencies before Unnity. First team that genuinely understood our business and built campaigns around our goals — not their commission.",
+        "We tried three agencies before Unnity. First team that genuinely understood our business and built campaigns around our goals - not their commission.",
     },
   ];
 
@@ -1063,7 +1063,7 @@ const page = () => {
             className="text-[0.95rem] leading-[1.8] text-[#6b7280]"
             style={{ fontFamily: "'DM Sans',sans-serif" }}
           >
-            From D2C brands to B2B services — we adapt our approach to the
+            From D2C brands to B2B services - we adapt our approach to the
             buying behaviour and competitive dynamics of each sector.
           </p>
         </div>
@@ -1182,7 +1182,7 @@ const page = () => {
                 </div>
               </div>
             </div>
-            {/* BOTTOM — white */}
+            {/* BOTTOM - white */}
             <div className="bg-white px-6 py-5 flex flex-col gap-2 flex-1">
               <p
                 className="text-[15px] font-bold text-[#0c0322] leading-snug"
@@ -1194,7 +1194,7 @@ const page = () => {
                 className="text-[12.5px] leading-[1.78] text-[#6b7280]"
                 style={{ fontFamily: "'DM Sans',sans-serif" }}
               >
-                Rebuilt the Meta funnel from scratch — restructured campaigns,
+                Rebuilt the Meta funnel from scratch - restructured campaigns,
                 refreshed creatives, tightened targeting. 4.8× ROAS in 60 days.
               </p>
             </div>
@@ -1251,7 +1251,7 @@ const page = () => {
                 className="text-[12.5px] leading-[1.78] text-[#6b7280]"
                 style={{ fontFamily: "'DM Sans',sans-serif" }}
               >
-                Overhauled Google Search structure — rewrote copy, rebuilt ad
+                Overhauled Google Search structure - rewrote copy, rebuilt ad
                 groups, implemented negative keyword frameworks. Leads tripled
                 at half the cost.
               </p>
