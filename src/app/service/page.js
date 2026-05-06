@@ -740,8 +740,8 @@ const page = () => {
             Performance Marketing Services That Drive Measurable Growth
           </h1>
           <p
-            className="text-[13.5px] leading-[1.75] text-[#5f6577]"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
+            className="text-[13.8px] leading-[1.75] text-[#5f6577]"
+            // style={{ fontFamily: "'DM Sans', sans-serif" }}
           >
             Full-funnel Meta Ads and Google Ads management for Indian brands -
             every campaign built on data, every rupee accountable to a result.
@@ -758,22 +758,20 @@ const page = () => {
               key={card.id}
               className="bg-white flex flex-col px-6 py-6 border border-gray-100 hover:border-[#0F032B]/40 transition-all duration-400 ease-in-out"
             >
-              <span
-                className="text-[2.4rem] font-extrabold leading-none tracking-tighter text-[#0c0322]/07 mb-4 select-none"
-                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
-              >
-                {String(card.id).padStart(2, "0")}
-              </span>
-
-              <span className="block w-7 h-0.5 rounded-full bg-linear-to-r from-[#0F032B] to-[#a78bfa] mb-3" />
+              <div className="flex items-center justify-between mb-4">
+                <span
+                  className="text-[2rem] font-extrabold leading-none tracking-tighter text-[#0c0322]/07 select-none"
+                  style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+                >
+                  {String(card.id).padStart(2, "0")}
+                </span>
+                <span className="block w-6 h-0.5 rounded-full bg-linear-to-r from-[#0F032B] to-[#a78bfa]" />
+              </div>
 
               <h1 className="text-base font-bold text-[#0c0322] leading-snug mb-2">
                 {card.title}
               </h1>
-              <p
-                className="text-[12.5px] leading-[1.72] text-[#5f6577]"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
-              >
+              <p className="text-[13.8px] leading-[1.72] text-[#5f6577]">
                 {card.description}
               </p>
             </div>
@@ -828,7 +826,7 @@ const page = () => {
                     {step.title}
                   </p>
                   <p
-                    className="text-[14px] leading-[1.78] text-white/42"
+                    className="text-[13.8px] leading-[1.58] text-white/42"
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
                   >
                     {step.description}
@@ -840,7 +838,7 @@ const page = () => {
         </div>
       </section>
       {/* Why Choose Us */}
-      <section className="text-black py-12">
+      <section className="text-black py-12 px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-[1300px] mx-auto ">
           {/* first column */}
           <div className="flex flex-col gap-6 items-start justify-center">
@@ -900,7 +898,7 @@ const page = () => {
 
                 <div>
                   <p
-                    className="text-[1rem] leading-[1.5] text-[#2b2b2b] max-sm:text-base"
+                    className="text-[13.8px] leading-[1.5] text-[#2b2b2b] max-sm:text-base"
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
                   >
                     {card.description}
@@ -912,7 +910,7 @@ const page = () => {
         </div>
       </section>
       {/* Why Do Differently */}
-      <section>
+      <section className="px-4">
         <div className="max-w-3xl mx-auto text-center px-4 mb-10">
           <h1
             className="text-[clamp(1.45rem,2.6vw,2.1rem)] font-bold tracking-tight leading-tight text-[#0c0322] mb-3"
@@ -920,10 +918,7 @@ const page = () => {
           >
             What We Do Differently in Performance Marketing
           </h1>
-          <p
-            className="text-[13.5px] leading-[1.75] text-[#5f6577]"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
-          >
+          <p className="text-[13.8px] leading-[1.75] text-[#5f6577]">
             Most agencies set campaigns live and step back.{" "}
             <strong>
               We stay in — every week, every metric, every decision.
@@ -932,26 +927,35 @@ const page = () => {
           </p>
         </div>
         {/*Card Grid  */}
-        <div className="max-w-7xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div
+          className="max-w-[1300px] w-full mx-auto grid grid-cols-1 md:grid-cols-4 rounded-md gap-2 overflow-hidden border border-[#0F032B]/20"
+          style={{ gap: "1px", background: "rgba(12,3,34,0.08)" }}
+        >
           {WeDifferently.map((card) => (
             <div
               key={card.id}
-              className="flex items-center gap-5 border border-[#e8e0d0] rounded-md p-5 shadow-[0_8px_48px_rgba(17,24,39,0.07)] mb-5"
+              className="bg-white flex flex-col px-6 py-6  border border-gray-100 hover:border-[#0F032B]/40 transition-all duration-400 ease-in-out"
             >
-              <span className="text-[2.4rem] font-extrabold leading-none tracking-tighter text-[#0c0322]/07 mb-4 select-none">
-                {String(card.id).padStart(2, "0")}
-              </span>
-
-              <span className="block w-7 h-0.5 rounded-full bg-linear-to-r from-[#0F032B] to-[#a78bfa] mb-3" />
-
-              <div>
-                <p
-                  className="text-[1rem] leading-[1.5] text-[#2b2b2b] max-sm:text-base"
-                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+              {/* Number + line row */}
+              <div className="flex items-center justify-between mb-4">
+                <span
+                  className="text-[2rem] font-extrabold leading-none tracking-tighter text-[#0c0322]/07 select-none"
+                  style={{ fontFamily: "'Unbound', sans-serif" }}
                 >
-                  {card.description}
-                </p>
+                  {String(card.id).padStart(2, "0")}
+                </span>
+                <span className="block w-6 h-0.5 rounded-full bg-linear-to-r from-[#0F032B] to-[#a78bfa]" />
               </div>
+
+              {/* Title */}
+              <p className="text-base font-bold text-[#0c0322] leading-snug mb-2">
+                {card.title}
+              </p>
+
+              {/* Description */}
+              <p className="text-[13.8px] leading-[1.75] text-[#5f6577]">
+                {card.description}
+              </p>
             </div>
           ))}
         </div>
