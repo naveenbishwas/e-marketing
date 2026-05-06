@@ -5,7 +5,6 @@ import FloatingLines from "@/components/reactBits/FloatingLines";
 import LightRays from "@/components/reactBits/LightRays";
 import Link from "next/link";
 import Image from "next/image";
-import { title } from "node:process";
 
 const page = () => {
   const formRef = useRef(null);
@@ -21,6 +20,7 @@ const page = () => {
     service: "",
     designation: "",
   });
+
   const submitHandler = async (e) => {
     e.preventDefault();
     setSending(true);
@@ -48,24 +48,21 @@ const page = () => {
       setSending(false);
     }
   };
+
   const handleMouseMove = (e) => {
     const section = sectionRef.current;
-
     if (!section) return;
     const rect = section.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    section.style.setProperty("--mx", `${x}px`);
-    section.style.setProperty("--my", `${y}px`);
+    section.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+    section.style.setProperty("--my", `${e.clientY - rect.top}px`);
   };
-  const handlePhoneChange = (e) => {
+
+  const handlePhoneChange = (e) =>
     setFormData((s) => ({
       ...s,
       phone: e.target.value.replace(/\D/g, "").slice(0, 10),
     }));
-  };
 
-  // Hero Stats
   const stats = [
     {
       id: 1,
@@ -79,55 +76,47 @@ const page = () => {
       value: "₹50Cr+",
       shortLabel: "Ad Spend",
     },
-    {
-      id: 3,
-      label: "Clients Served",
-      value: "80+",
-      shortLabel: "Clients",
-    },
-    {
-      id: 4,
-      label: "Years of Expertise",
-      value: "6+",
-      shortLabel: "Yrs Exp.",
-    },
-    {
-      id: 5,
-      label: "Client Retention",
-      value: "98%",
-      shortLabel: "Retention",
-    },
+    { id: 3, label: "Clients Served", value: "80+", shortLabel: "Clients" },
+    { id: 4, label: "Years of Expertise", value: "6+", shortLabel: "Yrs Exp." },
+    { id: 5, label: "Client Retention", value: "98%", shortLabel: "Retention" },
   ];
+
   const SEODECRIP = [
     {
       id: 1,
       title: "Meta Ads Management",
-      description: `Full-funnel Facebook and Instagram ad campaigns - audience research, creative testing, and continuous optimisation across every stage, from first impression to purchase.`,
+      description:
+        "Full-funnel Facebook and Instagram ad campaigns - audience research, creative testing, and continuous optimisation across every stage, from first impression to purchase.",
     },
     {
       id: 2,
       title: "Google Ads Management",
-      description: `Search, Shopping, Display, and Performance Max campaigns built to maximise ROAS and eliminate wasted spend - structured Google Ads management for [COUNTRY] businesses.`,
+      description:
+        "Search, Shopping, Display, and Performance Max campaigns built to maximise ROAS and eliminate wasted spend - structured management for Indian businesses.",
     },
     {
       id: 3,
       title: "Lead Generation Campaigns",
-      description: `End-to-end lead generation through paid ads - targeting strategy, ad creative, landing page alignment, and CRM integration - built to deliver qualified leads at a sustainable cost.`,
+      description:
+        "End-to-end lead generation through paid ads - targeting strategy, ad creative, landing page alignment, and CRM integration, built to deliver qualified leads at a sustainable cost.",
     },
     {
       id: 4,
       title: "E-commerce Advertising",
-      description: `Catalogue ads, dynamic remarketing, and Google Shopping campaigns for D2C and Shopify brands - built to grow purchase volume, improve ROAS, and scale profitably.`,
+      description:
+        "Catalogue ads, dynamic remarketing, and Google Shopping campaigns for D2C and Shopify brands - built to grow purchase volume, improve ROAS, and scale profitably.",
     },
     {
       id: 5,
       title: "Ad Creative & Copy",
-      description: `Performance-led creatives and ad copy built inside a structured testing framework - designed to improve click-through rates, lower cost-per-result, and keep audiences from tuning out.`,
+      description:
+        "Performance-led creatives and ad copy built inside a structured testing framework - designed to improve click-through rates, lower cost-per-result, and keep audiences from tuning out.",
     },
     {
       id: 6,
       title: "Campaign Reporting & Analytics",
-      description: `Real-time digital marketing analytics dashboards that show exactly where your budget is going and what it is returning - honest numbers, clear attribution, no vanity metrics.`,
+      description:
+        "Real-time analytics dashboards that show exactly where your budget is going and what it's returning - honest numbers, clear attribution, no vanity metrics.",
     },
   ];
 
@@ -135,79 +124,92 @@ const page = () => {
     {
       id: 1,
       title: "Business & Goal Discovery",
-      description: `We start by understanding your business model, margins, customer profile, and revenue targets — not just your ad budget. Every performance marketing strategy we build comes from this foundation, not a template.`,
+      description:
+        "We start by understanding your business model, margins, customer profile, and revenue targets - not just your ad budget. Every strategy we build comes from this foundation, not a template.",
     },
     {
       id: 2,
       title: "Audience Research & Targeting Strategy",
-      description: `Detailed audience maps built for [COUNTRY] — interest clusters, custom segments, lookalikes, and retargeting pools — grounded in real market data and competitor intelligence, not guesswork.`,
+      description:
+        "Detailed audience maps - interest clusters, custom segments, lookalikes, and retargeting pools - grounded in real market data and competitor intelligence, not guesswork.",
     },
     {
       id: 3,
-      title: "Audience Research & Targeting Strategy",
-      description: `We develop creatives, copy angles, and video briefs built around what your audience actually responds to — hooks, formats, and messaging tested against real data, not gut feel.`,
+      title: "Creative Direction & Messaging",
+      description:
+        "We develop creatives, copy angles, and video briefs built around what your audience actually responds to - hooks, formats, and messaging tested against real data, not gut feel.",
     },
     {
       id: 4,
       title: "Ad Creative & Copy Development",
-      description: `Campaigns go live with a structured testing framework across creatives, audiences, and placements — data decides which combinations earn more budget, typically within the first two weeks.`,
+      description:
+        "Campaigns go live with a structured testing framework across creatives, audiences, and placements - data decides which combinations earn more budget, typically within the first two weeks.",
     },
     {
       id: 5,
       title: "Continuous Optimisation & Scaling",
-      description: `Winning ad sets get scaled — budgets increased, audiences expanded, landing page optimisation flagged where needed — so performance holds as spend grows, not just in the first month.`,
+      description:
+        "Winning ad sets get scaled - budgets increased, audiences expanded, landing page optimisation flagged where needed - so performance holds as spend grows.",
     },
     {
       id: 6,
       title: "Reporting, Analytics & Strategy Reviews",
-      description: `Weekly digital marketing analytics reports and monthly strategy reviews — real campaign numbers, honest analysis, and a clear picture of what we're doing next and why.`,
+      description:
+        "Weekly reports and monthly strategy reviews - real campaign numbers, honest analysis, and a clear picture of what we're doing next and why.",
     },
   ];
 
-  // Why Choose us
   const ChooseUs = [
     {
       id: 1,
       title: "ROI-First, Always",
-      description: `Every decision is measured against one question: does this improve return on ad spend?`,
+      description:
+        "Every decision is measured against one question: does this improve return on ad spend?",
     },
     {
       id: 2,
       title: "Full-Funnel Thinking",
-      description: `We review your entire funnel and identify what limits conversion before scaling any campaign.`,
+      description:
+        "We review your entire funnel and identify what limits conversion before scaling any campaign.",
     },
     {
       id: 3,
       title: "Dedicated Account Management",
-      description: `One point of contact who understands your campaigns in depth — not a rotating team.`,
+      description:
+        "One point of contact who understands your campaigns in depth - not a rotating team.",
     },
     {
       id: 4,
       title: "Radical Transparency",
-      description: `No vanity metrics, no hidden fees. You see exactly what's working and what we're doing about it — every week.`,
+      description:
+        "No vanity metrics, no hidden fees. You see exactly what's working and what we're doing about it - every week.",
     },
     {
       id: 5,
       title: "Fast, Reliable Execution",
-      description: `Campaigns live in days. Creative reviews in 24–48 hours. When you need speed, we deliver.`,
+      description:
+        "Campaigns live in days. Creative reviews in 24–48 hours. When you need speed, we deliver.",
     },
   ];
-  //  We Differently
+
   const WeDifferently = [
     {
       id: 1,
       title: "Close Campaign Monitoring",
-      description: `We don't check campaigns once a week. We track performance daily, catching drops in delivery, rising CPMs, or creative fatigue before they eat into your budget.`,
+      description:
+        "We track performance daily, catching drops in delivery, rising CPMs, or creative fatigue before they eat into your budget.",
     },
     {
       id: 2,
       title: "Metrics That Actually Mean Something",
-      description: `We don't just report ROAS and call it a day. We read what the numbers are telling us, CPM, CTR, hook rate, landing page drop off, and translate that into a clear next move.  `,
+      description:
+        "We read what the numbers are telling us - CPM, CTR, hook rate, landing page drop-off - and translate that into a clear next move.",
     },
     {
       id: 3,
       title: "We Understand Your Business First",
-      description: `Before we touch targeting or copy, we understand what you're actually dealing with, seasonality, margins, customer objections, sales team feedback. The strategy comes from there.`,
+      description:
+        "Before we touch targeting or copy, we understand what you're actually dealing with - seasonality, margins, customer objections, sales team feedback.",
     },
     {
       id: 4,
@@ -218,77 +220,78 @@ const page = () => {
     {
       id: 5,
       title: "Broader Business Consultation",
-      description: `If something outside the ad account is limiting your results, your landing page, your offer, your pricing, we'll tell you. We're not going to quietly optimise ads on top of a broken funnel.`,
+      description:
+        "If something outside the ad account is limiting results - your landing page, offer, or pricing - we'll tell you. We won't quietly optimise ads on top of a broken funnel.",
     },
     {
       id: 6,
       title: "Profitable, Sustainable Growth",
-      description: `We optimise for margins, not just volume. Scaling fast means nothing if the unit economics don't hold. We build for growth that keeps working, not just for a good looking month end report.`,
+      description:
+        "We optimise for margins, not just volume. Scaling fast means nothing if the unit economics don't hold. We build for growth that keeps working.",
     },
     {
       id: 7,
-      title: "Creative Built on Data, Not Just Aesthetics",
-      description: `Most agencies make ads that look good. We build creatives based on what the audience actually responds to, angles, hooks, formats, backed by what the metrics tell us.`,
+      title: "Creative Built on Data, Not Aesthetics",
+      description:
+        "Most agencies make ads that look good. We build creatives based on what the audience actually responds to - angles, hooks, formats backed by metrics.",
     },
     {
       id: 8,
       title: "We Don't Hide Behind the Algorithm",
       description:
-        "A lot of agencies blame Meta or Google when results dip. We take ownership. If something isn't working, we diagnose it and fix it, not deflect it.",
+        "A lot of agencies blame Meta or Google when results dip. We take ownership. If something isn't working, we diagnose it and fix it - not deflect it.",
     },
   ];
+
+  // ─── Shared input class ───────────────────────────────────────
+  const inputCls =
+    "w-full border border-[#e2e5f0] bg-[#fafbff] px-4 py-3 rounded-xl text-sm text-[#1a1a2e] placeholder:text-[#aab0c4] outline-none transition-all duration-200 focus:border-[#7c3aed] focus:bg-white focus:shadow-[0_0_0_3px_rgba(124,58,237,0.1)]";
 
   return (
     <>
       <Header />
+
+      {/* ════════════════════════════════════════
+          HERO
+      ════════════════════════════════════════ */}
       <section
         ref={sectionRef}
         onMouseMove={handleMouseMove}
         className="relative w-full bg-[#0c0322] min-h-screen text-white overflow-hidden flex flex-col pb-6"
         style={{ "--mx": "50%", "--my": "50%" }}
       >
-        {" "}
+        {/* Grid base */}
         <div
           className="absolute inset-0 z-0 pointer-events-none"
           style={{
-            backgroundImage: `
-                linear-gradient(rgba(167,139,250,0.07) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(167,139,250,0.07) 1px, transparent 1px)
-              `,
+            backgroundImage:
+              "linear-gradient(rgba(167,139,250,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(167,139,250,0.06) 1px,transparent 1px)",
             backgroundSize: "48px 48px",
           }}
         />
+        {/* Cursor glow */}
         <div
-          className="absolute inset-0 z-10 pointer-events-none transition-opacity duration-300"
+          className="absolute inset-0 z-10 pointer-events-none"
           style={{
-            background: `radial-gradient(
-                600px circle at var(--mx) var(--my),
-                rgba(124,58,237,0.13) 0%,
-                rgba(79,31,191,0.07) 40%,
-                transparent 70%
-              )`,
+            background:
+              "radial-gradient(600px circle at var(--mx) var(--my),rgba(124,58,237,0.12) 0%,rgba(79,31,191,0.06) 40%,transparent 70%)",
           }}
         />
-        {/*  GRID CURSOR HIGHLIGHT*/}
         <div
           className="absolute inset-0 z-[1] pointer-events-none"
           style={{
-            background: `radial-gradient(
-                200px circle at var(--mx) var(--my),
-                rgba(167,139,250,0.06) 0%,
-                transparent 100%
-              )`,
-            backgroundImage: `
-                linear-gradient(rgba(167,139,250,0.12) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(167,139,250,0.12) 1px, transparent 1px)
-              `,
+            backgroundImage:
+              "linear-gradient(rgba(167,139,250,0.11) 1px,transparent 1px),linear-gradient(90deg,rgba(167,139,250,0.11) 1px,transparent 1px)",
             backgroundSize: "48px 48px",
-            maskImage: `radial-gradient(280px circle at var(--mx) var(--my), black 0%, transparent 100%)`,
-            WebkitMaskImage: `radial-gradient(280px circle at var(--mx) var(--my), black 0%, transparent 100%)`,
+            maskImage:
+              "radial-gradient(280px circle at var(--mx) var(--my),black 0%,transparent 100%)",
+            WebkitMaskImage:
+              "radial-gradient(280px circle at var(--mx) var(--my),black 0%,transparent 100%)",
           }}
         />
-        {/* ── Dark gradient overlay on top of grid ── */}
-        <div className="absolute inset-0 z-2 bg-linear-to-b from-[#0F032B]/80 via-[#0F032B]/40 to-[#0F032B]/90 pointer-events-none" />
+        <div className="absolute inset-0 z-2 bg-gradient-to-b from-[#0F032B]/80 via-[#0F032B]/40 to-[#0F032B]/90 pointer-events-none" />
+
+        {/* Light rays desktop */}
         <div className="w-full h-[850px] absolute -bottom-2 z-10 hidden md:block">
           <LightRays
             raysOrigin="bottom-center"
@@ -300,12 +303,12 @@ const page = () => {
             mouseInfluence={0.1}
             noiseAmount={0}
             distortion={0}
-            className="custom-rays"
             pulsating={false}
             fadeDistance={1}
             saturation={1}
           />
         </div>
+        {/* Floating lines mobile */}
         <div className="md:hidden absolute inset-0 z-0">
           <FloatingLines
             enabledWaves={["top", "middle", "bottom"]}
@@ -320,22 +323,21 @@ const page = () => {
             bottomDirection={-1.0}
           />
         </div>
-        {/* Soft purple glow top */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-175 h-112.5 rounded-full bg-[#6d28d9]/8 blur-[140px] z-2 pointer-events-none" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-175 h-75 rounded-full bg-[#4c1d95]/5 blur-[110px] z-2 pointer-events-none" />
-        {/* left sidebar */}
+
+        {/* Ambient glows */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[450px] rounded-full bg-[#6d28d9]/8 blur-[140px] z-2 pointer-events-none" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] rounded-full bg-[#4c1d95]/5 blur-[110px] z-2 pointer-events-none" />
+
+        {/* Left rail */}
         <div className="absolute left-0 top-0 bottom-0 w-14 z-3 hidden lg:flex flex-col items-center justify-between py-10 pointer-events-none select-none">
           <div
             className="flex flex-col items-center gap-3"
-            style={{
-              writingMode: "vertical-rl",
-              transform: "rotate(180deg)",
-            }}
+            style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
           >
-            <span className="w-px h-10 bg-linear-to-t from-white/15 to-transparent" />
+            <span className="w-px h-10 bg-gradient-to-t from-white/15 to-transparent" />
             <span
               className="text-[10px] font-semibold tracking-[0.25em] uppercase text-white/20"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
+              style={{ fontFamily: "'DM Sans',sans-serif" }}
             >
               Digital Agency
             </span>
@@ -344,9 +346,9 @@ const page = () => {
             style={{
               writingMode: "vertical-rl",
               transform: "rotate(180deg)",
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "'Plus Jakarta Sans',sans-serif",
               fontWeight: 800,
-              fontSize: "clamp(2rem, 3.5vw, 3.2rem)",
+              fontSize: "clamp(2rem,3.5vw,3.2rem)",
               letterSpacing: "0.3em",
               color: "transparent",
               WebkitTextStroke: "1px rgba(167,139,250,0.12)",
@@ -356,31 +358,29 @@ const page = () => {
           </span>
           <div
             className="flex flex-col items-center gap-3"
-            style={{
-              writingMode: "vertical-rl",
-              transform: "rotate(180deg)",
-            }}
+            style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
           >
             <span
               className="text-[10px] font-semibold tracking-[0.25em] uppercase text-white/20"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
+              style={{ fontFamily: "'DM Sans',sans-serif" }}
             >
               Est. 2024
             </span>
-            <span className="w-px h-10 bg-linear-to-b from-white/15 to-transparent" />
+            <span className="w-px h-10 bg-gradient-to-b from-white/15 to-transparent" />
           </div>
-          <div className="absolute right-0 top-0 bottom-0 w-px bg-linear-to-b from-transparent via-white/[0.06] to-transparent" />
+          <div className="absolute right-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/[0.06] to-transparent" />
         </div>
-        {/* Right Side */}
+
+        {/* Right rail */}
         <div className="absolute right-0 top-0 bottom-0 w-14 z-3 hidden lg:flex flex-col items-center justify-between py-10 pointer-events-none select-none">
           <div
             className="flex flex-col items-center gap-3"
             style={{ writingMode: "vertical-rl" }}
           >
-            <span className="w-px h-10 bg-linear-to-t from-white/15 to-transparent" />
+            <span className="w-px h-10 bg-gradient-to-t from-white/15 to-transparent" />
             <span
               className="text-[10px] font-semibold tracking-[0.25em] uppercase text-white/20"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
+              style={{ fontFamily: "'DM Sans',sans-serif" }}
             >
               50+ Brands
             </span>
@@ -388,9 +388,9 @@ const page = () => {
           <span
             style={{
               writingMode: "vertical-rl",
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "'Plus Jakarta Sans',sans-serif",
               fontWeight: 800,
-              fontSize: "clamp(2rem, 3.5vw, 3.2rem)",
+              fontSize: "clamp(2rem,3.5vw,3.2rem)",
               letterSpacing: "0.3em",
               color: "transparent",
               WebkitTextStroke: "1px rgba(167,139,250,0.12)",
@@ -404,88 +404,93 @@ const page = () => {
           >
             <span
               className="text-[10px] font-semibold tracking-[0.25em] uppercase text-white/20"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
+              style={{ fontFamily: "'DM Sans',sans-serif" }}
             >
               Scroll Down
             </span>
-            <span className="w-px h-10 bg-linear-to-b from-white/15 to-transparent" />
+            <span className="w-px h-10 bg-gradient-to-b from-white/15 to-transparent" />
           </div>
-          <div className="absolute left-0 top-0 bottom-0 w-px bg-linear-to-b from-transparent via-white/[0.06] to-transparent" />
+          <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/[0.06] to-transparent" />
         </div>
-        {/* main content */}
+
+        {/* ── Hero body ── */}
         <div className="relative top-8 z-10 flex-1 flex flex-col items-center sm:justify-center text-center px-6 lg:px-20 pt-24 pb-8">
-          {/* Pill label */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.04] mb-6">
+          {/* Pill */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.04] mb-7">
             <span className="w-1.5 h-1.5 rounded-full bg-[#a78bfa] animate-pulse shrink-0" />
             <span
-              className="text-[11px] font-medium text-white/50 tracking-[0.2em] uppercase"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
+              className="text-[11px] font-medium text-white/50 tracking-[0.18em] uppercase"
+              style={{ fontFamily: "'DM Sans',sans-serif" }}
             >
               Elevate your business to the next level
             </span>
           </div>
 
-          {/* Headline */}
-          <h1
-            className="max-w-300 w-full"
-            style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
-              fontWeight: 700,
-              fontSize: "clamp(2.4rem, 5vw, 4.8rem)",
-              lineHeight: "1.08",
-              letterSpacing: "-0.03em",
-            }}
-          >
-            <h1 className="block text-white">Performance Marketing Built to</h1>
-            <span className="block mt-1 bg-linear-to-r from-[#e0d7ff] via-[#a78bfa] to-[#7c3aed] bg-clip-text text-transparent">
+          {/* H1 */}
+          <div className="max-w-6xl w-full">
+            <h1
+              className="block text-white"
+              style={{
+                fontFamily: "'Plus Jakarta Sans',sans-serif",
+                fontWeight: 800,
+                fontSize: "clamp(1.6rem,4.5vw,4rem)",
+                lineHeight: 1.06,
+                letterSpacing: "-0.035em",
+              }}
+            >
+              Performance Marketing Built to
+            </h1>
+            <span
+              className="block mt-1 bg-gradient-to-r from-[#e0d7ff] via-[#a78bfa] to-[#7c3aed] bg-clip-text text-transparent"
+              style={{
+                fontFamily: "'Plus Jakarta Sans',sans-serif",
+                fontWeight: 800,
+                fontSize: "clamp(2.2rem,5.1vw,4.5rem)",
+                lineHeight: 1.06,
+                letterSpacing: "-0.035em",
+              }}
+            >
               Scale D2C Brands
             </span>
-          </h1>
+          </div>
 
           {/* Divider */}
-          <div className="w-12 h-px bg-[#a78bfa]/40 my-5" />
+          <div className="w-10 h-px bg-[#a78bfa]/40 my-6" />
 
-          {/* Body */}
+          {/* Body copy */}
           <p
-            className="text-balance leading-[1.85] text-white/45 max-w-200"
-            style={{
-              fontFamily: "'DM Sans', sans-serif",
-              // textAlign: "justify",
-            }}
+            className="leading-[1.9] text-white/45 max-w-xl text-[1rem]"
+            style={{ fontFamily: "'DM Sans',sans-serif" }}
           >
-            <strong>Unnity</strong> is a performance marketing agency running
-            Meta Ads and Google Ads for D2C brands and businesses across{" "}
-            <strong>Country</strong> - precision targeting, data-driven
-            creative, and full transparency from day one.
+            <strong className="text-white/60">Unnity</strong> is a performance
+            marketing agency running Meta Ads and Google Ads for D2C brands
+            across <strong className="text-white/60">India</strong> - precision
+            targeting, data-driven creative, and full transparency from day one.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex items-center gap-4 flex-wrap justify-center mt-8">
+          {/* CTAs */}
+          <div className="flex items-center gap-3 flex-wrap justify-center mt-8">
             {[
               {
                 href: "https://calendly.com/sayam-unnity/30min",
                 label: "Start Your Free Trial",
                 primary: false,
               },
-              {
-                href: "/case-studies",
-                label: "View Portfolio",
-                primary: true,
-              },
+              { href: "/case-studies", label: "View Portfolio", primary: true },
             ].map(({ href, label, primary }) => (
               <Link key={label} href={href}>
                 <button
-                  className={`group flex items-center gap-3 text-[#0f032b] ${primary ? "bg-[#0f032b] text-white border border-white/20" : "bg-white"} hover:bg-[#0f032b] hover:text-white hover:border hover:border-white px-6 py-2.5 rounded-full text-base font-medium overflow-hidden cursor-pointer transition-all duration-200 max-sm:w-full max-sm:justify-center`}
+                  className={`group flex items-center gap-3 px-6 py-2.5 rounded-full text-[0.9rem] font-semibold overflow-hidden cursor-pointer transition-all duration-200 ${primary ? "bg-[#0f032b] text-white border border-white/20 hover:bg-white hover:text-[#0f032b]" : "bg-white text-[#0f032b] hover:bg-[#0f032b] hover:text-white hover:border hover:border-white"} max-sm:w-full max-sm:justify-center`}
                 >
                   {label}
                   <span className="relative w-7 h-7 overflow-hidden rounded-full bg-[#0f032b] text-white flex-shrink-0">
                     <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-8">
                       <svg
                         viewBox="0 0 24 24"
-                        className="w-5 h-5"
+                        className="w-4 h-4"
                         fill="none"
                         stroke="currentColor"
-                        strokeWidth="2"
+                        strokeWidth="2.5"
                       >
                         <path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                       </svg>
@@ -493,10 +498,10 @@ const page = () => {
                     <span className="absolute inset-0 flex items-center justify-center -translate-x-8 transition-transform duration-300 group-hover:translate-x-0 group-hover:bg-white group-hover:text-[#0f032b]">
                       <svg
                         viewBox="0 0 24 24"
-                        className="w-5 h-5"
+                        className="w-4 h-4"
                         fill="none"
                         stroke="currentColor"
-                        strokeWidth="2"
+                        strokeWidth="2.5"
                       >
                         <path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                       </svg>
@@ -507,54 +512,53 @@ const page = () => {
             ))}
           </div>
 
-          {/* Stats */}
-          <div className="relative z-10 w-full max-w-full mx-auto mt-12 lg:px-0">
-            <div className="hidden md:flex items-stretch rounded-md overflow-hidden border border-[#a78bfa]/13 bg-[#a78bfa]/[0.04]">
-              {stats.map((stat, index) => (
+          {/* Stats bar */}
+          <div className="relative z-10 w-full max-w-full mx-auto mt-14">
+            {/* Desktop */}
+            <div className="hidden md:flex items-stretch rounded-xl overflow-hidden border border-[#a78bfa]/12 bg-[#a78bfa]/[0.03]">
+              {stats.map((stat, i) => (
                 <div
                   key={stat.id}
-                  className="flex-1 flex flex-col items-center justify-center text-center px-4 py-3 bg-[#0c0322] relative"
+                  className="flex-1 flex flex-col items-center justify-center text-center px-5 py-5 bg-[#0c0322] relative"
                 >
-                  {index !== 0 && (
-                    <span className="absolute left-0 top-[20%] h-[60%] w-px bg-linear-to-b from-transparent via-[#a78bfa]/25 to-transparent" />
+                  {i !== 0 && (
+                    <span className="absolute left-0 top-[20%] h-[60%] w-px bg-gradient-to-b from-transparent via-[#a78bfa]/22 to-transparent" />
                   )}
-                  <span className="block w-1.25 h-1.25 rounded-full bg-[#a78bfa]/40 mb-3" />
+                  <span className="block w-1 h-1 rounded-full bg-[#a78bfa]/50 mb-3" />
                   <span
-                    className="text-[2.4rem] font-extrabold leading-none tracking-tight bg-linear-to-br from-[#e0d7ff] via-[#a78bfa] to-[#7c3aed] bg-clip-text text-transparent"
-                    style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+                    className="text-[2.6rem] font-extrabold leading-none tracking-tight bg-gradient-to-br from-[#e0d7ff] via-[#a78bfa] to-[#7c3aed] bg-clip-text text-transparent"
+                    style={{ fontFamily: "'Plus Jakarta Sans',sans-serif" }}
                   >
                     {stat.value}
                   </span>
                   <span
-                    className="text-[11.5px] font-normal text-white/38 leading-snug max-w-27.5 mt-2"
-                    style={{ fontFamily: "'DM Sans', sans-serif" }}
+                    className="text-[12px] font-normal text-white/35 leading-snug max-w-[110px] mt-2"
+                    style={{ fontFamily: "'DM Sans',sans-serif" }}
                   >
                     {stat.label}
                   </span>
                 </div>
               ))}
             </div>
-
-            {/* ── Mobile: 2-col grid ── */}
-
-            <div className="flex md:hidden items-stretch rounded-md overflow-hidden border border-[#a78bfa]/13">
-              {stats.map((stat, index) => (
+            {/* Mobile */}
+            <div className="flex md:hidden items-stretch rounded-xl overflow-hidden border border-[#a78bfa]/12">
+              {stats.map((stat, i) => (
                 <div
                   key={stat.id}
-                  className="flex-1 flex flex-col items-center justify-center text-center py-3.5 px-1 bg-[#0c0322] relative gap-1"
+                  className="flex-1 flex flex-col items-center justify-center text-center py-4 px-1 bg-[#0c0322] relative gap-1"
                 >
-                  {index !== 0 && (
-                    <span className="absolute left-0 top-[15%] h-[70%] w-px bg-gradient-to-b from-transparent via-[#a78bfa]/22 to-transparent" />
+                  {i !== 0 && (
+                    <span className="absolute left-0 top-[15%] h-[70%] w-px bg-gradient-to-b from-transparent via-[#a78bfa]/20 to-transparent" />
                   )}
                   <span
-                    className="text-[1.05rem] font-extrabold leading-none tracking-tight bg-gradient-to-br from-[#e0d7ff] via-[#a78bfa] to-[#7c3aed] bg-clip-text text-transparent"
-                    style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+                    className="text-[1.1rem] font-extrabold leading-none tracking-tight bg-gradient-to-br from-[#e0d7ff] via-[#a78bfa] to-[#7c3aed] bg-clip-text text-transparent"
+                    style={{ fontFamily: "'Plus Jakarta Sans',sans-serif" }}
                   >
                     {stat.value}
                   </span>
                   <span
-                    className="text-[9px] font-normal text-white/35 leading-tight"
-                    style={{ fontFamily: "'DM Sans', sans-serif" }}
+                    className="text-[9.5px] font-normal text-white/35 leading-tight"
+                    style={{ fontFamily: "'DM Sans',sans-serif" }}
                   >
                     {stat.shortLabel}
                   </span>
@@ -564,63 +568,84 @@ const page = () => {
           </div>
         </div>
       </section>
-      {/* Lead Form Section */}
-      <section className="bg-[#fafbff] py-12 px-4">
-        <div className="max-w-6xl mx-auto grid grid-cols-2 gap-10 items-center max-lg:grid-cols-1">
-          <div className="relative">
-            <div className="relative rounded-full bg-[radial-linear(120%_120%_at_30%_20%,#fff_0%,#f3f5fb_45%,#efeefe_100%)] border-2 border-[#ececf6] aspect-square grid place-items-center overflow-hidden max-lg:max-w-lg max-lg:mx-auto">
+
+      {/* ════════════════════════════════════════
+          LEAD FORM
+      ════════════════════════════════════════ */}
+      <section className="bg-[#f7f8fc] py-16 px-4">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Image */}
+          <div className="relative max-lg:max-w-sm max-lg:mx-auto">
+            <div className="relative rounded-full bg-gradient-to-br from-white via-[#f3f5fb] to-[#efeefe] border border-[#e8e4f8] aspect-square grid place-items-center overflow-hidden shadow-xl shadow-[#7c3aed]/5">
               <Image
                 src="/sayyam2.png"
                 width={0}
                 height={0}
-                sizes="(max-width: 768px) 100vw, 520px"
+                sizes="(max-width:768px) 100vw, 520px"
                 alt="Sayam Jain"
                 className="w-full h-auto object-contain"
               />
             </div>
           </div>
 
+          {/* Form */}
           <div>
-            <span className="text-[#070c1a] text-3xl font-bold">
-              Your Growth Partner in the Digital Era
-            </span>
-            <p className="my-4 mb-6 text-[#5f6577] text-base">
-              Let's create impact — fill in the form and we'll take it from
+            <h2
+              className="text-[clamp(1.7rem,3vw,2.4rem)] font-extrabold leading-tight tracking-tight text-[#0c0322] mb-2"
+              style={{ fontFamily: "'Plus Jakarta Sans',sans-serif" }}
+            >
+              Your Growth Partner
+              <br />
+              in the Digital Era
+            </h2>
+            <p
+              className="text-[0.95rem] text-[#6b7280] mb-7 leading-relaxed"
+              style={{ fontFamily: "'DM Sans',sans-serif" }}
+            >
+              Let's create impact - fill in the form and we'll take it from
               there.
             </p>
 
-            <form onSubmit={submitHandler} ref={formRef}>
+            <form
+              onSubmit={submitHandler}
+              ref={formRef}
+              className="flex flex-col gap-4"
+            >
               <div className="grid grid-cols-2 gap-4 max-sm:grid-cols-1">
                 {[
                   {
                     id: "companyName",
                     label: "Company Name",
                     type: "text",
-                    placeholder: "Company Name",
+                    placeholder: "Acme Inc.",
                     required: true,
                   },
                   {
                     id: "name",
-                    label: "Name",
+                    label: "Your Name",
                     type: "text",
-                    placeholder: "Name",
+                    placeholder: "John Doe",
                     required: true,
                   },
                   {
                     id: "phone",
                     label: "Phone Number",
                     type: "tel",
-                    placeholder: "Phone Number",
+                    placeholder: "10-digit mobile",
                   },
                   {
                     id: "designation",
                     label: "Designation",
                     type: "text",
-                    placeholder: "Designation",
+                    placeholder: "Founder / CMO",
                   },
                 ].map(({ id, label, type, placeholder, required }) => (
-                  <div key={id} className="flex flex-col gap-2">
-                    <label htmlFor={id} className="text-base text-[#5f6577]">
+                  <div key={id} className="flex flex-col gap-1.5">
+                    <label
+                      htmlFor={id}
+                      className="text-[13px] font-semibold text-[#374151]"
+                      style={{ fontFamily: "'DM Sans',sans-serif" }}
+                    >
                       {label}
                     </label>
                     <input
@@ -639,80 +664,102 @@ const page = () => {
                                 [id]: e.target.value,
                               }))
                       }
-                      className="border border-[#e6e8f0] bg-white px-3 py-3.5 rounded-lg text-sm text-[#757575] outline-none transition-all focus:border-[#242448] focus:shadow-[0_0_0_3px_rgba(36,36,72,0.12)]"
+                      className={inputCls}
                     />
                   </div>
                 ))}
+              </div>
 
-                <div className="flex flex-col gap-2 col-span-2 max-sm:col-span-1">
-                  <label htmlFor="email" className="text-base text-[#5f6577]">
-                    Email Address
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="Email Address"
-                    required
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData((s) => ({ ...s, email: e.target.value }))
-                    }
-                    className="border border-[#e6e8f0] bg-white px-3 py-3.5 rounded-lg text-base text-[#757575] outline-none transition-all focus:border-[#242448] focus:shadow-[0_0_0_3px_rgba(36,36,72,0.12)]"
-                  />
-                </div>
+              <div className="flex flex-col gap-1.5">
+                <label
+                  htmlFor="email"
+                  className="text-[13px] font-semibold text-[#374151]"
+                  style={{ fontFamily: "'DM Sans',sans-serif" }}
+                >
+                  Email Address
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="you@company.com"
+                  required
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData((s) => ({ ...s, email: e.target.value }))
+                  }
+                  className={inputCls}
+                />
+              </div>
 
+              <div className="grid grid-cols-2 gap-4 max-sm:grid-cols-1">
                 {[
                   {
                     id: "budget",
                     label: "Monthly Marketing Budget",
                     options: [
                       "Monthly Marketing Budget",
-                      "Less Than Rs 2L Budget",
-                      "Rs 2L to Rs 5L",
-                      "Rs 5L to Rs 25L",
-                      "More Than 50L",
-                      "I am Looking For Organic Services",
+                      "Less Than ₹2L",
+                      "₹2L to ₹5L",
+                      "₹5L to ₹25L",
+                      "More Than ₹50L",
+                      "Looking For Organic Services",
                     ],
                   },
                   {
                     id: "service",
-                    label: "Choose A Service",
+                    label: "Choose a Service",
                     options: [
-                      "Choose A Service",
+                      "Choose a Service",
                       "SEO",
-                      "Paid Marketing (Google, Facebook & Amazon ads)",
+                      "Paid Marketing (Google, Facebook & Amazon)",
                       "UI/UX",
                       "Website Development",
-                      "Website Maintenance",
                       "Shopify Migration",
                     ],
                   },
                 ].map(({ id, label, options }) => (
-                  <div key={id} className="flex flex-col gap-2">
-                    <label htmlFor={id} className="text-base text-[#5f6577]">
+                  <div key={id} className="flex flex-col gap-1.5">
+                    <label
+                      htmlFor={id}
+                      className="text-[13px] font-semibold text-[#374151]"
+                      style={{ fontFamily: "'DM Sans',sans-serif" }}
+                    >
                       {label}
                     </label>
-                    <select
-                      id={id}
-                      name={id}
-                      value={formData[id]}
-                      onChange={(e) =>
-                        setFormData((s) => ({ ...s, [id]: e.target.value }))
-                      }
-                      className="border border-[#e6e8f0] bg-white px-3 py-3.5 rounded-lg text-base text-[#757575] outline-none transition-all focus:border-[#242448] appearance-none"
-                    >
-                      {options.map((o) => (
-                        <option key={o}>{o}</option>
-                      ))}
-                    </select>
+                    <div className="relative">
+                      <select
+                        id={id}
+                        name={id}
+                        value={formData[id]}
+                        onChange={(e) =>
+                          setFormData((s) => ({ ...s, [id]: e.target.value }))
+                        }
+                        className={`${inputCls} appearance-none pr-10`}
+                      >
+                        {options.map((o) => (
+                          <option key={o}>{o}</option>
+                        ))}
+                      </select>
+                      <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#aab0c4]">
+                        <svg
+                          className="w-4 h-4"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="m6 9 6 6 6-6" />
+                        </svg>
+                      </span>
+                    </div>
                   </div>
                 ))}
               </div>
 
               {status.message && (
                 <div
-                  className={`mt-2 p-3 rounded-lg text-base ${status.type === "error" ? "bg-[#fff1f1] text-[#a21d1d] border border-[#ffd6d6]" : "bg-[#e9f9ef] text-[#176a3a] border border-[#c6efcf]"}`}
+                  className={`p-3 rounded-xl text-sm ${status.type === "error" ? "bg-red-50 text-red-700 border border-red-200" : "bg-emerald-50 text-emerald-700 border border-emerald-200"}`}
                 >
                   {status.message}
                 </div>
@@ -721,113 +768,114 @@ const page = () => {
               <button
                 type="submit"
                 disabled={sending}
-                className="mt-4 w-full bg-[#130435] hover:bg-[#0d0325] text-white font-bold py-3.5 px-5 border-0 rounded-xl cursor-pointer transition-all active:translate-y-px disabled:opacity-65 disabled:cursor-not-allowed"
+                className="mt-1 w-full bg-[#0c0322] hover:bg-[#1a0550] text-white font-bold text-[0.95rem] py-3.5 px-5 rounded-xl cursor-pointer transition-all duration-200 active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed shadow-lg shadow-[#0c0322]/20"
               >
-                {sending ? "Sending..." : "Send Enquiry"}
+                {sending ? "Sending…" : "Send Enquiry →"}
               </button>
             </form>
           </div>
         </div>
       </section>
-      {/* Measurable Growth Section */}
-      <section className="py-16 bg-[#F9FAFB] px-4">
-        {/* Header */}
-        <div className="max-w-3xl mx-auto text-center px-4 mb-10">
-          <h1
-            className="text-[clamp(1.45rem,2.6vw,2.1rem)] font-bold tracking-tight leading-tight text-[#0c0322] mb-3"
-            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+
+      {/* ════════════════════════════════════════
+          SERVICES
+      ════════════════════════════════════════ */}
+      <section className="py-20 bg-white px-4">
+        <div className="max-w-3xl mx-auto text-center px-4 mb-14">
+          <h2
+            className="text-[clamp(1.6rem,3vw,2.4rem)] font-extrabold tracking-tight leading-tight text-[#0c0322] mb-3"
+            style={{ fontFamily: "'Plus Jakarta Sans',sans-serif" }}
           >
-            Performance Marketing Services That Drive Measurable Growth
-          </h1>
-          <p
-            className="text-[13.8px] leading-[1.75] text-[#5f6577]"
-            // style={{ fontFamily: "'DM Sans', sans-serif" }}
-          >
+            Performance Marketing Services
+            <br className="hidden md:block" /> That Drive Measurable Growth
+          </h2>
+          <p className="text-[0.95rem] leading-[1.8] text-[#6b7280]">
             Full-funnel Meta Ads and Google Ads management for Indian brands -
             every campaign built on data, every rupee accountable to a result.
           </p>
         </div>
 
-        {/* Cards grid */}
-        <div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-350 mx-auto lg:mx-auto rounded-lg overflow-hidden border border-[#0F032B]/20"
-          style={{ gap: "1px", background: "rgba(124,58,237,0.1)" }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto gap-5">
           {SEODECRIP.map((card) => (
             <div
               key={card.id}
-              className="bg-white flex flex-col px-6 py-6 border border-gray-100 hover:border-[#0F032B]/40 transition-all duration-400 ease-in-out"
+              className="group relative flex flex-col p-7 rounded-md border border-[#16064f3f] bg-white hover:border-[#150a4062]  transition-all duration-300 cursor-default overflow-hidden"
             >
-              <div className="flex items-center justify-between mb-4">
+              <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#0F032B] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+              <div className="flex items-start justify-between mb-5">
                 <span
-                  className="text-[2rem] font-extrabold leading-none tracking-tighter text-[#0c0322]/07 select-none"
-                  style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+                  className="text-[3rem] font-black leading-none text-[#0c0322]/20 select-none tabular-nums"
+                  style={{ fontFamily: "'Plus Jakarta Sans',sans-serif" }}
                 >
                   {String(card.id).padStart(2, "0")}
                 </span>
-                <span className="block w-6 h-0.5 rounded-full bg-linear-to-r from-[#0F032B] to-[#a78bfa]" />
+                <span className="mt-2 w-8 h-8  flex items-center justify-center flex-shrink-0  transition-colors duration-200">
+                  <span className="w-3 h-0.5 rounded-full bg-gradient-to-r from-[#0F032B] to-[#a78bfa]" />
+                </span>
               </div>
 
-              <h1 className="text-base font-bold text-[#0c0322] leading-snug mb-2">
+              <h3
+                className="text-[1rem] font-bold text-[#0c0322] leading-snug mb-2.5"
+                style={{ fontFamily: "'Plus Jakarta Sans',sans-serif" }}
+              >
                 {card.title}
-              </h1>
-              <p className="text-[13.8px] leading-[1.72] text-[#5f6577]">
+              </h3>
+              <p className="text-[0.875rem] leading-[1.75] text-[#6b7280] flex-1">
                 {card.description}
               </p>
             </div>
           ))}
         </div>
       </section>
-      {/* Strategy to Scale */}
-      <section className="w-full bg-[#0c0322] py-16 px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-4 max-w-[1300px] mx-auto">
-          {/* column 1 */}
-          <div className="lg:sticky lg:top-10 self-start pb-10 lg:pb-0 lg:pr-10">
-            <h1
-              className="text-[clamp(1.9rem,3vw,2.8rem)] font-extrabold leading-[1.08] tracking-tight text-white mb-5"
-              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+
+      {/* ════════════════════════════════════════
+          PROCESS
+      ════════════════════════════════════════ */}
+      <section className="w-full bg-[#0c0322] py-20 px-6 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-4 max-w-[1300px] mx-auto gap-10">
+          {/* Sticky heading */}
+          <div className="lg:sticky lg:top-10 self-start lg:pr-10">
+            <h2
+              className="text-[clamp(1.8rem,2.8vw,2.6rem)] font-extrabold leading-[1.1] tracking-tight text-white mb-5"
+              style={{ fontFamily: "'Plus Jakarta Sans',sans-serif" }}
             >
               Our Performance Marketing Process - From Strategy to Scale
-            </h1>
-
+            </h2>
             <p
-              className="text-base leading-[1.75] text-white/38"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
+              className="text-[0.9rem] leading-[1.8] text-white/38"
+              style={{ fontFamily: "'DM Sans',sans-serif" }}
             >
-              A structured campaign management process built for [COUNTRY]
-              businesses - from the first brief to fully optimised, profitably
-              scaling ads.
+              A structured campaign management process for Indian businesses -
+              from the first brief to fully optimised, profitably scaling ads.
             </p>
           </div>
 
-          {/* RIGHT - steps */}
-          <div className=" col-span-3">
-            {WorkStrategy.map((step, index) => (
+          {/* Steps */}
+          <div className="col-span-3 border-l border-white/[0.07]">
+            {WorkStrategy.map((step, i) => (
               <div
                 key={step.id}
-                className={`border-l border-white/07 flex gap-0 py-8 ${index !== WorkStrategy.length - 1 ? "border-b border-white/07" : ""}`}
+                className={`flex gap-0 py-8 ${i !== WorkStrategy.length - 1 ? "border-b border-white/[0.06]" : ""}`}
               >
-                {/* Number */}
                 <div className="w-20 flex-shrink-0 flex justify-center pt-0.5">
                   <span
-                    className="text-[13px] font-bold tracking-wide text-[#06d6a0]"
-                    style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+                    className="text-[12px] font-bold tracking-widest text-[#06d6a0]"
+                    style={{ fontFamily: "'Plus Jakarta Sans',sans-serif" }}
                   >
                     {String(step.id).padStart(2, "0")}
                   </span>
                 </div>
-
-                {/* Content */}
-                <div className="pr-8 ">
+                <div className="pr-6">
                   <p
-                    className="text-[15px] font-bold text-white leading-snug mb-2"
-                    style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+                    className="text-[1rem] font-bold text-white leading-snug mb-2"
+                    style={{ fontFamily: "'Plus Jakarta Sans',sans-serif" }}
                   >
                     {step.title}
                   </p>
                   <p
-                    className="text-[13.8px] leading-[1.58] text-white/42"
-                    style={{ fontFamily: "'DM Sans', sans-serif" }}
+                    className="text-[0.875rem] leading-[1.75] text-white/40"
+                    style={{ fontFamily: "'DM Sans',sans-serif" }}
                   >
                     {step.description}
                   </p>
@@ -837,44 +885,47 @@ const page = () => {
           </div>
         </div>
       </section>
-      {/* Why Choose Us */}
-      <section className="text-black py-12 px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-[1300px] mx-auto ">
-          {/* first column */}
-          <div className="flex flex-col gap-6 items-start justify-center">
-            <h1
-              className="text-[clamp(1.9rem,3vw,2.8rem)] font-extrabold leading-[1.08] tracking-tightmb-5"
-              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+
+      {/* ════════════════════════════════════════
+          WHY CHOOSE US
+      ════════════════════════════════════════ */}
+      <section className="py-20 bg-[#f7f8fc] px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-[1300px] mx-auto items-start">
+          {/* Left */}
+          <div className="flex flex-col gap-5 sticky top-10 self-start">
+            <h2
+              className="text-[clamp(1.8rem,3vw,2.6rem)] font-extrabold leading-[1.1] tracking-tight text-[#0c0322]"
+              style={{ fontFamily: "'Plus Jakarta Sans',sans-serif" }}
             >
-              Why [COUNTRY] Businesses Choose Unnity
-            </h1>
-            <span>
+              Why Indian Businesses Choose Unnity
+            </h2>
+            <p className="text-[0.95rem] leading-[1.8] text-[#6b7280]">
               We specialise exclusively in Meta and Google Ads. That focused
               expertise is what consistently delivers stronger results for our
               clients.
-            </span>
+            </p>
             <Link href="https://calendly.com/sayam-unnity/30min">
-              <button className="group flex items-center gap-3 bg-[#0f032b] text-white hover:bg-white hover:text-[#0f032b] hover:border hover:border-[#0f032b] px-6 py-2.5 rounded-full text-base font-medium overflow-hidden cursor-pointer transition-all duration-200 max-sm:w-full max-sm:justify-center">
+              <button className="group self-start flex items-center gap-3 bg-[#0c0322] text-white hover:bg-[#1a0550] px-6 py-2.5 rounded-full text-[0.9rem] font-semibold cursor-pointer transition-all duration-200">
                 Talk to our experts
-                <span className="relative w-7 h-7 overflow-hidden rounded-full bg-[#fff] text-black shrink-0">
+                <span className="relative w-7 h-7 overflow-hidden rounded-full bg-white text-[#0c0322] flex-shrink-0">
                   <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-8">
                     <svg
                       viewBox="0 0 24 24"
-                      className="w-5 h-5"
+                      className="w-4 h-4"
                       fill="none"
                       stroke="currentColor"
-                      strokeWidth="2"
+                      strokeWidth="2.5"
                     >
                       <path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                     </svg>
                   </span>
-                  <span className="absolute inset-0 flex items-center justify-center -translate-x-8 transition-transform duration-300 group-hover:translate-x-0 group-hover:bg-[#0f032b] group-hover:text-white">
+                  <span className="absolute inset-0 flex items-center justify-center -translate-x-8 transition-transform duration-300 group-hover:translate-x-0 group-hover:bg-[#0c0322] group-hover:text-white">
                     <svg
                       viewBox="0 0 24 24"
-                      className="w-5 h-5"
+                      className="w-4 h-4"
                       fill="none"
                       stroke="currentColor"
-                      strokeWidth="2"
+                      strokeWidth="2.5"
                     >
                       <path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                     </svg>
@@ -883,24 +934,30 @@ const page = () => {
               </button>
             </Link>
           </div>
-          {/* sec column */}
-          <div>
+
+          {/* Right - cards */}
+          <div className="flex flex-col gap-3">
             {ChooseUs.map((card) => (
               <div
                 key={card.id}
-                className="flex items-center gap-5 border border-[#e8e0d0] rounded-md p-4 shadow-[0_8px_48px_rgba(17,24,39,0.07)] mb-5"
+                className="group flex items-start gap-4 p-5 rounded-md border border-[#16064f3f] bg-white hover:border-[#150a4062]  transition-all duration-300 cursor-default overflow-hidden"
               >
-                <span className="text-[2.4rem] font-extrabold leading-none tracking-tighter text-[#0c0322]/07 mb-4 select-none">
-                  {String(card.id).padStart(2, "0")}
-                </span>
-
-                <span className="block w-7 h-0.5 rounded-full bg-linear-to-r from-[#0F032B] to-[#a78bfa] mb-3" />
-
+                <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center transition-colors duration-200">
+                  <span
+                    className="text-[13px] font-black text-[#0F032B]"
+                    style={{ fontFamily: "'Plus Jakarta Sans',sans-serif" }}
+                  >
+                    {String(card.id).padStart(2, "0")}
+                  </span>
+                </div>
                 <div>
                   <p
-                    className="text-[13.8px] leading-[1.5] text-[#2b2b2b] max-sm:text-base"
-                    style={{ fontFamily: "'DM Sans', sans-serif" }}
+                    className="text-[0.95rem] font-bold text-[#0c0322] mb-1"
+                    style={{ fontFamily: "'Plus Jakarta Sans',sans-serif" }}
                   >
+                    {card.title}
+                  </p>
+                  <p className="text-[0.875rem] leading-[1.7] text-[#6b7280]">
                     {card.description}
                   </p>
                 </div>
@@ -909,51 +966,51 @@ const page = () => {
           </div>
         </div>
       </section>
-      {/* Why Do Differently */}
-      <section className="px-4">
-        <div className="max-w-3xl mx-auto text-center px-4 mb-10">
-          <h1
-            className="text-[clamp(1.45rem,2.6vw,2.1rem)] font-bold tracking-tight leading-tight text-[#0c0322] mb-3"
-            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+
+      {/* ════════════════════════════════════════
+          WHAT WE DO DIFFERENTLY
+      ════════════════════════════════════════ */}
+      <section className="py-20 bg-white px-4">
+        <div className="max-w-3xl mx-auto text-center mb-14">
+          <h2
+            className="text-[clamp(1.6rem,3vw,2.4rem)] font-extrabold tracking-tight leading-tight text-[#0c0322] mb-3"
+            style={{ fontFamily: "'Plus Jakarta Sans',sans-serif" }}
           >
-            What We Do Differently in Performance Marketing
-          </h1>
-          <p className="text-[13.8px] leading-[1.75] text-[#5f6577]">
+            What We Do Differently
+            <br className="hidden md:block" /> in Performance Marketing
+          </h2>
+          <p className="text-[0.95rem] leading-[1.8] text-[#6b7280]">
             Most agencies set campaigns live and step back.{" "}
-            <strong>
-              We stay in — every week, every metric, every decision.
-            </strong>{" "}
+            <strong className="text-[#0c0322]">
+              We stay in - every week, every metric, every decision.
+            </strong>
             Here is exactly what that looks like in practice.
           </p>
         </div>
-        {/*Card Grid  */}
-        <div
-          className="max-w-[1300px] w-full mx-auto grid grid-cols-1 md:grid-cols-4 rounded-md gap-2 overflow-hidden border border-[#0F032B]/20"
-          style={{ gap: "1px", background: "rgba(12,3,34,0.08)" }}
-        >
+
+        <div className="max-w-[1300px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {WeDifferently.map((card) => (
             <div
               key={card.id}
-              className="bg-white flex flex-col px-6 py-6  border border-gray-100 hover:border-[#0F032B]/40 transition-all duration-400 ease-in-out"
+              className="group relative flex flex-col p-6 rounded-md border border-[#16064f3f] bg-white hover:border-[#150a4062]  transition-all duration-300 cursor-default overflow-hidden"
             >
-              {/* Number + line row */}
-              <div className="flex items-center justify-between mb-4">
-                <span
-                  className="text-[2rem] font-extrabold leading-none tracking-tighter text-[#0c0322]/07 select-none"
-                  style={{ fontFamily: "'Unbound', sans-serif" }}
-                >
-                  {String(card.id).padStart(2, "0")}
-                </span>
-                <span className="block w-6 h-0.5 rounded-full bg-linear-to-r from-[#0F032B] to-[#a78bfa]" />
-              </div>
+              <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#0F032B] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-              {/* Title */}
-              <p className="text-base font-bold text-[#0c0322] leading-snug mb-2">
+              {/* Number */}
+              <span
+                className="text-[2.8rem] font-black leading-none text-[#0c0322]/20 select-none tabular-nums mb-4"
+                style={{ fontFamily: "'Plus Jakarta Sans',sans-serif" }}
+              >
+                {String(card.id).padStart(2, "0")}
+              </span>
+
+              <p
+                className="text-[0.95rem] font-bold text-[#0c0322] leading-snug mb-2"
+                style={{ fontFamily: "'Plus Jakarta Sans',sans-serif" }}
+              >
                 {card.title}
               </p>
-
-              {/* Description */}
-              <p className="text-[13.8px] leading-[1.75] text-[#5f6577]">
+              <p className="text-[0.85rem] leading-[1.75] text-[#6b7280] flex-1">
                 {card.description}
               </p>
             </div>
