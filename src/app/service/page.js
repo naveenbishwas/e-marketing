@@ -5,6 +5,7 @@ import FloatingLines from "@/components/reactBits/FloatingLines";
 import LightRays from "@/components/reactBits/LightRays";
 import Link from "next/link";
 import Image from "next/image";
+import Footer from "@/components/footer/page";
 
 const page = () => {
   const formRef = useRef(null);
@@ -1491,6 +1492,8 @@ const page = () => {
           ))}
         </div>
       </section>
+      {/* Footer */}
+      <Footer />
     </>
   );
 };
