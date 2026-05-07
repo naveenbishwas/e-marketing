@@ -10,6 +10,7 @@ const page = () => {
   const formRef = useRef(null);
   const sectionRef = useRef(null);
   const [sending, setSending] = useState(false);
+  const [faqOpen, setFaqOpen] = useState(false);
   const [status, setStatus] = useState({ type: "", message: "" });
   const [formData, setFormData] = useState({
     companyName: "",
@@ -285,6 +286,39 @@ const page = () => {
         "We tried three agencies before Unnity. First team that genuinely understood our business and built campaigns around our goals - not their commission.",
     },
   ];
+  // FAQS
+  const Faqs = [
+    {
+      id: 1,
+      q: "What is performance marketing and how does it work?",
+      a: "Performance marketing ties every rupee of spend to a measurable outcome - clicks, leads, or sales. We run Meta and Google campaigns where every result is tracked in real time, and we optimise continuously to improve performance over the engagement.",
+    },
+    {
+      id: 2,
+      q: `How much does performance marketing cost in [COUNTRY]?`,
+      a: `Fees depend on campaign scope and ad spend levels. We work with brands across a range of budgets - from growing startups to scaling D2C businesses. Book a free strategy call for a clear picture of what a realistic budget looks like for your goals in [COUNTRY].`,
+    },
+    {
+      id: 3,
+      q: `How long before I see results from Meta or Google Ads?`,
+      a: `Most clients see meaningful data within 2–4 weeks. Campaigns exit the learning phase around weeks 3–4, after which aggressive optimisation begins. Significant ROAS improvement is typically visible within 60–90 days of a well-structured campaign launch.`,
+    },
+    {
+      id: 4,
+      q: `Do you work with businesses remotely across [COUNTRY]?`,
+      a: `Yes - our entire workflow is remote-first. We work with clients across India and internationally through structured onboarding, weekly calls, shared dashboards, and a dedicated communication channel. Location is never a barrier.`,
+    },
+    {
+      id: 5,
+      q: `What makes Unnity different from other agencies?`,
+      a: `We specialise exclusively in Meta and Google Ads - not SEO, influencer, or PR. That focus means deeper expertise and better results in the channels that matter most. Radical transparency is built into everything we do.`,
+    },
+    {
+      id: 6,
+      q: `What industries do you work with in [COUNTRY]?`,
+      a: `D2C, e-commerce, publishing, SaaS, real estate, healthcare, hospitality, and B2B services. We tailor our approach to each industry's buying cycle and audience behaviour - what works for a fashion brand won't work for a B2B company, and we know the difference.`,
+    },
+  ];
 
   const inputCls =
     "w-full border border-[#e2e5f0] bg-[#fafbff] px-4 py-3 rounded-xl text-sm text-[#1a1a2e] placeholder:text-[#aab0c4] outline-none transition-all duration-200 focus:border-[#7c3aed] focus:bg-white focus:shadow-[0_0_0_3px_rgba(124,58,237,0.1)]";
@@ -318,7 +352,7 @@ const page = () => {
           }}
         />
         <div
-          className="absolute inset-0 z-[1] pointer-events-none"
+          className="absolute inset-0 z-1 pointer-events-none"
           style={{
             backgroundImage:
               "linear-gradient(rgba(167,139,250,0.11) 1px,transparent 1px),linear-gradient(90deg,rgba(167,139,250,0.11) 1px,transparent 1px)",
@@ -329,10 +363,10 @@ const page = () => {
               "radial-gradient(280px circle at var(--mx) var(--my),black 0%,transparent 100%)",
           }}
         />
-        <div className="absolute inset-0 z-2 bg-gradient-to-b from-[#0F032B]/80 via-[#0F032B]/40 to-[#0F032B]/90 pointer-events-none" />
+        <div className="absolute inset-0 z-2 bg-linear-to-b from-[#0F032B]/80 via-[#0F032B]/40 to-[#0F032B]/90 pointer-events-none" />
 
         {/* Light rays desktop */}
-        <div className="w-full h-[850px] absolute -bottom-2 z-10 hidden md:block">
+        <div className="w-full h-212.5 absolute -bottom-2 z-10 hidden md:block">
           <LightRays
             raysOrigin="bottom-center"
             raysColor="#ffffff"
@@ -365,8 +399,8 @@ const page = () => {
         </div>
 
         {/* Ambient glows */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[450px] rounded-full bg-[#6d28d9]/8 blur-[140px] z-2 pointer-events-none" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] rounded-full bg-[#4c1d95]/5 blur-[110px] z-2 pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-175 h-112.5 rounded-full bg-[#6d28d9]/8 blur-[140px] z-2 pointer-events-none" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-175 h-75 rounded-full bg-[#4c1d95]/5 blur-[110px] z-2 pointer-events-none" />
 
         {/* Left rail */}
         <div className="absolute left-0 top-0 bottom-0 w-14 z-3 hidden lg:flex flex-col items-center justify-between py-10 pointer-events-none select-none">
@@ -374,7 +408,7 @@ const page = () => {
             className="flex flex-col items-center gap-3"
             style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
           >
-            <span className="w-px h-10 bg-gradient-to-t from-white/15 to-transparent" />
+            <span className="w-px h-10 bg-linear-to-t from-white/15 to-transparent" />
             <span
               className="text-[10px] font-semibold tracking-[0.25em] uppercase text-white/20"
               style={{ fontFamily: "'DM Sans',sans-serif" }}
@@ -408,7 +442,7 @@ const page = () => {
             </span>
             <span className="w-px h-10 bg-linear-to-b from-white/15 to-transparent" />
           </div>
-          <div className="absolute right-0 top-0 bottom-0 w-px bg-linear-to-b from-transparent via-white/[0.06] to-transparent" />
+          <div className="absolute right-0 top-0 bottom-0 w-px bg-linear-to-b from-transparent via-white/6 to-transparent" />
         </div>
 
         {/* Right rail */}
@@ -524,7 +558,7 @@ const page = () => {
                   className={`group flex items-center gap-3 px-6 py-2.5 rounded-full text-[0.9rem] font-semibold overflow-hidden cursor-pointer transition-all duration-200 ${primary ? "bg-[#0f032b] text-white border border-white/20 hover:bg-white hover:text-[#0f032b]" : "bg-white text-[#0f032b] hover:bg-[#0f032b] hover:text-white hover:border hover:border-white"} max-sm:w-full max-sm:justify-center`}
                 >
                   {label}
-                  <span className="relative w-7 h-7 overflow-hidden rounded-full bg-[#0f032b] text-white flex-shrink-0">
+                  <span className="relative w-7 h-7 overflow-hidden rounded-full bg-[#0f032b] text-white shrink-0">
                     <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-8">
                       <svg
                         viewBox="0 0 24 24"
@@ -610,10 +644,8 @@ const page = () => {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════
-          LEAD FORM
-      ════════════════════════════════════════ */}
-      <section className="bg-[#f7f8fc] py-16 px-4">
+      {/* Lead form */}
+      <section className="bg-[#f7f8fc] py-12 px-4">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Image */}
           <div className="relative max-lg:max-w-sm max-lg:mx-auto">
@@ -870,7 +902,7 @@ const page = () => {
 
       {/* Process */}
       <section className="w-full bg-[#0c0322] py-20 px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-4 max-w-[1300px] mx-auto gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-4 max-w-325 mx-auto gap-10">
           {/* Sticky heading */}
           <div className="lg:sticky lg:top-10 self-start lg:pr-10">
             <h2
@@ -893,7 +925,7 @@ const page = () => {
             {WorkStrategy.map((step, i) => (
               <div
                 key={step.id}
-                className={`flex gap-0 py-8 ${i !== WorkStrategy.length - 1 ? "border-b border-white/[0.06]" : ""}`}
+                className={`flex gap-0 py-8 ${i !== WorkStrategy.length - 1 ? "border-b border-white/6" : ""}`}
               >
                 <div className="w-20 shrink-0 flex justify-center pt-0.5">
                   <span
@@ -925,7 +957,7 @@ const page = () => {
 
       {/* Why Choose Us */}
       <section className="py-20 bg-[#f7f8fc] px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-[1300px] mx-auto items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-325 mx-auto items-start">
           {/* Left */}
           <div className="flex flex-col gap-5 sticky top-10 self-start">
             <h2
@@ -1021,7 +1053,7 @@ const page = () => {
           </p>
         </div>
 
-        <div className="max-w-[1300px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="max-w-325 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {WeDifferently.map((card) => (
             <div
               key={card.id}
@@ -1091,12 +1123,11 @@ const page = () => {
 
         {/* ── Row 2: right → left ── */}
         <div className="relative w-full group">
-          <div className="absolute left-0 top-0 bottom-0 w-28 z-10 pointer-events-none bg-gradient-to-r from-white to-transparent" />
-          <div className="absolute right-0 top-0 bottom-0 w-28 z-10 pointer-events-none bg-gradient-to-l from-white to-transparent" />
-
+          <div className="absolute left-0 top-0 bottom-0 w-28 z-10 pointer-events-none bg-linear-to-r from-white to-transparent" />
+          <div className="absolute right-0 top-0 bottom-0 w-28 z-10 pointer-events-none bg-linear-to-l from-white to-transparent" />
           <div className="flex w-max animate-marquee-right group-hover:[animation-play-state:paused]">
             {[...Brands, ...Brands].map((brand, i) => (
-              <div key={i} className="flex items-center flex-shrink-0">
+              <div key={i} className="flex items-center shrink-0">
                 <span
                   className="whitespace-nowrap px-5 py-2.5 rounded-full border border-[#ece9f8] bg-[#faf9ff] text-[#0c0322] text-[0.875rem] font-semibold hover:border-[#c4b5fd] hover:bg-[#f5f3ff] hover:text-[#0b0537] transition-all duration-200 cursor-default"
                   style={{ fontFamily: "'Plus Jakarta Sans',sans-serif" }}
@@ -1124,7 +1155,7 @@ const page = () => {
       `}</style>
       </section>
       {/* Real Results for Real Brands */}
-      <section className="w-full bg-white py-16 px-5">
+      <section className="w-full bg-white py-12 px-5">
         <div className="max-w-3xl mx-auto text-center mb-14 px-4">
           <h2
             className="text-[clamp(1.6rem,3vw,2.4rem)] font-extrabold tracking-tight leading-tight text-[#0c0322] mb-3"
@@ -1141,7 +1172,7 @@ const page = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-[1300px] mx-auto gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-325 mx-auto gap-5">
           {/* first card */}
           <div className="rounded-md border border-[#16064f3f] bg-white hover:border-[#150a4062]  transition-all duration-300 cursor-default overflow-hidden0 flex flex-col">
             <div className="bg-[#0f032be2] px-6 pt-6 pb-7 rounded-t-md backdrop-blur-sm">
@@ -1318,7 +1349,7 @@ const page = () => {
         </div>
       </section>
       {/* Whtat our clients say */}
-      <section className="w-full bg-white py-16 px-5">
+      <section className="w-full bg-white py-12 px-5">
         <div className="max-w-3xl mx-auto text-center mb-14 px-4">
           <h2
             className="text-[clamp(1.6rem,3vw,2.4rem)] font-extrabold tracking-tight leading-tight text-[#0c0322] mb-3"
@@ -1335,11 +1366,11 @@ const page = () => {
         </div>
 
         {/* Reviews */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-[1100px] mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-275 mx-auto">
           {reviews.map((r) => (
             <div
               key={r.id}
-              className="relative bg-white border border-[#0F032B]/09 rounded-md px-6 py-7 flex flex-col"
+              className="relative border border-[#16064f3f] bg-white hover:border-[#150a4062]  transition-all duration-300 rounded-md px-6 py-7 flex flex-col"
             >
               <span
                 className="absolute top-4 right-5 text-[3rem] font-extrabold leading-none text-gray-200 select-none"
@@ -1367,7 +1398,7 @@ const page = () => {
               {/* Reviewer */}
               <div className="flex items-center gap-2.5">
                 <div
-                  className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 text-[13px] font-bold text-white"
+                  className="w-9 h-9 rounded-full flex items-center justify-center shrink-0 text-[13px] font-bold text-white"
                   style={{
                     background: "linear-gradient(135deg, #0F032B, #a78bfa)",
                     fontFamily: "'Plus Jakarta Sans',sans-serif",
@@ -1393,6 +1424,68 @@ const page = () => {
                     {r.title}
                   </p>
                 </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+      {/* Faq Section */}
+      <section className="w-full bg-white py-12 px-5">
+        <div className="max-w-3xl mx-auto text-center mb-14 px-4">
+          <h2
+            className="text-[clamp(1.6rem,3vw,2.4rem)] font-extrabold tracking-tight leading-tight text-[#0c0322] mb-3"
+            style={{ fontFamily: "'Plus Jakarta Sans',sans-serif" }}
+          >
+            Frequently Asked Questions
+          </h2>
+          <p
+            className="text-[0.95rem] leading-[1.8] text-[#6b7280]"
+            style={{ fontFamily: "'DM Sans',sans-serif" }}
+          >
+            Common questions from [COUNTRY] businesses exploring performance
+            marketing with Unnity.
+          </p>
+        </div>
+        {/* Faqs */}
+        <div className="max-w-4xl w-full mx-auto border border-[#16064f3f] bg-white hover:border-[#150a4062]  transition-all duration-300 ease-in-out rounded-md">
+          {Faqs.map((f) => (
+            <div
+              key={f.id}
+              onClick={() => setFaqOpen(faqOpen === f.id ? null : f.id)}
+              className="cursor-pointer border border-[#16064f3f] hover:border-[#150a4062] overflow-hidden"
+            >
+              {/* Question row */}
+              <div className="flex items-center justify-between px-5 py-4">
+                <span
+                  className="text-base font-medium text-[#0c0322] pr-4"
+                  style={{ fontFamily: "'Plus Jakarta Sans',sans-serif" }}
+                >
+                  {f.q}
+                </span>
+                <span
+                  className="text-[#a78bfa] text-xl font-bold shrink-0 transition-transform duration-300"
+                  style={{
+                    transform:
+                      faqOpen === f.id ? "rotate(45deg)" : "rotate(0deg)",
+                  }}
+                >
+                  +
+                </span>
+              </div>
+
+              <div
+                className=" bg-gray-50 transition-all duration-400 ease-in-out"
+                style={{
+                  maxHeight: faqOpen === f.id ? "400px" : "0px",
+                  opacity: faqOpen === f.id ? 1 : 0,
+                }}
+              >
+                <p
+                  className="px-5 pb-5 text-[13.5px] leading-[1.78] text-[#6b7280]"
+                  style={{ fontFamily: "'DM Sans',sans-serif" }}
+                >
+                  {f.a}
+                </p>
               </div>
             </div>
           ))}
