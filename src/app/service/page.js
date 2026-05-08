@@ -291,13 +291,13 @@ const page = () => {
   const Faqs = [
     {
       id: 1,
-      q: "What is performance marketing and how does it work?",
-      a: "Performance marketing ties every rupee of spend to a measurable outcome - clicks, leads, or sales. We run Meta and Google campaigns where every result is tracked in real time, and we optimise continuously to improve performance over the engagement.",
+      q: "What is performance marketing agency?",
+      a: `A performance marketing agency is a results-focused marketing firm dedicated to achieving specific, measurable outcomes such as sales, leads, and clicks.Unlike traditional marketing agencies that emphasise brand awareness or overall market presence, performance marketing agencies concentrate on delivering tangible results that generate immediate impact, driving direct actions like lead generation and sales conversions.This laser focus on performance metrics ensures that every campaign is designed to maximise ROI and produce quantifiable success.`,
     },
     {
       id: 2,
-      q: `How much does performance marketing cost in [COUNTRY]?`,
-      a: `Fees depend on campaign scope and ad spend levels. We work with brands across a range of budgets - from growing startups to scaling D2C businesses. Book a free strategy call for a clear picture of what a realistic budget looks like for your goals in [COUNTRY].`,
+      q: `Is a performance marketing agency right for my business? `,
+      a: `If you aim to maximise ROI and pay solely for results, partnering with a Brisbane performance marketing agency like farsiight is a smart choice.We have collaborated with tons of tech startups, SaaS companies, eCommerce businesses, and heaps more Brissie brands with a performance model that reduces risk and ensures accountability.`,
     },
     {
       id: 3,

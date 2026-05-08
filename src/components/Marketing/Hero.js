@@ -20,7 +20,7 @@ const Hero = () => {
           <p className="text-sm sm:text-balance">
             {" "}
             "End-to-end marketing services that blend strategy, creative, and
-            performance analytics to deliver real results
+            performance analytics to deliver real results.
           </p>
         </div>
       </div>

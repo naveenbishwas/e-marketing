@@ -69,9 +69,7 @@ const Process = () => {
             Our Proven Growth Lifecycle
           </h2>
         </div>
-        {/* mobile or sm screen below md stepper */}
         <div className="md:hidden mb-6">
-          {/* Big step counter */}
           <div className="flex justify-center mb-2">
             <AnimatePresence mode="wait">
               <motion.span
@@ -87,7 +85,7 @@ const Process = () => {
             </AnimatePresence>
           </div>
 
-          {/* Content — clean no card */}
+          {/* Content  */}
           <AnimatePresence mode="wait">
             {activeStep && (
               <motion.div
