@@ -270,27 +270,27 @@ const page = () => {
   const reviews = [
     {
       id: 1,
-      name: "Rohan Malhotra",
-      title: "Founder, D2C Apparel Brand",
+      name: "Sneha R.",
+      title: "Co-founder, D2C Clothing Brand",
       stars: 5,
       review:
-        "Unnity completely transformed our Meta campaigns. ROAS went from 1.8× to 4.5× in three months - without increasing our budget. Exceptional team.",
+        "Honestly we had tried running ads ourselves before coming to Unnity and it was just money going down the drain. These guys cleaned up our targeting, tightened the creatives and our ROAS went from 1.8x to 4.2x in about 2 months. Not what I expected honestly",
     },
     {
       id: 2,
-      name: "Priya S.",
-      title: "Marketing Head, SaaS Company",
+      name: "Daksh M.",
+      title: "Founder, B2B Services Company",
       stars: 4.9,
       review:
-        "The reporting alone is worth it - we finally understood what our ads were doing. Strategy is sharp and results have stayed consistent month after month.",
+        "The leads were coming in but nobody was buying. Unnity looked at the full picture, not just the ads, and completely rebuilt our Google strategy. CPL is down and the quality of enquiries is so much better now. Wish we had made the switch sooner",
     },
     {
       id: 3,
-      name: "Aditya K.",
-      title: "CEO, B2B Services Firm",
+      name: "Meera T.",
+      title: "Founder, Skincare Brand",
       stars: 5,
       review:
-        "We tried three agencies before Unnity. First team that genuinely understood our business and built campaigns around our goals - not their commission.",
+        "What I appreciated most  is that they told us what wasn't working and why, not just what we wanted to hear. Rare quality in an agency.",
     },
   ];
   // FAQS
@@ -862,15 +862,15 @@ const page = () => {
 
       {/* Services */}
       <section className="py-20 bg-white px-4">
-        <div className="max-w-3xl mx-auto text-center px-4 mb-14">
+        <div className="max-w-4xl mx-auto text-center px-4 mb-14">
           <h2
             className="text-[clamp(1.6rem,3vw,2.4rem)] font-extrabold tracking-tight leading-tight text-[#0c0322] mb-3"
             style={{ fontFamily: "'Plus Jakarta Sans',sans-serif" }}
           >
-            Performance Marketing Services
-            <br className="hidden md:block" /> That Drive Measurable Growth
+            Meta Ads & Google Ads Management
+            <br className="hidden md:block" /> That Turns Ad Spend Into Revenue
           </h2>
-          <p className="text-[0.95rem] leading-[1.8] text-[#6b7280]">
+          <p className=" max-w-3xl text-[0.95rem] leading-[1.8] text-[#6b7280]">
             Full-funnel Meta Ads and Google Ads management for {country} brands
             - every campaign built on data, every rupee accountable to a result.
           </p>
@@ -1535,7 +1535,7 @@ const page = () => {
                       className="text-[13.5px] font-bold text-white pr-6 pt-px leading-snug flex items-start gap-2"
                       style={{ fontFamily: "'Plus Jakarta Sans',sans-serif" }}
                     >
-                      <span className="w-[5px] h-[5px] rounded-full bg-[#06d6a0] flex-shrink-0 mt-1.5" />
+                      <span className="w-[5px] h-1.25 rounded-full bg-[#06d6a0] flex-shrink-0 mt-1.5" />
                       {city}
                     </p>
                     <div className="grid grid-cols-4 gap-0">
