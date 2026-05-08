@@ -297,22 +297,25 @@ const page = () => {
     {
       id: 2,
       q: `Is a performance marketing agency right for my business? `,
-      a: `If you aim to maximise ROI and pay solely for results, partnering with a Brisbane performance marketing agency like farsiight is a smart choice.We have collaborated with tons of tech startups, SaaS companies, eCommerce businesses, and heaps more Brissie brands with a performance model that reduces risk and ensures accountability.`,
+      a: `If you aim to maximise ROI and get measurable results from every rupee spent, partnering with a performance marketing agency like Unnity is a smart choice. We have collaborated with D2C brands, eCommerce businesses, SaaS companies, and more - with a performance model that reduces risk and ensures accountability.`,
     },
     {
       id: 3,
-      q: `How long before I see results from Meta or Google Ads?`,
-      a: `Most clients see meaningful data within 2–4 weeks. Campaigns exit the learning phase around weeks 3–4, after which aggressive optimisation begins. Significant ROAS improvement is typically visible within 60–90 days of a well-structured campaign launch.`,
+      q: ` Does Unnity have a specialty?`,
+      a: `Yes, we specialise in performance marketing and creative solutions for online businesses. From Meta Ads to Google Ads and beyond, we have extensive experience in paid media across various industries, including eCommerce, D2C Fashion, Hospitality, B2B, and more. Every campaign we run is tied to clear goals - whether that's revenue, leads, or growth `,
     },
     {
       id: 4,
-      q: `Do you work with businesses remotely across [COUNTRY]?`,
-      a: `Yes - our entire workflow is remote-first. We work with clients across India and internationally through structured onboarding, weekly calls, shared dashboards, and a dedicated communication channel. Location is never a barrier.`,
+      q: `What are the key metrics used to measure performance marketing success? `,
+      a: ` In performance marketing, success isn't about how many people just saw your ad — it's about what meaningful actions they took. To measure that, we rely on clear, data-backed metrics that show actual performance.`,
     },
     {
       id: 5,
       q: `What makes Unnity different from other agencies?`,
-      a: `We specialise exclusively in Meta and Google Ads - not SEO, influencer, or PR. That focus means deeper expertise and better results in the channels that matter most. Radical transparency is built into everything we do.`,
+      a: `Unnity delivers high-impact performance marketing services in India across a wide range of industries. Our expertise spans E-commerce, D2C Fashion, Hospitality, EdTech, Real Estate, SaaS, B2B, and several other sectors.
+      What sets us apart is our ability to adapt strategies based on each industry's unique audience behavior and conversion goals. Whether it's driving product sales for a D2C brand, generating quality leads for a hospitality business, or scaling user acquisition for a SaaS platform — we tailor every campaign with precision.
+      Our data-driven approach ensures measurable growth, regardless of the vertical. Every strategy we build is rooted in real numbers, clear KPIs, and a relentless focus on ROI.
+      If you're in a competitive market and looking to scale smartly, Unnity is the performance marketing agency in India that delivers results across industries.`,
     },
     {
       id: 6,
