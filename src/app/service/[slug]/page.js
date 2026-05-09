@@ -6,10 +6,14 @@ import LightRays from "@/components/reactBits/LightRays";
 import Link from "next/link";
 import Image from "next/image";
 import Footer from "@/components/footer/page";
+import { useParams } from "next/navigation";
+import countryKeywords from "./../../../data/countryKeywords.json";
 
 const page = () => {
   const formRef = useRef(null);
   const sectionRef = useRef(null);
+  const params = useParams();
+  const country = params.slug;
   const [sending, setSending] = useState(false);
   const [faqOpen, setFaqOpen] = useState(false);
   const [status, setStatus] = useState({ type: "", message: "" });
@@ -22,6 +26,10 @@ const page = () => {
     service: "",
     designation: "",
   });
+
+  const keywords = countryKeywords?.find(
+    (item) => item.country === country.toUpperCase(),
+  );
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -96,8 +104,7 @@ const page = () => {
     {
       id: 2,
       title: "Google Ads Management",
-      description:
-        "Search, Shopping, Display, and Performance Max campaigns built to maximise ROAS and eliminate wasted spend - structured Google Ads management for [COUNTRY] businesses.",
+      description: `Search, Shopping, Display, and Performance Max campaigns built to maximise ROAS and eliminate wasted spend - structured Google Ads management for ${country} businesses.`,
     },
     {
       id: 3,
@@ -135,8 +142,7 @@ const page = () => {
     {
       id: 2,
       title: "Audience Research & Targeting Strategy",
-      description:
-        "Detailed audience maps built for [COUNTRY] - interest clusters, custom segments, lookalikes, and retargeting pools - grounded in real market data and competitor intelligence, not guesswork.",
+      description: `Detailed audience maps built for ${country} businesses - interest clusters, custom segments, lookalikes, and retargeting pools - grounded in real market data and competitor intelligence, not guesswork.`,
     },
     {
       id: 3,
@@ -264,27 +270,27 @@ const page = () => {
   const reviews = [
     {
       id: 1,
-      name: "Rohan Malhotra",
-      title: "Founder, D2C Apparel Brand",
+      name: "Sneha R.",
+      title: "Co-founder, D2C Clothing Brand",
       stars: 5,
       review:
-        "Unnity completely transformed our Meta campaigns. ROAS went from 1.8× to 4.5× in three months - without increasing our budget. Exceptional team.",
+        "Honestly we had tried running ads ourselves before coming to Unnity and it was just money going down the drain. These guys cleaned up our targeting, tightened the creatives and our ROAS went from 1.8x to 4.2x in about 2 months. Not what I expected honestly",
     },
     {
       id: 2,
-      name: "Priya S.",
-      title: "Marketing Head, SaaS Company",
+      name: "Daksh M.",
+      title: "Founder, B2B Services Company",
       stars: 4.9,
       review:
-        "The reporting alone is worth it - we finally understood what our ads were doing. Strategy is sharp and results have stayed consistent month after month.",
+        "The leads were coming in but nobody was buying. Unnity looked at the full picture, not just the ads, and completely rebuilt our Google strategy. CPL is down and the quality of enquiries is so much better now. Wish we had made the switch sooner",
     },
     {
       id: 3,
-      name: "Aditya K.",
-      title: "CEO, B2B Services Firm",
+      name: "Meera T.",
+      title: "Founder, Skincare Brand",
       stars: 5,
       review:
-        "We tried three agencies before Unnity. First team that genuinely understood our business and built campaigns around our goals - not their commission.",
+        "What I appreciated most  is that they told us what wasn't working and why, not just what we wanted to hear. Rare quality in an agency.",
     },
   ];
   // FAQS
@@ -297,26 +303,29 @@ const page = () => {
     {
       id: 2,
       q: `Is a performance marketing agency right for my business? `,
-      a: `If you aim to maximise ROI and pay solely for results, partnering with a Brisbane performance marketing agency like farsiight is a smart choice.We have collaborated with tons of tech startups, SaaS companies, eCommerce businesses, and heaps more Brissie brands with a performance model that reduces risk and ensures accountability.`,
+      a: `If you aim to maximise ROI and get measurable results from every rupee spent, partnering with a performance marketing agency like Unnity is a smart choice. We have collaborated with D2C brands, eCommerce businesses, SaaS companies, and more - with a performance model that reduces risk and ensures accountability.`,
     },
     {
       id: 3,
-      q: `How long before I see results from Meta or Google Ads?`,
-      a: `Most clients see meaningful data within 2–4 weeks. Campaigns exit the learning phase around weeks 3–4, after which aggressive optimisation begins. Significant ROAS improvement is typically visible within 60–90 days of a well-structured campaign launch.`,
+      q: ` Does Unnity have a specialty?`,
+      a: `Yes, we specialise in performance marketing and creative solutions for online businesses. From Meta Ads to Google Ads and beyond, we have extensive experience in paid media across various industries, including eCommerce, D2C Fashion, Hospitality, B2B, and more. Every campaign we run is tied to clear goals - whether that's revenue, leads, or growth `,
     },
     {
       id: 4,
-      q: `Do you work with businesses remotely across [COUNTRY]?`,
-      a: `Yes - our entire workflow is remote-first. We work with clients across India and internationally through structured onboarding, weekly calls, shared dashboards, and a dedicated communication channel. Location is never a barrier.`,
+      q: `What are the key metrics used to measure performance marketing success? `,
+      a: ` In performance marketing, success isn't about how many people just saw your ad — it's about what meaningful actions they took. To measure that, we rely on clear, data-backed metrics that show actual performance.`,
     },
     {
       id: 5,
       q: `What makes Unnity different from other agencies?`,
-      a: `We specialise exclusively in Meta and Google Ads - not SEO, influencer, or PR. That focus means deeper expertise and better results in the channels that matter most. Radical transparency is built into everything we do.`,
+      a: `Unnity delivers high-impact performance marketing services in India across a wide range of industries. Our expertise spans E-commerce, D2C Fashion, Hospitality, EdTech, Real Estate, SaaS, B2B, and several other sectors.
+      What sets us apart is our ability to adapt strategies based on each industry's unique audience behavior and conversion goals. Whether it's driving product sales for a D2C brand, generating quality leads for a hospitality business, or scaling user acquisition for a SaaS platform — we tailor every campaign with precision.
+      Our data-driven approach ensures measurable growth, regardless of the vertical. Every strategy we build is rooted in real numbers, clear KPIs, and a relentless focus on ROI.
+      If you're in a competitive market and looking to scale smartly, Unnity is the performance marketing agency in India that delivers results across industries.`,
     },
     {
       id: 6,
-      q: `What industries do you work with in [COUNTRY]?`,
+      q: `What industries do you work with in ${country}?`,
       a: `D2C, e-commerce, publishing, SaaS, real estate, healthcare, hospitality, and B2B services. We tailor our approach to each industry's buying cycle and audience behaviour - what works for a fashion brand won't work for a B2B company, and we know the difference.`,
     },
   ];
@@ -497,7 +506,7 @@ const page = () => {
               className="text-[11px] font-medium text-white/50 tracking-[0.18em] uppercase"
               style={{ fontFamily: "'DM Sans',sans-serif" }}
             >
-              Performance Marketing Agency · [COUNTRY]
+              Performance Marketing Agency · {country}
             </span>
           </div>
 
@@ -539,7 +548,7 @@ const page = () => {
           >
             <strong className="text-white/60">Unnity</strong> is a performance
             marketing agency running Meta Ads and Google Ads for D2C brands
-            across <strong className="text-white/60">[Country]</strong> -
+            across <strong className="text-white/60">{country}</strong> -
             precision targeting, data-driven creative, and full transparency
             from day one.
           </p>
@@ -853,16 +862,16 @@ const page = () => {
 
       {/* Services */}
       <section className="py-20 bg-white px-4">
-        <div className="max-w-3xl mx-auto text-center px-4 mb-14">
+        <div className="max-w-4xl mx-auto text-center px-4 mb-14">
           <h2
             className="text-[clamp(1.6rem,3vw,2.4rem)] font-extrabold tracking-tight leading-tight text-[#0c0322] mb-3"
             style={{ fontFamily: "'Plus Jakarta Sans',sans-serif" }}
           >
-            Performance Marketing Services
-            <br className="hidden md:block" /> That Drive Measurable Growth
+            Meta Ads & Google Ads Management
+            <br className="hidden md:block" /> That Turns Ad Spend Into Revenue
           </h2>
-          <p className="text-[0.95rem] leading-[1.8] text-[#6b7280]">
-            Full-funnel Meta Ads and Google Ads management for [Country] brands
+          <p className=" max-w-3xl text-[0.95rem] leading-[1.8] text-[#6b7280]">
+            Full-funnel Meta Ads and Google Ads management for {country} brands
             - every campaign built on data, every rupee accountable to a result.
           </p>
         </div>
@@ -916,7 +925,7 @@ const page = () => {
               className="text-[0.9rem] leading-[1.8] text-white/38"
               style={{ fontFamily: "'DM Sans',sans-serif" }}
             >
-              A structured campaign management process for [Country] businesses
+              A structured campaign management process for {country} businesses
               - from the first brief to fully optimised, profitably scaling ads.
             </p>
           </div>
@@ -965,7 +974,7 @@ const page = () => {
               className="text-[clamp(1.8rem,3vw,2.6rem)] font-extrabold leading-[1.1] tracking-tight text-[#0c0322]"
               style={{ fontFamily: "'Plus Jakarta Sans',sans-serif" }}
             >
-              Why [COUNTRY] Businesses Choose Unnity
+              Why {country} Businesses Choose Unnity
             </h2>
             <p className="text-[0.95rem] leading-[1.8] text-[#6b7280]">
               We specialise exclusively in Meta and Google Ads. That focused
@@ -1443,7 +1452,7 @@ const page = () => {
             className="text-[0.95rem] leading-[1.8] text-[#6b7280]"
             style={{ fontFamily: "'DM Sans',sans-serif" }}
           >
-            Common questions from [COUNTRY] businesses exploring performance
+            Common questions from {country} businesses exploring performance
             marketing with Unnity.
           </p>
         </div>
@@ -1492,6 +1501,84 @@ const page = () => {
           ))}
         </div>
       </section>
+
+      <section className="bg-[#0c0322] py-14 px-5">
+        <div className="max-w-[1200px] mx-auto">
+          <h2
+            className="text-[clamp(1.3rem,2vw,1.7rem)] font-extrabold tracking-tight text-white mb-10"
+            style={{ fontFamily: "'Plus Jakarta Sans',sans-serif" }}
+          >
+            Cities We Serve in {country}
+          </h2>
+
+          <div className="flex flex-col">
+            {Object.entries(keywords?.cities || {}).map(
+              ([city, cityKeywords]) => (
+                <div
+                  key={city}
+                  className="border-t border-white/06 py-5 last:border-b last:border-white/06"
+                >
+                  {/* City label — full width on mobile, inline on desktop */}
+                  <div className="flex items-center gap-2 mb-3 md:mb-0 md:hidden">
+                    <span className="w-[5px] h-[5px] rounded-full bg-[#06d6a0] flex-shrink-0" />
+                    <p
+                      className="text-[12px] font-bold text-white"
+                      style={{ fontFamily: "'Plus Jakarta Sans',sans-serif" }}
+                    >
+                      {city}
+                    </p>
+                  </div>
+
+                  {/* Desktop: side-by-side label + keywords */}
+                  <div className="hidden md:grid md:grid-cols-[200px_1fr] gap-0">
+                    <p
+                      className="text-[13.5px] font-bold text-white pr-6 pt-px leading-snug flex items-start gap-2"
+                      style={{ fontFamily: "'Plus Jakarta Sans',sans-serif" }}
+                    >
+                      <span className="w-[5px] h-1.25 rounded-full bg-[#06d6a0] flex-shrink-0 mt-1.5" />
+                      {city}
+                    </p>
+                    <div className="grid grid-cols-4 gap-0">
+                      {[0, 1, 2, 3].map((ci) => (
+                        <div
+                          key={ci}
+                          className="flex flex-col gap-2.5 px-4 border-l border-white/05"
+                        >
+                          {cityKeywords
+                            .filter((_, i) => i % 4 === ci)
+                            .map((kw, idx) => (
+                              <span
+                                key={idx}
+                                className="text-[12.5px] text-white/42 leading-snug"
+                                style={{ fontFamily: "'DM Sans',sans-serif" }}
+                              >
+                                {kw}
+                              </span>
+                            ))}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Mobile: 2-col keyword grid */}
+                  <div className="md:hidden grid grid-cols-2 gap-x-3 gap-y-1.5">
+                    {cityKeywords.map((kw, idx) => (
+                      <span
+                        key={idx}
+                        className="text-[11.5px] text-white/42 leading-[1.5] pl-2 border-l border-[#a78bfa]/20"
+                        style={{ fontFamily: "'DM Sans',sans-serif" }}
+                      >
+                        {kw}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ),
+            )}
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <Footer />
     </>
