@@ -3,11 +3,7 @@
     "id": 1,
     "country": "AUSTRALIA",
     "cities": {
-<<<<<<< HEAD
-      "Sydney": [
-=======
      "Sydney": [
->>>>>>> main
         "performance marketing sydney",
         "marketing agency in sydney",
         "online marketing agency sydney",
@@ -26,11 +22,7 @@
         "google ads agency melbourne",
         "marketing agency melbourne",
         "online marketing agency melbourne",
-<<<<<<< HEAD
-        "google ads managing marketing agency melbourne ",
-=======
         "google ads managing marketing agency melbourne",
->>>>>>> main
         "conversion rate optimization melbourn",
         "facebook ads agency melbourne",
         "performance marketing agency melbourne Australia"
@@ -39,11 +31,7 @@
         "lead generation services brisbane",
         "growth marketing agency brisbane",
         "google ads agency brisbane",
-<<<<<<< HEAD
-        "meta ads agency brisbane ",
-=======
         "meta ads agency brisbane",
->>>>>>> main
         "online marketing brisbane Australia",
         "conversion rate optimization agency brisbane",
         "Google ads specialist marketing brisbane",
@@ -55,15 +43,6 @@
         "meta ads agency adelaide",
         "marketing agency adelaide",
         "facebook ads agency adelaide",
-<<<<<<< HEAD
-        "google ads agency adelaide",
-        "conversion rate optimization agency adelaide",
-        "google ads agency adelaide",
-        "ssocial media marketing adelaide",
-        "lead generation agency adelaide",
-        "Meta ads manager agency adelaide",
-        "performance marketing agency adelaide"
-=======
         "google ads agency adelaide",
         "conversion rate optimization agency adelaide",
         "google ads agency adelaide",
@@ -71,7 +50,6 @@
         "lead generation agency adelaide",
         "Meta ads manager agency adelaide",
         "performance marketing specialist agency adelaide"
->>>>>>> main
       ],
       "Gold Coast":[
         "lead generation services gold coast",
@@ -86,11 +64,7 @@
         "meta ads agency gold coast"
       ],
         "Canberra":[
-<<<<<<< HEAD
-        "performance marketing agency canberra",
-=======
         "performancel marketing agency canberra",
->>>>>>> main
         "marketing services canberra",
         "google ads agency canberra",
         "social media marketing canberra",
