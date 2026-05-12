@@ -13,7 +13,7 @@ const page = () => {
   const formRef = useRef(null);
   const sectionRef = useRef(null);
   const params = useParams();
-  const country = params.slug;
+  const country = params.slug.charAt(0).toUpperCase()+ params.slug.slice(1)
   const [sending, setSending] = useState(false);
   const [faqOpen, setFaqOpen] = useState(false);
   const [status, setStatus] = useState({ type: "", message: "" });
@@ -653,6 +653,34 @@ const page = () => {
           </div>
         </div>
       </section>
+     
+     {/* ── partners section ── */}
+       <div className="flex flex-col items-center justify-center py-12 mx-auto bg-white">
+          <h2 className="text-base font-bold mb-8 tracking-widest">
+            OFFICIAL MARKETING PARTNERS
+          </h2>
+          <div className="flex justify-center items-center gap-10 px-5 max-sm:gap-6">
+            {[
+              {
+                src: "/Meta-bg.png",
+                label: "Business Partners",
+                alt: "Meta Business Partner",
+              },
+              {
+                src: "/Google-bg.png",
+                label: "Google Partners",
+                alt: "Google Partner",
+              },
+            ].map(({ src, label, alt }) => (
+              <div key={label} className="flex flex-col items-center gap-4">
+                <img src={src} alt={alt} className="w-28 h-16 object-contain" />
+                <span className="text-lg font-medium text-[#5f6368] text-center">
+                  {label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
 
       {/* Lead form */}
       <section className="bg-[#f7f8fc] py-12 px-4">
